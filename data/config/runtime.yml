@@ -1,0 +1,8 @@
+---
+all:
+    uri.admin_root:"/app/admin/authorize/welcome"
+    uri.root:'http://www.whshop.com.cn'
+    uri.login:'/app/admin/authorize/login'
+    uri.login.defaultback:'http://www.whshop.com.cn'
+    uri.static:'http://www.whshop.com.cn'
+    uri.elogin:'/app/eshop/profile/login'

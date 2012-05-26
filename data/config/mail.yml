@@ -1,0 +1,8 @@
+all:
+    host:'smtp.gmail.com'
+    port:25
+    user:'itablet@gmail.com'
+    password:'in654321'
+    smtp_auth:true
+    from:'itablet@gmail.com'
+    fromName:'系统邮件'

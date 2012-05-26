@@ -1,0 +1,1 @@
+<remove select="#work_tr_{$id}" />

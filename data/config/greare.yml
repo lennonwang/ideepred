@@ -1,0 +1,64 @@
+all:
+    domain:"http://ideepred.com"
+    index:"/app/eshop/index"
+    post_list:"/category/list-%s-%s.html"
+    post_single:"/archives/view-%s.html"
+    post_detail:"/archives/view-%s-%s.html"
+    # /app/eshop/mall/channel/slug/%s
+    channel:"/mall/%s.html"
+    
+    # /app/eshop/mall/category_list/catcode/%s/page/%s/style/%s
+    category_list:"/mall/c-%s-%s-%s.html"
+    
+    # /app/eshop/mall/search?catcode=%s&page=%s&style=%s&orderby=%s&low_price=%s&high_price=%s&query=%s
+    search_list:"/mall/search?catcode=%s&page=%s&style=%s&orderby=%s&low_price=%s&high_price=%s&query=%s"
+    # /app/eshop/mall/product/id/%s
+    product:"/product/%s.html"
+    # /app/eshop/mall/favorite/id/%s
+    favorite:"/mall/favorite/id/%s"
+    # /app/eshop/mall/brand_list/page/%s
+    brand_list:"/mall/brand_list/%s"
+    # /app/eshop/mall/brand/id/%s/page/%s
+    brand_product:"/mall/brand-%s-%s.html"
+    # /app/eshop/shopping/buy/id/%s
+    add_cart:"/shopping/buy/%s"
+    # /app/eshop/shopping/remove/id/%s
+    remove_cart:"/shopping/remove/%s"
+    # /app/eshop/shopping/cart
+    cart:"/shopping/cart"
+    # /app/eshop/shopping/checkout
+    checkout:"/shopping/checkout"
+    # /app/eshop/shopping/do_confirm
+    confirm_order:"/shopping/do_confirm"
+    # /app/eshop/index/newest_list/page/%s/orderby/%s
+    newest_list:"/index/newest-%s-%s.html"
+    # /app/eshop/index/city_shop/name/%s
+    city_shop:"/index/city_shop/%s.html"
+    # /app/eshop/index/sitemap
+    sitemap:"/index/sitemap"
+    # /app/eshop/index/topics
+    topics:"/index/topics"
+    
+    # /app/eshop/profile
+    manage_center:"/profile"
+    # /app/eshop/profile/login
+    login:"/profile/login"
+    # /app/eshop/profile/register
+    register:"/profile/register"
+    # /app/eshop/profile/logout
+    logout:"/profile/logout"
+    order_detail:"/app/eshop/profile/view_order/id/%s"
+    i_orders:"/app/eshop/profile/trading_order/page/%s"
+    i_viewdetail:"/app/eshop/profile/view_order/id/%s"
+    i_pay:"/app/eshop/profile/ipay/id/%s"
+    i_buyed:"/app/eshop/profile/buyed/page/%s"
+    i_favorite:"/app/eshop/profile/favorite/page/%s"
+    i_info:"/app/eshop/profile/information"
+    i_passwd:"/app/eshop/profile/passwd"
+    i_address:"/app/eshop/profile/address"
+    # /app/eshop/helper?name=%s
+    helper:"/helper/%s.html"
+    # /app/eshop/helper/introduce/name/%s
+    introduce:"/helper/introduce/%s.html"
+    build:"/app/eshop/index/build"
+    

@@ -1,0 +1,22 @@
+all:
+    load_all_config:
+        - database
+        - smarty
+        - logs
+        - results
+        - classes
+        - interceptors
+        - modules
+        - mapping
+        - review
+        - storage
+        #- auth
+        - session
+        - runtime
+        - mail
+        - greare
+        - level
+        - cache
+        - envar
+        - permission
+        - wordfilter

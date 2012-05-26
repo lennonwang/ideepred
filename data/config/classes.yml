@@ -1,0 +1,11 @@
+#Class Loader Setting
+all:
+    .class_path
+    3rd_path:
+        - "/opt/workspace/Anole/3rd"
+    class_path:
+        - "/opt/workspace/ideepred/src"
+    .auto_load
+    auto_load:
+
+#class_path:workspace

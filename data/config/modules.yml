@@ -1,0 +1,15 @@
+---
+all: 
+  default: Eshop
+  Anole: 
+    default_action: Anole
+    actived: 0
+  Admin: 
+    default_action: Authorize
+    actived: 1
+  Common: 
+    default_action: Common
+    actived: 1
+  Eshop: 
+    default_action: Index
+    actived: 1

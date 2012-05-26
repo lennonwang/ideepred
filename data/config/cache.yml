@@ -1,0 +1,19 @@
+all:
+    provider:Anole_Cache_Provider_Memcached
+    Anole_Cache_Provider_FileLite:
+        cache_dir:"/dev/shm/cache"
+        ttl:3600
+    Anole_Cache_Provider_Memcached:
+        host:127.0.0.1:11211
+        ttl:3600
+    default:
+        provider:Anole_Cache_Provider_Memcached
+        options:
+            host:127.0.0.1:11211
+            ttl:3600
+    nginx:
+        provider:Anole_Cache_Provider_Memcached
+        options:
+            host:192.168.8.11:11211
+            ttl:1800
+            compress:false

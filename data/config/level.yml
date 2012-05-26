@@ -1,0 +1,10 @@
+---
+all:
+    default:
+        name:'普通会员'
+        point:800
+        rebate:1
+    vip:
+        name:'铜牌会员'
+        point:1600
+        rebate:0.95

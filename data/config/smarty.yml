@@ -1,0 +1,4 @@
+all:
+    cache_dir:"/opt/www/deepred/tmp/cache"
+    compile_dir:"/opt/www/deepred/tmp/templates_c"
+    template_dir:"/opt/www/deepred/data/templates"

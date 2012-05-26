@@ -1,0 +1,1 @@
+<val select="input#cbody" value="{$content}" />

@@ -1,0 +1,7 @@
+all:
+    role:
+        controller:10
+        administrator:9
+        editor:3
+        servicer:2
+        customer:1

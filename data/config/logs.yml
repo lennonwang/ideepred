@@ -1,0 +1,6 @@
+all:
+    default:
+        class:Anole_Log_FileLog
+        options:
+            output:'/var/log/shop/ideepred.log'
+            level:'debug'

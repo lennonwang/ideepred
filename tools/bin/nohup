@@ -1,0 +1,1 @@
+nohup /opt/project/ibox/tools/bin/run_sender.sh > result.log &

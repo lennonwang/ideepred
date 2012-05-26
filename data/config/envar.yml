@@ -1,0 +1,17 @@
+---
+all: 
+  domain: http://www.wanghang.ca/
+  uri.admin_root: /app/admin/
+  uri.login.defaultback: http://www.wanghang.ca/
+  website_name: 9ibox创意手工
+  website_description: 创意手工
+  website_url: http://9ibox.net
+  website_mode: B2B
+  admin_email: 
+  default_comment_status: open
+  upload_path: 
+  upload_url_path: 
+  thumbnail_size_w: 100
+  thumbnail_size_h: 75
+  thumbnail_crop: 1
+  category_thumb: open

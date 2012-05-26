@@ -1,0 +1,8 @@
+all:
+    Admin_Action_Role:
+        - save
+        - edit
+    Admin_Action_Content:
+        - save
+        - published
+    output_report:"/logs/interview_report.log"

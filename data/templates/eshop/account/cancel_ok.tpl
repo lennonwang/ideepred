@@ -1,0 +1,1 @@
+<replaceContent select="#order_status">{$msg}</replaceContent>

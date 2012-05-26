@@ -1,0 +1,7 @@
+all:
+    run:
+        - Anole_Dispatcher_Interceptor_Parameters
+        - Anole_Dispatcher_Interceptor_ModelDriven
+        - Common_Interceptor_Interview
+        - Anole_Dispatcher_Interceptor_UploadSupport
+        #- Anole_Dispatcher_Interceptor_Auth

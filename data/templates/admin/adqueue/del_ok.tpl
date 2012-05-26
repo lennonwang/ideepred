@@ -1,0 +1,1 @@
+<remove select="#advertise_tr_{$id}" />

@@ -1,0 +1,1 @@
+{$hpage_body.body}
