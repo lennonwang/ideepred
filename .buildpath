@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildpath>
+	<buildpathentry kind="src" path="data/gen"/>
+	<buildpathentry kind="src" path="data/templates/admin"/>
+	<buildpathentry kind="src" path="data/templates/eshop"/>
+	<buildpathentry kind="src" path="data/web"/>
+	<buildpathentry kind="src" path="docs/php/create_partner_trade_by_buyer_php_gb"/>
+	<buildpathentry kind="src" path="docs/php/create_partner_trade_by_buyer_php_utf8"/>
+	<buildpathentry kind="src" path="src/Admin/Action"/>
+	<buildpathentry kind="src" path="src/Admin/Auth"/>
+	<buildpathentry kind="src" path="src/Admin/Smarty"/>
+	<buildpathentry kind="src" path="src/Admin/Util"/>
+	<buildpathentry kind="src" path="src/Common/Event"/>
+	<buildpathentry kind="src" path="src/Common/Interceptor"/>
+	<buildpathentry kind="src" path="src/Common/Model"/>
+	<buildpathentry kind="src" path="src/Common/Smarty"/>
+	<buildpathentry kind="src" path="src/Common/Util"/>
+	<buildpathentry kind="src" path="src/Eshop/Action"/>
+	<buildpathentry kind="src" path="tools"/>
+	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
+</buildpath>

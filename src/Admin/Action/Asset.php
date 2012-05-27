@@ -373,7 +373,7 @@ class Admin_Action_Asset extends Admin_Action_Entry implements Anole_Dispatcher_
      * 
      * @return string
      */
-    public function delete(){
+    public function delete(){ 
         if(empty($this->_id)){
             //error page
             return $this->_jqErrorTip('删除附件的Id为空!');

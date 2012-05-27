@@ -11,12 +11,14 @@ $(function(){
 		$(this).parent().removeClass('closed');
 	});
 	
-	$('ul.site_node_list input[@type=checkbox]').bind('change', function(){
+	$('div.site_node_list input[@type=checkbox]').bind('change', function(){
 		var ids = new Array();
-		$('ul.site_node_list input[@type=checkbox]').filter(":checked").each(function(){
+		$('div.site_node_list input[@type=checkbox]').filter(":checked").each(function(){
+			console.log('1='+$(this).val());
 			ids.push($(this).val());
 		})
 		if(ids.length > 0){
+			console.log('1='+ids);
 			$.get('/app/admin/features/fetch_feature',{id:ids.join(',')});
 		}
 	});

@@ -134,7 +134,7 @@
 										
 										<div class="site_node_list">
 											{foreach from=$all_category item=cate}
-											<span class="{$cate.classname}"> <input type="radio" name="catcode" value="{$cate.code}" {if $product.catcode eq $cate.code}checked="checked"{/if} /> <strong> {$cate.name}  --  {$cate.code} </strong> </span>
+											<span class="{$cate.classname}"> <input type="checkbox" name="catcode" value="{$cate.id}" {if $product.catcode eq $cate.code}checked="checked"{/if} /> <strong> {$cate.name}  --  {$cate.code} </strong> </span>
 											{/foreach}
 										</div>
 										

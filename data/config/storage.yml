@@ -1,36 +1,36 @@
 all:
     default:Anole_Storage_Provider_FileSystem
-    watermark:"/opt/workspace/project/itablet/data/web/images/eshop/water_mark.png"
+    watermark:"/home/lennon/project/project/itablet/data/web/images/eshop/water_mark.png"
     Anole_Storage_Provider_FileSystem:
-        root:"/opt/workspace/storage"
+        root:"/home/lennon/project/storage"
         root_url:'http://pic.ideepred.com/'
     asset:
         provider:'Anole_Storage_Provider_FileSystem'
         options:
-            root:"/opt/workspace/storage/p"
+            root:"/home/lennon/project/storage/p"
             root_url:'http://pic.ideepred.com/p'
             hash_dir:false
     avertise:
         provider:'Anole_Storage_Provider_FileSystem'
         options:
-            root:"/opt/workspace/storage/ap"
+            root:"/home/lennon/project/storage/ap"
             root_url:'http://pic.ideepred.com/ap'
             hash_dir:false
     product:
         provider:'Anole_Storage_Provider_FileSystem'
         options:
-            root:"/opt/workspace/storage/s"
+            root:"/home/lennon/project/storage/s"
             root_url:'http://pic.ideepred.com/s'
             hash_dir:false
     article:
         provider:'Anole_Storage_Provider_FileSystem'
         options:
-            root:"/opt/workspace/storage/c"
+            root:"/home/lennon/project/storage/c"
             root_url:'http://pic.ideepred.com/c'
             hash_dir:false
     store:
         provider:'Anole_Storage_Provider_FileSystem'
         options:
-            root:"/opt/workspace/storage/t"
+            root:"/home/lennon/project/storage/t"
             root_url:'http://pic.ideepred.com/t'
             hash_dir:false

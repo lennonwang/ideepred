@@ -6,6 +6,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" href="/csstyle/xe-mainstyle.css" type="text/css" />
 	{smarty_include admin.system.jscript}
+	<script type="text/javascript" src="/js/c/jquery.checkboxes.js"></script>
+	<script type="text/javascript" src="/js/a/assets.js"></script>
 </head>
 
 <body>
@@ -67,7 +69,7 @@
 					{foreach from=$assets item=asset name="asset"}
 					<tr id="asset_tr_{$asset.id}" class="iedit{if $smarty.foreach.asset.iteration%2 } alternate{/if}">
 						<th class="check-column" scope="row">
-							<input type="checkbox" value="{$asset.id}" name="delete[]" />
+							<input type="checkbox" value="{$asset.id}" class="xe-shid" name="delete[]" />
 						</th>
 						<td>
 							<img height="60" width="80" class="attachment-80x60" src="{$asset.asset_url}">

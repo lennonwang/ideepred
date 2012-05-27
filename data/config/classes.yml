@@ -2,9 +2,9 @@
 all:
     .class_path
     3rd_path:
-        - "/opt/workspace/Anole/3rd"
+        - "/home/lennon/project/Anole/3rd"
     class_path:
-        - "/opt/workspace/ideepred/src"
+        - "/home/lennon/project/ideepred/src"
     .auto_load
     auto_load:
 
