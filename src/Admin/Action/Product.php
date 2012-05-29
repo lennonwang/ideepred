@@ -236,9 +236,13 @@ class Admin_Action_Product extends Admin_Action_Entry {
         );
         $all_store = $store->find($options2)->getResultArray();
         $this->putContext('all_store', $all_store);
-        unset($store);
-        
-        
+        unset($store); 
+        $grape_area = Common_Util_Product::getWineGrapeAreaArray();
+        $this->putContext('grape_area',$grape_area); 
+        $this->putContext('grape_breed_array',Common_Util_Product::getWineGrapeBreedArray());
+       
+        $grape_breed_sel_array = preg_split('/,/',$product['grape_breed']); 
+        $this->putContext('grape_breed_sel_array',$grape_breed_sel_array);
         return $this->smartyResult('admin.product.edit');
     }
     
@@ -265,7 +269,11 @@ class Admin_Action_Product extends Admin_Action_Entry {
 	            $model->setId($id);
 	            $edit_mode = 'edit';
 	        }
-            
+	        // add by wangjia
+            $grape_breed = $_POST["grape_breed"];  
+	        $grape_breed=implode(",", $grape_breed); 
+	        $model->setGrapeBreed($grape_breed);
+	        
             $model->save();
             
             $id = $model->getId();

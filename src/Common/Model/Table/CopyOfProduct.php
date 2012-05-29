@@ -259,18 +259,6 @@ abstract class Common_Model_Table_Product extends Anole_ActiveRecord_Base {
     'type' => 'N',
     'length' => '11',
   ),
-  'grape_area' => 
-	array (
-    'name' => 'grape_area',
-    'type' => 'N',
-    'length' => '4',
-	),
-  'grape_breed' => 
-	array (
-    'name' => 'grape_breed',
-    'type' => 'N',
-    'length' => '4',
-	),
 );
     
         /**
@@ -1033,46 +1021,6 @@ abstract class Common_Model_Table_Product extends Anole_ActiveRecord_Base {
     public function getStoreId(){
         return $this->get('store_id');
     }
-    
-/**
-	 * 设置属性'grape_area'的值
-	 *
-	 * @param  integer $value
-	 *
-	 * @return Product
-	 */
-	public function setGrapeArea($value){
-		$this->set('grape_area',$value);
-		return $this;
-	}
-	/**
-	 * 获取属性:'grape_area'的值
-	 *
-	 * @return integer
-	 */
-	public function getGrapeArea(){
-		return $this->get('grape_area');
-	}
-	/**
-	 * 设置属性'grape_breed'的值
-	 *
-	 * @param  integer $value
-	 *
-	 * @return Product
-	 */
-	public function setGrapeBreed($value){
-		$this->set('grape_breed',$value);
-		return $this;
-	}
-	/**
-	 * 获取属性:'grape_breed'的值
-	 *
-	 * @return integer
-	 */
-	public function getGrapeBreed(){
-		return $this->get('grape_breed');
-	}
-	
     }
 /**vim:sw=4 et ts=4 **/
 ?>

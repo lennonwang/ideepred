@@ -47,13 +47,12 @@ class Admin_Action_Meta extends Admin_Action_Entry {
             $metakey = $this->getMetakey();
             $metavalue = $this->getMetavalue();
             $owner_id = $this->getOwnerId();
-            $rand_sign_id = $this->getRandSignId();
-            
+            $rand_sign_id = $this->getRandSignId(); 
             if(empty($owner_id)){
                 $model->setOwnerId($rand_sign_id);
             }else{
                 $model->setOwnerId($owner_id);
-            }
+            } 
             $model->setName($metakey);
             $model->setValue($metavalue);
             $model->setDomain(Common_Model_Constant::PRODUCT_DOMAIN);

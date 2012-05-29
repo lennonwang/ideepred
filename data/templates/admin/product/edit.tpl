@@ -119,60 +119,8 @@
 								</div>
 							
 							</div>
-							
-							<div class="postbox " id="categorydiv">
-								<div title="显示/隐藏" class="handlediv"><br></div>
-								<h3 class="hndle"><span>分类目录</span></h3>
-								<div class="inside">
-									<ul id="category-tabs">
-										<li class="tabs">
-											<a tabindex="16" href="#categories-all">全部分类目录</a>
-										</li>
-									</ul>
-
-									<div class="tabs-panel" id="categories-all">
-										
-										<div class="site_node_list">
-											{foreach from=$all_category item=cate}
-											<span class="{$cate.classname}"> <input type="checkbox" name="catcode" value="{$cate.id}" {if $product.catcode eq $cate.code}checked="checked"{/if} /> <strong> {$cate.name}  --  {$cate.code} </strong> </span>
-											{/foreach}
-										</div>
-										
-									</div>
-
-									<div class="wp-hidden-children" id="category-adder">
-										<h4><a class="hide-if-no-js" href="/app/admin/category/edit" id="category-add-toggle">+ 添加分类目录</a></h4>
-									</div>
-									
-								</div>
-							</div>
-							
-							<div class="postbox " id="storediv">
-								<div title="显示/隐藏" class="handlediv"><br></div>
-								<h3 class="hndle"><span>所属品牌</span></h3>
-								<div class="inside">
-									<ul id="store-tabs">
-										<li class="tabs">
-											<a tabindex="17" href="#store-all">全部品牌</a>
-										</li>
-									</ul>
-
-									<div class="tabs-panel" id="store-all">
-										
-										<div class="site_node_list">
-											{foreach from=$all_store item=store}
-											<span> <input type="radio" name="category_id" value="{$store.id}" {if $product.category_id eq $store.id}checked="checked"{/if} /> <strong> {$store.title}</strong> </span>
-											{/foreach}
-										</div>
-										
-									</div>
-
-									<div class="wp-hidden-children" id="store-adder">
-										<h4><a class="hide-if-no-js" href="/app/admin/store/edit" >+ 添加品牌</a></h4>
-									</div>
-									
-								</div>
-							</div>
+							 
+							 
 							
 						</div>
 					</div>
@@ -190,7 +138,7 @@
 								<table class="form-table">
 									<tbody>
 										<tr class="form-field form-required">
-											<th scope="row">
+											<th scope="row"  >
 												<label for="retail_price">进货价格：</label>
 											</th>
 											<td>
@@ -216,60 +164,126 @@
 								            </td>
 											
 										</tr>
-										<tr class="form-field form-required">
+										<!-- 产地 -->
+										 <tr>
 											<th scope="row">
-												<label for="material">产品材质：</label>
+												<label for="retail_price">葡萄产地：</label>
 											</th>
 											<td>
-												<input type="text" size="40" value="{$product.material}" id="material" name="material" tabindex="6" />
-								            </td>
-											<th scope="row">
-												<label for="mode">产品型号：</label>
-											</th>
-											<td>
-												<input type="text" size="40" value="{$product.mode}" id="mode" name="mode" tabindex="6" />
-								            </td>
-											<th scope="row">
-												<label for="color">产品颜色：</label>
-											</th>
-											<td>
-												<input type="text" size="40" value="{$product.color}" id="color" name="color" tabindex="7" />
-								            </td>
-											<th scope="row">
-												<label for="hot_price">特 价：</label>
-											</th>
-											<td>
-												<input type="text" size="40" value="{$product.hot_price}" id="hot_price" name="hot_price" tabindex="8" />
-								            </td>
+												<select  name="grape_area" id="grape_area">
+													<option value="0">请选择</option>
+												{foreach from=$grape_area item=area key=key}
+										 			<option  value="{$key}" > {$area}  </option>
+										 	 	{/foreach}
+											</select>
+								            </td> 
 										</tr>
-										<tr class="form-field form-required">
+										
+										 <tr>
 											<th scope="row">
-												<label for="unit">产品单位：</label>
+												<label for="">葡萄品种：</label>
 											</th>
-											<td>
-												<input type="text" size="40" value="{$product.unit}" id="unit" name="unit" tabindex="9" /> 
-								            </td>
-											<th scope="row">
-												<label for="length">产品长度：</label>
-											</th>
-											<td>
-												<input type="text" size="40" value="{$product.length}" id="length" name="length" tabindex="10" />
-								            </td>
-											<th scope="row">
-												<label for="width">产品宽度：</label>
-											</th>
-											<td>
-												<input type="text" size="40" value="{$product.width}" id="width" name="width" tabindex="11" />
-								            </td>
-											<th scope="row">
-												<label for="height">产品高度：</label>
-											</th>
-											<td>
-												<input type="text" size="40" value="{$product.height}" id="height" name="height" tabindex="12" />
-								            </td>
+											<td colspan="7">  
+												{foreach from=$grape_breed_array item=breed key=key}
+										 			<input type="checkbox" name="grape_breed[]" id="grape_breed_{$key}"  value="{$key}" id="breed_{$key}"/>
+										 				 <label for="grape_breed_{$key}">{$breed} &nbsp; </label>
+										 	 	{/foreach}
+											 
+								            </td> 
 										</tr>
+										
+										<tr>
+											<th scope="row">	<a class="hide-if-no-js" href="/app/admin/store" > 品牌：</a></th>
+											<td colspan="3">
+											<select  name="store_id" id="store_id">
+													<option value="0">请选择</option>
+												{foreach from=$all_store item=store}
+										 			<option  value="{$store.id}" > {$store.title}  </option>
+										 	 	{/foreach}
+											</select><br/>
+											<a class="hide-if-no-js" href="/app/admin/store/edit" >+ 添加品牌</a>
+											</td> 
+											<th scope="row">	<a class="hide-if-no-js" href="/app/admin/category" > 类别：</a></th>
+											<td  colspan="3">
+											<select  name="category_id" id="category_id">
+												<option value="0">请选择</option>
+											{foreach from=$all_category item=cate} 
+												 <option value="{$cate.id}" > {$cate.name}  --  {$cate.code} </option>
+											{/foreach}
+											</select>
+											</td>
+											
+										</tr>
+										
 									</tbody>
 								</table>
+							</div>
+							
+							
+							
+							<div id="postcustom-sortables" class="meta-box-sortables ui-sortable">
+								<div id="postexcerpt" class="postbox">
+									<div title="显示/隐藏" class="handlediv"><br></div>
+									<h3 class="hndle"><span>产品属性</span></h3>
+									<div class="inside">
+										<div id="postcustomstuff">
+											<table id="list-table">
+												<thead>
+													<tr>
+														<th class="left">名称</th>
+														<th>值</th>
+													</tr>
+												</thead>
+												<tbody class="list:meta" id="the-list">
+													{foreach from=$meta_list item=meta}
+													<tr id="meta-{$meta.id}">
+														<td class="left">
+															<label for="meta_key_{$meta.id}" class="screen-reader-text">键</label>
+															<input type="text" value="{$meta.feature.featurename}" size="10" readonly="readonly" id="meta_title_{$meta.id}" name="meta_title_{$meta.id}" />
+															<input type="hidden" value="{$meta.name}" id="meta_key_{$meta.id}" name="meta_key_{$meta.id}" />
+															<div class="submit">
+																<input type="button" value="删除" class="deletemeta" name="{$meta.id}" />
+																<input type="button" class="updatemeta" value="更新" name="{$meta.id}" />
+															</div>
+														</td>
+														<td>
+															<textarea cols="30" rows="2" id="meta_value_{$meta.id}" name="meta_value_{$meta.id}">{$meta.value}</textarea>
+														</td>
+													</tr>
+													{/foreach}
+													</tbody>
+												</table>
+											 
+											<table id="newmeta"> 
+
+												<tbody>
+													<tr>
+														<td class="left" id="newmetaleft">
+															<select tabindex="8" name="metakeyselect" id="metakeyselect" gtbfieldid="122">
+																<option value="#NONE#">- 选择新增产品属性 -</option>
+																{foreach from=$features_list item=feature}
+																<option value="{$feature.featurekey}" name="{$feature.id}">{$feature.featurename}</option>
+																{/foreach}
+															</select>
+														</td>
+														<td>
+															<textarea cols="25" rows="2" name="metavalue" id="metavalue"></textarea>
+														</td>
+													</tr>
+
+													<tr>
+														<td class="submit" colspan="2">
+															<input type="button" value="添加产品属性" tabindex="9" class="addnewmeta" name="addmeta" id="addmetasub">
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										
+									</div>
+									
+								</div>
+								
 							</div>
 							
 							<div id="postdivrich" class="meta-box-sortables ui-sortable">
@@ -297,76 +311,7 @@
 								
 							</div>
 							
-							<div id="postcustom-sortables" class="meta-box-sortables ui-sortable">
-								<div id="postexcerpt" class="postbox">
-									<div title="显示/隐藏" class="handlediv"><br></div>
-									<h3 class="hndle"><span>产品属性</span></h3>
-									<div class="inside">
-										<div id="postcustomstuff">
-											<table id="list-table">
-												<thead>
-													<tr>
-														<th class="left">名称</th>
-														<th>值</th>
-													</tr>
-												</thead>
-												<tbody class="list:meta" id="the-list">
-													{foreach from=$meta_list item=meta}
-													<tr id="meta-{$meta.id}">
-														<td class="left">
-															<label for="meta_key_{$meta.id}" class="screen-reader-text">键</label>
-															<input type="text" value="{$meta.feature.featurename}" size="20" id="meta_title_{$meta.id}" name="meta_title_{$meta.id}" />
-															<input type="hidden" value="{$meta.name}" id="meta_key_{$meta.id}" name="meta_key_{$meta.id}" />
-															<div class="submit">
-																<input type="button" value="删除" class="deletemeta" name="{$meta.id}" />
-																<input type="button" class="updatemeta" value="更新" name="{$meta.id}" />
-															</div>
-														</td>
-														<td>
-															<textarea cols="30" rows="2" id="meta_value_{$meta.id}" name="meta_value_{$meta.id}">{$meta.value}</textarea>
-														</td>
-													</tr>
-													{/foreach}
-													</tbody>
-												</table>
-											<p><strong>添加新产品属性：</strong></p>
-											<table id="newmeta">
-												<thead>
-													<tr>
-														<th class="left"><label for="metakeyselect">名称</label></th>
-														<th><label for="metavalue">值</label></th>
-													</tr>
-												</thead>
-
-												<tbody>
-													<tr>
-														<td class="left" id="newmetaleft">
-															<select tabindex="8" name="metakeyselect" id="metakeyselect" gtbfieldid="122">
-																<option value="#NONE#">- 选择 -</option>
-																{foreach from=$features_list item=feature}
-																<option value="{$feature.featurekey}" name="{$feature.id}">{$feature.featurename}</option>
-																{/foreach}
-															</select>
-														</td>
-														<td>
-															<textarea cols="25" rows="2" name="metavalue" id="metavalue"></textarea>
-														</td>
-													</tr>
-
-													<tr>
-														<td class="submit" colspan="2">
-															<input type="button" value="添加产品属性" tabindex="9" class="addnewmeta" name="addmeta" id="addmetasub">
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-										
-									</div>
-									
-								</div>
-								
-							</div>
+							
 									
 						</div>
 					</div>
@@ -378,5 +323,12 @@
 	</div>
 
 </div><!--endwrap-->
+<script type="text/javascript" > 
+		 $("#store_id option[value='{$product.store_id}']").attr("selected","selected");										 
+		 $("#category_id option[value='{$product.category_id}']").attr("selected","selected"); 
+		 $("#grape_area option[value='{$product.grape_area}']").attr("selected","selected"); 
+		 {foreach from=$grape_breed_sel_array item=sbreed} 	$("#grape_breed_{$sbreed}").attr("checked",true); {/foreach}
+		 updateCatChange();
+</script>
 </body>
 </html>

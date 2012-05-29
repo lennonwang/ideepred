@@ -1,4 +1,5 @@
-$(function(){
+//$(function(){
+$("docunment").ready(function(){
 	
 	hook_validate_frm();
 	
@@ -11,16 +12,8 @@ $(function(){
 		$(this).parent().removeClass('closed');
 	});
 	
-	$('div.site_node_list input[@type=checkbox]').bind('change', function(){
-		var ids = new Array();
-		$('div.site_node_list input[@type=checkbox]').filter(":checked").each(function(){
-			console.log('1='+$(this).val());
-			ids.push($(this).val());
-		})
-		if(ids.length > 0){
-			console.log('1='+ids);
-			$.get('/app/admin/features/fetch_feature',{id:ids.join(',')});
-		}
+	$('#category_id').bind('change', function(){  
+		updateCatChange();
 	});
 	
 	$('#addmetasub').bind('click', function(){
@@ -62,6 +55,15 @@ $(function(){
 	
 });
 
+function updateCatChange(){
+	var ids = new Array();
+	$('#category_id option').filter(":selected").each(function(){ 
+		ids.push($(this).val());
+	})
+	if(ids.length > 0){ 
+		$.get('/app/admin/features/fetch_feature',{id:ids.join(',')});
+	}
+}
 //insert asset into editor
 function insert_asset(){   	
     try{
@@ -113,3 +115,4 @@ function hook_validate_frm(){
 		}
 	});
 }
+
