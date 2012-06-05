@@ -135,7 +135,7 @@ class Common_Model_Product extends Common_Model_Table_Product {
      */
     protected function _GenProductCode(){
     	$code = '91';
-    	$code .= substr(time(),4);;
+    	$code .= substr(time(),7);;
     	$code .= $this->_randString(2);
     	return $code;
     }
