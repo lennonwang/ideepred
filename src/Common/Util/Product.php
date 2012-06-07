@@ -131,14 +131,7 @@ class Common_Util_Product extends Anole_Object {
 	
 	
 	
-		/**
-	 * 获取葡萄产地
-	 */
-	public static function getWineGrapeAreaArray(){
-		 $grape_area = array("1"=>'法国',"2"=>'意大利',"3"=>'西班牙');
-		 self::debug("getWineGrapeAreaArray.".$grape_area);
-		 return $grape_area;
-	} 
+	 
 	
 	/**
 	 * 获取葡萄品种

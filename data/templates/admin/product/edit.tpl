@@ -142,25 +142,28 @@
 												<label for="retail_price">进货价格：</label>
 											</th>
 											<td>
-												<input type="text" size="40" value="{$product.retail_price}" id="retail_price" name="retail_price" tabindex="2" /> 
+												<input type="text" size="20" value="{$product.retail_price}" id="retail_price" name="retail_price" tabindex="2" /> 
 								            </td>
 											<th scope="row">
 												<label for="market_price">市场价格：</label>
 											</th>
+									  
 											<td>
-												<input type="text" size="40" value="{$product.market_price}" id="market_price" name="market_price" tabindex="3" /> 
+												<input type="text" size="20" value="{$product.market_price}" id="market_price" name="market_price" tabindex="3" /> 
 								            </td>
+								       </tr>
+									   <tr>
 											<th scope="row">
 												<label for="sale_price">优惠价格：</label>
 											</th>
 											<td>
-												<input type="text" size="40" value="{$product.sale_price}" id="sale_price" name="sale_price" tabindex="4" />
+												<input type="text" size="20" value="{$product.sale_price}" id="sale_price" name="sale_price" tabindex="4" />
 								            </td>
 											<th scope="row">
 												<label for="member_price">会员价格：</label>
 											</th>
 											<td>
-												<input type="text" size="40" value="{$product.member_price}" id="member_price" name="member_price" tabindex="5" />
+												<input type="text" size="20" value="{$product.member_price}" id="member_price" name="member_price" tabindex="5" />
 								            </td>
 											
 										</tr>
@@ -169,24 +172,90 @@
 											<th scope="row">
 												<label for="retail_price">葡萄产地：</label>
 											</th>
-											<td>
+											<td>  
 												<select  name="grape_area" id="grape_area">
 													<option value="0">请选择</option>
-												{foreach from=$grape_area item=area key=key}
-										 			<option  value="{$key}" > {$area}  </option>
+												{foreach from=$grape_area item=area }
+										 			<option  value="{$area.id}" > {$area.name}  </option>
+										 	 	{/foreach}
+											</select>
+								            </td> 
+								             
+								            <th scope="row">
+												<label for="wine_sugar">葡萄糖分：</label>
+											</th>
+											<td>
+												<select  name="wine_sugar" id="wine_sugar">
+													<option value="0">请选择</option>
+												{foreach from=$wine_sugar_array item=item }
+										 			<option  value="{$item.id}" > {$item.name}  </option>
+										 	 	{/foreach}
+											</select>
+								            </td> 
+								      </tr>
+								      <tr>      
+								             <th scope="row">
+												<label for="wine_year">年份：</label>
+											</th>
+											<td>
+												<select  name="wine_year" id="wine_year">
+													<option value="0">请选择</option>
+												{foreach from=$wine_year_array item=item }
+										 			<option  value="{$item.id}" > {$item.name}  </option>
+										 	 	{/foreach}
+											</select>
+								            </td> 
+								            
+								             <th scope="row">
+												<label for="retail_price">适合场合：</label>
+											</th>
+											<td>
+												<select  name="wine_occasion" id="wine_occasion">
+													<option value="0">请选择</option>
+												{foreach from=$wine_occasion_array item=item }
+										 			<option  value="{$item.id}" > {$item.name}  </option>
 										 	 	{/foreach}
 											</select>
 								            </td> 
 										</tr>
+										
+										 <tr>      
+								             <th scope="row">
+												<label for="wine_ml">净含量：</label>
+											</th>
+											<td  >   
+												<input type="text" size="10" value="{$product.wine_ml}" id="wine_ml" name="wine_ml" tabindex="2" /> ML(毫升)
+								            </td> 
+								             
+								             <th scope="row">
+												<label for="wine_craft">制作工艺：</label>
+											</th>
+											<td  >   
+										
+												<input type="text" size="30" value="{$product.wine_craft}" id="wine_craft" name="wine_craft" tabindex="2" /> 
+								            </td> 
+								         </tr>
+										<tr>    
+								             <th scope="row">
+												<label for="wine_code">红酒编码：</label>
+											</th>
+												<td colspan="3">  
+												<input type="text" size="30" value="{$product.wine_code}" id="wine_code" name="wine_code" tabindex="2" /> 
+								            </td> 
+								             
+										</tr>
+										
+										
+										
 										
 										 <tr>
 											<th scope="row">
 												<label for="">葡萄品种：</label>
 											</th>
 											<td colspan="7">  
-												{foreach from=$grape_breed_array item=breed key=key}
-										 			<input type="checkbox" name="grape_breed[]" id="grape_breed_{$key}"  value="{$key}" id="breed_{$key}"/>
-										 				 <label for="grape_breed_{$key}">{$breed} &nbsp; </label>
+												{foreach from=$grape_breed_array item=breed }
+										 			<input type="checkbox" name="grape_breed[]" id="grape_breed_{$breed.id}"  value="{$breed.id}" />
+										 				 <label for="grape_breed_{$breed.id}">{$breed.name} &nbsp; </label>
 										 	 	{/foreach}
 											 
 								            </td> 
@@ -327,6 +396,11 @@
 		 $("#store_id option[value='{$product.store_id}']").attr("selected","selected");										 
 		 $("#category_id option[value='{$product.category_id}']").attr("selected","selected"); 
 		 $("#grape_area option[value='{$product.grape_area}']").attr("selected","selected"); 
+		 
+		 $("#wine_sugar option[value='{$product.wine_sugar}']").attr("selected","selected"); 
+		 $("#wine_year option[value='{$product.wine_year}']").attr("selected","selected"); 
+		 $("#wine_occasion option[value='{$product.wine_occasion}']").attr("selected","selected"); 
+		 
 		 {foreach from=$grape_breed_sel_array item=sbreed} 	$("#grape_breed_{$sbreed}").attr("checked",true); {/foreach}
 		 updateCatChange();
 </script>

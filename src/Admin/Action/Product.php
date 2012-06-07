@@ -46,8 +46,7 @@ class Admin_Action_Product extends Admin_Action_Entry {
 		if(!$this->isLogged()){
             return $this->_redirectLogin();
         }
-        $model = $this->wiredModel();
-        
+        $model = $this->wiredModel(); 
         $page = $this->getPage();
         $size = $this->_size;
         $query = $this->getQuery();
@@ -237,10 +236,13 @@ class Admin_Action_Product extends Admin_Action_Entry {
         $all_store = $store->find($options2)->getResultArray();
         $this->putContext('all_store', $all_store);
         unset($store); 
-        $grape_area = Common_Util_Product::getWineGrapeAreaArray();
+        $grape_area = Common_Util_ProductProUtil::getWineGrapeAreaArray();
         $this->putContext('grape_area',$grape_area); 
-        $this->putContext('grape_breed_array',Common_Util_Product::getWineGrapeBreedArray());
-       
+        $this->putContext('grape_breed_array',Common_Util_ProductProUtil::getWineGrapeBreedArray());
+        $this->putContext('wine_year_array',Common_Util_ProductProUtil::getWineYearArray());
+        $this->putContext('wine_sugar_array',Common_Util_ProductProUtil::getWineSugarArray());
+        $this->putContext('wine_occasion_array',Common_Util_ProductProUtil::getWineOccasionArray());
+        
         $grape_breed_sel_array = preg_split('/,/',$product['grape_breed']); 
         $this->putContext('grape_breed_sel_array',$grape_breed_sel_array);
         return $this->smartyResult('admin.product.edit');
