@@ -242,6 +242,7 @@ class Admin_Action_Product extends Admin_Action_Entry {
         $this->putContext('wine_year_array',Common_Util_ProductProUtil::getWineYearArray());
         $this->putContext('wine_sugar_array',Common_Util_ProductProUtil::getWineSugarArray());
         $this->putContext('wine_occasion_array',Common_Util_ProductProUtil::getWineOccasionArray());
+        $this->putContext('wine_craft_array',Common_Util_ProductProUtil::getWineCraftArray());
         
         $grape_breed_sel_array = preg_split('/,/',$product['grape_breed']); 
         $this->putContext('grape_breed_sel_array',$grape_breed_sel_array);

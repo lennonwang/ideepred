@@ -231,15 +231,26 @@
 												<label for="wine_craft">制作工艺：</label>
 											</th>
 											<td  >   
-										
-												<input type="text" size="30" value="{$product.wine_craft}" id="wine_craft" name="wine_craft" tabindex="2" /> 
+												 <select  name="wine_craft" id="wine_craft">
+														<option value="0">请选择</option>
+													{foreach from=$wine_craft_array item=item }
+											 			<option  value="{$item.id}" > {$item.name}  </option>
+											 	 	{/foreach}
+												</select>
+										 
 								            </td> 
 								         </tr>
 										<tr>    
 								             <th scope="row">
+												<label for="wine_code">红酒库存：</label>
+											</th>
+												<td >  
+												<input type="text" size="30" value="{$product.wine_code}" id="wine_code" name="wine_code" tabindex="2" /> 
+								            </td> 
+								             <th scope="row">
 												<label for="wine_code">红酒编码：</label>
 											</th>
-												<td colspan="3">  
+												<td >  
 												<input type="text" size="30" value="{$product.wine_code}" id="wine_code" name="wine_code" tabindex="2" /> 
 								            </td> 
 								             
@@ -263,7 +274,7 @@
 										
 										<tr>
 											<th scope="row">	<a class="hide-if-no-js" href="/app/admin/store" > 品牌：</a></th>
-											<td colspan="3">
+											<td >
 											<select  name="store_id" id="store_id">
 													<option value="0">请选择</option>
 												{foreach from=$all_store item=store}
@@ -273,7 +284,7 @@
 											<a class="hide-if-no-js" href="/app/admin/store/edit" >+ 添加品牌</a>
 											</td> 
 											<th scope="row">	<a class="hide-if-no-js" href="/app/admin/category" > 类别：</a></th>
-											<td  colspan="3">
+											<td>
 											<select  name="category_id" id="category_id">
 												<option value="0">请选择</option>
 											{foreach from=$all_category item=cate} 
@@ -400,7 +411,7 @@
 		 $("#wine_sugar option[value='{$product.wine_sugar}']").attr("selected","selected"); 
 		 $("#wine_year option[value='{$product.wine_year}']").attr("selected","selected"); 
 		 $("#wine_occasion option[value='{$product.wine_occasion}']").attr("selected","selected"); 
-		 
+		 $("#wine_craft option[value='{$product.wine_craft}']").attr("selected","selected"); 
 		 {foreach from=$grape_breed_sel_array item=sbreed} 	$("#grape_breed_{$sbreed}").attr("checked",true); {/foreach}
 		 updateCatChange();
 </script>

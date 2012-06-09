@@ -66,6 +66,17 @@ class Common_Util_ProductProUtil extends Anole_Object {
 		 self::debug("getWineGrapeAreaArray.".$grape_area);
 		 return $grape_area;
 	} 
+	
+	/**
+	 * 获取葡萄酒制作工艺
+	 * occasion
+	 */
+	public static function getWineCraftArray(){
+		$items=array(array("id"=>"1","name"=>"单一葡萄品种"),array("id"=>"2","name"=>"混合葡萄品种") 
+		 );  
+		 self::debug("getWineCraftArray.".$items);
+		 return $items;
+	} 
 } 
 	
 /**vim:sw=4 et ts=4 **/
