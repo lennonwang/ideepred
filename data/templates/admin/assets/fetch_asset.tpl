@@ -2,7 +2,10 @@
 <ul class="goods-pic">
 	{foreach from=$assets item=a}
 	<li id="asset_{$a.id}">
-		<a href="/app/admin/article/insert_asset/asset_id/{$a.id}#insert_asset" class="jq_a_ajax">
+		<!--
+				  <a href="/app/admin/article/insert_asset/asset_id/{$a.id}#insert_asset" class="jq_a_ajax">
+		-->
+	   <a href="{$a.water_image}" target="_blank">
 			<img src="{$a.asset_url}" width="120" height="90" name="{$a.id}" class="art_ast" />
 		</a>
 		<div class="row-actions">

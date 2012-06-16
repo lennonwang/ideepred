@@ -57,6 +57,7 @@ class Admin_Action_Purchase extends Admin_Action_Entry {
         $status = $this->getStatus();
         
         $vars = array();
+         echo "status::::$status";
         if(!is_null($status)){
             $condition = 'status=?';
             $vars = array($status);

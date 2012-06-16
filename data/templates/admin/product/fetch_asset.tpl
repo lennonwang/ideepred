@@ -2,7 +2,10 @@
 	<ul class="goods-pic">
 	{foreach from=$assets item=a}
 	<li id="asset_{$a.id}" class="{if $a.parent_type eq 4}red{elseif $a.parent_type eq 5}green{elseif $a.parent_type eq 7}blue{/if}">
-		<a href="/app/admin/article/insert_asset/asset_id/{$a.id}#insert_asset" class="jq_a_ajax">
+			<!--
+				  <a href="/app/admin/article/insert_asset/asset_id/{$a.id}#insert_asset" class="jq_a_ajax">
+		-->
+	   <a href="{$a.water_image}" target="_blank">
 			<img src="{$a.water_image}" width="120" height="90" name="{$a.id}" class="art_ast" />
 		</a>
 		<div class="row-actions">

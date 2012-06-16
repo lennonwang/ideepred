@@ -73,8 +73,9 @@
 				
 				<div class="box clearfix">
 					<div id="showbox">
+					
 						{Common_Smarty_Asset_Thumb path_id=$product.asset_list[0].path domain=$product.asset_list[0].domain w=500 h=360 var=first_image is_result_mode=ary}
-						<div class="xhd">
+						<div class="xhd"> 
 							<img src="{$first_image.url}"  id="product-bigpicture" alt="{$product.title}"  width="400" height="350" class="bordor" />
 						</div>
 						<ul class="slide-show clearfix">

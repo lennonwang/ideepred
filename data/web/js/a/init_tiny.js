@@ -3,7 +3,7 @@ tinyMCE.init({
 	mode : "exact",
 	elements: "cbody",
 	theme : "advanced",
-	width : "540",
+	width : "580",
 	plugins : "safari,style,,advhr,advimage,advlink,inlinepopups,searchreplace,contextmenu,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras",
 
 	// Theme options

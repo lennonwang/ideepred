@@ -459,7 +459,8 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
         }
 
         //获取产品照片
-        $asset_list = $model->findRelationModel('assets',array('size'=>-1),$id)->getResultArray();
+      
+        $asset_list = $model->findRelationModel('assets',array('size'=>-1),$id)->getResultArray(); 
 		$content_image = array();
 		$detail_image = array();
         if(!empty($asset_list)){

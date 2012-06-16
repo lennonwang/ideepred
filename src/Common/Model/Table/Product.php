@@ -47,7 +47,7 @@ abstract class Common_Model_Table_Product extends Anole_ActiveRecord_Base {
   array (
     'name' => 'content',
     'type' => 'S',
-    'length' => -1,
+    'length' => '400',
   ),
   'retail_price' => 
   array (
@@ -307,6 +307,20 @@ abstract class Common_Model_Table_Product extends Anole_ActiveRecord_Base {
     'type' => 'S',
     'length' => '200',
   ),
+		
+ 'stock' => 
+  array (
+    'name' => 'stock',
+    'type' => 'N',
+    'length' => '11',
+  ),
+  'stock_alarm' => 
+  array (
+    'name' => 'stock_alarm',
+    'type' => 'N',
+    'length' => '11',
+  ),
+		
 );
     
         /**
@@ -1221,6 +1235,51 @@ abstract class Common_Model_Table_Product extends Anole_ActiveRecord_Base {
     public function getWineCode(){
         return $this->get('wine_code');
     }
+	
+	
+	
+    /**
+     * 设置属性'stock'的值
+     *
+     * @param  integer $value
+     * 
+     * @return Product
+     */
+    public function setStock($value){
+        $this->set('stock',$value);
+        return $this;
+    }
+    /**
+     * 获取属性:'stock'的值
+     * 
+     * @return integer
+     */
+    public function getStock(){
+        return $this->get('stock');
+    }
+	
+	
+	 /**
+     * 设置属性'stock_alarm'的值
+     *
+     * @param  integer $value
+     * 
+     * @return Product
+     */
+    public function setStockAlarm($value){
+        $this->set('stock_alarm',$value);
+        return $this;
+    }
+    /**
+     * 获取属性:'stock_alarm'的值
+     * 
+     * @return integer
+     */
+    public function getStockAlarm(){
+        return $this->get('stock_alarm');
+    }
+	
+	
     }
 /**vim:sw=4 et ts=4 **/
 ?>

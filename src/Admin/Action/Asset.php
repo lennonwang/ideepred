@@ -233,7 +233,8 @@ class Admin_Action_Asset extends Admin_Action_Entry implements Anole_Dispatcher_
         	$vars[] = $parent_id;
         }
         if(!empty($parent_type)){
-        	$asset_type = ereg_replace('_',',',$parent_type);
+        //	$asset_type = ereg_replace('_',',',$parent_type);
+			$asset_type = preg_replace('/_/',',',$parent_type);
         	$conditions[] = 'parent_type IN ('.$asset_type.')';
         }
         if(!empty($conditions)){

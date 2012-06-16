@@ -97,7 +97,7 @@
 							<th class="column-icon media-icon"> </th>
 							<th class="column-title"> 产品标题 </th>
 							<th class="column-name"> 产品SKU </th>
-							<th class="column-name"> 市场价 </th>
+							<th class="column-name"> 库存 </th>
 							<th class="column-name"> 优惠价 </th>
 							<th class="column-name"> 状 态 </th>
 							<th class="column-name"> 日 期 </th>
@@ -110,7 +110,7 @@
 							<th class="column-icon media-icon"> </th>
 							<th class="column-title"> 产品标题 </th>
 							<th class="column-name"> 产品SKU </th>
-							<th class="column-name"> 市场价 </th>
+							<th class="column-name"> 库存 </th>
 							<th class="column-name"> 优惠价 </th>
 							<th class="column-name"> 状 态 </th>
 							<th class="column-name"> 日 期 </th>
@@ -128,10 +128,15 @@
 							</td>
 							<td>
 								<strong><a href="/app/admin/product/edit/id/{$product.id}" class="row-title">{$product.title} </a> {if $product.state eq 0}-草稿{/if}</strong>
-								<div class="row-actions"><span class="edit"><a href="/app/admin/purchase/update_quantity/product_id/{$product.id}">变更数量</a></span> | <span class="edit"><a href="/app/admin/product/edit/id/{$product.id}">编辑</a></span> | <span class="publish"><a href="/app/admin/product/published/id/{$product.id}/stick/{if $product.stick eq 0}1{else}0{/if}" class="jq_a_ajax">{if $product.stick eq 0}推荐{else}取消推荐{/if}</a></span> | <span class="marked"><a href="/app/admin/product/marked/id/{$product.id}/markshop/{if $product.markshop eq 0}1{else}0{/if}" class="jq_a_ajax">{if $product.markshop eq 0}实体商品{else}取消实体商品{/if}</a></span> | <span class="delete"><a href="/app/admin/product/delete/id/{$product.id}" class="jq_a_ajax">删除</a></span></div>
+								<div class="row-actions"><span class="edit"><a href="/app/admin/purchase/update_quantity/product_id/{$product.id}">变更数量</a></span> 
+								| <span class="edit"><a href="/app/admin/product/edit/id/{$product.id}">编辑</a></span>
+								| <span class="publish"><a href="/app/admin/product/published/id/{$product.id}/stick/{if $product.stick eq 0}1{else}0{/if}" class="jq_a_ajax">{if $product.stick eq 0}推荐{else}取消推荐{/if}</a></span> 
+								| <span class="marked"><a href="/app/admin/product/marked/id/{$product.id}/markshop/{if $product.markshop eq 0}1{else}0{/if}" class="jq_a_ajax">{if $product.markshop eq 0}实体商品{else}取消实体商品{/if}</a></span> 
+								
+								| <span class="delete"><a href="/app/admin/product/delete/id/{$product.id}" class="jq_a_ajax">删除</a></span> </div>
 							</td>
 							<td>{$product.id}</td>
-							<td>{$product.market_price}</td>
+							<td>{$product.stock}</td>
 							<td>{$product.sale_price}</td>
 							<td>{if $product.state eq 1}上架{elseif $product.state eq 2}展示{elseif $product.state eq -1}下架{else}默认未发布{/if}</td>
 							<td>{$product.created_on}</td>
@@ -143,6 +148,7 @@
 								{if $product.markshop eq 1}
 								<img src="/images/admin/icon_accept.gif" id="markshop_img_{$product.id}" />
 								{/if}
+								  <a href="/product/{$product.id}.html"  target="_blank">预览</a> 
 								</div>
 							</td>
 						</tr>

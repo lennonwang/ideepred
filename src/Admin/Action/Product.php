@@ -259,7 +259,7 @@ class Admin_Action_Product extends Admin_Action_Entry {
             return $this->_redirectLogin();
         }
         $model = $this->wiredModel();
-        
+        self::debug("save model content!!!!!!!!!!!!!!!!!!!:".$model->getContent());
         $id = $this->getId();
         
         try{
@@ -273,8 +273,10 @@ class Admin_Action_Product extends Admin_Action_Entry {
 	            $edit_mode = 'edit';
 	        }
 	        // add by wangjia
-            $grape_breed = $_POST["grape_breed"];  
-	        $grape_breed=implode(",", $grape_breed); 
+            $grape_breed = $_POST["grape_breed"];   
+			if(isset($grape_breed)){
+			  $grape_breed=implode(",", $grape_breed);
+			}
 	        $model->setGrapeBreed($grape_breed);
 	        
             $model->save();

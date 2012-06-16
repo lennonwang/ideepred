@@ -13,7 +13,8 @@ class Common_Util_ProductProUtil extends Anole_Object {
 		$array=array(array("id"=>"1","name"=>"2000之前"),array("id"=>"2","name"=>"2000-2001")
 		,array("id"=>"3","name"=>"2002-2003"),array("id"=>"4","name"=>"2004-2005")
 		,array("id"=>"5","name"=>"2006-2007"),array("id"=>"6","name"=>"2008-2009")
-		,array("id"=>"7","name"=>"2010-2011"),array("id"=>"8","name"=>"2012")
+		,array("id"=>"7","name"=>"2009-2010"),array("id"=>"8","name"=>"2010-2011")
+		,array("id"=>"9","name"=>"2012")
 		);  
 		 self::debug("getWineYearArray.".$array);
 		 return $array;

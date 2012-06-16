@@ -28,115 +28,50 @@
 				<input type="hidden" value="{$product.id}" name="id" id="product_id">
 				<input type="hidden" value="{$rand_sign}" name="rand_sign_id" id="rand_sign_id">
 				
-				<div id="poststuff" class="metabox-holder has-right-sidebar">
-					<div id="side-info-column" class="inner-sidebar">
-						<div id="side-sortables" class="meta-box-sortables ui-sortable">
-							<div id="submitdiv" class="postbox">
-								<div title="显示/隐藏" class="handlediv"><br></div>
-								<h3 class="hndle">
-									<span>发布</span>
-								</h3>
-								<div class="inside">
-									
-									<div id="major-publishing-actions">
-										<p>
-											<label>产品状态</label>
-											<input type="radio" name="state" value="0" {if $product.state eq 0}checked="checked"{/if} />默 认 
-											<input type="radio" name="state" value="2" {if $product.state eq 2}checked="checked"{/if} />展 示 
-											<input type="radio" name="state" value="1" {if $product.state eq 1}checked="checked"{/if} />上 架 
-											<input type="radio" name="state" value="-1" {if $product.state eq -1}checked="checked"{/if} />下 架 		</p>
-										<p>
-											<label>是否推荐</label>
-											<input type="radio" name="stick" value="1" {if $product.stick eq 1}checked="checked"{/if} />推荐 
-											<input type="radio" name="stick" value="0" {if $product.stick eq 0}checked="checked"{/if} />不推荐 
-										</p>
-										<p>
-											<label>是否为赠品</label>
-											<input type="radio" name="is_gift" value="1" {if $product.is_gift eq 1}checked="checked"{/if} />是  
-											<input type="radio" name="is_gift" value="0" {if $product.is_gift eq 0}checked="checked"{/if} />否
-										</p>
-										<p class="submit">
-											<input type="submit" value=" 确认提交 " name="submit" class="button"  id="submit_product" />
-										</p>
-									</div>
-								</div>
-							</div>
-							
-							{if $edit_mode eq 'edit'}
-							<div id="picturediv-stuff" class="postbox ">
-								<div title="显示/隐藏" class="handlediv"><br></div>
-								<h3 class="hndle">
-									<span>产品照片</span>
-								</h3>
-								
-								<div class="inside">
-									<p class="howto">图例说明：标正(正面大图)、标细(细节图片)、标内(内容图片)。</p>
-									<div id="product-photos" class="tagsdiv">
-										<label id="uploadify_assets">Select Files</label>
-									</div>
-									
-									<div id="uploadify_goods_result">
-										<ul class="goods-pic">
-										{foreach from=$asset_list item=a}
-										<li id="asset_{$a.id}" class="{if $a.parent_type eq 4}red{elseif $a.parent_type eq 5}green{elseif $a.parent_type eq 7}blue{/if}">
-											<a href="/app/admin/article/insert_asset/asset_id/{$a.id}#insert_asset" class="jq_a_ajax">
-												<img src="{$a.water_image}" width="120" height="90" name="{$a.id}" class="art_ast" />
-											</a>
-											<div class="row-actions">
-												<span>尺寸: {$a.width}x{$a.height}px</span>
-												[<a href="/app/admin/asset/assign_thumb?id={$a.id}&parent_type=4" class="jq_a_ajax">标正</a>] [<a href="/app/admin/asset/assign_thumb?id={$a.id}&parent_type=5" class="jq_a_ajax">标细</a>] [<a href="/app/admin/asset/assign_thumb?id={$a.id}&parent_type=7" class="jq_a_ajax">标内</a>] [<a href="/app/admin/asset/delete?id={$a.id}" class="jq_a_ajax">删除</a>]
-											</div>
-										</li>
-										{/foreach}
-										</ul>
-										<div class="clear"></div>
-									</div>
-									<script type="text/javascript" src="/js/a/upload_photo.js"></script>
-								</div>
-							</div>
-							{/if}
-							
-							<div id="tagsdiv-post_tag" class="postbox ">
-								<div title="显示/隐藏" class="handlediv"><br></div>
-								<h3 class="hndle">
-									<span>产品标签</span>
-								</h3>
-								
-								<div class="inside">
-									<div id="post_tag" class="tagsdiv">
-										<div class="jaxtag">
-
-											<div class="ajaxtag hide-if-no-js">
-												<textarea name="tags" tabindex="15" cols="25" rows="5">{$product.tags}</textarea>
-											</div>
-										</div>
-										<p class="howto">多个标签请用英文逗号分开。</p>
-										<div class="tagchecklist"></div>
-									</div>
-									<p class="hide-if-no-js">
-										<a id="link-post_tag" class="tagcloud-link" href="#titlediv">从 产品标签 中选择使用最频繁的标签</a>
-									</p>
-								</div>
-							
-							</div>
+				<div id="poststuff" class="metabox-holder has-right-sidebar"> 
+					 
+					 	<div id="post-body-content">
+						  
+						 <p class="submit" style="text-align:center">
+								 <input type="submit" value=" 确认提交 " name="submit" class="button"  id="submit_product" />
+							 </p> 
 							 
-							 
-							
-						</div>
-					</div>
-					<div id="post-body">
-						<div id="post-body-content">
-							
-							<div id="titlediv">
-								<div id="titlewrap">
-									<label for="title">产品标题：</label>
-									<input type="text"  id="title" value="{$product.title}" tabindex="1" size="30" name="title">
-								</div>
-							</div>
 							
 							<div class="productNumber">
 								<table class="form-table">
 									<tbody>
+									  <tr class="form-field form-required">
+											<th scope="row"  >
+												<label for="retail_price">产品标题：</label>
+											</th>
+											<td colspan="3"> 
+											 <input type="text"  id="title" value="{$product.title}" tabindex="1" size="30" name="title">
+											</td> 
+								       </tr>
+									   <tr class="form-field form-required">
+											<th scope="row"  >
+												<label for="retail_price">产品状态：</label>
+											</th>
+											<td colspan="3"> 
+											<input type="radio" name="state" value="0" {if $product.state eq 0}checked="checked"{/if} />默 认 
+											<input type="radio" name="state" value="2" {if $product.state eq 2}checked="checked"{/if} />展 示 
+											<input type="radio" name="state" value="1" {if $product.state eq 1}checked="checked"{/if} />上 架 
+											<input type="radio" name="state" value="-1" {if $product.state eq -1}checked="checked"{/if} />下 架 	 
+									
+								            </td> 
+								       </tr>
+									   <tr class="form-field form-required">
+											<th scope="row"> <label>是否为推荐</label></th>
+											<td>
+													<input type="radio" name="stick" value="1" {if $product.stick eq 1}checked="checked"{/if} />推荐 
+												    <input type="radio" name="stick" value="0" {if $product.stick eq 0}checked="checked"{/if} />不推荐  
+								            </td>
+											<th scope="row"> 	<label for="market_price">是否为赠品：</label> 	</th> 
+											<td>
+													<input type="radio" name="is_gift" value="1" {if $product.is_gift eq 1}checked="checked"{/if} />是  
+													<input type="radio" name="is_gift" value="0" {if $product.is_gift eq 0}checked="checked"{/if} />否
+								            </td>
+								       </tr>
 										<tr class="form-field form-required">
 											<th scope="row"  >
 												<label for="retail_price">进货价格：</label>
@@ -242,16 +177,24 @@
 								         </tr>
 										<tr>    
 								             <th scope="row">
-												<label for="wine_code">红酒库存：</label>
+												<label for="stock">库存：</label>
 											</th>
 												<td >  
-												<input type="text" size="30" value="{$product.wine_code}" id="wine_code" name="wine_code" tabindex="2" /> 
+												<input type="text" size="30" value="{$product.stock}" id="stock" name="stock" /> 
 								            </td> 
+                                             <th scope="row">
+												<label for="stock_alarm">库存警告：</label>
+											</th>
+												<td >  
+												<input type="text" size="30" value="{$product.stock_alarm}" id="stock_alarm" name="stock_alarm"  /> 
+								            </td> 
+                                        </tr>
+                                        <tr>
 								             <th scope="row">
 												<label for="wine_code">红酒编码：</label>
 											</th>
 												<td >  
-												<input type="text" size="30" value="{$product.wine_code}" id="wine_code" name="wine_code" tabindex="2" /> 
+												<input type="text" size="30" value="{$product.wine_code}" id="wine_code" name="wine_code"   /> 
 								            </td> 
 								             
 										</tr>
@@ -366,6 +309,44 @@
 								
 							</div>
 							
+							{if $edit_mode eq 'edit'}
+							<div id="picturediv-stuff" class="postbox ">
+								<div title="显示/隐藏" class="handlediv"><br></div>
+								<h3 class="hndle">
+									<span>产品照片</span>
+								</h3>
+								
+								<div class="inside">
+									<p class="howto">
+									  <label id="uploadify_assets">Select Files</label>图例说明：标正(正面大图)、标细(细节图片)、标内(内容图片)。  
+										<div id="product-photos" class="tagsdiv"></div>
+									</p>
+									
+									<div id="uploadify_goods_result">
+										<ul class="goods-pic">
+										{foreach from=$asset_list item=a}
+										<li id="asset_{$a.id}" class="{if $a.parent_type eq 4}red{elseif $a.parent_type eq 5}green{elseif $a.parent_type eq 7}blue{/if}">
+										<!--
+										   <a href="/app/admin/article/insert_asset/asset_id/{$a.id}#insert_asset" class="jq_a_ajax">
+										-->
+										 <a href="{$a.water_image}" target="_blank">
+												<img src="{$a.water_image}" width="120" height="90" name="{$a.id}" class="art_ast" />
+											</a>
+											<div class="row-actions">
+												<span>尺寸: {$a.width}x{$a.height}px</span>
+												[<a href="/app/admin/asset/assign_thumb?id={$a.id}&parent_type=4" class="jq_a_ajax">标正</a>] [<a href="/app/admin/asset/assign_thumb?id={$a.id}&parent_type=5" class="jq_a_ajax">标细</a>] [<a href="/app/admin/asset/assign_thumb?id={$a.id}&parent_type=7" class="jq_a_ajax">标内</a>] [<a href="/app/admin/asset/delete?id={$a.id}" class="jq_a_ajax">删除</a>]
+											</div>
+										</li>
+										{/foreach}
+										</ul>
+										<div class="clear"></div>
+									</div>
+									<script type="text/javascript" src="/js/a/upload_photo.js"></script>
+								</div>
+							</div>
+							{/if}
+															
+															
 							<div id="postdivrich" class="meta-box-sortables ui-sortable">
 								<div id="editorcontainer" class="postbox">
 									<div title="显示/隐藏" class="handlediv"><br></div>
@@ -373,7 +354,7 @@
 									<script type="text/javascript" src="/js/a/init_tiny.js"></script>
 									<div class="inside">
 										<label for="content" class="screen-reader-text">产品介绍</label>
-										<textarea id="cbody" tabindex="13" name="content" cols="10" rows="15" >{$product.content|stripslashes}</textarea>
+										<textarea id="cbody" tabindex="13" name="content" cols="12" rows="15" >{$product.content|stripslashes}</textarea>
 									</div>
 								</div>
 							</div>
@@ -391,10 +372,29 @@
 								
 							</div>
 							
+							<div id="tagsdiv-post_tag" class="postbox ">
+								<div title="显示/隐藏" class="handlediv"><br></div>
+								<h3 class="hndle"> 	<span>产品标签</span> 	</h3>
+								
+								<div class="inside">
+									<div id="post_tag" class="tagsdiv">
+										<div class="jaxtag"> 
+											<div class="ajaxtag hide-if-no-js">
+												<textarea name="tags" tabindex="15" cols="25" rows="5">{$product.tags}</textarea>
+											</div>
+										</div>
+										<p class="howto">多个标签请用英文逗号分开。</p>
+										<div class="tagchecklist"></div>
+									</div>
+									<p class="hide-if-no-js">
+										<a id="link-post_tag" class="tagcloud-link" href="#titlediv">从 产品标签 中选择使用最频繁的标签</a>
+									</p>
+								</div> 
+							</div> 
 							
 									
 						</div>
-					</div>
+					 
 					<div class="clear"></div>
 				</div>
 			</form>

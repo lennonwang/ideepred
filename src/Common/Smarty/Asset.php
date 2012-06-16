@@ -21,9 +21,9 @@ class Common_Smarty_Asset extends Anole_Object {
 		$by_width=null;
         $w = 90;
         $h = 90;
-        
         extract($params,EXTR_IF_EXISTS);
 		
+       
         if(empty($path_id) || empty($domain)){
             return null;
         }
@@ -34,8 +34,8 @@ class Common_Smarty_Asset extends Anole_Object {
 			$type = 3;
 		}
         
-        $data = Common_Util_Asset::makeThumb($path_id,$w,$h,$domain,$type);
-        
+        $data = Common_Util_Asset::makeThumb($path_id,$w,$h,$domain,$type); 
+       
         if(!empty($var)){
         	if($is_result_mode == 'sigleurl'){
         		$smarty->assign($var,$data['url']);
