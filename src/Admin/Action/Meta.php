@@ -56,8 +56,9 @@ class Admin_Action_Meta extends Admin_Action_Entry {
             $model->setName($metakey);
             $model->setValue($metavalue);
             $model->setDomain(Common_Model_Constant::PRODUCT_DOMAIN);
+            self::warn("save meta[$id] before save!", __METHOD__);
             $model->save();
-            
+            self::warn("save meta[$id] after save!", __METHOD__);
             $id = $model->getId();
             
             $meta = $model->findById($id);
@@ -75,6 +76,10 @@ class Admin_Action_Meta extends Admin_Action_Entry {
             $msg = 'Add Meta Erorr: '.$e->getMessage();
             self::warn($msg, __METHOD__);
             return $this->_jqErrorTip($msg);
+        } catch(Anole_ActiveRecord_Exception $e){
+        	$msg = 'Database Meta Erorr: '.$e->getMessage();
+          self::warn($msg, __METHOD__);
+        	return $this->_jqErrorTip($msg);
         }
         
         $this->putContext('edit_mode',$edit_mode);

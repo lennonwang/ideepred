@@ -161,7 +161,7 @@ class Admin_Action_Content extends Admin_Action_Entry {
     }
     /**
      * 发表资讯
-     * 
+     * add by wangjia todo
      * @return string
      */
     public function edit(){
@@ -173,12 +173,9 @@ class Admin_Action_Content extends Admin_Action_Entry {
         $c = null;
         $id = $this->getId();
         if(!empty($id)){
-        	$edit_mode = 'edit';
-        	
-        	$article = $model->findById($id)->getResultArray();
-        	
-        	$article['sort_ids'] = $model['sort_ids'];
-        	
+        	$edit_mode = 'edit'; 
+        	$article = $model->findById($id)->getResultArray(); 
+        	//$article['sort_ids'] = $model['sort_ids']; 
         	$c = $article['content'];
         	
         	//获取附件列表

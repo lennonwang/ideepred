@@ -235,10 +235,13 @@ class Admin_Action_Product extends Admin_Action_Entry {
         );
         $all_store = $store->find($options2)->getResultArray();
         $this->putContext('all_store', $all_store);
-        unset($store); 
-        $grape_area = Common_Util_ProductProUtil::getWineGrapeAreaArray();
-        $this->putContext('grape_area',$grape_area); 
-        $this->putContext('grape_breed_array',Common_Util_ProductProUtil::getWineGrapeBreedArray());
+        unset($store);  
+        $this->putContext('wine_country_array',Common_Util_ProductProUtil::getWineGrapeCountryArray());
+				$this->putContext('wine_area_array',Common_Util_ProductProUtil::getWineGrapeAreaArray()); 
+				$this->putContext('wine_level_array',Common_Util_ProductProUtil::getWineLevelArray());
+				
+        $this->putContext('grape_breed_array',Common_Util_ProductProUtil::getWineGrapeBreedArray()); 
+				
         $this->putContext('wine_year_array',Common_Util_ProductProUtil::getWineYearArray());
         $this->putContext('wine_sugar_array',Common_Util_ProductProUtil::getWineSugarArray());
         $this->putContext('wine_occasion_array',Common_Util_ProductProUtil::getWineOccasionArray());
@@ -274,10 +277,10 @@ class Admin_Action_Product extends Admin_Action_Entry {
 	        }
 	        // add by wangjia
             $grape_breed = $_POST["grape_breed"];   
-			if(isset($grape_breed)){
-			  $grape_breed=implode(",", $grape_breed);
-			}
-	        $model->setGrapeBreed($grape_breed);
+						if(isset($grape_breed)){
+							$grape_breed=implode(",", $grape_breed);
+						}
+	         $model->setGrapeBreed($grape_breed);
 	        
             $model->save();
             
