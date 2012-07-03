@@ -116,7 +116,7 @@
 						</div>
 					</div>
 					<div id="post-body">
-						<div id="post-body-content">
+						<div id="post-body-content"  style="margin-right:340px;">
 							<div class="titlediv">
 								<div class="titlewrap">
 									<label for="name">页面名称：</label>

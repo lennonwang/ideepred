@@ -5,13 +5,16 @@
 		<label for="meta_key_{$meta.id}" class="screen-reader-text">键</label>
 		<input type="text" value="{$meta.feature.featurename}" size="20" id="meta_title_{$meta.id}" name="meta_title_{$meta.id}" />
 		<input type="hidden" value="{$meta.name}" id="meta_key_{$meta.id}" name="meta_key_{$meta.id}" />
-		<div class="submit">
-			<input type="button" value="删除" class="deletemeta" name="{$meta.id}" />
-			<input type="button" class="updatemeta" value="更新" name="{$meta.id}" />
-		</div>
 	</td>
 	<td>
-		<textarea cols="30" rows="2" tabindex="6" id="meta_value_{$meta.id}" name="meta_value_{$meta.id}">{$meta.value}</textarea>
+			<input type="text"  id="meta_value_{$meta.id}" name="meta_value_{$meta.id}" value="{$meta.value}" />
+		  <!--
+			<textarea cols="30" rows="2" tabindex="6" id="meta_value_{$meta.id}" name="meta_value_{$meta.id}">{$meta.value}</textarea>
+			-->
+	</td>
+	<td>
+				<input type="button" value="删除" class="deletemeta" name="{$meta.id}" style="width:80px;"/>
+			  <input type="button" class="updatemeta" value="更新" name="{$meta.id}" style="width:80px;"/>
 	</td>
 </tr>
 </append>
@@ -24,13 +27,15 @@
 		<label for="meta_key_{$meta.id}" class="screen-reader-text">键</label>
 		<input type="text" value="{$meta.feature.featurename}" size="20" id="meta_title_{$meta.id}" name="meta_title_{$meta.id}" />
 		<input type="hidden" value="{$meta.name}" id="meta_key_{$meta.id}" name="meta_key_{$meta.id}" />
-		<div class="submit">
-			<input type="button" value="删除" class="deletemeta" name="{$meta.id}" />
-			<input type="button" class="updatemeta" value="更新" name="{$meta.id}" />
-		</div>
 	</td>
 	<td>
-		<textarea cols="30" rows="2" tabindex="6" id="meta_value_{$meta.id}" name="meta_value_{$meta.id}">{$meta.value}</textarea>
+		<input type="text"  id="meta_value_{$meta.id}" name="meta_value_{$meta.id}" value="{$meta.value}" />
+		 <!-- <textarea cols="30" rows="2" tabindex="6" id="meta_value_{$meta.id}" name="meta_value_{$meta.id}">{$meta.value}</textarea>
+			-->
+	</td>
+	<td>
+			<input type="button" value="删除" class="deletemeta" name="{$meta.id}" style="width:80px;"/>
+			<input type="button" class="updatemeta" value="更新" name="{$meta.id}" style="width:80px;"/>
 	</td>
 </tr>
 </replace>

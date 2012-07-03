@@ -24,7 +24,7 @@
 	<div id="col-container">
 		<div class="form-wrap">
 			
-			<form id="edit_article_frm" action="/app/admin/article/save" method="post">
+			<form id="edit_article_frm" action="/app/admin/content/save" method="post">
 				<input type="hidden" name="id" value="{$article.id}" id="article_id" />
 				<input type="hidden" name="type" value="1" />
 				<input type="hidden" value="{$rand_sign}" name="rand_sign_id" id="rand_sign_id">
@@ -138,7 +138,7 @@
 						</div>
 					</div>
 					<div id="post-body">
-						<div id="post-body-content">
+						<div id="post-body-content" style="margin-right:340px;">
 							
 							<div class="productNumber">
 								<table class="form-table">

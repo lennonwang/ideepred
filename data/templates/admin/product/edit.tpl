@@ -10,9 +10,22 @@
 	<script type="text/javascript" src="/js/uploadify/jquery.uploadify.v2.1.0.js"></script>
 	<script type="text/javascript" src="/js/tiny_mce/tiny_mce.js"></script>
 	<script type="text/javascript" src="/js/a/product_edit.js"></script>
+	<script>
+				var wineAreaList = new Array();
+				{foreach from=$wine_area_array item=area}
+					wineAreaList[wineAreaList.length]=new Array("{$area.cid}","{$area.id}","{$area.name}");
+				{/foreach}
+				
+					var wineLevelList = new Array();
+				{foreach from=$wine_level_array item=level}
+					wineLevelList[wineLevelList.length]=new Array("{$level.cid}","{$level.id}","{$level.name}");
+				{/foreach}
+				
+	</script>
+	
 </head>
 
-<body>
+<body> 
 <div class="wrap">
 	<div class="icon32" id="icon-edit">
 		<br>
@@ -49,16 +62,24 @@
 											</td> 
 								       </tr>
 									   <tr class="form-field form-required">
-											<th scope="row"  >
+									<th scope="row"  >
 												<label for="retail_price">产品状态：</label>
 											</th>
-											<td colspan="3"> 
+											<td  > 
 											<input type="radio" name="state" value="0" {if $product.state eq 0}checked="checked"{/if} />默 认 
 											<input type="radio" name="state" value="2" {if $product.state eq 2}checked="checked"{/if} />展 示 
 											<input type="radio" name="state" value="1" {if $product.state eq 1}checked="checked"{/if} />上 架 
 											<input type="radio" name="state" value="-1" {if $product.state eq -1}checked="checked"{/if} />下 架 	 
 									
+								            </td>
+									 <th scope="row" style="width:120px;">
+												<label for="wine_code">红酒编码：</label>
+											</th>
+												<td >  
+												<input type="text" size="30" value="{$product.wine_code}" id="wine_code" name="wine_code"   /> 
 								            </td> 
+								             
+										 
 								       </tr>
 									   <tr class="form-field form-required">
 											<th scope="row"> <label>是否为推荐</label></th>
@@ -105,16 +126,25 @@
 										<!-- 产地 -->
 										 <tr>
 											<th scope="row">
-												<label for="retail_price">葡萄产地：</label>
+												<label for="retail_price">产地：</label>
 											</th>
 											<td>  
-												<select  name="grape_area" id="grape_area">
-													<option value="0">请选择</option>
-												{foreach from=$grape_area item=area }
-										 			<option  value="{$area.id}" > {$area.name}  </option>
+												<select  name="wine_country" id="wine_country" onchange="changeCountry();">
+													<option value="0">请选择产地</option>
+												{foreach from=$wine_country_array item=country }
+										 			<option  value="{$country.id}" > {$country.name}  </option>
 										 	 	{/foreach}
 											</select>
-								            </td> 
+												&nbsp;&nbsp;
+												<select name="wine_area" id="wine_area">
+																<option value="0">请选择产区</option> 
+												</select>
+												
+													&nbsp;&nbsp;
+												<select name="wine_level" id="wine_level">
+																<option value="0">请选择红酒级别</option> 
+												</select>
+								       </td> 
 								             
 								            <th scope="row">
 												<label for="wine_sugar">葡萄糖分：</label>
@@ -189,15 +219,8 @@
 												<input type="text" size="30" value="{$product.stock_alarm}" id="stock_alarm" name="stock_alarm"  /> 
 								            </td> 
                                         </tr>
-                                        <tr>
-								             <th scope="row">
-												<label for="wine_code">红酒编码：</label>
-											</th>
-												<td >  
-												<input type="text" size="30" value="{$product.wine_code}" id="wine_code" name="wine_code"   /> 
-								            </td> 
-								             
-										</tr>
+                                    
+								     
 										
 										
 										
@@ -255,6 +278,7 @@
 													<tr>
 														<th class="left">名称</th>
 														<th>值</th>
+														<th>操作</th>
 													</tr>
 												</thead>
 												<tbody class="list:meta" id="the-list">
@@ -263,14 +287,15 @@
 														<td class="left">
 															<label for="meta_key_{$meta.id}" class="screen-reader-text">键</label>
 															<input type="text" value="{$meta.feature.featurename}" size="10" readonly="readonly" id="meta_title_{$meta.id}" name="meta_title_{$meta.id}" />
-															<input type="hidden" value="{$meta.name}" id="meta_key_{$meta.id}" name="meta_key_{$meta.id}" />
-															<div class="submit">
-																<input type="button" value="删除" class="deletemeta" name="{$meta.id}" />
-																<input type="button" class="updatemeta" value="更新" name="{$meta.id}" />
-															</div>
+															<input type="hidden" value="{$meta.name}" id="meta_key_{$meta.id}" name="meta_key_{$meta.id}" /> 
 														</td>
 														<td>
-															<textarea cols="30" rows="2" id="meta_value_{$meta.id}" name="meta_value_{$meta.id}">{$meta.value}</textarea>
+																<input type="text"  id="meta_value_{$meta.id}" name="meta_value_{$meta.id}" value="{$meta.value}" />
+																<!--	<textarea cols="20" rows="2" id="meta_value_{$meta.id}" name="meta_value_{$meta.id}">{$meta.value}</textarea> -->
+														</td>
+														<td>
+																<input type="button" class="deletemeta" value="删除" name="{$meta.id}" style="width:80px;"/>
+																<input type="button" class="updatemeta" value="更新" name="{$meta.id}" style="width:80px;"/>
 														</td>
 													</tr>
 													{/foreach}
@@ -290,12 +315,10 @@
 															</select>
 														</td>
 														<td>
-															<textarea cols="25" rows="2" name="metavalue" id="metavalue"></textarea>
+																					<input type="text"  name="metavalue"  id="metavalue" value="" />
+														<!--	<textarea cols="20" rows="2" name="metavalue" id="metavalue"></textarea> -->
 														</td>
-													</tr>
-
-													<tr>
-														<td class="submit" colspan="2">
+															<td>
 															<input type="button" value="添加产品属性" tabindex="9" class="addnewmeta" name="addmeta" id="addmetasub">
 														</td>
 													</tr>
@@ -368,19 +391,17 @@
 										<textarea id="excerpt" tabindex="14" name="summary" cols="40" rows="1">{$product.summary}</textarea>
 										<p>摘要是您可以手动添加的内容概要。</p>
 									</div>
-								</div>
-								
+								</div> 
 							</div>
 							
 							<div id="tagsdiv-post_tag" class="postbox ">
 								<div title="显示/隐藏" class="handlediv"><br></div>
-								<h3 class="hndle"> 	<span>产品标签</span> 	</h3>
-								
+								<h3 class="hndle"> 	<span>产品标签</span> 	</h3> 
 								<div class="inside">
 									<div id="post_tag" class="tagsdiv">
 										<div class="jaxtag"> 
 											<div class="ajaxtag hide-if-no-js">
-												<textarea name="tags" tabindex="15" cols="25" rows="5">{$product.tags}</textarea>
+												<textarea name="tags" tabindex="15" cols="40" rows="2">{$product.tags}</textarea>
 											</div>
 										</div>
 										<p class="howto">多个标签请用英文逗号分开。</p>
@@ -394,7 +415,9 @@
 							
 									
 						</div>
-					 
+					 	 <p class="submit" style="text-align:center">
+								 <input type="submit" value=" 确认提交 " name="submit" class="button"  id="submit_product" />
+							 </p> 
 					<div class="clear"></div>
 				</div>
 			</form>
@@ -406,8 +429,11 @@
 <script type="text/javascript" > 
 		 $("#store_id option[value='{$product.store_id}']").attr("selected","selected");										 
 		 $("#category_id option[value='{$product.category_id}']").attr("selected","selected"); 
-		 $("#grape_area option[value='{$product.grape_area}']").attr("selected","selected"); 
-		 
+		 $("#wine_country option[value='{$product.wine_country}']").attr("selected","selected");
+		  changeCountry();
+		 $("#wine_area option[value='{$product.wine_area}']").attr("selected","selected"); 
+		 $("#wine_level option[value='{$product.wine_level}']").attr("selected","selected");
+		
 		 $("#wine_sugar option[value='{$product.wine_sugar}']").attr("selected","selected"); 
 		 $("#wine_year option[value='{$product.wine_year}']").attr("selected","selected"); 
 		 $("#wine_occasion option[value='{$product.wine_occasion}']").attr("selected","selected"); 
