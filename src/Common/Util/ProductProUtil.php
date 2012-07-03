@@ -35,15 +35,53 @@ class Common_Util_ProductProUtil extends Anole_Object {
 	
 	
 	/**
-	 * 获取葡萄产地
+	 * 获取葡萄所属国家
 	 */
-	public static function getWineGrapeAreaArray(){
-		$grape_area=array(array("id"=>"1","name"=>"法国"),array("id"=>"2","name"=>"意大利")
+	public static function getWineGrapeCountryArray(){
+		$grape_country=array(array("id"=>"1","name"=>"法国"),array("id"=>"2","name"=>"意大利")
 		,array("id"=>"3","name"=>"西班牙"),array("id"=>"4","name"=>"中国大陆")
 		,array("id"=>"5","name"=>"美国"),array("id"=>"6","name"=>"德国"));  
-		 self::debug("getWineGrapeAreaArray.".$grape_area);
-		 return $grape_area;
+		 self::debug("getWineGrapeCountryArray.".$grape_country);
+		 return $grape_country;
+	}
+	
+		/**
+	 * 获取葡萄产区
+	 */
+	public static function getWineGrapeAreaArray(){
+		$wine_area=array(array("id"=>"1","cid"=>"1","name"=>"法国大区1")
+											,array("id"=>"2","cid"=>"1","name"=>"法国大区2")  
+		,array("id"=>"3","cid"=>"1","name"=>"法国大区3")  
+		,array("id"=>"4","cid"=>"1","name"=>"法国大区4")  
+		,array("id"=>"5","cid"=>"2","name"=>"意大利1")  
+		,array("id"=>"6","cid"=>"2","name"=>"意大利2")  
+		,array("id"=>"7","cid"=>"3","name"=>"西班牙1")
+		,array("id"=>"8","cid"=>"3","name"=>"西班牙2")
+		,array("id"=>"9","cid"=>"3","name"=>"西班牙3")
+		,array("id"=>"10","cid"=>"3","name"=>"西班牙4") );  
+		 self::debug("getWineGrapeAreaArray.".$wine_area);
+		 return $wine_area;
+	}
+	
+		/**
+	 * 获取葡萄等级
+	 */
+	public static function getWineLevelArray(){
+		$level_items=array(array("id"=>"1","cid"=>"1","name"=>"AOC")
+											,array("id"=>"2","cid"=>"1","name"=>"法国Level2")  
+		,array("id"=>"3","cid"=>"1","name"=>"法国Level3")  
+		,array("id"=>"4","cid"=>"1","name"=>"法国Level4")  
+		,array("id"=>"5","cid"=>"2","name"=>"意大利Level1")  
+		,array("id"=>"6","cid"=>"2","name"=>"意大利Level2")  
+		,array("id"=>"7","cid"=>"3","name"=>"西班牙Levle1")
+		,array("id"=>"8","cid"=>"3","name"=>"西班牙Level2")
+		,array("id"=>"9","cid"=>"3","name"=>"西班牙Level3")
+		,array("id"=>"10","cid"=>"3","name"=>"西班牙Level4") );  
+		 self::debug("getWineLevelArray.".$level_items);
+		 return $level_items;
 	} 
+	
+	
 	
 	/**
 	 * 获取葡萄糖分
