@@ -105,7 +105,7 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
         $quantity = $this->getQuantity();
         $com_size = $this->getSize();
         
-        self::debug("Product[$sku] and quantity[$quantity] and size[$com_size]", __METHOD__);
+        self::debug("Product[$com_sku] and quantity[$quantity] and size[$com_size]", __METHOD__);
         
         $cart = new Common_Util_Cart();
         $cart->addItem($com_sku,$com_size);
@@ -214,17 +214,17 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
         //预设临时订单编号
         $reference = Common_Util_Shop::getOrderReference();
         self::debug("get exist reference[$reference]..", __METHOD__);
-        if(is_null($reference)){
-            $reference = Common_Util_Shop::_genOderReference();
-            Common_Util_Shop::setOrderReference($reference);
-        }
+       // if(is_null($reference)){
+       //     $reference = Common_Util_Shop::_genOderReference();
+       //     Common_Util_Shop::setOrderReference($reference);
+       //  }
         //检测是否已存在临时订单信息
         $condition = 'reference=? AND expire > ?';
         $vars = array($reference, Common_Util_Date::getUnixTimestamp());
         $value = array();
         
         $model->findFirst(array('condition'=>$condition,'vars'=>$vars));
-        if($model->count()){
+        if(!is_null($reference) &&  $model->count() ){
             $value = unserialize($model['data']);
         }else{
             //查看用户是否有默认配送地址
@@ -243,9 +243,11 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
             
             $model->setIsNew(true);
             $model->setId(null);
+            $reference = Common_Util_Shop::_genOderReference(); 
             $model->setReference($reference);
             $model->setData(serialize($value));
             $model->save();
+             Common_Util_Shop::setOrderReference($reference);
             self::debug('insert orders temp data done...', __METHOD__);
         }
         $areas = new Common_Model_Areas();

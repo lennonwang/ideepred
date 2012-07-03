@@ -110,7 +110,7 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
 		unset($store);
 		
 		$model = new Common_Model_Product();
-		$condition = 'state=? AND category_id=?';
+		$condition = 'state=? AND store_id=?';
 		$vars = array(1,$store_id);
 		//获取记录数
 		$records = $model->countIf($condition,$vars);
@@ -461,29 +461,29 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
         //获取产品照片
       
         $asset_list = $model->findRelationModel('assets',array('size'=>-1),$id)->getResultArray(); 
-		$content_image = array();
-		$detail_image = array();
+				$content_image = array();
+				$detail_image = array();
         if(!empty($asset_list)){
             for($i=0;$i<count($asset_list);$i++){
                 $parent_type = $asset_list[$i]['parent_type'];
                 $path = $asset_list[$i]['path'];
                 $domain = $asset_list[$i]['domain'];
 				
-				//细节照片
-				$asset_list[$i]['asset_url'] = Common_Util_Storage::getAssetUrl($domain,$path);
-				if($parent_type == Common_Model_Constant::PRODUCT_WHOLE){
-					$detail_image[] = $asset_list[$i];
-				}
-				//内容图片
-                if($parent_type == Common_Model_Constant::PRODUCT_SOURCE){
-					$content_image[] =  $asset_list[$i];
-				}
+							//细节照片
+							$asset_list[$i]['asset_url'] = Common_Util_Storage::getAssetUrl($domain,$path);
+							if($parent_type == Common_Model_Constant::PRODUCT_WHOLE){
+								$detail_image[] = $asset_list[$i];
+							}
+							//内容图片
+              if($parent_type == Common_Model_Constant::PRODUCT_SOURCE){
+								$content_image[] =  $asset_list[$i];
+							}
 				
                 if($parent_type == Common_Model_Constant::PRODUCT_THUMB){
                     $product['asset_thumb'] = $asset_list[$i];
-					//$detail_image[] = $asset_list[$i];
-                    //过滤掉缩略图
-                    //unset($asset_list[$i]);
+									//$detail_image[] = $asset_list[$i];
+                  //过滤掉缩略图
+                  //unset($asset_list[$i]);
                 }
             }
         }
@@ -504,21 +504,36 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
 
 		
 		//获取产品所属品牌
-		$store_id = $product['category_id'];
+		$store_id = $product['store_id'];
 		if(!empty($store_id)){
 			$store = new Common_Model_Store();
 			$store_brand = $store->findById($store_id)->getResultArray();
 			$this->putContext('store_brand', $store_brand);
 			unset($store);
 		}
+		
+		//获取产品所属类别
+		$category_id = $product['category_id'];
+		if(!empty($category_id)){
+			$category = new Common_Model_Category();
+			$wine_category = $category->findById($category_id)->getResultArray();
+			$this->putContext('wine_category', $wine_category);
+			unset($category);
+		}
+		
+		//获取红酒国家、产地和分级等信息  
+		$productInfo = Common_Model_ProductInfo::getProductInfo($product);
+		$this->putContext('product_info', $productInfo);
+		unset($productInfo);
+		
         //获取浏览记录
         $visited_products = Common_Util_Product::fetchVisitedProducts();
         //写入浏览记录
         Common_Util_Product::pushVisitedProducts($id);
-		//记录查看次数
-		Common_Event_Update::updateProductCount($id,'view_count');
+			//记录查看次数
+			Common_Event_Update::updateProductCount($id,'view_count');
 		
-		$like_products = Common_Util_Product::findLikeProducts($id);
+			$like_products = Common_Util_Product::findLikeProducts($id);
         
         $this->putContext('product', $product);
         $this->putContext('visited_products', $visited_products);
