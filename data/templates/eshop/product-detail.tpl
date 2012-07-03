@@ -102,33 +102,40 @@
 						</div>
 						
 						<div class="bebx">
-							<label>型号：{$product.mode|default:'无'}</label>
+							<label>类别：{$wine_category.name|default:'无'}</label>
+							<a href="{Common_Smarty_Url_format key='category_list' id=$wine_category.id}" class="more" />更多 {$wine_category.name} 产品 »</a>
 						</div>
 						<div class="bebx">
 							<label>价 格： <span class="red">￥{$product.sale_price}</span></label>
 						</div>
+						{if $product.wine_ml}
 						<div class="bebx">
-							<label>颜 色： {$product.color|default:'无'}</label>
-						</div>
-						{if $product.material}
-						<div class="bebx">
-							<label>材 质： {$product.material}</label>
+							<label>净含量： {$product.wine_ml} 毫升</label>
 						</div>
 						{/if}
-						<div class="bebx aorange">
+						{if $product.wine_country}
+						<div class="bebx">
+							<label>产 地：     {$product_info->wine_country_name} 
+							  	&nbsp;&nbsp; 	{$product_info->wine_area_name}
+							  	&nbsp;&nbsp; 	{$product_info->wine_level_name}
+							  </label>
+						</div>
+						{/if}
+					<!--	<div class="bebx aorange">
 							<label>包装费用： 无</label>  <a href="#" class="ml-20">查看运费</a>
 						</div>
-						
+						-->
 
 						<div class="bebx clearfix">
 							<form action="{Common_Smarty_Url_format key='add_cart' id=$product.id}" method="post">
 								<input type="hidden" name="id" value="{$product.id}" id="com_sku" />
-								<div class="jaline">
+								 <div class="jaline">
 									<label>外形尺寸：{if $product.width or $product.height or $product.length}{$product.length} x {$product.width} x {$product.height} cm{else}均码{/if}</label>
 									<input type="hidden" name="size" value="F" id="com_size" />
-								</div>
+								</div> 
 								<div class="mb-10">
 									<label>数 量： <input type="text" value="1" name="quantity"  class="small-text quantity-count" /> {$product.unit}</label>
+									（库存{$product.stock}件)）
 								</div>
 								<div class="buy clearfix">
 									<input type="image" src="/images/eshop/icon-nowbuy.png" class="nowbuy" />
