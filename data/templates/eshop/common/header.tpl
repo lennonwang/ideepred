@@ -1,8 +1,8 @@
 <div id="header" class="mb-10">
 	<div class="site-box mt-10 clearfix">
 		<div class="logosite fl">
-			<a href="{Common_Smarty_Url_format key=domain}" title="万行商城">
-				<img src="/images/eshop/wanhang-new-logo.jpg" alt="万行商城" />
+			<a href="{Common_Smarty_Url_format key=domain}" title="爱深红">
+				<img src="/images/eshop/wanhang-new-logo.jpg" alt="爱深红" />
 			</a>
 		</div>
 		
@@ -30,20 +30,15 @@
 					<a href="{Common_Smarty_Url_format key=domain}" {if $current_menu == 'tab_index'}class="actived"{/if}>首 页</a>
 				</li>
 				<li>
-					<a href="{Common_Smarty_Url_format key=channel slug=tablet}" {if $current_menu == 'tab_tablet'}class="actived"{/if}>数位板1</a>
+					<a href="{Common_Smarty_Url_format key=channel slug=red}" {if $current_menu == 'tab_tablet'}class="actived"{/if}>红葡萄酒</a>
 				</li>
 				<li>
-					<a href="{Common_Smarty_Url_format key=channel slug=worksite}" {if $current_menu == 'tab_worksite'}class="actived"{/if}>工作站</a>
+					<a href="{Common_Smarty_Url_format key=channel slug=white}" {if $current_menu == 'tab_worksite'}class="actived"{/if}>白葡萄酒</a>
 				</li>
 				<li>
-					<a href="{Common_Smarty_Url_format key=channel slug=notepad}" {if $current_menu == 'tab_notepad'}class="actived"{/if}>笔记本</a>
+					<a href="{Common_Smarty_Url_format key=channel slug=pink}" {if $current_menu == 'tab_notepad'}class="actived"{/if}>桃红葡萄酒</a>
 				</li>
-				<li>
-					<a href="{Common_Smarty_Url_format key=channel slug=xiaoseyi}" {if $current_menu == 'tab_xiaoseyi'}class="actived"{/if}>校色仪</a>
-				</li>
-				<li>
-					<a href="{Common_Smarty_Url_format key=channel slug=peijian}" {if $current_menu == 'tab_peijian'}class="actived"{/if} >配件</a>
-				</li>
+ 	<!--
 				<li>
 					<a href="{Common_Smarty_Url_format key=channel slug=book}" {if $current_menu == 'tab_book'}class="actived"{/if} >图书</a>
 				</li>
@@ -53,7 +48,7 @@
 				<li>
 					<a href="{Common_Smarty_Url_format key=build}" >画吧</a>
 				</li>
-				<!--
+			
 				<li>
 					<a href="#" >社区</a>
 				</li>

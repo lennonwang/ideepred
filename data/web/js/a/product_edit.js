@@ -55,7 +55,45 @@ $("docunment").ready(function(){
 	
 });
 
-function updateCatChange(){
+
+	function changeCountry(){
+			var changeCountryId =  $('#wine_country').val();
+			
+			//reset area select options
+			 $("#wine_area").empty();
+			 	$("#wine_area").append("<option value='0'>请选择葡萄产区</option>");
+		  for(var i=0;i<wineAreaList.length;i++){
+				 var winearea = wineAreaList[i];
+				 if(winearea[0] == changeCountryId){ 
+						console.log('winarea:::'+winearea[0]+"\t"+winearea[1]);
+						$("#wine_area").append("<option value='"+winearea[1]+"'>"+winearea[2]+"</option>");
+				 } 
+			}
+			$("#wine_area option[value='{$product.wine_area}']").attr("selected","selected");
+			
+				//reset level select options
+			 $("#wine_level").empty();
+			 	$("#wine_level").append("<option value='0'>请选择葡萄酒级别</option>");
+		  for(var i=0;i<wineLevelList.length;i++){
+				 var winelevel = wineLevelList[i];
+				 if(winelevel[0] == changeCountryId){ 
+						console.log('winelevel:::'+winelevel[0]+"\t"+winelevel[1]);
+						$("#wine_level").append("<option value='"+winelevel[1]+"'>"+winelevel[2]+"</option>");
+				 } 
+			}
+			$("#wine_level option[value='{$product.wine_level}']").attr("selected","selected");
+			
+		}
+				
+function updateCatChange(){ 
+	var changeCatId =  $('#category_id').val();
+	console.log('changeCatId:::'+changeCatId);
+	for(var i=0;i<catList.length;i++){
+		 var cat = catList[i];
+		 if(cat[0] == changeCatId){
+				 $('#cat_code').val(cat[1] );
+		 }
+	}
 	var ids = new Array();
 	$('#category_id option').filter(":selected").each(function(){ 
 		ids.push($(this).val());

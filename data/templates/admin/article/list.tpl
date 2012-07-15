@@ -42,9 +42,9 @@
 						<div class="alignleft actions">
 							<select class="select-action" name="action" gtbfieldid="164">
 								<option selected="selected" value="-1">批量动作</option>
-								<option value="delete">永久删除</option>
+								<option value="remove">永久删除</option>
 							</select>
-							<input type="submit" class="button-secondary action" id="doaction" name="doaction" value="应用">
+							<input type="button" class="button-secondary action" id="doaction" name="doaction"   value="应用1">
 							<select class="select-action" name="sort_ids" gtbfieldid="164">
 								<option selected="selected" value="">请选择筛选分类</option>
 								{foreach from=$sort_list item=sort}
@@ -81,7 +81,7 @@
 							{foreach from=$articles item=article name=article}
 							<tr id="article_tr_{$article.id}" class="iedit{if $smarty.foreach.article.iteration%2 } alternate{/if}">
 								<th class="check-column" scope="row">
-									<input type="checkbox" value="{$article.id}" name="delete[]" />
+									<input type="checkbox" value="{$article.id}" name="delete[]" class="xe-shid"/>
 								</th>
 								<td>{$article.id}</td>
 								<td>

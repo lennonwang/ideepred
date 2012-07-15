@@ -103,7 +103,7 @@
 						
 						<div class="bebx">
 							<label>类别：{$wine_category.name|default:'无'}</label>
-							<a href="{Common_Smarty_Url_format key='category_list' id=$wine_category.id}" class="more" />更多 {$wine_category.name} 产品 »</a>
+							<a href="{Common_Smarty_Url_format key='category_list' id=$wine_category.code}" class="more" />更多 {$wine_category.name} 产品 »</a>
 						</div>
 						<div class="bebx">
 							<label>价 格： <span class="red">￥{$product.sale_price}</span></label>

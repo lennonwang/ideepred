@@ -163,7 +163,13 @@ abstract class Common_Model_Table_Product extends Anole_ActiveRecord_Base {
     'type' => 'N',
     'length' => '3',
   ),
-  'category_id' => 
+  'cat_code' => 
+  array (
+    'name' => 'cat_code',
+    'type' => 'S',
+    'length' => '25',
+  ),
+   'category_id' => 
   array (
     'name' => 'category_id',
     'type' => 'N',
@@ -259,9 +265,21 @@ abstract class Common_Model_Table_Product extends Anole_ActiveRecord_Base {
     'type' => 'N',
     'length' => '11',
   ),
-  'grape_area' => 
+  'wine_country' => 
   array (
-    'name' => 'grape_area',
+    'name' => 'wine_country',
+    'type' => 'N',
+    'length' => '4',
+  ),
+   'wine_area' => 
+  array (
+    'name' => 'wine_area',
+    'type' => 'N',
+    'length' => '4',
+  ),
+   'wine_level' => 
+  array (
+    'name' => 'wine_level',
     'type' => 'N',
     'length' => '4',
   ),
@@ -1083,25 +1101,44 @@ abstract class Common_Model_Table_Product extends Anole_ActiveRecord_Base {
     public function getStoreId(){
         return $this->get('store_id');
     }
+    
+    
         /**
-     * 设置属性'grape_area'的值
+     * 设置属性'wine_country'的值
      *
-     * @param  integer $value
+     * @param  string $value
      * 
      * @return Product
      */
-    public function setGrapeArea($value){
-        $this->set('grape_area',$value);
+    public function setWineCountry($value){
+        $this->set('wine_country',$value);
         return $this;
     }
     /**
-     * 获取属性:'grape_area'的值
+     * 获取属性:'wine_country'的值
      * 
-     * @return integer
+     * @return string
      */
-    public function getGrapeArea(){
-        return $this->get('grape_area');
+    public function getWineCountry(){
+        return $this->get('wine_country');
     }
+       
+     public function setWineArea($value){
+        $this->set('wine_area',$value);
+        return $this;
+    }
+    public function getWineArea(){
+        return $this->get('wine_area');
+    }
+    
+    public function setWineLevel($value){
+        $this->set('wine_level',$value);
+        return $this;
+    }
+    public function getWineLevel(){
+        return $this->get('wine_level');
+    }
+    
         /**
      * 设置属性'grape_breed'的值
      *

@@ -22,7 +22,7 @@
 	<div id="container">
 		<div class="box">
 			<div class="bordor profile">
-				<h2 class="ft14">登录万行商城</h2>
+				<h2 class="ft14">登录爱深红</h2>
 				
 				<form method="post" action="/app/eshop/profile/do_login" name="profile" id="user_login">
 					<div id="reqstatus_boxes"></div>

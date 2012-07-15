@@ -280,10 +280,10 @@ class Admin_Action_Product extends Admin_Action_Entry {
 						if(isset($grape_breed)){
 							$grape_breed=implode(",", $grape_breed);
 						}
-	         $model->setGrapeBreed($grape_breed);
+	        $model->setGrapeBreed($grape_breed);
+	        
 	        
             $model->save();
-            
             $id = $model->getId();
 	        
 	        //产品添加成功后，更新附件类别

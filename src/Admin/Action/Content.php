@@ -286,12 +286,31 @@ class Admin_Action_Content extends Admin_Action_Entry {
             return $this->_redirectLogin();
         }
     	$id = $this->getId();
+    	 self::warn("id:::###################".$id);
         if(empty($id)){
             //error page
             return $this->_hintResult('删除信息的Id为空!');
+        } 
+        $id = preg_split('/,/',$id);
+        if(!is_array($id)){
+            $id = array($id);
         }
+        try{
+        	 $model = $this->wiredModel();
+            foreach($id as $articleId){
+            	 self::warn("articleId:::###################".$articleId);
+                $model->destroy($articleId);
+            }
+        }catch(Anole_ActiveRecord_Exception $e){
+            self::warn("Delete article Error: ".$e->getMessage(), __METHOD__);
+            $this->_jqErrorTip("Delete article Error: ".$e->getMessage());
+        }catch(Anole_Exception $e){
+            self::warn("Destory excute failed: ".$e->getMessage(), __METHOD__);
+            return $this->_jqErrorTip($e->getMessage());
+        }
+        
         //split id string
-        $_ids = preg_split('/,/',$id);
+       /* $_ids = preg_split('/,/',$id);  
         try{
             $model = $this->wiredModel();
             $model->destroy($_ids);
@@ -302,7 +321,8 @@ class Admin_Action_Content extends Admin_Action_Entry {
             self::warn("Destory excute failed: ".$e->getMessage(), __METHOD__);
             return $this->_jqErrorTip($e->getMessage());
         }
-        $this->putContext('ids', $_ids);
+        */
+        $this->putContext('ids', $id);
         $this->putContext('edit_mode','delete');
         
         return $this->jqueryResult('admin.article.edit_ok');    

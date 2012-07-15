@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>登录万行息管理系统</title>
+	<title>登录爱深红管理系统</title>
 	<meta name="author" content="xiaoyi">
 	<link href="/csstyle/xe-mainstyle.css" type="text/css" rel="stylesheet" />
 </head>

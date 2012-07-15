@@ -16,6 +16,8 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
     private $_slug=null;
 	//分类代码
 	private $_catcode=null;
+	//分类ID
+	private $_catid=null;
 	//每页显示个数
 	private $_size=20;
 	//排序方式
@@ -362,7 +364,8 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
         $size  = $this->getSize();
         $style = $this->getStyle();
         $orderby = $this->getOrderBy();
-        
+        self::debug("[param]:categoryList:catcode:".$catcode
+        		."\t page:".$page."\t size:".$size."\t style:".$style."\t order".$orderby);
         //获取当前分类
         $category = new Common_Model_Category();
         $options = array(
@@ -409,6 +412,7 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
             'size'=>$size,
             'order'=>$this->_getOrderWay($orderby)
         );
+         self::debug("[param]:categoryList:condition:".$condition.' vars:'.$vars.' orderby:'.$this->_getOrderWay($orderby));
         $product_list = $product->find($options)->getResultArray();
 		
         $this->putContext('catcode', $catcode);
@@ -634,7 +638,15 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
         return $this->_slug;
     }
     
-    public function setCatcode($v){
+	public function setCatid($v){
+    	$this->_catid = $v;
+    	return $this;
+    }
+    public function getCatid(){
+    	return $this->_catid;
+    }
+    
+	public function setCatcode($v){
     	$this->_catcode = $v;
     	return $this;
     }

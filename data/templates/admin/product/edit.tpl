@@ -5,12 +5,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" href="/csstyle/xe-mainstyle.css" type="text/css" />
-	{smarty_include admin.system.jscript}
-	<script type="text/javascript" src="/js/uploadify/swfobject.js"></script>
-	<script type="text/javascript" src="/js/uploadify/jquery.uploadify.v2.1.0.js"></script>
-	<script type="text/javascript" src="/js/tiny_mce/tiny_mce.js"></script>
-	<script type="text/javascript" src="/js/a/product_edit.js"></script>
-	<script>
+	
+		<script>
 				var wineAreaList = new Array();
 				{foreach from=$wine_area_array item=area}
 					wineAreaList[wineAreaList.length]=new Array("{$area.cid}","{$area.id}","{$area.name}");
@@ -21,7 +17,17 @@
 					wineLevelList[wineLevelList.length]=new Array("{$level.cid}","{$level.id}","{$level.name}");
 				{/foreach}
 				
+				var catList = new Array();
+				{foreach from=$all_category item=cat}
+					catList[catList.length]=new Array("{$cat.id}","{$cat.code}","{$cat.name}");
+				{/foreach} 
 	</script>
+				{smarty_include admin.system.jscript}
+	<script type="text/javascript" src="/js/uploadify/swfobject.js"></script>
+	<script type="text/javascript" src="/js/uploadify/jquery.uploadify.v2.1.0.js"></script>
+	<script type="text/javascript" src="/js/tiny_mce/tiny_mce.js"></script>
+	<script type="text/javascript" src="/js/a/product_edit.js"></script>
+
 	
 </head>
 
@@ -43,7 +49,7 @@
 				
 				<div id="poststuff" class="metabox-holder has-right-sidebar"> 
 					 
-					 	<div id="post-body-content">
+					 	<div id="post-body-content" style="margin-right: 10px;">
 						  
 						 <p class="submit" style="text-align:center">
 								 <input type="submit" value=" 确认提交 " name="submit" class="button"  id="submit_product" />
@@ -76,7 +82,7 @@
 												<label for="wine_code">红酒编码：</label>
 											</th>
 												<td >  
-												<input type="text" size="30" value="{$product.wine_code}" id="wine_code" name="wine_code"   /> 
+												<input type="text" size="30" value="{$product.wine_code}" id="wine_code" name="wine_code"  tabindex="2"  /> 
 								            </td> 
 								             
 										 
@@ -98,14 +104,14 @@
 												<label for="retail_price">进货价格：</label>
 											</th>
 											<td>
-												<input type="text" size="20" value="{$product.retail_price}" id="retail_price" name="retail_price" tabindex="2" /> 
+												<input type="text" size="20" value="{$product.retail_price}" id="retail_price" name="retail_price" tabindex="3" /> 
 								            </td>
 											<th scope="row">
 												<label for="market_price">市场价格：</label>
 											</th>
 									  
 											<td>
-												<input type="text" size="20" value="{$product.market_price}" id="market_price" name="market_price" tabindex="3" /> 
+												<input type="text" size="20" value="{$product.market_price}" id="market_price" name="market_price" tabindex="4" /> 
 								            </td>
 								       </tr>
 									   <tr>
@@ -113,13 +119,13 @@
 												<label for="sale_price">优惠价格：</label>
 											</th>
 											<td>
-												<input type="text" size="20" value="{$product.sale_price}" id="sale_price" name="sale_price" tabindex="4" />
+												<input type="text" size="20" value="{$product.sale_price}" id="sale_price" name="sale_price" tabindex="5" />
 								            </td>
 											<th scope="row">
 												<label for="member_price">会员价格：</label>
 											</th>
 											<td>
-												<input type="text" size="20" value="{$product.member_price}" id="member_price" name="member_price" tabindex="5" />
+												<input type="text" size="20" value="{$product.member_price}" id="member_price" name="member_price" tabindex="6" />
 								            </td>
 											
 										</tr>
@@ -189,7 +195,7 @@
 												<label for="wine_ml">净含量：</label>
 											</th>
 											<td  >   
-												<input type="text" size="10" value="{$product.wine_ml}" id="wine_ml" name="wine_ml" tabindex="2" /> ML(毫升)
+												<input type="text" size="10" value="{$product.wine_ml}" id="wine_ml" name="wine_ml" tabindex="8" /> ML(毫升)
 								            </td> 
 								             
 								             <th scope="row">
@@ -210,13 +216,13 @@
 												<label for="stock">库存：</label>
 											</th>
 												<td >  
-												<input type="text" size="30" value="{$product.stock}" id="stock" name="stock" /> 
+												<input type="text" size="30" value="{$product.stock}" id="stock" name="stock" tabindex="9" /> 
 								            </td> 
                                              <th scope="row">
 												<label for="stock_alarm">库存警告：</label>
 											</th>
 												<td >  
-												<input type="text" size="30" value="{$product.stock_alarm}" id="stock_alarm" name="stock_alarm"  /> 
+												<input type="text" size="30" value="{$product.stock_alarm}" id="stock_alarm" name="stock_alarm"  tabindex="10"  /> 
 								            </td> 
                                         </tr>
                                     
@@ -251,6 +257,7 @@
 											</td> 
 											<th scope="row">	<a class="hide-if-no-js" href="/app/admin/category" > 类别：</a></th>
 											<td>
+												<input type="hidden" name="cat_code" id="cat_code" value="{$product.cat_code}"/>
 											<select  name="category_id" id="category_id">
 												<option value="0">请选择</option>
 											{foreach from=$all_category item=cate} 

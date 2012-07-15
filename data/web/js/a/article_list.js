@@ -11,6 +11,7 @@ function selected_none(){
 //批量删除/审核/推荐
 function done_batch(){
 	var u = getUrl(this.href);
+	alert('u::'+u);
 	var ids = new Array();
 	$('input.chk_atc').filter(':checked').each(function(){
 		var id = this.value;
@@ -20,14 +21,41 @@ function done_batch(){
 		alert('请至少选择一个资讯操作!');
 		return false;
 	}
+	alert('id:::'+ids);
+	return false;
 	$.get(u,{id:ids.join(',')});
 	return false;
 }
+
+
 
 $(function(){
 	$('table.widefat tr').hover(function(){
 		$(this).find('div.row-actions').css({'visibility':'visible'});
 	},function(){
 		$(this).find('div.row-actions').css({'visibility':'hidden'});
+	});
+	
+
+	$('#doaction').click(function(){
+		
+		var action = $('select.select-action option').filter(':selected').val();
+		console.log('tester'+action);
+		var ids = new Array();
+		$('input.xe-shid').filter(':checked').each(function(){
+			var id = $(this).val();
+			ids.push(id);
+		});
+		if(!ids.length){
+			return false;
+		}
+		console.log('id:::::'+ids);
+		if(action == 'remove'){
+			$.get('/app/admin/content/remove',{id:ids.join(',')});
+		}else if(action == 'published'){
+			$.get('/app/admin/content/published',{id:ids.join(','),stick:1});
+		}else{
+			//skip
+		}
 	});
 });
