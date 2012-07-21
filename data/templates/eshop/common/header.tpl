@@ -2,7 +2,7 @@
 	<div class="site-box mt-10 clearfix">
 		<div class="logosite fl">
 			<a href="{Common_Smarty_Url_format key=domain}" title="爱深红">
-				<img src="/images/eshop/wanhang-new-logo.jpg" alt="爱深红" />
+				<img src="/images/eshop/ideepred_log.png" alt="爱深红" />
 			</a>
 		</div>
 		
@@ -29,15 +29,16 @@
 				<li>
 					<a href="{Common_Smarty_Url_format key=domain}" {if $current_menu == 'tab_index'}class="actived"{/if}>首 页</a>
 				</li>
-				<li>
-					<a href="{Common_Smarty_Url_format key=channel slug=red}" {if $current_menu == 'tab_tablet'}class="actived"{/if}>红葡萄酒</a>
+				<li> 
+					<a href="{Common_Smarty_Url_format key=category_list catcode=AVNN}" {if $current_menu == 'tab_AVNN'}class="actived"{/if}>红葡萄酒</a>
+					<!--
+						<a href="{Common_Smarty_Url_format key=channel slug=red}" {if $current_menu == 'tab_tablet'}class="actived"{/if}>红葡萄酒</a>
+					-->
 				</li>
 				<li>
-					<a href="{Common_Smarty_Url_format key=channel slug=white}" {if $current_menu == 'tab_worksite'}class="actived"{/if}>白葡萄酒</a>
-				</li>
+					<a href="{Common_Smarty_Url_format key=category_list catcode=ATHW}" {if $current_menu == 'tab_ATHW'}class="actived"{/if}>白葡萄酒</a>	</li>
 				<li>
-					<a href="{Common_Smarty_Url_format key=channel slug=pink}" {if $current_menu == 'tab_notepad'}class="actived"{/if}>桃红葡萄酒</a>
-				</li>
+				<a href="{Common_Smarty_Url_format key=category_list catcode=AGOC}" {if $current_menu == 'tab_AGOC'}class="actived"{/if}>桃红葡萄酒</a>	</li>
  	<!--
 				<li>
 					<a href="{Common_Smarty_Url_format key=channel slug=book}" {if $current_menu == 'tab_book'}class="actived"{/if} >图书</a>

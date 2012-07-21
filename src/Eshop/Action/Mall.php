@@ -319,6 +319,7 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
             'vars'=>array($channel_code,$channel_code,1,0),
             'order'=>'total DESC,stick DESC, id ASC'
         );
+			  self::debug("channel_code======".$channel_code);
         $stick_category = $category->find($options)->getResultArray();
         if(!empty($stick_category)){
             for($i=0;$i<count($stick_category);$i++){
@@ -341,7 +342,7 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
         $this->putContext('category_channel', $category_channel);
         $this->putContext('children_category', $children_category);
 
-		$this->putSharedParam();
+				$this->putSharedParam();
         $this->putContext('current_menu', 'tab_'.$slug);
 		
         return $this->smartyResult('eshop.channel');
@@ -433,8 +434,8 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
         $this->putContext('category_path', $category_path);
         
         $this->putContext('product_list', $product_list);
-        
-		$this->putSharedParam();
+        $this->putContext('current_menu', 'tab_'.$catcode);
+		  	$this->putSharedParam();
 		
         return $this->smartyResult('eshop.category-list');
     }
@@ -462,8 +463,7 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
             return $this->_hintResult($message,true);
         }
 
-        //获取产品照片
-      
+        //获取产品照片 附件中获取 需要detail_image
         $asset_list = $model->findRelationModel('assets',array('size'=>-1),$id)->getResultArray(); 
 				$content_image = array();
 				$detail_image = array();

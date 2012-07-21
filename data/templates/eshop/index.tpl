@@ -44,7 +44,7 @@
 			</a>
 		</div>
 		{/if}
-		
+		<!--
 		<div class="box pt-10">
 			<h3><img src="/images/eshop/stuff-catetitle.png" alt="产品分类"/></h3>
 			
@@ -81,7 +81,7 @@
 				</li>
 			</ul>
 		</div>
-		
+		-->
 		<div class="box pt-10">
 			<h3><img src="/images/eshop/recstuff-title.png" alt="推荐产品"/></h3>
 			

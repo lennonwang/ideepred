@@ -8,8 +8,8 @@
 				<ul>
 				{foreach from=$children_category item=category name=cate}
 					<li class="ifarther {$category.classname} {if $smarty.foreach.cate.last}last{/if}">
-						<a href="{Common_Smarty_Url_format key=category_list catcode=$category.code}" title="{$category.name}" {if $category.code eq $current_category.code}class="current"{/if}>
-							<span> {$category.name} </span>
+						<a href="{Common_Smarty_Url_format key=category_list catcode=$category.code}" title="{$category.name}-" {if $category.code eq $current_category.code}class="current"{/if}>
+							<span> {$category.name}</span>
 						</a>
 					</li>
 				{/foreach}
