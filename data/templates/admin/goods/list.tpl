@@ -8,7 +8,7 @@
 	<meta name="author" content="purpen">
 	<link href="/csstyle/changelist.css" type="text/css" rel="stylesheet" />
 	{smarty_include admin.jscript}
-	<script type="text/javascript" src="/js/c/jquery.checkboxes.js"></script>
+	<script type="text/javascript" src="/js/d/jquery.checkboxes.js"></script>
 	<script type="text/javascript" src="/js/a/product_list.js"></script>
 </head>
 

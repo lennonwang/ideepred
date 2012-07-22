@@ -21,10 +21,9 @@ class Common_Smarty_Advertise extends Anole_Object {
 		$item='ad';
 		$number=null; //广告编号
 		$size=1;
-		$page=1;
-		
+		$page=1; 
 		extract($params,EXTR_IF_EXISTS);
-		
+		self::debug("!!!!!!!!!!!!!!!!!!!smarty_block_findAdmany!".$number." size:".$size."\t item=", __METHOD__);
 		if(empty($number)){
 			self::warn("find advertise 's number is null!", __METHOD__);
 			return false;

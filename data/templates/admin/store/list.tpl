@@ -8,7 +8,7 @@
 	<meta name="author" content="purpen">
 	<link rel="stylesheet" href="/csstyle/xe-mainstyle.css" type="text/css" />
 	{smarty_include admin.system.jscript}
-	<script type="text/javascript" src="/js/c/jquery.checkboxes.js"></script>
+	<script type="text/javascript" src="/js/d/jquery.checkboxes.js"></script>
 	<script type="text/javascript" src="/js/uploadify/swfobject.js"></script>
 	<script type="text/javascript" src="/js/uploadify/jquery.uploadify.v2.1.0.js"></script>
 	<script type="text/javascript" src="/js/a/store.js"></script>

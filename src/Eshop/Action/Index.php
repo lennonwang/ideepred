@@ -48,7 +48,7 @@ class Eshop_Action_Index extends Eshop_Action_Common {
     	$category = new Common_Model_Category();
     	//获取一级分类（频道）
         $category_channel = $category->findFirstCategory();
-		$category_menu = array();
+				$category_menu = array();
         for($i=0;$i<count($category_channel);$i++){
         	$code = $category_channel[$i]['code'];
         	$category_channel[$i]['children'] = $category->findChildrenCategory($code,true,8);

@@ -125,6 +125,19 @@
 						</ul>
 					 </div>
 				</li>
+				<li id="menu-advertise" class="am-bg wp-has-submenu">
+					<div class="am-menu-image"><a href="/app/admin/asset" target="mainFrame"><br></a></div>
+				    <div class="am-menu-toggle"><br></div>
+					<a tabindex="6" class="wp-first-item menu-top" href="/app/admin/advertise" target="mainFrame">广告管理</a>
+					<div class="am-submenu">
+						<div class="am-submenu-head">附件管理</div>
+						<ul>
+							<li class="wp-first-item">
+								<a class="wp-first-item" href="/app/admin/advertise" target="mainFrame">广告列表</a>
+							</li>
+						</ul>
+					 </div>
+				</li>
 				<li class="am-menu-separator"><a href="?unfoldmenu=1" class="separator"><br></a></li>
 				<li id="menu-users" class="am-bg wp-has-submenu">
 					<div class="am-menu-image"><a href="/app/admin/user" target="mainFrame"><br></a></div>

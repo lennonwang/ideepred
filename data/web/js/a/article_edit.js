@@ -1,7 +1,7 @@
 $(function(){
-	$('#cbody').val(ary_content.p_1);
-	createContentPage();
-	hook_page_nav();
+	//$('#cbody').val(ary_content.p_1);
+	//createContentPage();
+	//hook_page_nav();
 	
 	$('#save_product_draft').click(function(){
 		var state = $('#article_status').val();
@@ -15,6 +15,7 @@ $(function(){
 		$('#edit_article_frm').submit();
 	});
 	
+	/*
 	$('input[@name=sort_id]').bind('change', function(){
 		if (this.checked){
 			$(this).next('label').addClass('selected');
@@ -22,7 +23,7 @@ $(function(){
 			$(this).next('label').removeClass('selected');
 		}
 	});
-	
+	*/
 	hook_validate_frm();
 	
 	var article_id = $('#article_id').val();
@@ -217,7 +218,7 @@ function hook_validate_frm(){
 		submitHandler: function(form) {
 			try{
 				
-				rebuildContent();
+			//	rebuildContent();
 				
 				$(form).ajaxSubmit();
 			}catch(e){

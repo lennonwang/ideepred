@@ -35,7 +35,7 @@ function hook_loading_progress(){
 }
 
 function hook_history_back(){
-	$('input[@name=_back]').bind('click',function(){
+	$('#_back').bind('click',function(){
 		window.location.href = history.back();
 	});
 }

@@ -6,7 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" href="/csstyle/xe-mainstyle.css" type="text/css" />
 	{smarty_include admin.system.jscript}
-	<script type="text/javascript" src="/js/c/jquery.checkboxes.js"></script>
+	<script type="text/javascript" src="/js/d/jquery.checkboxes.js"></script>
 	<script type="text/javascript" src="/js/a/assets.js"></script>
 </head>
 

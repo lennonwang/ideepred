@@ -10,6 +10,7 @@
 	<script type="text/javascript" src="/js/uploadify/jquery.uploadify.v2.1.0.js"></script>
 	<script type="text/javascript" src="/js/tiny_mce/tiny_mce.js"></script>
 	<script type="text/javascript" src="/js/a/article_edit.js"></script>
+	<script type="text/javascript" src="/js/xheditor/xheditor-1.1.14-zh-cn.min.js"></script>
 </head>
 
 <body>
@@ -139,55 +140,64 @@
 					</div>
 					<div id="post-body">
 						<div id="post-body-content" style="margin-right:340px;">
-							
-							<div class="productNumber">
-								<table class="form-table">
+							 
+							 <table class="form-table">
 									<tbody>
+									  <tr class="form-field form-required">
+											<th scope="row" style="width:120px;" >
+												<label for="name">名称：</label>
+											</th>
+											<td colspan="3"> 
+											 <input type="text"  id="name" value="{$article.name}" tabindex="1" size="30" name="name">
+											</td> 
+								       </tr>
 										<tr class="form-field form-required">
-											<th scope="row">
+											<th scope="row"  >
 												<label for="author">来源或作者：</label>
 											</th>
-											<td>
-												<input type="text" size="40" value="{$article.author}" id="author" name="author" tabindex="3" /> 
-								            </td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							
-							<div id="titlediv">
-								<div id="titlewrap">
-									<label for="title">标 题：</label>
-									<input type="text"  id="title" value="{$article.title}" tabindex="6" size="30" name="title">
-								</div>
-							</div>
+											<td colspan="3"> 
+											 <input type="text"  id="author" value="{$article.author}" tabindex="1" size="30" name="author">
+											</td> 
+								       </tr>
+										
+										<tr class="form-field form-required">
+											<th scope="row"  >
+												<label for="title">标题：</label>
+											</th>
+											<td colspan="3"> 
+											 <input type="text"  id="title" value="{$article.title}" tabindex="1" size="30" name="title">
+											</td> 
+								       </tr>
+							 </table> 
+								 
 							
 							<div id="postdivrich" class="meta-box-sortables ui-sortable">
 								<div id="editorcontainer" class="postbox">
 									<div title="显示/隐藏" class="handlediv"><br></div>
 									<h3 class="hndle"><span>正 文：</span></h3>
-									<script type="text/javascript">
+								<script type="text/javascript">
 										var ary_content = {$ary_content};
 										var ary_count = {$ary_count};
 									</script>
+									<!--
 									<script type="text/javascript" src="/js/a/init_tiny.js"></script>
 									<div class="inside">
-										<div id="edit_button">
+									 		<div id="edit_button">
 											<span id="jqpage">
 												<a href="javascript:;" id="add">+</a>
 												<a href="javascript:;" id="del">-</a>
 											</span>
 										</div>
+									-->
 										<div class="clear"></div>
-										<textarea id="cbody" name="body" rows="15">{$article.body|stripslashes}</textarea>
+									<!--	<textarea id="cbody" name="body" rows="15">{$article.body|stripslashes}</textarea> -->
+										<textarea id="body" name="body" class="xheditor" rows="12" cols="120" style="width: 80%">{$article.body|stripslashes}</textarea>
 									</div>
 								</div>
-							</div>
-							
-							<div id="normal-sortables" class="meta-box-sortables ui-sortable">
+						 
 								<div id="postexcerpt" class="postbox">
 									<div title="显示/隐藏" class="handlediv"><br></div>
-									<h3 class="hndle"><span>产品摘要</span></h3>
+									<h3 class="hndle"><span>文章摘要</span></h3>
 									<div class="inside">
 										<label for="excerpt" class="screen-reader-text">摘要</label>
 										<textarea id="excerpt" tabindex="8" name="excerpt" cols="40" rows="1">{$article.excerpt}</textarea>
@@ -197,7 +207,8 @@
 								</div>
 								
 							</div>
-							
+							 
+							<!--
 							<div id="postcustom-sortables" class="meta-box-sortables ui-sortable">
 								<div id="postexcerpt" class="postbox">
 									<div title="显示/隐藏" class="handlediv"><br></div>
@@ -267,8 +278,9 @@
 									
 								</div>
 								
-							</div>
-									
+						
+									-->
+										</div>
 						</div>
 					</div>
 					<div class="clear"></div>

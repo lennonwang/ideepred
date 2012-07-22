@@ -6,7 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" href="/csstyle/xe-mainstyle.css" type="text/css" />
 	{smarty_include admin.system.jscript}
-	<script type="text/javascript" src="/js/c/jquery.checkboxes.js"></script>
+	<script type="text/javascript" src="/js/d/jquery.checkboxes.js"></script>
 	<script type="text/javascript" src="/js/a/product.js"></script>
 </head>
 
@@ -128,8 +128,9 @@
 							</td>
 							<td>
 								<strong><a href="/app/admin/product/edit/id/{$product.id}" class="row-title">{$product.title} </a> {if $product.state eq 0}-草稿{/if}</strong>
-								<div class="row-actions"><span class="edit"><a href="/app/admin/purchase/update_quantity/product_id/{$product.id}">变更数量</a></span> 
-								| <span class="edit"><a href="/app/admin/product/edit/id/{$product.id}">编辑</a></span>
+								<div class="row-actions">
+									<!-- <span class="edit"><a href="/app/admin/purchase/update_quantity/product_id/{$product.id}">变更数量</a></span> 
+								| --><span class="edit"><a href="/app/admin/product/edit/id/{$product.id}">编辑</a></span>
 								| <span class="publish"><a href="/app/admin/product/published/id/{$product.id}/stick/{if $product.stick eq 0}1{else}0{/if}" class="jq_a_ajax">{if $product.stick eq 0}推荐{else}取消推荐{/if}</a></span> 
 								| <span class="marked"><a href="/app/admin/product/marked/id/{$product.id}/markshop/{if $product.markshop eq 0}1{else}0{/if}" class="jq_a_ajax">{if $product.markshop eq 0}实体商品{else}取消实体商品{/if}</a></span> 
 								

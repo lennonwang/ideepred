@@ -27,7 +27,8 @@
 	<script type="text/javascript" src="/js/uploadify/jquery.uploadify.v2.1.0.js"></script>
 	<script type="text/javascript" src="/js/tiny_mce/tiny_mce.js"></script>
 	<script type="text/javascript" src="/js/a/product_edit.js"></script>
-
+<!-- -->
+<script type="text/javascript" src="/js/xheditor/xheditor-1.1.14-zh-cn.min.js"></script>
 	
 </head>
 
@@ -380,11 +381,12 @@
 							<div id="postdivrich" class="meta-box-sortables ui-sortable">
 								<div id="editorcontainer" class="postbox">
 									<div title="显示/隐藏" class="handlediv"><br></div>
-									<h3 class="hndle"><span>产品介绍</span></h3>
+									<h3 class="hndle"><span>产品介绍11111</span></h3>
 									<script type="text/javascript" src="/js/a/init_tiny.js"></script>
 									<div class="inside">
-										<label for="content" class="screen-reader-text">产品介绍</label>
-										<textarea id="cbody" tabindex="13" name="content" cols="12" rows="15" >{$product.content|stripslashes}</textarea>
+										<label for="content" class="screen-reader-text">产品介绍111</label>
+										<textarea id="content" name="content" class="xheditor" rows="12" cols="80" style="width: 80%">{$product.content|stripslashes}</textarea>
+									 
 									</div>
 								</div>
 							</div>

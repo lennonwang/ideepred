@@ -42,7 +42,7 @@
 
 				<div class="row">
 					<input class="default" type="submit" name="_submit" value="  ok,保存  "/>
-					<input type="button" name="_back" value=" 撤 销 "/>
+					<input type="button" name="_back" id="_back" value=" 撤 销 "/>
 				</div>
 					
 			</form>

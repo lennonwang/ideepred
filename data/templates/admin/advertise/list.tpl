@@ -13,7 +13,7 @@
 	<div class="icon32" id="icon-edit">
 		<br>
 	</div>
-	<h2>广告列表</h2>
+	<h2>广告列表 &nbsp;&nbsp;<a class="button add-new-h2" title="添加新广告" href="/app/admin/advertise/edit">添加新广告</a> </h2>
 	<div class="clear"></div>
 	<div id="ajax_request">
 		<img src="/images/admin/loading.gif" alt="loading" />

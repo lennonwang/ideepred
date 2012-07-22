@@ -9,7 +9,7 @@
 	<link href="/csstyle/uploadify.css" type="text/css" rel="stylesheet" />
 	{smarty_include admin.jscript}
 	<script type="text/javascript" src="/js/c/jquery.uploadify.js"></script>
-	<script type="text/javascript" src="/js/c/jquery.checkboxes.js"></script>
+	<script type="text/javascript" src="/js/d/jquery.checkboxes.js"></script>
 	<script type="text/javascript" src="/js/a/article_edit.js"></script>
 </head>
 
@@ -60,7 +60,7 @@
 					</div>
 					<div class="row">
 						<input class="default" type="submit" name="_submit" value="  ok,保存  "/>
-						<input type="button" name="_back" value=" 撤 销 "/>
+						<input type="button" name="_back" id="_back" value=" 撤 销 "/>
 					</div>
 					
 				</form>

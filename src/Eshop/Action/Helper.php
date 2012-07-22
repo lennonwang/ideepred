@@ -1,7 +1,7 @@
 <?php
 /**
  * 帮助中心
- *
+ * 对应数据表 content
  * @version $Id$
  * @author purpen
  */
