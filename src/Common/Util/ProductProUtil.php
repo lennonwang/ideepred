@@ -38,6 +38,7 @@ class Common_Util_ProductProUtil extends Anole_Object {
 	 * 获取葡萄所属国家
 	 */
 	public static function getWineGrapeCountryArray(){
+		echo ("start getWineGrapeCountryArray");
 		$grape_country=array(array("id"=>"1","name"=>"法国"),array("id"=>"2","name"=>"意大利")
 		,array("id"=>"3","name"=>"西班牙"),array("id"=>"4","name"=>"中国大陆")
 		,array("id"=>"5","name"=>"美国"),array("id"=>"6","name"=>"德国"));  
