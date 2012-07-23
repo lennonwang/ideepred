@@ -528,8 +528,7 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
 		//获取红酒国家、产地和分级等信息  
 		$productInfo = Common_Model_ProductInfo::getProductInfo($product);
 		$this->putContext('product_info', $productInfo);
-		
-		 self::debug("[param]:product_info:".$productInfo);
+		 
 		 
 		unset($productInfo);
 		
