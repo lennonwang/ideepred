@@ -21,19 +21,19 @@ class Common_Model_ProductInfo     {
     	$wine_level_id  = $product['wine_level']; 
 		$productInfo = new Common_Model_ProductInfo();
 		$productInfo->setId($product['id']);
-		echo ("[param]:wine_country_id:".$wine_country_id);
+	//	echo ("[param]:wine_country_id:".$wine_country_id);
 		//国家
 		$wine_country_name = $productInfo->getWineCountryById( $wine_country_id); 
 		$productInfo->wine_country_name =($wine_country_name); 
-		 echo ("[param]:wine_country_name:".$wine_country_name);
+	//	 echo ("[param]:wine_country_name:".$wine_country_name);
 		//区域
 		 $wine_area_name = $productInfo->getWineAreaById( $wine_area_id);  
-		  echo ("[param]:wine_area_name:".$wine_area_name);
+	//	  echo ("[param]:wine_area_name:".$wine_area_name);
 		 $productInfo->wine_area_name = $wine_area_name;
 		  
 		//级别
 		 $wine_level_name = $productInfo->getWineLevelById( $wine_level_id);  
-		   echo ("[param]:wine_level_name:".$wine_level_name);
+	//	   echo ("[param]:wine_level_name:".$wine_level_name);
 		 $productInfo->wine_level_name = $wine_level_name;
 		
 		return $productInfo;
