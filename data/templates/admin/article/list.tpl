@@ -61,6 +61,7 @@
 							<tr>
 								<th class="check-column"> <input type="checkbox" /> </th>
 								<th class="column-name"> ID </th>
+								<th class="column-title"> name </th>
 								<th class="column-title"> 文章标题 </th>
 								<th class="column-name"> 作 者  </th>
 								<th class="column-name"> 更新时间 </th>
@@ -71,6 +72,7 @@
 							<tr>
 								<th class="check-column"> <input type="checkbox" /> </th>
 								<th class="column-name"> ID </th>
+								<th class="column-title"> Name </th>
 								<th class="column-title"> 文章标题 </th>
 								<th class="column-name"> 作 者  </th>
 								<th class="column-name"> 更新时间 </th>
@@ -84,6 +86,7 @@
 									<input type="checkbox" value="{$article.id}" name="delete[]" class="xe-shid"/>
 								</th>
 								<td>{$article.id}</td>
+								<td>{$article.name}</td>
 								<td>
 									<strong><a href="/app/admin/content/edit/id/{$article.id}" class="row-title">{$article.title} </a> {if $article.status eq 0}-草稿{/if}</strong>
 									<div class="row-actions"><span class="edit"><a href="/app/admin/content/edit/id/{$article.id}">编辑</a></span> | <span class="publish"><a href="/app/admin/content/checking/id/{$article.id}/stick/{if $article.stick eq 0}1{else}0{/if}" class="jq_a_ajax">{if $article.stick eq 0}推荐{else}取消推荐{/if}</a></span> | <span class="delete"><a href="/app/admin/content/remove/id/{$article.id}" class="jq_a_ajax">删除</a></span></div>

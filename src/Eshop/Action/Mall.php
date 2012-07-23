@@ -524,10 +524,13 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
 			$this->putContext('wine_category', $wine_category);
 			unset($category);
 		}
-		
+		 self::debug("[param]:category_id:".$category_id);
 		//获取红酒国家、产地和分级等信息  
 		$productInfo = Common_Model_ProductInfo::getProductInfo($product);
 		$this->putContext('product_info', $productInfo);
+		
+		 self::debug("[param]:product_info:".$productInfo);
+		 
 		unset($productInfo);
 		
         //获取浏览记录
