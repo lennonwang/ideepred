@@ -41,7 +41,10 @@ class Common_Util_ProductProUtil extends Anole_Object {
 	 
 		$grape_country=array(array("id"=>"1","name"=>"法国"),array("id"=>"2","name"=>"意大利")
 		,array("id"=>"3","name"=>"西班牙"),array("id"=>"4","name"=>"中国大陆")
-		,array("id"=>"5","name"=>"美国"),array("id"=>"6","name"=>"德国"),array("id"=>"7","name"=>"智利"));  
+		,array("id"=>"5","name"=>"美国"),array("id"=>"6","name"=>"德国")
+		,array("id"=>"7","name"=>"智利")
+		,array("id"=>"8","name"=>"南非")
+		);  
 		 self::debug("getWineGrapeCountryArray.".$grape_country);
 		 return $grape_country;
 	}
@@ -50,17 +53,28 @@ class Common_Util_ProductProUtil extends Anole_Object {
 	 * 获取葡萄产区
 	 */
 	public static function getWineGrapeAreaArray(){
-		$wine_area=array(array("id"=>"1","cid"=>"1","name"=>"法国大区1")
-											,array("id"=>"2","cid"=>"1","name"=>"法国大区2")  
-		,array("id"=>"3","cid"=>"1","name"=>"法国大区3")  
-		,array("id"=>"4","cid"=>"1","name"=>"法国大区4")  
-		,array("id"=>"5","cid"=>"2","name"=>"意大利1")  
-		,array("id"=>"6","cid"=>"2","name"=>"意大利2")  
-		,array("id"=>"7","cid"=>"3","name"=>"西班牙1")
-		,array("id"=>"8","cid"=>"3","name"=>"西班牙2")
-		,array("id"=>"9","cid"=>"3","name"=>"西班牙3")
-		,array("id"=>"10","cid"=>"3","name"=>"西班牙4")
+		$wine_area=array(
+				array("id"=>"101","cid"=>"1","name"=>"普罗旺斯") 
+			,array("id"=>"102","cid"=>"1","name"=>"波尔多") 
+			,array("id"=>"103","cid"=>"1","name"=>"罗纳河谷") 
+			,array("id"=>"104","cid"=>"1","name"=>"勃艮第")  
+			,array("id"=>"105","cid"=>"1","name"=>"薄若莱") 
+			,array("id"=>"106","cid"=>"1","name"=>"香槟区")  
+			,array("id"=>"107","cid"=>"1","name"=>"西南产区")  
+			,array("id"=>"108","cid"=>"1","name"=>"朗格多克-鲁西荣") 
+			,array("id"=>"109","cid"=>"1","name"=>"卢瓦河谷")  
+			,array("id"=>"110","cid"=>"1","name"=>"其他子产区") 
+			 
 		
+		,array("id"=>"201","cid"=>"2","name"=>"皮埃蒙特大区")  
+	,array("id"=>"202","cid"=>"2","name"=>"伦巴蒂大区")  
+	,array("id"=>"203","cid"=>"2","name"=>"弗留利－威尼斯－朱利亚大区 ")  
+	,array("id"=>"204","cid"=>"2","name"=>"威尼托大区")  
+	,array("id"=>"205","cid"=>"2","name"=>"托斯卡纳大区")  
+	,array("id"=>"206","cid"=>"2","name"=>"翁布里亚大区")  
+	,array("id"=>"207","cid"=>"2","name"=>"其他产区")  
+
+ 
 		  ,array("id"=>"701","cid"=>"7","name"=>"依基山谷")
       ,array("id"=>"702","cid"=>"7","name"=>"利玛尼山谷")
       ,array("id"=>"703","cid"=>"7","name"=>"亚冈卡加山谷")
@@ -82,21 +96,38 @@ class Common_Util_ProductProUtil extends Anole_Object {
 	 * 获取葡萄等级
 	 */
 	public static function getWineLevelArray(){
-		$level_items=array(array("id"=>"1","cid"=>"1","name"=>"AOC")
-											,array("id"=>"2","cid"=>"1","name"=>"法国Level2")  
-		,array("id"=>"3","cid"=>"1","name"=>"法国Level3")  
-		,array("id"=>"4","cid"=>"1","name"=>"法国Level4")  
-		,array("id"=>"5","cid"=>"2","name"=>"意大利Level1")  
-		,array("id"=>"6","cid"=>"2","name"=>"意大利Level2")  
-		,array("id"=>"7","cid"=>"3","name"=>"西班牙Levle1")
-		,array("id"=>"8","cid"=>"3","name"=>"西班牙Level2")
-		,array("id"=>"9","cid"=>"3","name"=>"西班牙Level3")
-		,array("id"=>"10","cid"=>"3","name"=>"西班牙Level4")
+		$level_items=array(
+				array("id"=>"101","cid"=>"1","name"=>"不分级")
+,array("id"=>"102","cid"=>"1","name"=>"地区餐酒VDP ")
+,array("id"=>"103","cid"=>"1","name"=>"村庄级AOC")
+,array("id"=>"104","cid"=>"1","name"=>"地区餐酒VDP")
+,array("id"=>"105","cid"=>"1","name"=>"特级名庄(Grand cru)")
+,array("id"=>"106","cid"=>"1","name"=>"中级酒庄( Cru Bourgeois)")
+,array("id"=>"107","cid"=>"1","name"=>"区域级（镇级）AOC ")
+,array("id"=>"108","cid"=>"1","name"=>"高级AOC( Superieur AOC)")
+,array("id"=>"109","cid"=>"1","name"=>"大区法定产区AOC")
+,array("id"=>"110","cid"=>"1","name"=>"优良产区餐酒VDQS")
+,array("id"=>"111","cid"=>"1","name"=>"原产地命名保护葡萄酒AOP")
+,array("id"=>"112","cid"=>"1","name"=>"产区标识保护葡萄酒IGP")
+,array("id"=>"113","cid"=>"1","name"=>"无产区限制葡萄酒VDF")
+
+		
+		,array("id"=>"201","cid"=>"2","name"=>"保证法定产区DOCG")  
+		,array("id"=>"202","cid"=>"2","name"=>"法定产区DOC ")  
+		,array("id"=>"203","cid"=>"2","name"=>"典型产区IGT ")  
+		,array("id"=>"204","cid"=>"2","name"=>"佐餐酒VDT ")  
+ 
 		
 		,array("id"=>"701","cid"=>"7","name"=>"家族珍藏级Reserva De Familia") 
 		,array("id"=>"702","cid"=>"7","name"=>"特级珍藏级Gran Reserva") 
 		,array("id"=>"703","cid"=>"7","name"=>"珍藏级Reserva ") 
-		,array("id"=>"704","cid"=>"7","name"=>"品种级Varietal")  
+		,array("id"=>"704","cid"=>"7","name"=>"品种级Varietal")
+		
+		,array("id"=>"601","cid"=>"6","name"=>"日常餐酒Tafelwein")
+		,array("id"=>"602","cid"=>"6","name"=>"地区餐酒Landwein")
+		,array("id"=>"603","cid"=>"6","name"=>"Qba优质葡萄酒")
+		,array("id"=>"604","cid"=>"6","name"=>"QmP 特别优质酒")
+
 );  
 		 self::debug("getWineLevelArray.".$level_items);
 		 return $level_items;
