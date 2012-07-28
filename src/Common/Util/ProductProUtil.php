@@ -41,7 +41,7 @@ class Common_Util_ProductProUtil extends Anole_Object {
 	 
 		$grape_country=array(array("id"=>"1","name"=>"法国"),array("id"=>"2","name"=>"意大利")
 		,array("id"=>"3","name"=>"西班牙"),array("id"=>"4","name"=>"中国大陆")
-		,array("id"=>"5","name"=>"美国"),array("id"=>"6","name"=>"德国"));  
+		,array("id"=>"5","name"=>"美国"),array("id"=>"6","name"=>"德国"),array("id"=>"7","name"=>"智利"));  
 		 self::debug("getWineGrapeCountryArray.".$grape_country);
 		 return $grape_country;
 	}
@@ -59,7 +59,21 @@ class Common_Util_ProductProUtil extends Anole_Object {
 		,array("id"=>"7","cid"=>"3","name"=>"西班牙1")
 		,array("id"=>"8","cid"=>"3","name"=>"西班牙2")
 		,array("id"=>"9","cid"=>"3","name"=>"西班牙3")
-		,array("id"=>"10","cid"=>"3","name"=>"西班牙4") );  
+		,array("id"=>"10","cid"=>"3","name"=>"西班牙4")
+		
+		  ,array("id"=>"701","cid"=>"7","name"=>"依基山谷")
+      ,array("id"=>"702","cid"=>"7","name"=>"利玛尼山谷")
+      ,array("id"=>"703","cid"=>"7","name"=>"亚冈卡加山谷")
+      ,array("id"=>"704","cid"=>"7","name"=>"卡萨布兰加山谷")
+		 , array("id"=>"705","cid"=>"7","name"=>"圣安东尼山谷")
+          ,array("id"=>"706","cid"=>"7","name"=>"米埔山谷")
+          ,array("id"=>"707","cid"=>"7","name"=>"加查普山谷")
+          ,array("id"=>"708","cid"=>"7","name"=>"高查加山谷")  
+		  ,array("id"=>"709","cid"=>"7","name"=>"古力高山谷")
+          ,array("id"=>"710","cid"=>"7","name"=>"依达他山谷")
+          ,array("id"=>"711","cid"=>"7","name"=>"拜奥山谷")
+          ,array("id"=>"712","cid"=>"7","name"=>"马利高山谷")  
+);  
 		 self::debug("getWineGrapeAreaArray.".$wine_area);
 		 return $wine_area;
 	}
@@ -77,7 +91,13 @@ class Common_Util_ProductProUtil extends Anole_Object {
 		,array("id"=>"7","cid"=>"3","name"=>"西班牙Levle1")
 		,array("id"=>"8","cid"=>"3","name"=>"西班牙Level2")
 		,array("id"=>"9","cid"=>"3","name"=>"西班牙Level3")
-		,array("id"=>"10","cid"=>"3","name"=>"西班牙Level4") );  
+		,array("id"=>"10","cid"=>"3","name"=>"西班牙Level4")
+		
+		,array("id"=>"701","cid"=>"7","name"=>"家族珍藏级Reserva De Familia") 
+		,array("id"=>"702","cid"=>"7","name"=>"特级珍藏级Gran Reserva") 
+		,array("id"=>"703","cid"=>"7","name"=>"珍藏级Reserva ") 
+		,array("id"=>"704","cid"=>"7","name"=>"品种级Varietal")  
+);  
 		 self::debug("getWineLevelArray.".$level_items);
 		 return $level_items;
 	} 
