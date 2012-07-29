@@ -123,10 +123,10 @@ a:hover{text-decoration:underline;}
 /* float */
 .fl{float:left;}
 .fr{float:right;}
-.orange {color:#ff6600;}
+.orange {color:#BB1217;}
 .ablack a {color:#000;}
 .awhite a {color:#fff;}
-.aorange a {color:#ff6600;}
+.aorange a {color:#BB1217;}
 .a999 a {color:#999;}
 .ablue a {color:#0066FF;}
 .gray {color:#e0e0e0;}
@@ -212,7 +212,7 @@ a:hover{text-decoration:underline;}
 }
 .buy-cart {
 	width: 150px;
-	background-color:#ff6600;
+	background-color:#BB1217;
 	padding:5px;
 }
 #buy-item {
@@ -240,10 +240,11 @@ a:hover{text-decoration:underline;}
     width: 70px;
 }
 #navigation li a:hover {
-	background-color:#ff6600;
+	background-color:#BB1217;
 }
 #navigation li a.actived {
-	background-color:#ff6600;
+	/*background-color:#BB1217;*/
+	background-color:#BB1217
 }
 .search-form {
 	margin-top: 6px;
@@ -293,7 +294,7 @@ a:hover{text-decoration:underline;}
 	font-weight: bold;
 }
 #carousel .carousel_nav li.active a, #carousel .carousel_nav li:hover a{
-	background:url("/images/eshop/icon-direct.png") no-repeat scroll 247px center #FF6600;
+	background:url("/images/eshop/icon-direct.png") no-repeat scroll 247px center #BB1217;
 	color:#fff;
 	text-decoration:none;
 }
@@ -427,7 +428,7 @@ a:hover{text-decoration:underline;}
 	color:#CC0000;
 }
 .filter-option {
-	background-color:#FF6600;
+	background-color:#BB1217;
 	color:#FFFFFF;
 	padding-left:10px;
 	height:27px;
@@ -508,10 +509,10 @@ a:hover{text-decoration:underline;}
 	display:block;
 }
 .slide-show li a:hover img {
-	border:1px solid #ff6600;
+	border:1px solid #BB1217;
 }
 .slide-show li .actived img {
-	border:1px solid #ff6600;
+	border:1px solid #BB1217;
 }
 #showbox {
 	width:406px;
@@ -633,7 +634,7 @@ a:hover{text-decoration:underline;}
 }
 #product-detail ul li .current {
 	font-weight:bold;
-	color:#FF6600;
+	color:#BB1217;
 	border-bottom:1px solid #fff;
 }
 #product-detail ul li .packaging {
@@ -761,7 +762,7 @@ a:hover{text-decoration:underline;}
 	padding:15px 30px;
 }
 .profile h2 {
-	border-bottom:1px solid #FF6600;
+	border-bottom:1px solid #BB1217;
 	padding-bottom:10px;
 }
 .profile h2 .tihi {
@@ -856,7 +857,7 @@ form .error {
 	padding:2px;
 }
 #car_subtotal {
-	border-bottom:1px solid #ff6600;
+	border-bottom:1px solid #BB1217;
 	border-top:1px solid #E0E0E0;
 	color:#666666;
 	font-size:13px;
@@ -880,7 +881,7 @@ form .error {
 	background-color:#eee;
 }
 .picxe th {
-	background-color:#FF6600;
+	background-color:#BB1217;
 	color:#FFFFFF;
 }
 .picxe td,.picxe th {
@@ -1035,7 +1036,7 @@ form .error {
 	padding:2px;
 }
 #user_nav h3 {
-	background-color:#FF6600;
+	background-color:#BB1217;
 	color:#fff;
 	text-indent: 1em;
 	padding:5px 0;
@@ -1168,7 +1169,7 @@ form .error {
 	margin: 10px auto;
 }
 .a_item table {
-	border: 1px solid #FF6600;
+	border: 1px solid #BB1217;
     line-height: 28px;
     width: 98%;
 }
@@ -1176,13 +1177,13 @@ form .error {
     border: 0 none;
 }
 .a_item table td {
-    border-bottom: 1px solid #FF6600;
-    border-right: 1px solid #FF6600;
+    border-bottom: 1px solid #BB1217;
+    border-right: 1px solid #BB1217;
 	padding-top: 5px;
     text-indent: 5px;
 }
 .a_item .tr_lin {
-	background-color: #ff6600;
+	background-color: #BB1217;
     color: #FFFFFF;
     font-weight: bold;
     line-height: 25px;
@@ -1301,7 +1302,7 @@ table.no_side td {
 #footer {
 	margin:20px 0 50px;
 	text-align:center;
-	color:#ff6600;
+	color:#BB1217;
 }
 #busy {
     background-color: #E95555;
