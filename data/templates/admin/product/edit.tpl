@@ -100,7 +100,7 @@
 													<input type="radio" name="is_gift" value="0" {if $product.is_gift eq 0}checked="checked"{/if} />否
 								            </td>
 								       </tr>
-										<tr class="form-field form-required">
+										<tr >
 											<th scope="row"  >
 												<label for="retail_price">进货价格：</label>
 											</th>

@@ -43,7 +43,7 @@ class Common_Util_ProductProUtil extends Anole_Object {
 		,array("id"=>"3","name"=>"西班牙"),array("id"=>"4","name"=>"中国大陆")
 		,array("id"=>"5","name"=>"美国"),array("id"=>"6","name"=>"德国")
 		,array("id"=>"7","name"=>"智利")
-		,array("id"=>"8","name"=>"南非")
+		,array("id"=>"8","name"=>"南非"),array("id"=>"9","name"=>"澳大利亚")
 		);  
 		 self::debug("getWineGrapeCountryArray.".$grape_country);
 		 return $grape_country;
