@@ -7,12 +7,13 @@
 	<title>搜索结果-{smarty_include eshop.common.xtitle}</title>
 	<meta name="author" content="xiaoyi">
 	{smarty_include eshop.common.header_compart}
-	<link rel="stylesheet" href="/csstyle/cstyle.css" type="text/css" />
+<!--	<link rel="stylesheet" href="/csstyle/cstyle.css" type="text/css" /> -->
+		<link rel="stylesheet" href="/csstyle/itablet.css" type="text/css" />
 	{smarty_include eshop.js-common}
 </head>
 
 <body>
-{smarty_include eshop.common.tophead}
+ 
 <div id="wrapper">
 	{smarty_include eshop.common.header}
 	
@@ -20,10 +21,12 @@
 		
 		<div class="box clearfix">
 			<div class="leftref noborder" id="channelside">
-				<img src="/images/eshop/search-result.jpg" alt="搜索结果" />
-
+			<!--	<img src="/images/eshop/search-result.jpg" alt="搜索结果" /> -->
+ 
+				<h2>全部分类</h2>
 				{smarty_include eshop.leftcategory}
 				
+		 
 				<div class="bordor linespace pricescope" >
 					<h2>价格区间</h2>
 					

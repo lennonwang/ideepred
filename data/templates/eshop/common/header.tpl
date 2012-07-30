@@ -60,7 +60,7 @@
 			</ul>
 		</div>
 		
-		<form class="search-form clearfix" action="">
+		<form class="search-form clearfix" action="/mall/search">
 			<input type="text" name="q" value="" class="fl query" />
 			<input type="image" src="/images/eshop/icon-search.png" />
 		</form>
