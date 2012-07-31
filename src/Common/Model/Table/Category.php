@@ -67,6 +67,12 @@ abstract class Common_Model_Table_Category extends Anole_ActiveRecord_Base {
     'type' => 'S',
     'length' => '11',
   ),
+    'position' => 
+  array (
+    'name' => 'position',
+    'type' => 'S',
+    'length' => '3',
+  ),
 );
     
         /**
@@ -221,6 +227,28 @@ abstract class Common_Model_Table_Category extends Anole_ActiveRecord_Base {
     public function getTotal(){
         return $this->get('total');
     }
+    
+    
+  /**
+     * 设置属性'position'的值
+     *
+     * @param  string $value
+     * 
+     * @return Category
+     */
+    public function setPosition($value){
+        $this->set('position',$value);
+        return $this;
+    }
+    /**
+     * 获取属性:'position'的值
+     * 
+     * @return string
+     */
+    public function getPosition(){
+        return $this->get('position');
+    }
+    
     }
 /**vim:sw=4 et ts=4 **/
 ?>

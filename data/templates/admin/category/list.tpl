@@ -27,7 +27,10 @@
 		
 		<div class="site_node_list">
 			{foreach from=$all_category item=cate}
-			<div class="cate-title {$cate.classname}" id="site_category_{$cate.id}"> <a href="/app/admin/category/edit/id/{$cate.id}" title="选择:{$cate.name}" name="{$cate.id}"> <strong> {$cate.name}[{$cate.code}]  --  {$cate.slug} </strong> </a> {if $cate.id neq 1}<label class="row-actions"><a href="/app/admin/category/edit/id/{$cate.id}" title="{$cate.name}">编辑</a>  <a href="/app/admin/category/delete/id/{$cate.id}" title="{$cate.name}" class="jq_a_ajax">删除</a></label>{/if}</div>
+			<div class="cate-title {$cate.classname}" id="site_category_{$cate.id}"> <a href="/app/admin/category/edit/id/{$cate.id}"
+			 title="选择:{$cate.name}" name="{$cate.id}"> <strong> [{$cate.position}] ： {$cate.name}[{$cate.code}]  --  {$cate.slug}  </strong> </a> 
+			 {if $cate.id neq 1}<label class="row-actions"><a href="/app/admin/category/edit/id/{$cate.id}" title="{$cate.name}">编辑</a> 
+			  <a href="/app/admin/category/delete/id/{$cate.id}" title="{$cate.name}" class="jq_a_ajax">删除</a></label>{/if}</div>
 			{/foreach}
 		</div>
 

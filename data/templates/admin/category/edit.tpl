@@ -38,6 +38,13 @@
 								</td>
 							</tr>
 							<tr class="form-field form-required">
+								<th valign="top" scope="row"><label for="type">有效性</label></th>
+								<td>
+									<input type="radio" name="state" value="1" {if $category.state eq 1}checked="checked"{/if} />有效
+									<input type="radio" name="state" value="0" {if $category.state eq 0}checked="checked"{/if} />无效 
+								</td>
+							</tr>
+							<tr class="form-field form-required">
 								<th valign="top" scope="row"><label for="name">分类目录名</label></th>
 								<td><input type="text" size="40" value="{$category.name}" id="name" name="name" /></td>
 							</tr>
@@ -45,6 +52,11 @@
 								<th valign="top" scope="row"><label for="slug">分类目录别名</label></th>
 								<td><input type="text" size="40" value="{$category.slug}" id="slug" name="slug" /><br>
 					            <span class="description">“别名” 是URL友好的另外一个名称。它通常为小写并且只能包含字母，数字和连字符。</span></td>
+							</tr>
+							<tr class="form-field form-required">
+								<th valign="top" scope="row"><label for="name">排序</label></th>
+								<td><input type="text" size="40" value="{$category.position}" id="position" name="position" /><br>
+								 <span class="description">“排序”用作前台二级分类显示</span></td>
 							</tr>
 							
 							{if $is_open_thumb eq 'open'}

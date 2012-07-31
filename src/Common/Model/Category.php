@@ -154,7 +154,7 @@ class Common_Model_Category extends Common_Model_Table_Category {
     	$options = array(
             'condition'=>'LENGTH(`code`)=? AND state=?',
             'vars'=>array(1,1),
-            'order'=>'code ASC'
+            'order'=>'position ASC,id ASC'
         );
         return $this->find($options)->getResultArray();
     }
@@ -165,7 +165,7 @@ class Common_Model_Category extends Common_Model_Table_Category {
      */
     public function findChildrenCategory($code,$is_stick=false,$size=-1){
     	if(!$is_stick){
-    		$order = 'code ASC';
+    		$order = 'position ASC,id Asc';
     	}else{
     		$order = 'total DESC,id ASC';
     	}

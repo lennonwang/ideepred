@@ -2,7 +2,9 @@
 	<ul>
 		{foreach from=$category_channel item=chk name=cha}
 		<li>
-			<a href="{Common_Smarty_Url_format key=channel slug=$chk.slug}" title="{$chk.name}" class="firstcate {if $chk.code eq $channel.code}js-open{/if} {if $smarty.foreach.cha.last}lastcha{/if}">{$chk.name}</a>
+			<a href="{Common_Smarty_Url_format key=channel slug=$chk.slug}" title="{$chk.name}"
+			 class="firstcate {if $chk.code eq $channel.code}js-open{/if} {if $smarty.foreach.cha.last}lastcha{/if}">
+			 {$chk.name}</a>
 			
 			{if $chk.code eq $channel.code}
 				<ul>
