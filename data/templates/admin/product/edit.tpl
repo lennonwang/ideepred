@@ -225,13 +225,7 @@
 												<td >  
 												<input type="text" size="30" value="{$product.stock_alarm}" id="stock_alarm" name="stock_alarm"  tabindex="10"  /> 
 								            </td> 
-                                        </tr>
-                                    
-								     
-										
-										
-										
-										
+                                        </tr> 
 										 <tr>
 											<th scope="row">
 												<label for="">葡萄品种：</label>

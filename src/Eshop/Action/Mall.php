@@ -24,8 +24,12 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
     private $_orderby=1;
     //显示方式
     private $_style=1;
-    
+    //查询关键词
 	private $_query=null;
+	 //国家
+	private $_country=null;
+	 //葡萄酒品种
+	private $_grape_breed=null;
 	
 	private $low_price=null;
     
@@ -168,7 +172,8 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
     	$low_price = $this->getLowPrice();
     	$high_price = $this->getHighPrice();
     	$query = $this->getQuery();
-		
+		$country = $this->getCountry();
+		$grape_breed = $this->getGrapeBreed();
 		$catcode = $this->getCatcode();
     	
     	$conditions = array();
@@ -193,6 +198,7 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
     	    }
     		$vars[] = $high_price;
     	}
+		
     	//从产品标题中查询匹配项
     	if(!empty($query)){
 			//匹配sku
@@ -223,6 +229,17 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
 				unset($store);
 			}
     	}
+    	//从某国家中筛选 
+		if(!empty($country)){
+			$conditions[] = 'wine_country = ?';
+			$vars[] = $country;
+		}
+		//从葡萄酒品牌筛选
+   		if(!empty($grape_breed)){
+			$conditions[] = 'grape_breed LIKE ?';
+			$vars[] = "%,$grape_breed,%";
+		}
+		self::debug("query======".$query."grape_breed===".$grape_breed);
 		//从某类别中筛选
 		if(!empty($catcode)){
 			$conditions[] = 'LEFT(catcode,'.strlen($catcode).')=?';
@@ -259,28 +276,34 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
             'order'=>$this->_getOrderWay($orderby)
         );
         $product_list = $model->find($options)->getResultArray();
+        $category = new Common_Model_Category();
+        $all_category = $category->findAllCategory();
+        $this->putContext('all_category',$all_category);
         
         $this->putContext('total',$total);
         $this->putContext('page', $page);
         $this->putContext('prev_page',$prev_page);
         $this->putContext('next_page',$next_page);
         $this->putContext('records', $records);
-        
+        $this->putContext('wine_country_array',Common_Util_ProductProUtil::getWineGrapeCountryArray());
+        $this->putContext('grape_breed_array',Common_Util_ProductProUtil::getWineGrapeBreedArray()); 
 		$this->putContext('catcode', $catcode);
         $this->putContext('style', $style);
         $this->putContext('orderby', $orderby);
 		$this->putContext('low_price',$low_price);
         $this->putContext('high_price',$high_price);
 		$this->putContext('query', $query);
+		$this->putContext('country', $country);
+		$this->putContext('grape_breed', $grape_breed);
 
         $this->putContext('product_list', $product_list);
 
-		$category = new Common_Model_Category();
-		//获取一级分类（频道）
+				$category = new Common_Model_Category();
+				//获取一级分类（频道）
         $category_channel = $category->findFirstCategory();
-		$this->putContext('category_channel', $category_channel);
+				$this->putContext('category_channel', $category_channel);
 		
-		$this->putSharedParam();
+				$this->putSharedParam();
     	
     	return $this->smartyResult('eshop.search-list');
     }
@@ -716,6 +739,22 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
     }
     public function getQuery(){
     	return $this->_query;
+    }
+    
+	public function setCountry($v){
+    	$this->_country = $v;
+    	return $this;
+    }
+    public function getCountry(){
+    	return $this->_country;
+    }
+    
+	public function setGrapeBreed($v){
+    	$this->_grape_breed = $v;
+    	return $this;
+    }
+    public function getGrapeBreed(){
+    	return $this->_grape_breed;
     }
 }
 /**vim:sw=4 et ts=4 **/

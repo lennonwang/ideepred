@@ -58,9 +58,9 @@
 					
 					<label for="order" class="orderby">排序方式:  
 						<select name="orderby" id="filter_orderby">
-							<option value="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=0 high_price=0}" {if $orderby eq 1}selected="selected"{/if}>按上架时间</option>
-							<option value="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=2 low_price=0 high_price=0}" {if $orderby eq 2}selected="selected"{/if}>按价格排序</option>
-							<option value="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=3 low_price=0 high_price=0}" {if $orderby eq 3}selected="selected"{/if}>按查看次数</option>
+							<option value="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=0 high_price=0 country=$country}" {if $orderby eq 1}selected="selected"{/if}>按上架时间</option>
+							<option value="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=2 low_price=0 high_price=0 country=$country}" {if $orderby eq 2}selected="selected"{/if}>按价格排序</option>
+							<option value="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=3 low_price=0 high_price=0 country=$country}" {if $orderby eq 3}selected="selected"{/if}>按查看次数</option>
 						</select>
 					</label>
 					<label for="page" class="tabpage">

@@ -7,10 +7,13 @@
 	<title>{$product.title}--{smarty_include eshop.common.xtitle}</title>
 	<meta name="author" content="xiaoyi">
 	{smarty_include eshop.common.header_compart}
-	<link rel="stylesheet" href="/csstyle/itablet.css" type="text/css" />
 	{smarty_include eshop.js-common}
 	{smarty_include eshop.js-form}
+	<script type="text/javascript" src="/js/d/jquery.jqzoom-core.js"></script>
+	<link rel="stylesheet" href="/csstyle/itablet.css" type="text/css" /> 
+	<link rel="stylesheet" href="/csstyle/jquery.jqzoom.css" type="text/css" />
 	<script type="text/javascript" src="/js/e/product.js"></script>
+	 
 </head>
 
 <body>
@@ -75,8 +78,11 @@
 					<div id="showbox">
 					
 						{Common_Smarty_Asset_Thumb path_id=$product.asset_list[0].path domain=$product.asset_list[0].domain w=500 h=360 var=first_image is_result_mode=ary}
-						<div class="xhd"> 
-							<img src="{$first_image.url}"  id="product-bigpicture" alt="{$product.title}"  width="400" height="350" class="bordor" />
+						{Common_Smarty_Asset_Thumb path_id=$product.asset_list[0].path domain=$product.asset_list[0].domain w=1000 h=1000 var=first_orign_image is_result_mode=ary}
+						<div class="xhd">  
+								<a href="{$first_orign_image.url}" class="jqzoom" rel='gal1'  title="triumph" > 
+									<img src="{$first_image.url}"  id="product-bigpicture" alt="{$product.title}"  width="400" height="350" class="bordor" />
+								</a>
 						</div>
 						<ul class="slide-show clearfix">
 							{foreach from=$product.asset_list item=asset name=asset}

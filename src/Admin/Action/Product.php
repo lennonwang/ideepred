@@ -277,9 +277,14 @@ class Admin_Action_Product extends Admin_Action_Entry {
 	        }
 	        // add by wangjia
             $grape_breed = $_POST["grape_breed"];   
-						if(isset($grape_breed)){
-							$grape_breed=implode(",", $grape_breed);
-						}
+            self::debug("grape_breed11111:".$grape_breed);
+			if(isset($grape_breed)){
+				$grape_breed=implode(",", $grape_breed);
+			}
+			if(!empty($grape_breed)){
+				 $grape_breed =  ",".$grape_breed.",";
+			}
+			self::debug("grape_breed22222:".$grape_breed);
 	        $model->setGrapeBreed($grape_breed);
 	        
 	        

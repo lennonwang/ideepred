@@ -24,25 +24,67 @@
 			<!--	<img src="/images/eshop/search-result.jpg" alt="搜索结果" /> -->
  
 				<h2>全部分类</h2>
-				{smarty_include eshop.leftcategory}
+				<!-- {smarty_include eshop.leftcategory} -->
 				
 		 
 				<div class="bordor linespace pricescope" >
-					<h2>价格区间</h2>
 					
+					<h2>红酒类型</h2> 
+					 <li><a href="{Common_Smarty_Url_format key=search_list catcode="" page=1 style=$style orderby=1 low_price=0 high_price=0 
+							country=$country grape_breed=$grape_breed query=$query}" {if $country eq ""} class="current"{/if}>全部类型</a></li> 
+					{foreach from=$all_category item=cate} 
+						 <li><a href="{Common_Smarty_Url_format key=search_list catcode=$cate.code page=1 style=$style orderby=1 low_price=0 high_price=0 
+							country=$country grape_breed=$grape_breed query=$query}" {if $country_item.id eq $country} class="current"{/if}>{$cate.name}</a></li> 
+					{/foreach} 
+					<br/>
+					
+					<h2>红酒国家</h2> 
 					<ul>
-						<li><a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 query=$query}" {if $high_price eq 0}class="current"{/if}>不限价格</a></li>
-						<li><a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=0 high_price=100 query=$query}" {if ($high_price <= 100) && ($high_price gt 0)}class="current"{/if}>0元-100元</a></li>
-						<li><a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=101 high_price=200 query=$query}" {if ($high_price <= 200) && ($high_price gt 101)}class="current"{/if}>101元-200元</a></li>
-						<li><a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=201 high_price=300 query=$query}" {if ($high_price <= 300) && ($high_price gt 201)}class="current"{/if}>201元-300元</a></li>
-						<li><a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=0 high_price=300 query=$query}" {if ($high_price gt 300)}class="current"{/if}>300元以上</a></li>
+						<li><a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=0 high_price=0
+						 country="" grape_breed=$grape_breed query=$query}" {if $country eq ""} class="current"{/if}>不限国家</a></li> 
+						{foreach from=$wine_country_array item=country_item } 
+							<li><a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=0 high_price=0 
+							country=$country_item.id grape_breed=$grape_breed query=$query}" {if $country_item.id eq $country} class="current"{/if}>{$country_item.name}</a></li> 
+						{/foreach}
+					</ul>
+					<br/>
+					
+					<h2>红酒品种</h2> 
+					<ul>
+						<li><a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=0 high_price=0 
+							country=$country grape_breed="" query=$query}" 
+							 {if $grape_breed eq ""} class="current"{/if}>全部品种</a></li> 
+						{foreach from=$grape_breed_array item=breed_item }
+							<li><a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=0 high_price=0 
+								country=$country grape_breed=$breed_item.id query=$query}"
+							 {if $breed_item.id eq $grape_breed} class="current"{/if}>{$breed_item.name}</a></li>  
+						{/foreach}
+					</ul>
+					<br/>
+					
+				
+										 	 	
+					<h2>价格区间</h2> 
+					<ul>
+						<li><a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=0 high_price=0 
+						country=$country grape_breed=$grape_breed query=$query}" {if $high_price eq 0}class="current"{/if}>不限价格</a></li>
+						<li><a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=0 high_price=100
+						 country=$country grape_breed=$grape_breed query=$query}" {if ($high_price <= 100) && ($high_price gt 0)}class="current"{/if}>0元-100元</a></li>
+						<li><a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=101 high_price=200
+						 country=$country grape_breed=$grape_breed query=$query}" {if ($high_price <= 200) && ($high_price gt 101)}class="current"{/if}>101元-200元</a></li>
+						<li><a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=201 high_price=300
+						 country=$country grape_breed=$grape_breed query=$query}" {if ($high_price <= 300) && ($high_price gt 201)}class="current"{/if}>201元-300元</a></li>
+						<li><a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=0 high_price=300
+						 country=$country grape_breed=$grape_breed query=$query}" {if ($high_price gt 300)}class="current"{/if}>300元以上</a></li>
 					</ul>
 					
 					<form name="filter-price" method="post" action="/app/eshop/mall/search">
 						<input type="hidden" name="catcode" value="{$catcode}" />
-						<input type="hidden" name="style" value="{$style}" />
+						<input type="hidden" name="style" value="{$style}" /> 
+						<input type="hidden" name="country" value="{$country}" />
+						<input type="hidden" name="grape_breed" value="{$grape_breed}" />
 						<input type="hidden" name="orderby" value="1" />
-						<input type="hidden" name="query" value="{if $query}{$query}{else}0{/if}" />
+						<input type="hidden" name="query" value="{if $query}{$query}{else}{/if}" />
 						<label for="price">输入价格查询区间</label>
 						<table>
 							<tr>
@@ -99,24 +141,33 @@
 				
 				<div class="filter-option">
 					<label for="showay" class="showay">显示方式：</label>
-					<a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=0 orderby=$orderby low_price=$low_price high_price=$high_price query=$query}" class="way gird">格子</a>
-					<a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=1 orderby=$orderby low_price=$low_price high_price=$high_price query=$query}" class="way list">列表</a>
+					<a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=0 orderby=$orderby low_price=$low_price 
+					high_price=$high_price country=$country grape_breed=$grape_breed query=$query}" class="way gird">格子</a>
+					<a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=1 orderby=$orderby low_price=$low_price
+					 high_price=$high_price country=$country grape_breed=$grape_breed query=$query}" class="way list">列表</a>
 					
 					
 					<label for="order" class="orderby">排序方式:  
 						<select name="orderby" id="filter_orderby">
-							<option value="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=0 high_price=0 query=$query}" {if $orderby eq 1}selected="selected"{/if}>按上架时间</option>
-							<option value="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=2 low_price=0 high_price=0 query=$query}" {if $orderby eq 2}selected="selected"{/if}>按价格排序</option>
-							<option value="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=3 low_price=0 high_price=0 query=$query}" {if $orderby eq 3}selected="selected"{/if}>按查看次数</option>
+							<option value="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=$low_price
+							 high_price=$high_price country=$country grape_breed=$grape_breed query=$query}" {if $orderby eq 1}selected="selected"{/if}>按上架时间</option>
+							<option value="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=2 low_price=$low_price
+							high_price=$high_price   country=$country grape_breed=$grape_breed query=$query}" {if $orderby eq 2}selected="selected"{/if}>按价格排序</option>
+							<option value="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=3 low_price=$low_price
+							high_price=$high_price country=$country grape_breed=$grape_breed query=$query}" {if $orderby eq 3}selected="selected"{/if}>按查看次数</option>
 						</select>
 					</label>
 					
 					<label for="page" class="tabpage">
-						<a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=$orderby low_price=$low_price high_price=$high_price query=$query}" class="firstpage">第一页</a>
-						<a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=$prev_page style=$style orderby=$orderby low_price=$low_price high_price=$high_price query=$query}" class="prevpage">前一页</a>
+						<a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=$orderby low_price=$low_price
+						 high_price=$high_price  country=$country grape_breed=$grape_breed query=$query}" class="firstpage">第一页</a>
+						<a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=$prev_page style=$style orderby=$orderby low_price=$low_price
+						 high_price=$high_price  country=$country grape_breed=$grape_breed query=$query}" class="prevpage">前一页</a>
 						<span>{$page}/{$total}</span>
-						<a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=$next_page style=$style orderby=$orderby low_price=$low_price high_price=$high_price query=$query}" class="nextpage">后一页</a>
-						<a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=$total style=$style orderby=$orderby low_price=$low_price high_price=$high_price query=$query}" class="lastpage">末 页</a>
+						<a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=$next_page style=$style orderby=$orderby low_price=$low_price
+						 high_price=$high_price  country=$country grape_breed=$grape_breed query=$query}" class="nextpage">后一页</a>
+						<a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=$total style=$style orderby=$orderby low_price=$low_price 
+						high_price=$high_price  country=$country grape_breed=$grape_breed query=$query}" class="lastpage">末 页</a>
 					</label>
 					
 					<div class="clear"></div>
@@ -149,11 +200,15 @@
 				<div class="filter-option">
 					
 					<label for="page" class="tabpage">
-						<a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=$orderby low_price=$low_price high_price=$high_price query=$query}" class="firstpage">第一页</a>
-						<a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=$prev_page style=$style orderby=$orderby low_price=$low_price high_price=$high_price query=$query}" class="prevpage">前一页</a>
+						<a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=$orderby low_price=$low_price
+						 high_price=$high_price  country=$country  grape_breed=$grape_breed query=$query}" class="firstpage">第一页</a>
+						<a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=$prev_page style=$style orderby=$orderby low_price=$low_price
+						 high_price=$high_price  country=$country grape_breed=$grape_breed query=$query}" class="prevpage">前一页</a>
 						<span>{$page}/{$total}</span>
-						<a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=$next_page style=$style orderby=$orderby low_price=$low_price high_price=$high_price query=$query}" class="nextpage">后一页</a>
-						<a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=$total style=$style orderby=$orderby low_price=$low_price high_price=$high_price query=$query}" class="lastpage">末 页</a>
+						<a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=$next_page style=$style orderby=$orderby
+						 low_price=$low_price high_price=$high_price  grape_breed=$grape_breed country=$country  query=$query}" class="nextpage">后一页</a>
+						<a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=$total style=$style orderby=$orderby 
+						low_price=$low_price high_price=$high_price   grape_breed=$grape_breed country=$country query=$query}" class="lastpage">末 页</a>
 					</label>
 					
 					<div class="clear"></div>

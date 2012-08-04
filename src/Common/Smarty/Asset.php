@@ -18,7 +18,7 @@ class Common_Smarty_Asset extends Anole_Object {
         $path_id=null;
         $domain='product';
         $is_result_mode='sigleurl';
-		$by_width=null;
+				$by_width=null;
         $w = 90;
         $h = 90;
         extract($params,EXTR_IF_EXISTS);

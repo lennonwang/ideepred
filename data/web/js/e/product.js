@@ -5,6 +5,13 @@ $(function(){
 	var tabContainers = $('div.proservice > div.pbox');
 	tabContainers.hide().filter(':first').show();
 
+		$('.jqzoom').jqzoom({  
+										zoomType: 'standard',  
+										lens:true,  
+										preloadImages: false,  
+										alwaysOn:false  
+						 });
+		
 	$('div.proservice ul.tabs a').click(function () {
 		tabContainers.hide();
 		tabContainers.filter(this.hash).show();
