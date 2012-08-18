@@ -21,7 +21,8 @@
 
 			<div class="box">
 				<div class="bordor" id="orderfrom">
-					<h2>结算步骤: <span id="shoppingstep_1">1.登录注册</span> >> <span id="shoppingstep_2" class="current_step">2.填写核对订单信息</span> >> <span id="shoppingstep_3">3.提交订单</span></h2>
+					<h2>结算步骤: <span id="shoppingstep_1">1.登录注册</span> >>
+					 <span id="shoppingstep_2" class="current_step">2.填写核对订单信息</span> >> <span id="shoppingstep_3">3.提交订单</span></h2>
 					
 					<p class="hotlink">带*的项目为必填项</p>
 					

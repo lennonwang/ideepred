@@ -42,7 +42,7 @@
 										</tr>
 										<tr>
 											<td class="td_right">居住地：</td>
-											<td><input type="text" name="address" class="b" value="{$metas.address}" /></td>
+											<td><input type="text" name="address" class="b" value="{$metas.address}" /> </td>
 										</tr>
 										<tr>
 											<td class="td_right">手机：</td>

@@ -349,10 +349,9 @@ class Eshop_Action_Profile extends Eshop_Action_Common {
 		}
 		$user_id = Anole_Util_Cookie::getUserID();
 		$user = new Common_Model_User();
-        $user->findById($user_id);
-    	
+        $user->findById($user_id);  
         $this->putContext('user', $user);
-		
+		//self::debug("[debug]user pre:::"."\t".$user->getMetas($this->_meta_domain,"qq"));
 		$this->putSharedParam();
 		$this->putContext('sub_nav','info');
     	return $this->smartyResult('eshop.account.info');
@@ -374,7 +373,7 @@ class Eshop_Action_Profile extends Eshop_Action_Common {
 		
     	try{
     		$model->setIsNew(false);
-            $model->setId($user_id);
+            $model->setId($user_id); 
             $model->save();
             
             $_id = $model->getId();
@@ -447,12 +446,119 @@ class Eshop_Action_Profile extends Eshop_Action_Common {
         return $this->jqueryResult('eshop.account.info_ok');
     }
 	/**
+	 * 修改用常配货地址
+	 */
+	public function addbooks(){
+		if(!$this->isLogged()){
+		    $back_url = $this->getContext()->getRequest()->getRequestUri();
+		    return $this->_redirectLogin($back_url);
+		}
+		$this->putSharedParam(); 
+		$user_id = Anole_Util_Cookie::getUserID();
+		$model_address = new Common_Model_Addbooks();  
+		$condition = 'user_id=?';
+    	$vars = array($user_id);
+		$options = array(
+    	    'condition'=>$condition,
+    	    'vars'=>$vars 
+    	);
+		$addbooks_list = $model_address->find($options)->getResultArray();
+		unset($model_product); 
+		$this->putContext('addbooks_list', $addbooks_list);
+		
+		$this->putContext('sub_nav','addbooks');
+		
+
+		$areas = new Common_Model_Areas();
+		//get all province
+		$options = array(
+				'condition'=>'type=?',
+				'vars'=>array('p'),
+				'order'=>'id ASC'
+		);
+		$provinces = $areas->find($options)->getResultArray();
+		$this->putContext('provinces', $provinces);
+		//get all city
+		if(isset($value['province']) && $value['province'] > 0){
+			$options2 = array(
+					'condition'=>'parent_id=? AND type=?',
+					'vars'=>array($value['province'], 'c'),
+					'order'=>'id DESC'
+			);
+			$citys = $areas->find($options2)->getResultArray();
+			$this->putContext('citys', $citys);
+		}
+		
+		
+    	return $this->smartyResult('eshop.account.addbooks');
+	}
+	
+	
+	/**
 	 * 修改常用配货地址
 	 */
-	public function address(){
+	public function editAddbooks(){
+		if(!$this->isLogged()){
+			$back_url = $this->getContext()->getRequest()->getRequestUri();
+			return $this->_redirectLogin($back_url);
+		}
 		$this->putSharedParam();
-		$this->putContext('sub_nav','address');
-    	return $this->smartyResult('eshop.account.address');
+		$addbooks_id = $this->getId(); 
+		$model_addbooks = new Common_Model_Addbooks();
+		$addbooks = $model_addbooks->findById($addbooks_id)->getResultArray();
+		unset($model_addbooks);
+		self::debug("addresssl::::".$addbooks[name]);
+		$this->putContext('addbooks', $addbooks);  
+		$this->putContext('msg', '修改'.$addbooks[name].'送货地址！');
+		$this->putContext('edit_mode', 'edit');  
+		return $this->jqueryResult('eshop.account.addbooks_edit');
+	}
+	
+	
+	/**
+	 * 保存常用配货地址
+	 */
+	public function saveAddbooks(){
+		if(!$this->isLogged()){
+			$back_url = $this->getContext()->getRequest()->getRequestUri();
+			return $this->_redirectLogin($back_url);
+		}
+
+		$id = $_POST['id'];
+		$province = $_POST['province'];
+		$name = $_POST['name'];
+		$city = $_POST['city'];
+		$address = $_POST['address'];
+		$userId = $_POST['userId'];
+		$zip = $_POST['zip'];
+		$telephone = $_POST['telephone'];
+		$mobie = $_POST['mobie'];
+		$email = $_POST['email'];
+		$model_addbooks = new Common_Model_Addbooks();
+		 if(empty($id) || $id < 0){ 
+            $model_addbooks->setId(null);
+            $model_addbooks -> setIsNew(true);
+		 }else {
+		 	$model_addbooks->setId($id);
+		 	$model_addbooks -> setIsNew(false);
+		 }
+		 if(empty($userId) || $userId < 0){
+		 	$userId = Anole_Util_Cookie::getUserID();
+		 } 
+	    $model_addbooks ->setName($name);
+		$model_addbooks ->setProvince($province);
+	    $model_addbooks ->setCity($city);
+	    $model_addbooks ->setZip($zip);
+	    $model_addbooks ->setTelephone($telephone);
+	    $model_addbooks ->setEmail($email);
+	    $model_addbooks ->setAddress($address);   
+	    $model_addbooks ->setUserId($userId);
+	    $model_addbooks ->setMobie($mobie);    
+	    $model_addbooks->save();
+		$this->putSharedParam();
+		$this->putContext('edit_mode', 'save'); 
+		$this->putContext('msg', '保存'.$addbooks[name].'送货地址成功！');
+		return $this->jqueryResult('eshop.account.addbooks_edit');
 	}
     /**
      * 显示用户注册页面

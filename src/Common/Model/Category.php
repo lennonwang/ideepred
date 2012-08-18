@@ -202,7 +202,7 @@ class Common_Model_Category extends Common_Model_Table_Category {
     	$options = array(
             'condition'=>'state=?',
             'vars'=>array(1),
-            'order'=>'code ASC'
+            'order'=>'position ASC,code ASC'
         );
         $rows = $this->find($options)->getResultArray();
         $blank = 'oneblank';

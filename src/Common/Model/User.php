@@ -126,9 +126,19 @@ class Common_Model_User extends Common_Model_Table_User {
     	if(empty($this->_metas)){
     		return;
     	}
+    	//从数据库中获取字段
+    	$db_metas = $this->getMetas($this->_meta_domain,null,$id);
+    	$db_meta_id = array();
+    	foreach($db_metas as $m){ 
+    		$db_meta_id[$m['name']] = $m['id']; 
+    	} 
     	foreach($this->_metas as $domain=>$metas){
-    		foreach($metas as $name=>$value){
-    			$this->addRelationModelData('metas', array('domain'=>$domain,'name'=>$name,'value'=>serialize($value)));
+    		foreach($metas as $name=>$value){  
+    			if($db_meta_id[$name]>0){ 
+    				$this->addRelationModelData('metas', array('id'=>$db_meta_id[$name],'domain'=>$domain,'name'=>$name,'value'=>serialize($value)));
+    			}else{
+    				$this->addRelationModelData('metas', array('domain'=>$domain,'name'=>$name,'value'=>serialize($value)));
+    			}
     		}
     	}
     	return true;
@@ -137,7 +147,7 @@ class Common_Model_User extends Common_Model_Table_User {
      * After save 事件
      */
     public function afterSave(){
-    	
+    	//destoryDependedModel
     }
     
     /**
@@ -366,15 +376,17 @@ class Common_Model_User extends Common_Model_Table_User {
      * @param int $id
      * @return array
      */
-    protected function _loadMetaArray($id=null){
+    protected function _loadMetaArray($id=null){ 
     	if(is_null($id)){
     		$id = $this->getId();
-    	}
+    	} 
         $metas = $this->getMetas($this->_meta_domain,null,$id);
         $user_meta = array();
         foreach($metas as $m){
             $user_meta[$m['name']] = @unserialize($m['value']);
-        }
+            $user_meta[$m['name']."_id"] = $m['id'];
+            self::debug("[debug]_loadMetaArray::name::".$m['name']."\t value::".$m['value']."\t".$user_meta[$m['name']."_id"]);
+        } 
         return $user_meta;
     }
     /**
@@ -410,7 +422,7 @@ class Common_Model_User extends Common_Model_Table_User {
     	}
     	if($user_id !== null){
     		$this->setId($user_id);
-    	}
+    	} 
     	if(!empty($conditions)){
     		$condition = implode(' AND ', $conditions);
     		return $this->findRelationModel('metas', array('condition'=>$condition,'vars'=>$vars));

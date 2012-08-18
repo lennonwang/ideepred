@@ -319,13 +319,18 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
      * @return string
      */
     public function doAddress(){
+   		 if(!Anole_Util_Cookie::hasUserLogged()){
+            $back_url = $this->getContext()->getRequest()->getRequestUri();
+            Common_Util_Url::setBackUrl($back_url);
+            return $this->redirectResult('/app/eshop/profile/login');
+        }
     	$this->doProcess();
     	
     	$next_step = $this->getNextStep();
         if(!empty($next_step)){
             return $this->redirectResult($next_step);
         }
-        
+         $this->putSharedParam();
         return $this->smartyResult('eshop.shopping.checkout_payment');
     }
     /**
@@ -334,13 +339,18 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
      * @return string
      */
     public function doPayment(){
+        if(!Anole_Util_Cookie::hasUserLogged()){
+            $back_url = $this->getContext()->getRequest()->getRequestUri();
+            Common_Util_Url::setBackUrl($back_url);
+            return $this->redirectResult('/app/eshop/profile/login');
+        }
     	$this->doProcess($step);
 
     	$next_step = $this->getNextStep();
         if(!empty($next_step)){
             return $this->redirectResult($next_step);
         }
-        
+         $this->putSharedParam();
         return $this->smartyResult('eshop.shopping.checkout_notice');
     }
     /**
@@ -844,6 +854,7 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
         $this->putContext('citys', $citys);
         $this->putContext('provinces', $provinces);
         $this->putContext('province_id',$this->_province_id);
+        $this->putContext('city_id',$this->_city_id);
         
         unset($areas);
         

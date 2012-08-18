@@ -433,7 +433,7 @@
 		 $("#store_id option[value='{$product.store_id}']").attr("selected","selected");										 
 		 $("#category_id option[value='{$product.category_id}']").attr("selected","selected"); 
 		 $("#wine_country option[value='{$product.wine_country}']").attr("selected","selected");
-		  changeCountry();
+		 changeCountry();
 		 $("#wine_area option[value='{$product.wine_area}']").attr("selected","selected"); 
 		 $("#wine_level option[value='{$product.wine_level}']").attr("selected","selected");
 		

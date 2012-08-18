@@ -3,16 +3,21 @@ $(function(){
 	change_area();
 });
 
-function change_area(){
+function change_area(cityId){
 	$('#choose_province').bind('change',function(){
-		var id = $(this).children('option').filter(':selected').val();
-		var url = $('#provice_box').attr('name');
-		if(id > 0){
-			$.get(url,{province_id: id});
-		}
+		change_area_value();
 	});
 }
+ 
 
+function change_area_value(){
+	var cityId= $('#choose_city_id').val();   
+	var id = $('#choose_province').children('option').filter(':selected').val();
+	var url = $('#provice_box').attr('name');
+	if(id > 0){ 
+		$.get(url,{province_id: id,city_id:cityId});
+	}
+}
 function checkout_confirm(){
 	var req_uri = $(this).attr('rel');
 	$.ajax({
