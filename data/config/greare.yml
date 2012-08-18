@@ -1,5 +1,5 @@
 all:
-    domain:"http://ideepred.com"
+    domain:"http://deepred.com"
     index:"/app/eshop/index"
     post_list:"/category/list-%s-%s.html"
     post_single:"/archives/view-%s.html"
@@ -10,8 +10,8 @@ all:
     # /app/eshop/mall/category_list/catcode/%s/page/%s/style/%s
     category_list:"/mall/c-%s-%s-%s.html"
     
-    # /app/eshop/mall/search?catcode=%s&page=%s&style=%s&orderby=%s&low_price=%s&high_price=%s&query=%s
-    search_list:"/mall/search?catcode=%s&page=%s&style=%s&orderby=%s&low_price=%s&high_price=%s&query=%s"
+    #  /app/eshop/mall/search?catcode=%s&page=%s&style=%s&orderby=%s&low_price=%s&high_price=%s&country=%s&grape_breed=%s&query=%s
+    search_list:"/mall/search?catcode=%s&page=%s&style=%s&orderby=%s&low_price=%s&high_price=%s&country=%s&grape_breed=%s&query=%s"
     # /app/eshop/mall/product/id/%s
     product:"/product/%s.html"
     # /app/eshop/mall/favorite/id/%s
@@ -56,6 +56,7 @@ all:
     i_info:"/app/eshop/profile/information"
     i_passwd:"/app/eshop/profile/passwd"
     i_address:"/app/eshop/profile/address"
+    i_addbooks:"/app/eshop/profile/addbooks"
     # /app/eshop/helper?name=%s
     helper:"/helper/%s.html"
     # /app/eshop/helper/introduce/name/%s
