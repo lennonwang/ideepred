@@ -49,8 +49,7 @@
 											{foreach from=$provinces item=province}
 											<option value="{$province.id}" {if $province.id eq $data.province}selected="selected"{/if}>{$province.name}</option>
 											{/foreach}
-										</select>
-										
+										</select> 
 										<label id="city_box">
 										{if $citys}
 										<select name="city" id="choose_city">
@@ -58,10 +57,10 @@
 											{foreach from=$citys item=city}
 											<option value="{$city.id}" {if $city.id eq $data.city}selected="selected"{/if}>{$city.name}</option>
 											{/foreach}
-										</select>
+										</select>  
+										{$data.city}
 										{/if}
-										</label>
-										
+										</label> 
 										<span class="star">
 											<font>*</font>
 										</span>

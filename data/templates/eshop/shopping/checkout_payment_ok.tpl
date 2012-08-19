@@ -10,6 +10,10 @@
 				<th>配送方式：</th>
 				<td>{$transfer_methods[$data.transfer].name} (费用：{$transfer_methods[$data.transfer].freight}元)<span class="gre">--(送货时间：{$transfer_times[$data.transfer_time]})</span></td>
 			</tr>
-		</table>
-	</div>
+			<tr>
+				<th>订单备注：</th>
+				<td>{$data.summary}</td>
+			</tr>
+		</table> 
+	 
 </div>

@@ -3,7 +3,7 @@ $(function(){
 	change_area();
 });
 
-function change_area(cityId){
+function change_area(){
 	$('#choose_province').bind('change',function(){
 		change_area_value();
 	});
@@ -11,9 +11,9 @@ function change_area(cityId){
  
 
 function change_area_value(){
-	var cityId= $('#choose_city_id').val();   
+	var cityId= $('#choose_city_id').val();     
 	var id = $('#choose_province').children('option').filter(':selected').val();
-	var url = $('#provice_box').attr('name');
+	var url = $('#provice_box').attr('name'); 
 	if(id > 0){ 
 		$.get(url,{province_id: id,city_id:cityId});
 	}

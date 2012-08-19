@@ -64,7 +64,9 @@
 									{foreach from=$transfer_methods item=tm key=key}
 									<tr>
 										<th class="tranf_away"><input type="radio" name="transfer" value="{$key}" {if $data.transfer eq $key}checked="checked"{/if} /> <label for="transfer">{$tm.name}</label></th>
-										<td class="pal_note"><label>{$tm.freight}元</label></td>
+										<td class="pal_note"><label>{$tm.freight}元</label>
+										<br /><label>{$tm.summary}</label>
+										</td>
 									</tr>
 									{/foreach}
 								
@@ -85,6 +87,18 @@
 									</tr>
 								</table>
 							</div>
+							
+						<div class="spblock">
+							<table class="odrable">
+								<tr>
+									<th class="td_lab">备注：</th>
+									<td class="pal_note">
+										<textarea name="summary" cols="60">{$data.summary}</textarea>
+										<p>(*请在文本框内填写您的留言,最好别超过100个字符)</p>
+									</td>
+								</tr>
+							</table>
+						</div>
 							
 							<div id="do_buy">
 								<p>
