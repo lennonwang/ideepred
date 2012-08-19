@@ -1,36 +1,37 @@
+#storage  pic
 all:
     default:Anole_Storage_Provider_FileSystem
-    watermark:"/home/lennon/project/project/itablet/data/web/images/eshop/water_mark.png"
+    watermark:"/Users/lennon/project/ideepred/data/web/images/eshop/water_mark.png"
     Anole_Storage_Provider_FileSystem:
-        root:"/home/lennon/project/storage"
-        root_url:'http://pic.ideepred.com/'
+        root:"/Users/lennon/project/storage"
+        root_url:'http://pic.deepred.com/'
     asset:
         provider:'Anole_Storage_Provider_FileSystem'
         options:
-            root:"/home/lennon/project/storage/p"
-            root_url:'http://pic.ideepred.com/p'
+            root:"/Users/lennon/project/storage/p"
+            root_url:'http://pic.deepred.com/p'
             hash_dir:false
     avertise:
         provider:'Anole_Storage_Provider_FileSystem'
         options:
-            root:"/home/lennon/project/storage/ap"
-            root_url:'http://pic.ideepred.com/ap'
+            root:"/Users/lennon/project/storage/ap"
+            root_url:'http://pic.deepred.com/ap'
             hash_dir:false
     product:
         provider:'Anole_Storage_Provider_FileSystem'
         options:
-            root:"/home/lennon/project/storage/s"
-            root_url:'http://pic.ideepred.com/s'
+            root:"/Users/lennon/project/storage/s"
+            root_url:'http://pic.deepred.com/s'
             hash_dir:false
     article:
         provider:'Anole_Storage_Provider_FileSystem'
         options:
-            root:"/home/lennon/project/storage/c"
-            root_url:'http://pic.ideepred.com/c'
+            root:"/Users/lennon/project/storage/c"
+            root_url:'http://pic.deepred.com/c'
             hash_dir:false
     store:
         provider:'Anole_Storage_Provider_FileSystem'
         options:
-            root:"/home/lennon/project/storage/t"
-            root_url:'http://pic.ideepred.com/t'
+            root:"/Users/lennon/project/storage/t"
+            root_url:'http://pic.deepred.com/t'
             hash_dir:false
