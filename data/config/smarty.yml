@@ -1,7 +1,7 @@
 all:
-    cache_dir:"/www/project/build/tmp/cache"
-    compile_dir:"/www/project/build/tmp/templates_c"
-    template_dir:"/www/project/ideepred/data/templates"
+    cache_dir:"/www/ideepred/tmp/cache"
+    compile_dir:"/www/ideepred/tmp/templates_c"
+    template_dir:"/www/ideepred/data/templates"
 
  
 # all:
