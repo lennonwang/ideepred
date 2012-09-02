@@ -9,12 +9,24 @@ class Eshop_Action_Alipay extends Eshop_Action_Common {
     protected $_model_class='Common_Model_Orders';
     
 	/************支付宝配置参数******************/
-	public $aliapy_config = array(
+    /*
+     * public $aliapy_config = array(
 		'partner' => '2088702162489557',
-		'key' => 'k9gnpm4nfd1qmrzyq3y4nzwj31m6fjc5',
+		'key' => 'k9gnpm4nfd1qmrzyq3y4nzwj31m6fjc5', //zhifub
 		'seller_email' => '988238@qq.com',
 		'return_url' => 'http://www.whshop.com.cn/app/eshop/alipay/direct_notify',
 		'notify_url' => 'http://www.whshop.com.cn/app/eshop/alipay/secrete_notify',
+		'sign_type'  => 'MD5',
+		'input_charset' => 'utf-8',
+		'transport' => 'http'
+	);
+     */
+	public $aliapy_config = array(
+		'partner' => '2088701875778767',
+		'key' => '1v2rhj8dir0soo2mpwr0bdqpgaa6nvwb', //zhifub
+		'seller_email' => '67484675@qq.com',
+		'return_url' => 'http://t.ideepred.com/app/eshop/alipay/direct_notify',
+		'notify_url' => 'http://t.ideepred.com/app/eshop/alipay/secrete_notify',
 		'sign_type'  => 'MD5',
 		'input_charset' => 'utf-8',
 		'transport' => 'http'
@@ -30,7 +42,7 @@ class Eshop_Action_Alipay extends Eshop_Action_Common {
      * 
      * @var string
      */
-    public $show_url = "http://www.whshop.com.cn/";
+    public $show_url = "http://t.ideepred.com/";
     
     /**
      * 
@@ -71,8 +83,8 @@ class Eshop_Action_Alipay extends Eshop_Action_Common {
             return $this->_hintResult("订单[$reference]已付款！",false);
         }
         //start to pay
-        $subject = "Whshop Goods";
-        $body = "WHshop.com.cn Eshop";
+        $subject = "iDeepRed Wines";
+        $body = "IDeepRed.com Eshop";
 
 		$price	= $model['total_money'];	//订单总金额，显示在支付宝收银台里的“应付总额”里
 
