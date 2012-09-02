@@ -24,7 +24,7 @@ class Eshop_Action_Alipay extends Eshop_Action_Common {
 	public $aliapy_config = array(
 		'partner' => '2088701875778767',
 		'key' => '1v2rhj8dir0soo2mpwr0bdqpgaa6nvwb', //zhifub
-		'seller_email' => '67484675@qq.com',
+		'seller_email' => '5hhb@sina.cn',
 		'return_url' => 'http://t.ideepred.com/app/eshop/alipay/direct_notify',
 		'notify_url' => 'http://t.ideepred.com/app/eshop/alipay/secrete_notify',
 		'sign_type'  => 'MD5',
