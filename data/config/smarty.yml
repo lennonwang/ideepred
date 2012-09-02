@@ -1,4 +1,10 @@
 all:
-    cache_dir:"/opt/www/deepred/tmp/cache"
-    compile_dir:"/opt/www/deepred/tmp/templates_c"
-    template_dir:"/opt/www/deepred/data/templates"
+    cache_dir:"/www/project/build/tmp/cache"
+    compile_dir:"/www/project/build/tmp/templates_c"
+    template_dir:"/www/project/ideepred/data/templates"
+
+ 
+# all:
+ #   cache_dir:"/Users/lennon/project/build/tmp/cache"
+ #   compile_dir:"/Users/lennon/project/build/tmp/templates_c"
+ #   template_dir:"/Users/lennon/project/ideepred/data/templates"
