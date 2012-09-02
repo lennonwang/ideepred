@@ -8,7 +8,7 @@ class Common_Model_Orders extends Common_Model_Table_Orders {
 	
 	const WAIT_TIME = 3; # 3 days
 	//默认运费
-	private $_fees = 0;
+	private $_fees = 16;
     
     //关系映射表
     protected $_relation_map = array(
@@ -25,7 +25,7 @@ class Common_Model_Orders extends Common_Model_Table_Orders {
      */
     private $payment_methods = array(
         'a'=>array(
-            'name'=>'在线支付',
+            'name'=>'支付宝',
             'summary'=>'支付宝作为诚信中立的第三方机构，充分保障货款安全及买卖双方利益,支持各大银行网上支付。'
         )
     );
@@ -37,7 +37,12 @@ class Common_Model_Orders extends Common_Model_Table_Orders {
     private $transfer_methods = array(
         'a'=>array(
             'name'=>'普通快递',
-            'freight'=>0
+            'freight'=>16,
+        	'summary' => '北京地区8元，其他地区16元起'
+        ),'b'=>array(
+            'name'=>'EMS',
+            'freight'=>22,
+        	'summary' => '北京地区18，其他地区22元，北京地区超重30元，其他地区超重35元'
         )
     );
     /**
@@ -149,18 +154,45 @@ class Common_Model_Orders extends Common_Model_Table_Orders {
     }
     /**
      * 获取快递费用
-     */
+   
 	public function validateExpressFees($city,$overweight=false){
 		$fees = $this->_fees;
+		
 		//超重
 		if($overweight){
-			$this->_fees = 0;
+			$this->_fees = 18;
 		}
 		if($city == 1 || $city == '北京'){
-			$this->_fees = 0;
+			$this->_fees = 10;
 		}
 		return $this;
 	}
+	  */
+	/**
+	 * 支持计算多种快递和多个城市计算快递费用
+	 * @param unknown_type $key
+	 * @param unknown_type $city
+	 * @return Common_Model_Orders
+	 */
+	public function validateExpressFeesByKey($key,$city ,$overweight=false){
+		$fees = $this->_fees;
+		if($key){
+			$transferMethods = $this-> findTransferMethods($key);
+			 $this->_fees = $transferMethods['freight'];
+		} 
+		if($key && $key=='a'){
+			if($city == 1 || $city == '北京'){
+				$this->_fees = 8;
+			}
+		}
+		if($key && $key=='b'){
+			if($city == 1 || $city == '北京'){
+				$this->_fees = 18;
+			}
+		}
+		return $this;
+	}
+	
 	/**
      * 获取快递费用
      */

@@ -18,7 +18,7 @@
 		{smarty_include eshop.common.header}
 
 		<div id="container">
-
+			<form method="post" action="/app/eshop/shopping/do_payment" id="order_ofrm" >
 			<div class="box">
 				<div class="bordor" id="orderfrom">
 					<h2>结算步骤: <span id="shoppingstep_1">1.登录注册</span> >>
@@ -27,11 +27,11 @@
 					<p class="hotlink">带*的项目为必填项</p>
 					
 					
-					{smarty_include eshop.shopping.checkout_address_ok}
+					{smarty_include eshop.shopping.checkout_address_edit}
 					
 					<div class="sho_step editable" id="chkpay_info">
 						<h3>支付方式及配送方式</h3>
-						<form method="post" action="/app/eshop/shopping/do_payment" id="payment_ofrm" >
+						
 							<input type="hidden" name="next_step" value="{$next_step}" />
 							<div class="spblock">
 								<table class="odrable">
@@ -105,12 +105,13 @@
 									<input type="submit" name="payment_ofrm" value="保 存"  class="go_submit step-time" />
 								</p>
 							</div>
-						</form>
+						
 					</div>
 					
 				</div>
+				</form>
 			</div>
-
+			
 		</div>
 
 		{smarty_include eshop.site-help}

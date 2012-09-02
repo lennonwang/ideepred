@@ -186,104 +186,106 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
         return $this->jqueryResult('eshop.shopping.clear');
     }
     
+  
     /**
      * 填写订单信息
-     * 
+     *
      * @return string
      */
     public function checkout(){
-        if(!Anole_Util_Cookie::hasUserLogged()){
-            $back_url = $this->getContext()->getRequest()->getRequestUri();
-            Common_Util_Url::setBackUrl($back_url);
-            return $this->redirectResult('/app/eshop/profile/login');
-        }
-        $uid = Anole_Util_Cookie::getUserID();
-        //$user_data = Greare_Util_Dataset::getUserById($uid);
-        
-        $step = $this->getStep();
-        $next_step = $this->getNextStep();
-        
-        $cart = new Common_Util_Cart();
-        if(empty($cart->com_list)){
-            //没有购物，不可以去结算
-            $url = Common_Util_Url::app_root_url();
-            return $this->_hintResult('您购物车里还没有选择商品,不能去结算!', true, $url);
-        }
-        
-        $model = new Common_Model_OrdersData();
-        //预设临时订单编号
-        $reference = Common_Util_Shop::getOrderReference();
-        self::debug("get exist reference[$reference]..", __METHOD__);
-       // if(is_null($reference)){
-       //     $reference = Common_Util_Shop::_genOderReference();
-       //     Common_Util_Shop::setOrderReference($reference);
-       //  }
-        //检测是否已存在临时订单信息
-        $condition = 'reference=? AND expire > ?';
-        $vars = array($reference, Common_Util_Date::getUnixTimestamp());
-        $value = array();
-        
-        $model->findFirst(array('condition'=>$condition,'vars'=>$vars));
-        if(!is_null($reference) &&  $model->count() ){
-            $value = unserialize($model['data']);
-        }else{
-            //查看用户是否有默认配送地址
-            $addbooks = new Common_Model_Addbooks();
-            self::debug("user[$uid] addbook", __METHOD__);
-            $options = array(
-                'condition'=>'user_id=?',
-                'vars'=>array($uid),
-                'order'=>'is_default DESC,id DESC'
-            );
-            $addinfo = $addbooks->findFirst($options)->getResultArray();
-			
-            $default_value = unserialize($this->getDefaultData());;
-            //订单的默认设置
-            $value = array_merge($default_value,$addinfo);
-            
-            $model->setIsNew(true);
-            $model->setId(null);
-            $reference = Common_Util_Shop::_genOderReference(); 
-            $model->setReference($reference);
-            $model->setData(serialize($value));
-            $model->save();
-             Common_Util_Shop::setOrderReference($reference);
-            self::debug('insert orders temp data done...', __METHOD__);
-        }
-        $areas = new Common_Model_Areas();
-        //get all province
-        $options = array(
-            'condition'=>'type=?',
-            'vars'=>array('p'),
-            'order'=>'id ASC'
-        );
-        $provinces = $areas->find($options)->getResultArray();
-        $this->putContext('provinces', $provinces);
-        //get all city
-		if(isset($value['province']) && $value['province'] > 0){
-	        $options2 = array(
-	            'condition'=>'parent_id=? AND type=?',
-	            'vars'=>array($value['province'], 'c'),
-	            'order'=>'id DESC'
-	        );
-	        $citys = $areas->find($options2)->getResultArray();
-	        $this->putContext('citys', $citys);
-		}
-		
-        $this->putContext('data', $value);
-		
-		//获取用户注册信息
-		$user = new Common_Model_User();
-		$user_row = $user->findById($uid)->getResultArray();
-        $this->putContext('user_data', $user_row);
-		unset($user);
-        
-        $this->putContext('step', $step);
-        $this->putContext('next_step',$next_step);
-		
-        $this->putSharedParam();
-		
-        return $this->smartyResult('eshop.shopping.checkout_address');
+    	if(!Anole_Util_Cookie::hasUserLogged()){
+    		$back_url = $this->getContext()->getRequest()->getRequestUri();
+    		Common_Util_Url::setBackUrl($back_url);
+    		return $this->redirectResult('/app/eshop/profile/login');
+    	}
+    	$uid = Anole_Util_Cookie::getUserID();
+    	//$user_data = Greare_Util_Dataset::getUserById($uid);
+    
+    	$step = $this->getStep();
+    	$next_step = $this->getNextStep();
+    	self::debug("[check_out]::step:[$step]\t..next_step:[$next_step]", __METHOD__);
+    	$cart = new Common_Util_Cart();
+    	if(empty($cart->com_list)){
+    		//没有购物，不可以去结算
+    		$url = Common_Util_Url::app_root_url();
+    		return $this->_hintResult('您购物车里还没有选择商品,不能去结算!', true, $url);
+    	}
+    
+    	$model = new Common_Model_OrdersData();
+    	//预设临时订单编号
+    	$reference = Common_Util_Shop::getOrderReference();
+    	self::debug("get exist reference[$reference]..", __METHOD__);
+    	// if(is_null($reference)){
+    	//     $reference = Common_Util_Shop::_genOderReference();
+    	//     Common_Util_Shop::setOrderReference($reference);
+    	//  }
+    	//检测是否已存在临时订单信息
+    	$condition = 'reference=? AND expire > ?';
+    	$vars = array($reference, Common_Util_Date::getUnixTimestamp());
+    	$value = array();
+    
+    	$model->findFirst(array('condition'=>$condition,'vars'=>$vars));
+    	if(!is_null($reference) &&  $model->count() ){
+    		$value = unserialize($model['data']);
+    	}else{
+    		//查看用户是否有默认配送地址
+    		$addbooks = new Common_Model_Addbooks();
+    		self::debug("!!! checkout user[$uid] addbook", __METHOD__);
+    		$options = array(
+    				'condition'=>'user_id=?',
+    				'vars'=>array($uid),
+    				'order'=>'is_default DESC,id DESC'
+    		);
+    		$addinfo = $addbooks->findFirst($options)->getResultArray();
+    
+    		$default_value = unserialize($this->getDefaultData());;
+    		//订单的默认设置
+    		$value = array_merge($default_value,$addinfo);
+    
+    		$model->setIsNew(true);
+    		$model->setId(null);
+    		$reference = Common_Util_Shop::_genOderReference();
+    		$model->setReference($reference);
+    		$model->setData(serialize($value));
+    		$model->save();
+    		Common_Util_Shop::setOrderReference($reference);
+    		self::debug('insert orders temp data done...', __METHOD__);
+    	}
+    	$areas = new Common_Model_Areas();
+    	//get all province
+    	$options = array(
+    			'condition'=>'type=?',
+    			'vars'=>array('p'),
+    			'order'=>'id ASC'
+    	);
+    	$provinces = $areas->find($options)->getResultArray();
+    	$this->putContext('provinces', $provinces);
+    	//get all city
+    	if(isset($value['province']) && $value['province'] > 0){
+    		$options2 = array(
+    				'condition'=>'parent_id=? AND type=?',
+    				'vars'=>array($value['province'], 'c'),
+    				'order'=>'id DESC'
+    		);
+    		$citys = $areas->find($options2)->getResultArray();
+    		$this->putContext('citys', $citys);
+    	}
+    
+    	$this->putContext('data', $value);
+    
+    	//获取用户注册信息
+    	$user = new Common_Model_User();
+    	$user_row = $user->findById($uid)->getResultArray();
+    	$this->putContext('user_data', $user_row);
+    	unset($user);
+    
+    	$this->putContext('step', $step);
+    	$this->putContext('next_step',$next_step);
+    
+    	// $this->putSharedParam();
+    	$this->doProcess();
+    	return $this->smartyResult('eshop.shopping.checkout_payment');
+    	// return $this->smartyResult('eshop.shopping.checkout_address');
     }
     
     /**
@@ -300,8 +302,12 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
         //获取送货方式
         $transfer_methods = $order->findTransferMethods();
 		if(!empty($province)){
-			$order->validateExpressFees($province);
+			// $order->validateExpressFees($province);
+			self::debug("[order]!!!!!!!!!!!".$province);
+			$order->validateExpressFeesByKey('a',$province);
 			$transfer_methods['a']['freight'] = $order->getFees();
+			$order->validateExpressFeesByKey('b',$province);
+			$transfer_methods['b']['freight'] = $order->getFees();
 		}
         $this->putContext('transfer_methods', $transfer_methods);
         //获取送货时间列表
@@ -311,30 +317,32 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
         $invoice_category = $order->findInvoiceCategory();
         $this->putContext('invoice_category', $invoice_category);
         
+        //获取城市地址
+        $areas = new Common_Model_Areas();
+        //get all province
+        $options = array(
+        		'condition'=>'type=?',
+        		'vars'=>array('p'),
+        		'order'=>'id ASC'
+        );
+        $provinces = $areas->find($options)->getResultArray();
+        $this->putContext('provinces', $provinces);
+        //get all city
+        if(isset($value['province']) && $value['province'] > 0){
+        	$options2 = array(
+        			'condition'=>'parent_id=? AND type=?',
+        			'vars'=>array($value['province'], 'c'),
+        			'order'=>'id DESC'
+        	);
+        	$citys = $areas->find($options2)->getResultArray();
+        	$this->putContext('citys', $citys);
+        }
         unset($order);
     }
+  
+    
     /**
-     * 修改配送地址
-     * 
-     * @return string
-     */
-    public function doAddress(){
-   		 if(!Anole_Util_Cookie::hasUserLogged()){
-            $back_url = $this->getContext()->getRequest()->getRequestUri();
-            Common_Util_Url::setBackUrl($back_url);
-            return $this->redirectResult('/app/eshop/profile/login');
-        }
-    	$this->doProcess();
-    	
-    	$next_step = $this->getNextStep();
-        if(!empty($next_step)){
-            return $this->redirectResult($next_step);
-        }
-         $this->putSharedParam();
-        return $this->smartyResult('eshop.shopping.checkout_payment');
-    }
-    /**
-     * 修改支付方式
+     * 订单支付和确认页面
      * 
      * @return string
      */
@@ -350,8 +358,49 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
         if(!empty($next_step)){
             return $this->redirectResult($next_step);
         }
-         $this->putSharedParam();
-        return $this->smartyResult('eshop.shopping.checkout_notice');
+         $this->putSharedParam(); 
+         
+         //加载确认页面需要线上的信息
+         $cart = new Common_Util_Cart();
+         if(empty($cart->com_list)){
+         	//没有购物，不可以去结算
+         	$url = Common_Util_Url::app_root_url();
+         	return $this->_hintResult('您购物车里还没有选择商品,不能去结算!', true, $url);
+         }
+         self::debug('validate done....', __METHOD__);
+         $products = $cart->com_list;
+         $total_money = $cart->getTotalAmount();
+         $items_count = $cart->getItemCount(); 
+         $this->putContext('products',$products);
+         $this->putContext('total_money',$total_money); 
+         //get pay money
+         $reference = Common_Util_Shop::getOrderReference(); 
+         $model = new Common_Model_OrdersData();
+         $condition = 'reference=? AND expire > ?';
+         $vars = array($reference,Common_Util_Date::getUnixTimestamp());
+         
+         $model->findFirst(array('condition'=>$condition,'vars'=>$vars));
+         $data = array();
+         $_id = null;
+         if($model->count()){
+         	$data = @unserialize($model['data']);
+         }
+         $order = new Common_Model_Orders(); 
+         $order->validateExpressFeesByKey($data['transfer'],$data['province']);
+         $transfer = $order->findTransferMethods($data['transfer']);
+         $freight  = $order->getFees(); 
+         //促销活动优惠金额
+         $sale_amount = $this->validate_user_sale($total_money); 
+         //实付金额
+         $pay_money = $total_money + $freight - $sale_amount; 
+         $this->putContext('pay_money', $pay_money);
+         $this->putContext('freight', $freight);
+         $this->putContext('sale_amount', $sale_amount);
+         
+         unset($order);
+         unset($model);
+         
+        return $this->smartyResult('eshop.shopping.checkout_confirm');
     }
     /**
      * 验证注册用户，是否符合促销活动要求
@@ -387,79 +436,19 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
         
         return $sale_amount;
     }
-    /**
-     * 修改备注信息
-     * 
-     * @return string
-     */
-    public function doNotice(){
-        $this->doProcess();
-        
-        $next_step = $this->getNextStep();
-        if(!empty($next_step)){
-            return $this->redirectResult($next_step);
-        }
-        
-        $cart = new Common_Util_Cart();
-        if(empty($cart->com_list)){
-            //没有购物，不可以去结算
-            $url = Common_Util_Url::app_root_url();
-            return $this->_hintResult('您购物车里还没有选择商品,不能去结算!', true, $url);
-        }
-        self::debug('validate done....', __METHOD__);
-        $products = $cart->com_list;
-        $total_money = $cart->getTotalAmount();
-        $items_count = $cart->getItemCount();
-        
-        $this->putContext('products',$products);
-        $this->putContext('total_money',$total_money);
-            
-        //get pay money
-        $reference = Common_Util_Shop::getOrderReference();
-        
-        $model = new Common_Model_OrdersData();
-        $condition = 'reference=? AND expire > ?';
-        $vars = array($reference,Common_Util_Date::getUnixTimestamp());
-            
-        $model->findFirst(array('condition'=>$condition,'vars'=>$vars));
-        $data = array();
-        $_id = null;
-        if($model->count()){
-             $data = @unserialize($model['data']);
-        }
-        $order = new Common_Model_Orders();
-		$order->validateExpressFees($data['province']);
-        $transfer = $order->findTransferMethods($data['transfer']);
-        $freight  = $order->getFees();
-        
-        //促销活动优惠金额
-        $sale_amount = $this->validate_user_sale($total_money);
-        
-        //实付金额
-        $pay_money = $total_money + $freight - $sale_amount;
-        
-        $this->putContext('pay_money', $pay_money);
-        $this->putContext('freight', $freight);
-        $this->putContext('sale_amount', $sale_amount);
-        
-        unset($order);
-        unset($model);
-            
-        return $this->smartyResult('eshop.shopping.checkout_confirm');
-    }
+   
+    
     /**
      * 确认订单信息
      * 
      * @return string
      */
     public function doOrderOk(){
-        $this->doProcess();
-        
+        $this->doProcess(); 
         $next_step = $this->getNextStep();
         if(!empty($next_step)){
             return $this->redirectResult($next_step);
-        }
-        
+        } 
         return $this->doConfirm();
     }
     /**
@@ -515,7 +504,7 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
     
     /**
      * 确认订单详细信息
-     * 
+     * 保存至正式数据库Order表
      * @return string
      */
     public function doConfirm(){
@@ -528,7 +517,7 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
         $cart = new Common_Util_Cart();
         if(empty($cart->com_list)){
             //没有购物，不可以去结算
-            return $this->jsonResult(301, '您的购物车中没有花样！');
+            return $this->jsonResult(301, '您的购物车中没有商品！');
         }
         $model = new Common_Model_OrdersData();
         $condition = 'reference=? AND expire > ?';
@@ -549,10 +538,11 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
             
             $orders = new Common_Model_Orders();
             //获取配送方式及运费
-			$orders->validateExpressFees($value['province']);
+		//	$orders->validateExpressFees($value['province']);
+			$orders->validateExpressFeesByKey($value['transfer'],$value['province']);
             $transfer = $orders->findTransferMethods($value['transfer']);
             $freight = $orders->getFees();
-            
+            self::debug("[PaymentConfirm]:transfer::".$data['transfer']."\t province::".$data['province']."|freight:::".$freight, __METHOD__);
             $orders->setIsNew(true);
             $orders->setId(null);
             $orders->setReference($reference);
@@ -575,7 +565,7 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
             
             //实付金额
             $pay_money = $total_money + $freight - $sale_amount;
-
+            self::debug("[PaymentConfirm]::".$pay_money."\t total_money::".$total_money."|freight:::".$freight, __METHOD__);
             $orders->setFreight($freight);
             $orders->setTotalMoney($total_money);
             $orders->setCardMoney($sale_amount);
@@ -749,18 +739,19 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
             );
             $provinces = $areas->find($options)->getResultArray();
             $this->putContext('provinces', $provinces);
+          
             
-            //get all city of current province
-            if(!empty($current_province_id)){
-                $options = array(
-                    'condition'=>'parent_id=? AND type=?',
-                    'vars'=>array($current_province_id,'c'),
-                    'order'=>'id ASC'
-                );
-                $citys = $areas->find($options)->getResultArray();
-                $this->putContext('citys', $citys);
+            //get all city
+            if(isset($value['province']) && $value['province'] > 0){
+            	$options2 = array(
+            			'condition'=>'parent_id=? AND type=?',
+            			'vars'=>array($value['province'], 'c'),
+            			'order'=>'id DESC'
+            	);
+            	$citys = $areas->find($options2)->getResultArray();
+            	$this->putContext('citys', $citys);
             }
-            
+              
             //$user_data = Greare_Util_Dataset::getUserById($uid);
             $this->putContext('user_data', $user_data);
             

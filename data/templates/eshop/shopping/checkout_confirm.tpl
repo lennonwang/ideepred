@@ -17,20 +17,18 @@
 
 		{smarty_include eshop.common.header}
 
-		<div id="container">
-
+		<div id="container"> 
 			<div class="box">
 				<div class="bordor" id="orderfrom">
 					<h2>结算步骤: <span id="shoppingstep_1">1.登录注册</span> >> <span id="shoppingstep_2">2.填写核对订单信息</span> >> <span id="shoppingstep_3" class="current_step">3.提交订单</span></h2>
 					
 					<p class="hotlink">带*的项目为必填项</p>
-
-					{smarty_include eshop.shopping.checkout_address_ok}
+			 
 					
 					{smarty_include eshop.shopping.checkout_payment_ok}
-					
+					{*
 					{smarty_include eshop.shopping.checkout_notice_ok}
-					
+					*}
 					
 					<div class="sho_step">
 						<h3>商品清单 <a href="{Common_Smarty_Url_format key='cart'}" class="a_edit b_cart">« 返回修改购物车</a></h3>
@@ -63,7 +61,7 @@
 					</div>
 					
 					<div class="sho_step last" id="chklist_info">
-						<h3>结算信息</h3>
+						<h3>结算信息1</h3>
 						<div class="car_item_list">
 							<table class="picxe">
 								<tr>
@@ -84,12 +82,11 @@
 					
 					<div id="do_buy" class="ablue">
 						<a href="{Common_Smarty_Url_format key='cart'}" class="a_back">« 返回购物车</a>
-						<a href="#checkout_confirm" class="confirm_chk jq_a_ajax" rel="{Common_Smarty_Url_format key='confirm_order'}">提交订单</a>
+						  <a href="#checkout_confirm" class="confirm_chk jq_a_ajax" rel="{Common_Smarty_Url_format key='confirm_order'}">提交订单</a>  
 					</div>
 					
 				</div>
-			</div>
-
+			</div> 
 		</div>
 
 		{smarty_include eshop.site-help}

@@ -103,7 +103,9 @@
 									</tr>
 									{/foreach}
 									<tr >
-										<td colspan="5" class="tr_mony">支付金额<span class="mony">￥{$order_row.pay_money}</span>元 = 商品金额<span class="mony">￥{$order_row.total_money}</span>元 + 运费<span class="mony">￥{$order_row.freight}</span>元 - 优惠金额<span class="mony">￥{$order_row.card_money|default:0}</span>元</td>
+										<td colspan="5" class="tr_mony">
+										支付金额<span class="mony">￥{$order_row.pay_money}</span>元 
+										= 商品金额<span class="mony">￥{$order_row.total_money}</span>元 + 运费<span class="mony">￥{$order_row.freight}</span>元 - 优惠金额<span class="mony">￥{$order_row.card_money|default:0}</span>元</td>
 									</tr>
 								</table>
 							</div>
