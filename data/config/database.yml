@@ -1,5 +1,5 @@
 all:
     dev:
-        default:'adodb://mysqli://root:password@localhost/ideepred?charSet=utf8'
+        default:'adodb://mysqli://root:deepred100@localhost/ideepred_v1?charSet=utf8'
     test:
         default:'adodb://mysqli://root:password@localhost/ideepred?charSet=utf8'
