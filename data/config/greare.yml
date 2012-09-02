@@ -1,5 +1,5 @@
 all:
-    domain:"http://deepred.com"
+    domain:"http://t.ideepred.com"
     index:"/app/eshop/index"
     post_list:"/category/list-%s-%s.html"
     post_single:"/archives/view-%s.html"
