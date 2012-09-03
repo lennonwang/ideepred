@@ -84,10 +84,10 @@ class Eshop_Action_Alipay extends Eshop_Action_Common {
             return $this->_hintResult("订单[$reference]已付款！",false);
         }
         //start to pay
-        $subject = "iDeepRed Wines";
-        $body = "IDeepRed.com Eshop";
+        $subject = "爱深红商品.iDeepRed Wines";
+        $body = $reference;
 
-		$price	= $model['total_money'];	//订单总金额，显示在支付宝收银台里的“应付总额”里
+		$price	= $model['pay_money'];	//订单总金额，显示在支付宝收银台里的“应付总额”里 total_money:商品价格；pay_money:total_money+运费-优惠；
 
 		$logistics_fee		= $model['freight'];				//物流费用，即运费。
 		$logistics_type		= "EXPRESS";			//物流类型，三个值可选：EXPRESS（快递）、POST（平邮）、EMS（EMS）
