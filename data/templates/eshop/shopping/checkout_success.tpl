@@ -53,7 +53,7 @@
 						{/literal}
 							window.location.href='/app/eshop/alipay?order_ref={$order_ref}';
 						{literal}	
-						},300);
+						},11300);
 						</script>
 						{/literal}
 						{/if}

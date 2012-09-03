@@ -19,6 +19,7 @@ class Eshop_Action_Alipay extends Eshop_Action_Common {
 		'sign_type'  => 'MD5',
 		'input_charset' => 'utf-8',
 		'transport' => 'http'
+		2088701875778767
 	);
      */
 	public $aliapy_config = array(
@@ -106,7 +107,8 @@ class Eshop_Action_Alipay extends Eshop_Action_Common {
 		
         //支付宝传递参数
 		$parameter = array(
-			"service"			=> "create_partner_trade_by_buyer",
+			// "service"			=> "create_partner_trade_by_buyer",
+			"service"			=> "create_direct_pay_by_user",
 			"payment_type"		=> "1",
 
 			"partner"			=> trim($this->aliapy_config['partner']),
