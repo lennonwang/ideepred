@@ -26,8 +26,8 @@ class Eshop_Action_Alipay extends Eshop_Action_Common {
 		'partner' => '2088701875778767',
 		'key' => '1v2rhj8dir0soo2mpwr0bdqpgaa6nvwb', //zhifub
 		'seller_email' => '5hhb@sina.cn',
-		'return_url' => 'http://t.ideepred.com/app/eshop/alipay/direct_notify',
-		'notify_url' => 'http://t.ideepred.com/app/eshop/alipay/secrete_notify',
+		'return_url' => 'http://deepred.com/app/eshop/alipay/direct_notify',
+		'notify_url' => 'http://deepred.com/app/eshop/alipay/secrete_notify',
 		'sign_type'  => 'MD5',
 		'input_charset' => 'utf-8',
 		'transport' => 'http'
@@ -249,7 +249,7 @@ class Eshop_Action_Alipay extends Eshop_Action_Common {
                     self::warn("支付宝支付订单[$order_ref]异常：".$e->getMessage(),__METHOD__);
                 }
 				
-			}elseif($trade_status == 'TRADE_FINISHED' || $trade_status == 'TRADE_SUCCESS'){
+			}elseif($trade_status == 'TRADE_FINISHED'){
 				# 该判断表示买家已经确认收货，这笔交易完成
 				try{
                     $order = new Common_Model_Orders();
@@ -307,10 +307,10 @@ class Eshop_Action_Alipay extends Eshop_Action_Common {
         
 		// $out_trade_no	= $_GET['out_trade_no'];	//获取订单号
 	    $trade_no		= $_GET['trade_no'];		//获取支付宝交易号
-	    $total_fee		= $_GET['total_fee'];			//获取总价格
+	    $total_fee		= $_GET['price'];			//获取总价格
         //获取支付宝的反馈参数
-        $order_ref = $_GET['out_trade_no']; //获取iDeepRed订单号
-        $payAmount = $_GET['total_fee']; //支付宝支付金额
+        $order_ref = $_GET['out_trade_no'];
+        $payAmount = $_GET['price'];
         
         $msg = "";
         if($verify_result){
@@ -318,7 +318,7 @@ class Eshop_Action_Alipay extends Eshop_Action_Common {
             
             $trade_status = $_GET['trade_status'];
             self::debug("通过支付宝支付成功！".$trade_status,__METHOD__);
-            if($trade_status == 'TRADE_FINISHED' || $trade_status == 'TRADE_SUCCESS' ){
+            if($trade_status == 'WAIT_SELLER_SEND_GOODS'){
                 try{
                     $order = new Common_Model_Orders();
                     $options = array(

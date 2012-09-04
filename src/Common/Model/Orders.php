@@ -43,6 +43,10 @@ class Common_Model_Orders extends Common_Model_Table_Orders {
             'name'=>'EMS',
             'freight'=>22,
         	'summary' => '北京地区18，其他地区22元，北京地区超重30元，其他地区超重35元'
+        ),'c'=>array(
+            'name'=>'自提',
+            'freight'=>0,
+        	'summary' => '自提'
         )
     );
     /**
