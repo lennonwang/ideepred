@@ -1,3 +1,12 @@
+ 
+<div > 
+<p><img src="http://img01.taobaocdn.com/imgextra/i1/882530494/T2kQRLXgxdXXXXXXXX_!!882530494.jpg"
+ data-ks-lazyloaded="true">&nbsp;&nbsp;</p>
+<p> <img src="http://img02.taobaocdn.com/imgextra/i2/882530494/T2h9d0XohbXXXXXXXX_!!882530494.jpg"
+  data-ks-lazyloaded="true">&nbsp;&nbsp;</p>
+</div> 
+
+
 <h3>支付方式：<strong>在线支付</strong></h3>
 
 <p>1．爱深红商城为您提供“支付宝”在线支付方式，请确认您的银行卡已经开通相应针对支付宝的支付功能。</p>
@@ -14,3 +23,4 @@
 <p>3）如果出现信用卡超额透支、存折余额不足、意外断线等导致支付不成功，请您登录爱深红网站，在“我的账户”中查找到该张未支付成功的订单，重新完成支付。</p>
 
 <p><strong>温馨提示</strong>：请您在订购成功后3天内完成支付，否则我们将不会保留您的订单。</p>
+

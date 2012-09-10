@@ -1,0 +1,19 @@
+html,body,h1,h2,h3,h4,h5,h6,p,ul,ol,li,dl,dt,dd,th,td,form,fieldset,legend,button,input,textarea,blockquote,address,pre {margin:0;padding:0}
+table {border-collapse:collapse;border-spacing:0}
+img,fieldset,hr,iframe {border:0}
+img,.img {display:inline-block;vertical-align:top}
+a,del,ins {text-decoration:none}
+li {list-style:none}
+q:before,q:after {content:''}
+sup,sub {vertical-align:baseline}
+body,button,input,textarea,select {font:normal 12px/1.666 Tahoma,Arial,"\5b8b\4f53";color:#333}
+h1,h2,h3,h4,h5,h6,b {font-size:1em;font-weight:normal}
+textarea {line-height:1.5;max-height:348px;resize:vertical!important}
+i,cite,em,var,dfn,address {font-style:normal}
+a {text-decoration:none;outline:0;color:#7a7a7a}
+a:hover {text-decoration:underline}
+a,label {cursor:pointer}
+embed,object {display:block;outline:0}
+
+* html body {_zoom:expression(function(x){x.style.zoom=1;try{document.execCommand('BackgroundImageCache',false,true)}catch(e){return}}(this))}
+a:active {*direction:expression(function(x){x.style.direction='ltr';x.hideFocus=1}(this))}

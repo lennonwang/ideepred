@@ -20,8 +20,10 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
 	private $_catid=null;
 	//每页显示个数
 	private $_size=20;
-	//排序方式
+	//排序方式; 1 desc ;2 asc
     private $_orderby=1;
+    //排序顺序
+    private $_orderSeq=1;
     //显示方式
     private $_style=1;
     //查询关键词
@@ -133,7 +135,7 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
             'vars'=>$vars,
             'page'=>$page,
             'size'=>$size,
-            'order'=>$this->_getOrderWay($orderby)
+            'order'=>$this->_getOrderWay($orderby,$orderSeq)
         );
         $product_list = $model->find($options)->getResultArray();
 		
@@ -167,6 +169,7 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
     	$page = $this->getPage();
     	$size = $this->getSize();
     	$orderby = $this->getOrderBy();
+    	$orderSeq = $this->getOrderSeq();
         $style = $this->getStyle();
         
     	$low_price = $this->getLowPrice();
@@ -273,23 +276,23 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
             'vars'=>$vars,
             'page'=>$page,
             'size'=>$size,
-            'order'=>$this->_getOrderWay($orderby)
+            'order'=>$this->_getOrderWay($orderby,$orderSeq)
         );
         $product_list = $model->find($options)->getResultArray();
-        $category = new Common_Model_Category();
-        $all_category = $category->findAllCategory();
-        $this->putContext('all_category',$all_category);
+      
         
         $this->putContext('total',$total);
         $this->putContext('page', $page);
         $this->putContext('prev_page',$prev_page);
         $this->putContext('next_page',$next_page);
         $this->putContext('records', $records);
-        $this->putContext('wine_country_array',Common_Util_ProductProUtil::getWineGrapeCountryArray());
-        $this->putContext('grape_breed_array',Common_Util_ProductProUtil::getWineGrapeBreedArray()); 
 		$this->putContext('catcode', $catcode);
         $this->putContext('style', $style);
         $this->putContext('orderby', $orderby);
+        $this->putContext('orderSeq', $orderSeq); 
+        if($orderSeq!=2){
+        	$this->putContext('nextOrderSeq', 1);
+        }
 		$this->putContext('low_price',$low_price);
         $this->putContext('high_price',$high_price);
 		$this->putContext('query', $query);
@@ -303,11 +306,24 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
         $category_channel = $category->findFirstCategory();
 				$this->putContext('category_channel', $category_channel);
 		
-				$this->putSharedParam();
-    	
+		$this->putSharedParam();
+		$this->_setExtraParams();
     	return $this->smartyResult('eshop.search-list');
     }
     
+    /**
+     * 设置订单的扩展参数
+     *
+     * @return void
+     */
+    protected function _setExtraParams( ){
+    	$category = new Common_Model_Category();
+    	$all_category = $category->findAllCategory();
+    	$this->putContext('all_category',$all_category);
+    	$this->putContext('wine_country_array',Common_Util_ProductProUtil::getWineGrapeCountryArray());
+    	$this->putContext('grape_breed_array',Common_Util_ProductProUtil::getWineGrapeBreedArray());
+    	$this->putContext('order_by_array',$this->getSearchOrderByInfo());
+    }
     /**
      * 频道类别页
      * 
@@ -351,24 +367,12 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
                 $stick_category[$i]['image'] = Common_Util_Asset::fetchAssetUrl($cid, Common_Model_Constant::CATEGORY_THUMB);
             }
         }
-        
-        //获取一级分类（频道）
-        $category_channel = $category->findFirstCategory();
-        //获取频道下二三级分类
-        $children_category = $category->findChildrenCategory($channel_code);
-        
-        
-        $this->putContext('channel_id', $channel_id);
-        $this->putContext('channel', $channel);
-        $this->putContext('stick_category', $stick_category);
-        
-        $this->putContext('category_channel', $category_channel);
-        $this->putContext('children_category', $children_category);
-
-				$this->putSharedParam();
-        $this->putContext('current_menu', 'tab_'.$slug);
-		
-        return $this->smartyResult('eshop.channel');
+        self::debug("[1111111]channel_code".$channel_code); 
+        $this->setCatcode($channel_code);
+        $this->categoryList(); 
+        $this->_setExtraParams();
+        return $this->smartyResult('eshop.search-list');
+       // return $this->smartyResult('eshop.channel');
     }
     
     /**
@@ -388,6 +392,7 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
         $size  = $this->getSize();
         $style = $this->getStyle();
         $orderby = $this->getOrderBy();
+        $orderSeq = $this->getOrderSeq();
         self::debug("[param]:categoryList:catcode:".$catcode
         		."\t page:".$page."\t size:".$size."\t style:".$style."\t order".$orderby);
         //获取当前分类
@@ -406,9 +411,10 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
         $category_path = $category->findRootNodePath($catcode);
         //获取一级分类（频道）
         $category_channel = $category->findFirstCategory();
-        
+        self::debug("111111111".$category_path."3333333333". $category_channel);
         //获取所属频道
         $channel = $category_path[0];
+        self::debug("ddddddddddddddd".$catcode."ppppppppp". $channel['id']);
         $channel_id = $channel['id'];
         //添加类别缩略图
         $channel['image'] = Common_Util_Asset::fetchAssetUrl($channel_id, Common_Model_Constant::CATEGORY_THUMB);
@@ -434,7 +440,7 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
             'vars'=>$vars,
             'page'=>$page,
             'size'=>$size,
-            'order'=>$this->_getOrderWay($orderby)
+            'order'=>$this->_getOrderWay($orderby,$orderSeq)
         );
          self::debug("[param]:categoryList:condition:".$condition.' vars:'.$vars.' orderby:'.$this->_getOrderWay($orderby));
         $product_list = $product->find($options)->getResultArray();
@@ -449,6 +455,7 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
         
         $this->putContext('style', $style);
         $this->putContext('orderby', $orderby);
+        $this->putContext('orderSeq', $orderSeq);
         
         $this->putContext('channel', $channel);
         $this->putContext('current_category', $current_category);
@@ -459,8 +466,10 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
         $this->putContext('product_list', $product_list);
         $this->putContext('current_menu', 'tab_'.$catcode);
 		  	$this->putSharedParam();
-		
-        return $this->smartyResult('eshop.category-list');
+		 
+		  $this->_setExtraParams();
+    //    return $this->smartyResult('eshop.category-list');
+        return $this->smartyResult('eshop.search-list');
     }
     
     /**
@@ -524,11 +533,15 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
         $category_channel = $category->findFirstCategory();
 		if(!empty($catcode)){
 	        $categories = $category->findRootNodePath($catcode);
-	        $product['categories'] = $categories;
-	        unset($category);
-		}
+	        $product['categories'] = $categories; 
+		}    
+        for($i=0;$i<count($category_channel);$i++){
+        	$code = $category_channel[$i]['code'];
+        	$category_channel[$i]['children'] = $category->findChildrenCategory($code,true,8);
+        	self::debug('[dat]!!!!1length:::::'.count($category_channel[$i]['children']).' code:'.$code);
+        } 
         $this->putContext('category_channel', $category_channel);
-
+        
 		
 		//获取产品所属品牌
 		$store_id = $product['store_id'];
@@ -607,27 +620,43 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
 		
 		return $this->jqueryResult('eshop.favorite_ok');
 	}
+	
+	/**
+	 * 获取排序名称
+	 */
+	public static function getSearchOrderByInfo(){ 
+		$order_by_array=array(array("id"=>"1","name"=>"上架"),array("id"=>"2","name"=>"价格")
+				,array("id"=>"3","name"=>"人气"),array("id"=>"4","name"=>"折扣") 
+		);
+		self::debug("getSearchOrderByInfo.".$order_by_array);
+		return $order_by_array;
+	}
+	
     /**
      * 获取排序方式
      * 
      * @return string
      */
-    protected function _getOrderWay($orderby=1){
+    protected function _getOrderWay($orderby=1,$orderSeq=1){
+    	$orderSeqValue = "DESC";
+    	if($orderSeq == 2){
+    		$orderSeqValue = " asc ";
+    	}
     	switch($orderby){
     		case 1:
-    			$order_str = 'published_on DESC';
+    			$order_str = 'published_on '.$orderSeqValue;
     			break;
     		case 2:
-    			$order_str = 'sale_price DESC';
+    			$order_str = 'sale_price '.$orderSeqValue;
     			break;
     		case 3:
-    			$order_str = 'view_count DESC';
+    			$order_str = 'view_count '.$orderSeqValue;
     			break;
     		case 4:
-    			$order_str = 'sale_count DESC';
+    			$order_str = 'sale_count '.$orderSeqValue;
     			break;
     		default:
-    			$order_str = 'published_on DESC';
+    			$order_str = 'published_on '.$orderSeqValue;
                 break;
     	}
     	return $order_str;
@@ -711,6 +740,14 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
     }
     public function getOrderBy(){
         return $this->_orderby;
+    }
+    
+    public function setOrderSeq($v){
+    	$this->_orderSeq = $v;
+    	return $this;
+    }
+    public function getOrderSeq(){
+    	return $this->_orderSeq;
     }
 	public function setLowPrice($v){
     	$this->low_price = $v;

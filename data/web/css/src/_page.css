@@ -1,0 +1,32 @@
+.page {clear:both;height:21px;margin:10px;font-size:12px;font-family:"\5b8b\4f53";text-align:right;white-space:nowrap;color:#cbcbcb}
+.pg {overflow:hidden;display:inline-block;height:12px;line-height:12px!important;line-height:15px\0!important;margin:0 3px 2px 2px;padding:5px 7px 3px;border:1px solid #e6e6e6;text-decoration:none;vertical-align:middle;background:url(//builder.oliv.cn/i/3/008.png) repeat-x;color:#444;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}
+.page em {display:inline-block;padding:0 1px 0 0;color:#bbb; word-spacing:-5px}
+.page em a {color:#ababab}
+a.pg:hover {border-color:#b1b1b1;text-decoration:none; background-position:0 -20px}
+.pgEps {margin:0 2px 0 0;font-size:12px;font-family:Tahoma; color:#999}
+
+.page .on {border-color:#999!important;font-weight:bold;color:#fff!important; background:#999;cursor:default}
+.page .dis,.page a.dis:hover{color:#b2b8bf!important;border-color:#cecece!important; text-decoration:none!important;background:url(//builder.oliv.cn/i/1/022.png) repeat-x 0 -20px!important;cursor:default}
+
+
+.page .sign {vertical-align:middle}
+.pg .signArr4 {margin-right:1px}
+.pg .signArr5 {margin-left:2px;_left:2px}
+
+.page2 {padding:3px 0 0;border:none;height:20px}
+.page2 .pg {padding:3px 5px 3px 6px; border-color:#b8c4cf;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px; color:#666; background-image:url(//builder.oliv.cn/i/3/003.png); margin-left:-2px}
+.page2 .on{ background:#9ea7b1!important; border-color:#98a3ad!important}
+.page2 .pg .signArr4,.page2 .pg .signArr5 {color:#929da8}
+.page2 a.pg:hover .signArr4,.page2 a.pg:hover .signArr5{ color:#fff}
+.page2 .pg .signArr5 {margin-left:1px}
+
+.page2 a.dis:hover .signArr4,.page2 a.dis:hover .signArr5{ color:#929da8!important}
+
+.page3 em{ color:#8c7a5e; margin-right:10px}
+.page3 .pg,.page3 a.pg:hover{ background:none; border:none; color:#8c7a5e}
+.page3 a.pg:hover{ text-decoration:underline}
+.page3 .pg{ margin:0 0 2px}
+
+
+
+

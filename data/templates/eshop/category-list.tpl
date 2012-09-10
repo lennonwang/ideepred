@@ -7,14 +7,108 @@
 	<title>{$current_category.name}-{smarty_include eshop.common.xtitle}</title>
 	<meta name="author" content="xiaoyi">
 	{smarty_include eshop.common.header_compart}
-	<link rel="stylesheet" href="/csstyle/itablet.css" type="text/css" />
+	  <!-- <link rel="stylesheet" href="/csstyle/itablet.css" type="text/css" /> --> 
+	<link rel="stylesheet" href="http://221.179.173.197/d/c/g.css" type="text/css" /> 
 	{smarty_include eshop.js-common}
+	<script type="text/javascript" src="/js/e/jquery.iFadeSlide-core.js"></script>
+	<script type="text/javascript" src="/js/e/category-list.js"></script>
+
 </head>
 
 <body>
-<div id="wrapper">
+ 
 	{smarty_include eshop.common.header}
 	
+	
+	<!-- S crumbs -->
+<div class="crumbs">
+	<div class="c0">
+  	<a href="{Common_Smarty_Url_format key=domain}" class="home">首页</a> > 
+			{foreach from=$category_path item=cp name=catepath}
+				{if $smarty.foreach.catepath.first}
+				<a href="{Common_Smarty_Url_format key=channel name=$cp.slug}" title="{$cp.name}">{$cp.name}</a>
+				{elseif $smarty.foreach.catepath.last}
+					{$cp.name}
+				{else}
+					<a href="{Common_Smarty_Url_format key=category_list id=$cp.id}" title="{$cp.name}">{$cp.name}</a>
+				{/if}
+				{if !$smarty.foreach.catepath.last}
+				>
+				{/if}
+			{/foreach}
+			（共{$records}件）
+  </div>
+</div>
+<!-- E crumbs -->
+
+
+<!-- S body -->
+<div class="bdy">
+	<div class="c0">
+  	 
+    {smarty_include eshop.common.condition_list}
+    
+    <div class="sortList" id="sortList">
+    	<ul>
+      	<li><a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=0 high_price=0 country=$country}" data="price"><i class="ii"></i>价格</a></li>
+        <li><a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=2 low_price=0 high_price=0 country=$country}" data="sell"><i class="ii"></i>上架</a></li>
+        <li><a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=3 low_price=0 high_price=0 country=$country}" data="discount"><i class="ii"></i>折扣</a></li>
+        <li><a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=4 low_price=0 high_price=0 country=$country}" data="hot"><i class="ii"></i>人气</a></li>
+      </ul>
+    </div>
+    
+    <!-- S ArrayList --> 
+     <div class="pg">
+    	<!-- <a href="#" class="on">上一页</a> <a href="#" class="on">1</a><a href="#">2</a><a href="#">3</a>
+    	<a href="#">4</a><a href="#">5</a>…<a href="#">9</a><a href="#">5</a> <a href="#" class="on">下一页</a>
+    	-->
+     	 <a href="{Common_Smarty_Url_format key=category_list code=$catcode page=1 style=$style}" class="firstpage">第一页</a>
+		 <a href="{Common_Smarty_Url_format key=category_list code=$catcode page=$prev_page style=$style}" class="prevpage">前一页</a>
+		 <span>{$page}/{$total}</span>
+		 <a href="{Common_Smarty_Url_format key=category_list code=$catcode page=$next_page style=$style}" class="nextpage">后一页</a>
+		 <a href="{Common_Smarty_Url_format key=category_list code=$catcode page=$total style=$style}" class="lastpage">末 页</a>
+	 </div>	
+	 	
+    <div class="CategoryResult">
+      <div class="proSection proSection2">
+      
+      
+     		 {if $product_list}
+				 
+					{foreach from=$product_list item=product name=pro}
+						
+					  <div class="proList">  
+						<p class="img"> <a href="{Common_Smarty_Url_format key=product id=$product.id}" title="{$product.title}"  >
+							<img src="{Common_Smarty_Product_photoThumb thumb_path=$product.thumb}" class="bordor" width="230" height="230" />
+						</a></p>
+						 <span class="priceB">￥<span class="B">{$product.sale_price}</span> </span> 
+						 <p class="nm"><a href="{Common_Smarty_Url_format key=product id=$product.id}">{$product.title}</a></p>  
+					  </div> 
+					 {/foreach}
+					 
+					{else}
+					<p class="ft14 mt-20 mb-20 c6">此分类还没有匹配的产品！</p>
+					{/if}
+				 
+      </div>
+		</div>
+    <!-- E ArrayList -->
+    
+    <div class="pg">
+    	<!-- <a href="#" class="on">上一页</a> <a href="#" class="on">1</a><a href="#">2</a><a href="#">3</a>
+    	<a href="#">4</a><a href="#">5</a>…<a href="#">9</a><a href="#">5</a> <a href="#" class="on">下一页</a>
+    	-->
+     	 <a href="{Common_Smarty_Url_format key=category_list code=$catcode page=1 style=$style}" class="firstpage">第一页</a>
+		 <a href="{Common_Smarty_Url_format key=category_list code=$catcode page=$prev_page style=$style}" class="prevpage">前一页</a>
+		 <span>{$page}/{$total}</span>
+		 <a href="{Common_Smarty_Url_format key=category_list code=$catcode page=$next_page style=$style}" class="nextpage">后一页</a>
+		 <a href="{Common_Smarty_Url_format key=category_list code=$catcode page=$total style=$style}" class="lastpage">末 页</a>
+					 
+	 	</div>		
+  </div>
+</div>
+<!-- E body -->
+
 	<div id="container">
 		<div class="box paths a999">
 			<a href="{Common_Smarty_Url_format key=domain}" class="home">首页</a> > 

@@ -630,6 +630,15 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
                 $pay_method = $orders->findPaymentMethods($value['payment_method']);
             }
             
+            //成功提交订单后，修改库存
+            $model_product = new Common_Model_Product();
+            $product_list = $model_product->findOrderProductList($order_id);
+            for($i=0;$i<count($product_list);$i++){
+            	$product = $product_list[$i];
+            	self::debug("[do_confirm]\t id:::".$product['id']." value::".$product['quantity']);
+            	$model_product ->updateProductCount($product['id'],-$product['quantity']);
+            }
+            
         }catch(Common_Model_Exception $e){
             self::warn("validate order failed: ".$e->getMessage(), __METHOD__);
             $msg = $e->getMessage();
@@ -679,8 +688,8 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
 		
 		//成功提交订单后，发送提醒邮件<异步进程处理>
         $datetime = Common_Util_Date::getNow();
-        $to = array('purpen.w@gmail.com');
-        $subject = 'whshop订单提醒';
+        $to = array('lennon.wang@163.com');
+        $subject = 'iDeepRed订单提醒';
         $body = "客户订单[$order_ref]于 $datetime 已成功下单，请及时查看处理～"; 
         
         for($i=0;$i<count($to);$i++){
@@ -689,14 +698,14 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
             $sender->setMailto($to[$i]);
             $sender->setSubject($subject);
             $sender->setBody($body);
-            $sender->setMailfrom('100jia.cc@gmail.com');
-            $sender->setFromName('100jia');
+            $sender->setMailfrom('ideepred@gmail.com');
+            $sender->setFromName('ideepred');
             $sender->setCreatedOn($datetime);
             $sender->setState(Common_Model_Postoffice::DEFAULT_STATE);
             $sender->save();
         }
-		
-		
+        
+        
         return $this->smartyResult('eshop.shopping.checkout_success');
     }
     

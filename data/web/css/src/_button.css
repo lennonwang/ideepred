@@ -1,0 +1,69 @@
+.btn,.btn b {overflow:hidden;text-indent:0;font-family:"\5b8b\4f53"}
+.btn {display:inline-block;margin:0 0 0.2em;border:1px solid #FB5306;font-size:14px;vertical-align:middle;white-space:nowrap;background:#FA7B17;color:#fff!important;cursor:pointer;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}
+.btn b {text-indent:0;display:block;*display:inline;*zoom:1;height:16px;line-height:17px!important;line-height:19px\9!important;padding:6px 14px 6px 15px;margin:0;*vertical-align:top}
+a.btn:hover,a.btn:focus {border-color:#36a5e2;background-position:right -50px;text-decoration:none}
+a.btn:hover b {text-decoration:none}
+a.btn:active {border-color:#1d73a2;background-position:right -100px}
+	/* minor */
+a.btn_min {border-color:#D1D1D1!important;background-position:right -200px;color:#828588!important}
+a.btn_min:hover,a.btn_min:focus {background-position:right -250px}
+a.btn_min:active {background-position:right -300px}
+	/* disable */
+.btnH.btn_dis {border-color:transparent!important}
+html body a.btn_dis,html body a.btn_dis:hover,html body a.btn_dis:active {border-color:#d1d1d1!important;color:#999!important;background-position:right -150px!important;cursor:default}
+html body .twiPost a.btn_dis {color:#ccc!important}
+	/* loading */
+.btn_loading {position:relative}
+.btn_loading b {visibility:hidden;*visibility:visible;*color:#c30!important;*background:url(http://s1.cr.itc.cn/img/s/ico/0178.gif) no-repeat center!important;*filter:Chroma(color=#cc3300)}
+.btn_loading:after {left:0;top:0;position:absolute;width:100%;height:100%;zoom:1;margin:0;background:url(http://s1.cr.itc.cn/img/s/ico/0178.gif) no-repeat center!important;content:""}
+
+/* Mini */
+.btnM {font-size:12px;background-image:url(//builder.oliv.cn/i/1/013.png)}
+.btnM b {padding:3px 9px;word-spacing:-2px}
+
+/* mini2 */
+.btnM2 {border-color:#549300!important;font-size:12px;background-image:url(http://builder.oliv.cn/i/1/014.png)!important}
+.btnM2 b {padding:3px 9px}
+.btn .add {margin-right:3px}
+.btn .add q {background:#fff}
+
+/* mini3 */
+.btnM3 {border-color:#d1d1d1!important;font-size:12px;background-image:url(http://builder.oliv.cn/i/1/015.png)!important;color:#666!important}
+.btnM3 b {padding:3px 9px}
+
+.btns .btn {margin-right:10px;vertical-align:top}
+.btns2 {text-align:right}
+.btns2 .btn {margin-left:10px}
+.btns2 .opt {float:left;color:#999}
+.btns3 {position:relative;*zoom:1;text-align:center}
+.btns3 .btn {margin-left:6px;margin-right:6px}
+.btns3 .opt {top:3px;*top:5px;right:0;position:absolute;text-align:right}
+
+/* btnB */
+.btnB {border-color:#168ad5;background-image:url(http://builder.oliv.cn/i/2/078.png)}
+.btnB b,.btnB2 b {padding:11px 20px 11px 20px;font-weight:bold}
+a.btnB:hover,a.btnB:focus {border-color:#168ad5}
+a.btnB:active {border-color:#168ad5}
+
+/* btnB2 */
+.btnB2 {border-color:#64af2e;background-image:url(http://builder.oliv.cn/i/3/013.png)}
+a.btnB2:hover,a.btnB2:focus {border-color:#64af2e}
+a.btnB2:active {border-color:#64af2e}
+
+
+
+/* hover vis */
+.btnH {border-color:transparent!important;font-size:12px;background-image:url(http://builder.oliv.cn/i/1/016.png)!important;color:#999!important;_border-color:#F2F2F2}
+.btnH b {padding:3px 4px}
+a.btnH:hover,
+a.btnH:focus,
+a.btnH:active {border-color:#d7d7d7!important;color:#666!important}
+.btnH .add q {background:#999}
+a.btnH:hover .add q {background:#666}
+.dropT .btnH,.usrPanel .btnH {_border-color:#F0F4F5}
+
+/* btnDrop */
+.btnH2 {background-image:url(http://builder.oliv.cn/i/1/017.png)!important;color:#999!important}
+.btnH2 b {padding:3px 18px 3px 6px}
+a.btnH2:hover,a.btnH2:focus {color:#666}
+html body a.btn_act,html body a.btn_act:active,html body a.btn_act:hover,html body a.btn_act:focus {z-index:12;position:relative;border-color:#bebebe #bebebe #fff!important;color:#666!important;background-position:right -150px!important;color:#666!important;-webkit-border-bottom-right-radius:0;-moz-border-radius-bottomright:0;border-radius-bottomright:0;-webkit-border-bottom-left-radius:0;-moz-border-radius-bottomleft:0;border-radius-bottomleft:0}

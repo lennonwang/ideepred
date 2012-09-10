@@ -1,0 +1,155 @@
+.txt {display:inline-block;*display:inline;margin:0 0 0.2em;vertical-align:middle}
+.txt input {height:19px;line-height:19px!important;padding:2px 4px 2px;border:1px solid #999;vertical-align:top;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;outline:0}
+.txt2 input {border-color:#c4c4c4;background-image:url(//s1.cr.itc.cn/img/s/lin/hr_sd_f2.gif)}
+.txt3 input {padding:1px 3px;border-color:#b7c5cb;background-image:url(//s1.cr.itc.cn/img/s/lin/hr_sd_e9.gif)}
+.rado,
+.cbox {display:inline-block;margin:0 1em 0 0;white-space:nowrap; font-family:'\5b8b\4f53'}
+.rado input,
+.cbox input {margin:0 4px 0 1px;top:-1px;position:relative;*position:static;*margin:-5px 1px -1px 0;_margin-top:-2px;vertical-align:middle;*vertical-align:auto;cursor:pointer}
+.rado img,
+.cbox img {vertical-align:middle;margin:0 0 0.3em}
+option {padding-right:8px}
+.tarea {position:relative;*zoom:1;padding:0 5px}
+.tarea textarea {overflow:hidden;overflow-y:auto;display:block;zoom:1;width:100%;height:59px;min-height:59px;padding:4px;margin-left:-5px;margin-right:-5px;border:1px solid #D1D1D1;vertical-align:top;word-wrap:break-word;word-break:break-all;outline:0;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}
+.tarea_min textarea {height:22px!important;min-height:22px;resize:none!important}
+.tarea_min textarea:hover {border-color:#bbb}
+.atFake {visibility:hidden;z-index:-9;top:0;left:0;position:absolute;overflow:hidden;overflow-y:auto;width:100%;font-size:12px;line-height:1.4}
+
+.options {}/*inherit .dropDown*/
+.option {top:-2px;*top:-3px;position:absolute;overflow:hidden;overflow-y:auto;display:block;width:100%;padding:1px;border:1px solid #bebebe;font-size:12px;line-height:1.667;vertical-align:top;background:#fff;-webkit-border-top-right-radius:3px;-moz-border-radius-topright:3px;border-radius-topright:3px;-webkit-border-top-left-radius:3px;-moz-border-radius-topleft:3px;border-radius-topleft:3px}
+.option q {overflow:hidden;display:block;height:23px;line-height:23px;border:5px solid #fff;border-width:0 5px;white-space:nowrap;cursor:pointer}
+.option q.hover {background:#858585;border-color:#858585}
+.option q.hover,.option q.hover .em2 {color:#fff}
+.option .dis,.option .dis .em2 {color:#999!important;background:#fff!important;cursor:default}
+
+.tarea .options {position:absolute}
+.tarea .option {width:100px}
+
+.select {display:inline-block;*display:inline;*zoom:1;height:24px;margin:0 6px 0.2em 0;vertical-align:middle;cursor:pointer;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}
+.select select{ display:inline-block; vertical-align:bottom}
+
+.select .option {top:1px;padding:0 24px 0 0;margin-left:-6px;background:#f7f7f7}
+.select .option q {margin-right:-24px;border-color:#f7f7f7}
+.select .option q.hover {border-color:#838383;background:#838383;color:#fff}
+.select .option .dis {color:#999!important;background:#f7f7f7!important}
+.select .option {max-height:299px;_unicode-bidi:expression(function(x) {if(x.childNodes.length>10)x.style.height=299;x.style.unicodeBidi='normal'}(this))}
+
+.txt .options {padding:0;margin:0 4px 0 0;width:auto}
+
+.txt input,.tarea textarea {background:#fff;-webkit-transition:-webkit-box-shadow 0.2s ease-out;-moz-transition:-moz-box-shadow 0.2s ease-out;transition:box-shadow 0.2s ease-out}
+.txt input:focus,
+.tarea textarea:focus {border-color:#91969b;-webkit-box-shadow:0 0 5px rgba(123,179,207,.6);-moz-box-shadow:0 0 5px rgba(123,179,207,.6);box-shadow:0 0 5px rgba(123,179,207,.6)}
+
+/*  */
+.form {*zoom:1}
+fieldset {padding:8px 0 13px;*padding-top:4px;margin:-2px 0 0;background:url(//s1.cr.itc.cn/img/s/lin/hr_dt_ba.gif) repeat-x}
+.form fieldset:first-child {background:none}
+.legend {position:relative;padding:4px 10px;margin:18px 0 -1px;border-bottom:1px solid #eee;font-size:14px;font-weight:bold}
+.frm {margin:0;padding:0 0 0 96px}
+.frmT {position:relative;overflow:hidden;width:72px;padding:2px 0 5px;margin:0 0 -27px -78px;text-align:right}
+.frmT em {display:block;height:20px;line-height:20px!important}
+.frmC {min-height:27px;_height:27px}
+.frm .pgc {display:inline-block;*display:inline;*zoom:1;padding:2px 0 0}
+.frm .pgc .q {font-size:12px}
+.frm dfn {margin-right:6px}
+
+.frmTip {_position:relative;display:inline-block;*display:inline;*zoom:1;min-height:20px;_height:20px;padding:3px 10px 2px 5px;margin:0 0 -50px 10px;font-size:12px;line-height:18px;vertical-align:top;color:#999;max-width:180px;}
+.frmTip .i {display:none;background-position:-150px -25px}
+.frmTip b {padding:0;font-size:12px}
+
+.frm_focus .frmTip,
+.frm_err .frmTip {-moz-border-radius: 5px 5px 5px 5px;background:#FFFFE4;border: 1px solid #F7E9CE;padding: 2px 9px 1px;}
+.frm_focus .frmTip .i,
+.frm_err .frmTip .i {left:-9px;top:5px;position:relative;display:block;width:6px;height:11px;margin:0 0 -11px -6px;background:url(//builder.oliv.cn/i/2/015.gif) no-repeat}
+.frm_err .frmTip {color:#ed0000}
+.frm_ok .frmTip .i {display:inline-block;visibility:visible;left:-10px;top:2px;position:relative;vertical-align:top}
+.frm_ok .frmTip b {display:none}
+
+
+.frmTip2 {position:static;display:block;margin:1px 0 0;font-size:12px;line-height:1.667;color:#999;padding:0;background:none;border:none}
+.frmTip2 .i {display:none}
+.frm_err .frmTip2 {color:#FF7200}
+.frmTip2 a {margin-left:3px}
+
+.frmTip3{ color:#000; font-weight:bold; margin:0 0 10px 30px; line-height:1.3em;}
+
+.frmIM .txt input {width:8em}
+.frmUnit .txt input {width:164px}
+.frmUrl .txt input {width:224px}
+.frmTxt .txt input {width:224px}
+.frmSubj .txt input {width:224px}
+.form .cbox,.form .rado {margin-top:2px}
+
+.formB .frmT,.formB .frmC {font-size:14px}
+.formB fieldset {padding:12px 10px 12px;*padding-top:18px}
+.formB .frm {margin:12px 0 9px;padding-left:112px}
+.formB .frmT {width:84px;margin:0 0 -27px -92px}
+.formB .tag3 {margin-top:1px;*margin-top:4px;_margin-top:5px}
+
+.form2 fieldset {padding:0}
+.form2 .frm {padding:0;margin:5px 0}
+.form2 .frmT,
+.form2 .frmC {display:inline;padding:0;margin:0}
+.form2 .frmT em {display:inline}
+
+.form3 .frm {padding:0!important;margin:5px 0!important}
+.form3 .frmT,
+.form3 .frmC {width:auto!important;padding:0!important;margin:0!important;text-align:left}
+
+.form4 {font-size:14px}
+.form4 .frm {padding:0;margin:5px 0}
+.form4 .frmT,
+.form4 .frmC {width:auto;padding:6px 10px;margin:0;text-align:left}
+.form4 .frmT {padding:6px 10px;margin:10px 0;background:url(//s1.cr.itc.cn/img/s/lin/hr_dt_ba.gif) repeat-x bottom;}
+.form4 .frmSubmit {padding-left:10px;border-top:1px solid #e5e5e5;padding-top:20px;margin-top:30px}
+
+.mw .frm {padding-left:86px;margin:5px 0 12px}
+.mw .frmT {font-weight:bold}
+.mw .frmT .nm {font-weight:bold;margin:0 5px}
+
+/*S post*/
+
+.post .postTip {font-weight:bold;margin-bottom:5px;font-size:14px}
+.post .postTip i {margin-right:5px}
+.post .tarea {clear:both}
+.post .tarea textarea {font-size:14px;line-height:1.4}
+.frm .post .tarea textarea {font-size:12px;line-height:1.5}
+.postMax,.postAtt,.postAtt .fuc {font-size:12px;color:#666}
+.postAtt .frmC .fuc {color:#2BADD7}
+
+.postAtt {float:left;display:inline;padding-top:5px}
+.postAtt li {display:inline-block;*display:inline;*zoom:1;vertical-align:top;margin:0 12px 0 0}
+.postAtt li .i {padding-right:3px}
+.postAtt li .del {display:inline-block;*display:inline;*zoom:1;*vertical-align:top;margin:0;left:0;top:3px}
+.postAtt li .fuc {display:inline-block;*display:inline;*zoom:1;position:relative}
+.postAtt li a.fuc:hover {color:#6e7981}
+.postAtt .dropT {width:337px}
+.cmt .postAtt li{_vertical-align:baseline}
+/*
+.post .dropD {top:3px;border:3px solid #ced2d4;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;padding:1px;white-space:nowrap}
+.post .dropC {background:#fff;white-space:normal}
+.post .dropD .signArr {width:16px;height:12px;margin:0 0 -12px -16px;overflow:hidden;top:-12px;display:block}
+.post .dropD .signArr q {color:#c9cdcf;width:16px;font-size:16px;line-height:18px}
+.post .dropD .signArr .k2 {color:#b4babb;top:5px}
+.post .dropD .signArr .k3 {color:#f0f4f5;top:6px}
+*/
+
+.postSub {display:inline;float:right;min-height:32px;_height:32px;padding-top:10px;*padding-top:8px;text-align:right}
+.postSub .btn {margin-left:10px}
+.postMax {display:inline-block;font-family:"\5b8b\4f53";padding-right:5px;vertical-align:top;line-height:12px}
+
+.twiPost {min-height:103px}
+.twiPost .tarea textarea,.twiPost .atFake {font-size:14px}
+.twiPost .post {margin:10px 112px 0 68px}
+.twiPost .tarea {float:left;width:100%;*width:auto;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+.twiPost .post textarea {font-size:14px;color:#444;height:30px;margin-right:-5px; vertical-align:top; min-height:30px}
+
+.twiPost .post .avt {*float:left;margin:0 0 -50px -66px}
+.twiPost .post .postSub {left:100px;position:relative;float:left;width:80px;margin:0 0 0 -80px;padding:0}
+.twiPost .post .postSub .btn {margin:0;vertical-align:top}
+.twiPost .postAtt {width:100%}
+.twiPost .dropDown {z-index:13}
+/*E post*/
+
+.selectCity .option {_unicode-bidi:expression(function(x) {if(x.offsetWidth>180)x.style.width=180;x.style.unicodeBidi='normal'}(this))}
+.frmTip {_unicode-bidi:expression(function(x) {if(x.offsetWidth>180)x.style.width=180;x.style.unicodeBidi='normal'}(this))}

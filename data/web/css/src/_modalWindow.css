@@ -1,0 +1,46 @@
+.mw { visibility:visible;z-index:9999;position:absolute;width:500px;margin:5px;color:#666}
+.mwDc {display:none;position:absolute;z-index:-1;width:100%;height:100%;margin:-5px;padding:5px;*padding:6px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;background:#838d93;-moz-opacity:0.5;opacity:.50;filter:alpha(opacity=50)}
+
+.mwCt {position:relative;z-index:0;_height:150px;min-height:150px;margin:-1px;border:1px solid #c1c1c1;background:#f2f2f2;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px; -moz-box-shadow:0 1px 5px rgba(148,148,148,.17);-webkit-box-shadow:0 1px 5px rgba(148,148,148,.17);box-shadow:1px 1px 5px rgba(148,148,148,.17);}
+.mwHd {height:40px;color:#444;border:1px solid #669bb7;border-color:#fafafa #f3f3f3 #d9d9d9 #f3f3f3;color:#666;-moz-border-radius:3px 3px 0 0;-webkit-border-radius:3px 3px 0 0;border-radius:3px 3px 0 0;cursor:move}
+.mwHd h4 {font-size:14px;font-weight:bold;padding:8px 0 8px 15px;background:none}
+
+.mwHd .nm {margin:0 3px; font-weight:bold}
+.mwBd {padding:10px 15px;min-height:44px;_height:44px;border-top:1px solid #fbfbfb}
+.mwBd .postSub{ padding-top:15px}
+.mwBd .ttl{ margin-bottom:5px}
+.mwBd .postAtt { margin-top:6px}
+.mwBd .post .tarea {border-bottom:1px solid #fcfcfc}
+.mwFt {padding:20px 40px;text-align:right;-moz-border-radius:0 0 3px 3px;-webkit-border-radius:0 0 3px 3px;border-radius:0 0 3px 3px;border-bottom:1px solid #fbfbfb}
+.mwFt .btn {margin:0 0 0 10px}
+.maskLayer {position:fixed;_position:absolute;top:0;left:0;z-index:9000;width:100%;height:100%}
+
+.mwPost .tarea textarea {height:60px;min-height:60px}
+
+.mw2 {width:452px}
+.mw3 {width:648px}
+
+/*S mini*/
+.mwMini {width:180px;height:60px}
+.mwMini .mwHd,.mwMini .mwFt {display:none}
+.mwMini .mwCt {min-height:60px;_height:60px;text-align:center}
+.mwMini .mwBd {padding:0 0 0 72px;line-height:60px;font-size:16px;font-weight:bold;color:#666}
+.mwMiniOk  .mwBd {background:url(//builder.oliv.cn/i/1/032.png) no-repeat}
+.mwMiniFail .mwBd {background:url(//builder.oliv.cn/i/1/033.png) no-repeat}
+.mwMiniOk .close,.mwMiniFail .close {display:none}
+/*E mini*/
+
+/* S group setting */
+.nogp{padding:8px 0}
+.gpList {padding:8px 10px;border:1px solid #e7e7e7;background:#fbfbfb;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px; margin-bottom:8px}
+.gpList ul {margin-bottom:5px}
+.gpList li {width:32.5%;display:inline-block;*display:inline;*zoom:1;margin:2px 0 3px 0;vertical-align:top;*vertical-align:auto}
+.gpList .opt {margin-right:10px}
+.gpCreate .btn i {font-weight:bold}
+.gpAdd .txt input {width:170px}
+.gpAdd .btn {margin-left:6px}
+/*E group setting */
+
+.repostC {overflow:hidden;margin:0 0 3px;word-wrap:break-word;color:#666}
+.repostC em {white-space:nowrap}
+.repost .post {margin-top:8px}

@@ -1,0 +1,27 @@
+a.fuc {font-size:12px;white-space:nowrap;color:#2BADD7;font-family:"\5b8b\4f53"}
+a.fuc:hover {text-decoration:none}
+a.fuc:hover b,a.fuc:focus b {text-decoration:underline}
+.fuc_dis,.fuc_dis b {color:#999!important;text-decoration:none!important}
+.fuc_dis .add {display:none}
+.fuc_dis {cursor:default}
+
+.fucs {text-align:left}
+.fucs .fuc {margin-right:10px}
+.fucs2 {text-align:right}
+.fucs3 {text-align:center}
+
+
+.fucUndo {*zoom:1;padding-left:8px;margin:0 0 0 7px;background:url(//s3.cr.itc.cn/img/t/151.gif) no-repeat}
+.fucBack,.fucUndo {color:#999}
+
+.fucAdd b {color:#08c}
+
+.close,.del {z-index:9;top:4px;left:100%;position:relative;overflow:hidden;display:block;width:16px;height:16px;padding:0!important;line-height:normal;margin:0 0 -16px -20px;vertical-align:top;text-align:center;color:#bababa}
+a.close:hover,a.del:hover,
+a.close:focus,a.del:focus {text-decoration:none;color:#8a8a8a}
+.close .sign,.del .sign {margin:2px auto;vertical-align:top}
+
+
+.mwCt .close {top:-1px;height:35px;width:35px;margin:0 0 -35px -35px}
+.mwCt .close .signX2 {margin-top:15px}
+.mwCt .close .signX2 q{font-size:12px}

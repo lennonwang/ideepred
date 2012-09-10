@@ -375,10 +375,10 @@
 							<div id="postdivrich" class="meta-box-sortables ui-sortable">
 								<div id="editorcontainer" class="postbox">
 									<div title="显示/隐藏" class="handlediv"><br></div>
-									<h3 class="hndle"><span>产品介绍11111</span></h3>
+									<h3 class="hndle"><span>产品介绍</span></h3>
 									<script type="text/javascript" src="/js/a/init_tiny.js"></script>
 									<div class="inside">
-										<label for="content" class="screen-reader-text">产品介绍111</label>
+										<label for="content" class="screen-reader-text">产品介绍</label>
 										<textarea id="content" name="content" class="xheditor" rows="12" cols="80" style="width: 80%">{$product.content|stripslashes}</textarea>
 									 
 									</div>

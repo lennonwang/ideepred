@@ -1,8 +1,8 @@
-<append select="#comment-box">
-	<div class="item">
-		<h4>{$cmt.title} on {$comment.created_on|date_format:'%Y-%m-%d'}:</h4>
+<append select="#comment-box"> 
+	<li> 
+	    <b>{$comment.username}</b><i class="time">{$comment.created_on|date_format:'%Y-%m-%d'}:</i><span class="star star_5"></span>
 		<p>{$comment.content|stripslashes}</p>
-	</div>
+	</li>
 </append>
 
 <val select="#post-content" value='' />

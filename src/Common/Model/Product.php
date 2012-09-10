@@ -227,6 +227,68 @@ class Common_Model_Product extends Common_Model_Table_Product {
     	
     	return $this->completeProductList($product_list);
     }
+    
+    /**
+     * 获取某订单下的产品列表
+     *
+     * @return array
+     */
+    public function findOrderProductList($orderId){
+	   	$strSQL = 'select A.*,B.id,B.title,B.sale_price,B.catcode,B.category_id,B.thumb,B.state from `detail` AS A 
+	   			INNER JOIN `product` AS B on A.product_id=B.id ';
+	   	 //已审核的产品
+	    $condition = ' A.orders_id=? ';
+	    $vars =  array($orderId); 
+	    if(!empty($condition)){
+	    	$strSQL .= ' WHERE '.$condition;
+	    }
+	    $options = array(
+	    		'vars'=>$vars
+	    ); 
+	    self::debug("findOrderProductList sql:::".$strSQL);
+	    return $this->findBySql($strSQL,$options);
+    }
+    
+    /**
+     * 获取某订单下的产品列表
+     *
+     * @return array
+     */
+    public function findOrderCheckProductList($orderId){
+    	$strSQL = 'select A.*,B.id,B.title,B.sale_price,B.catcode,B.category_id,B.thumb,B.state from `detail` AS A
+    			 INNER JOIN `product` AS B on A.product_id=B.id ';
+    	//已审核的产品
+    	$condition = 'B.state=? AND A.orders_id=?';
+    	$vars =  array(Common_Model_Product::CHECK_STATE, $orderId);
+    	if(!empty($condition)){
+    		$strSQL .= ' WHERE '.$condition;
+    	}
+    	$options = array(
+    			'vars'=>$vars
+    	);
+    	return $this->findBySql($strSQL,$options);
+    }
+    /**
+     * 更新产品的库存
+     *
+     * @param int $id
+     * @return void
+     */
+    public function updateProductCount($id=null,$stock_value){
+    	if(is_null($id)){
+    		$id = $this->getId();
+    	}
+    	if(empty($id)){
+    		self::warn("update stock and id is Null!", __METHOD__);
+    		throw new Common_Model_Exception("update stock and id is Null!");
+    	}
+    	$u_sql = "UPDATE ".$this->tablelize()." SET stock = stock + ".$stock_value ." WHERE id=?";
+    	self::debug("updateProductCount sql:::".$u_sql);
+    	return $this->getDba()->execute($u_sql, array($id));
+    }
+    
+  
+    
 }
 /**vim:sw=4 et ts=4 **/
 ?>

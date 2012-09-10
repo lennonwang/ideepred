@@ -1,0 +1,415 @@
+@import "src/_reset.css";
+@import "src/_form.css";
+@import "src/_zoom.css";
+@import "src/_icon.css";
+@import "src/_button.css";
+
+
+body{background:#f2f0f0}
+
+.userState{height:29px; border-bottom:1px solid #dbdbdb;background:#f6f6f6}
+.topNav{ margin-bottom:14px;}
+.crumbs{margin-bottom:14px;}
+.bdy{margin-bottom:14px;}
+.footer{}
+
+.s3{color:#f60}
+/* 左右结构 */
+.aside{ float:left; width:165px;padding:10px 0 10px 10px;}
+.main{ margin-left:175px; width:820px; min-height:500px}
+
+.aside .ap{padding:0 5px}
+.aside .ap .apT{background:none; text-indent:0; margin-bottom:5px}
+
+.userState .c0,.topNav .c0,.crumbs .c0,.bdy .c0,.help .c0,.copyright .c0,.links .c0{ width:1000px; background:#fff; margin:0 auto; min-height:20px}
+
+.userState .c0{ margin-bottom:0; background:none}
+.topNav .c0{height:46px; background:#b91218}
+
+/* userState */
+.welWord{color:#c71600; line-height:29px;}
+.myUser{float:right; color:#666}
+.myUser a{padding:0 5px;line-height:29px; color:#666}
+.myUser a:first-child{border:none}
+
+/* topNav */
+.topNav .search{float:right; width:230px; margin:10px 15px 0 0}
+.topNav .search .btn{border:none; background:#1c1c1c; color:#fff; cursor:pointer; height:26px; line-height:22px; width:70px; text-align:center}
+.topNav .search .btn b{position:relative; top:-2px}
+.topNav .search .txt{margin:0; vertical-align:top}
+.topNav .search .txt input{height:20px; line-height:20px; padding:3px; width:150px; border:none; border-radius:0}
+.topNav .logo{float:left; width:90px; height:100%; background:url(../i/logo.png) no-repeat 20px center;}
+.topNav .logo a{display:block;height:100%;}
+.topNav .logo a b{visibility:hidden}
+.topNav .navs{margin-left:120px; height:100%; line-height:46px}
+.topNav .navs a{display:block; height:100%; float:left; font-size:16px; padding:0 1.5em; color:#fff; font-weight:bold}
+.topNav .navs a.on,.topNav .navs a:hover{background:#010101; text-decoration:none}
+
+/* crumbs */
+.crumbs{ height:35px; line-height:35px; overflow:hidden; font-family:'宋体'; text-indent:1em}
+.crumbs a{ padding:0 8px; color:#666}
+.crumbs a.on{color:#b81025; text-decoration:underline}
+
+
+/* proMain */
+.proMain {padding:20px 20px 0; margin-bottom:20px}
+.imgSection{height:457px}
+.imgPreview{float:left; width:356px;}
+.zoomWindow{left:370px; top:0;}
+
+.imgMain:after{content:'\20'; display:block; height:0; line-height:0; clear:both; overflow:hidden}
+.imgMain a img.imgMid{ display:block; width:350px; height:350px; background:#fff; padding:2px; border:1px solid #ddd;}
+.imgOptions{margin-left:370px; font-size:14px;}
+.imgOptions h4{font-size:20px; font-weight:bold;}
+.imgOptions dd{line-height:2.3em}
+.imgOptions dd .op{float:right}
+.imgOptions dd .op a{color:#3399CC}
+.imgOptions dd .op .split{padding:0 3px}
+.imgOptions dd b{display:inline-block; width:85px}
+
+.shareCode{ height:24px; margin-top:10px}
+.priceB{color:#d00; font-size:2em; display:inline-block; vertical-align:bottom}
+
+.buyNumber { display:inline-block; position:relative; width:86px; height:26px; top:3px; vertical-align:top}
+.buyNumber input.num{height:24px; width:64px;border:1px solid #A7A6AB; display:inline-block; vertical-align:top}
+.buyNumber .numberOpt{display:block; float:right; border:1px solid #A7A6AB; width:16px; height:10px; vertical-align:top; }
+.buyNumber .numberOpt a{display:block; height:100%; background:url(../i/icon.png) no-repeat 0 -42px}
+.buyNumber .numUp{margin-bottom:2px}
+.buyNumber .numDown{clear:both}
+.buyNumber .numDown a{background-position:0 -55px}
+
+
+a.showCart{}
+a.showCart .i01{ background:url(../i/cart.png) no-repeat; margin-right:5px}
+a.showCart b{font-weight:bold; padding: 0 3px; color:#d00}
+
+
+
+.buyBtns {display:block; padding-top:15px}
+.buyBtns .nowbuy{ width:120px; height:40px; background:url(../i/icon-nowbuy.png) no-repeat;border:none; cursor:pointer; margin-right:10px; vertical-align:middle}
+.buyBtns .addtocart{ display:inline-block; width:140px; height:40px; background:url(../i/icon-incar.png) no-repeat; border:none;cursor:pointer}
+.buyBtns .collect{ display:inline-block;width:125px; height:30px; line-height:30px; background:url(../i/collect.jpg) no-repeat;border:none;cursor:pointer; margin-left:20px; position:relative; top:4px}
+.buyBtns a b{visibility:hidden}
+
+
+.imgSmall ul{padding:10px 0; margin-right:-10px}
+.imgSmall ul:after{content:'\20'; display:block; height:0; line-height:0; clear:both; overflow:hidden}
+.imgSmall ul li{float:left; margin-right:10px}
+.imgSmall ul li:last-child{margin-right:0}
+.imgSmall ul li a img{display:block; width:75px; height:75px; padding:2px; border:1px solid #ddd}
+
+
+.proSection3{}
+.proSection3 .proList{margin-bottom:10px}
+.proSection3 .proList .img{ width:106px; height:106px; display:block; margin:0 auto}
+.proSection3 .proList .img img{ display:block; width:100px; height:100px; padding:2px; border:1px solid #ddd}
+.proSection3 .proList .nm{line-height:1.4em; margin:0.8em 0 0}
+.proSection3 .proList .price{color:#d00}
+
+/* product */
+
+.productDesc{ color:#666; line-height:2em; }
+.productDesc .cnt {margin-bottom:10px}
+.productDesc .cnt .cell{ display:inline-block; min-width:250px;}
+.productDesc .cnt img{display:inline-block; min-height:200px; min-width:200px; background:#ddd}
+.productDesc .dt{ color:#231f20; font-weight:bold; font-size:16px}
+.productDesc .dd{margin-bottom:20px}
+
+.ap{padding:0 20px}
+.apT{ height:35px; line-height:35px; background:#eaeaea; color:#231f20; text-indent:10px; margin-bottom:10px; font-size:14px; font-weight:bold}
+.apT a{ border-left:1px solid #979797; padding:0 1.2em}
+.apT a:first-child{border:none}
+.apT a.on{color:#b81025}
+.apC{ min-height:150px; margin-bottom:15px}
+
+.proInfo .apTList{border:1px solid #999; border-width:0 0 1px 1px}
+.proInfo .apTList ul{ height:32px}
+.proInfo .apTList ul li{ height:32px; line-height:32px; width:120px; text-align:center; float:left; border:1px solid #999; border-width:1px 1px 0 0;}
+.proInfo .apTList ul li a{display:block; height:32px}
+.proInfo .apTList ul li.on{border-bottom:1px solid #fff; margin-bottom:-1px;background:#fff; overflow:hidden; font-weight:bold; font-size:14px;}
+.proInfo .apTList ul li.on a{color:#d00}
+.proInfo .apC{text-indent:0; border:1px solid #999; border-top-width:0; padding:10px;}
+
+
+.upComment{text-indent:10px; margin-bottom:10px}
+.upComment a{color:#b71025; font-weight:bold; font-size:14px}
+
+ul.comment{}
+ul.comment li{ padding:10px 10px 12px; border-bottom:1px solid #ebebeb; color:#2f2c2d}
+ul.comment li b{color:#b81025; padding-right:1em; display:inline-block; height:20px; vertical-align:top}
+ul.comment li .time{padding-right:1em; display:inline-block; height:20px;vertical-align:top}
+ul.comment li .star{background:url(../i/star.png) no-repeat; width:60px; display:inline-block; height:12px}
+ul.comment li .star_2{background-position:0 -12px}
+ul.comment li .star_3{background-position:0 -24px}
+ul.comment li .star_4{background-position:0 -36px}
+ul.comment li .star_5{background-position:0 -48px}
+
+/* product list page */
+.proSection{}
+.proSection:after{content:'\20'; display:block; height:0; clear:both; overflow:hidden; line-height:0}
+.proList{ float:left}
+.proList .img{ display:block;position:relative}
+.proList .img img{ display:inline-block; box-shadow:0 0 3px rgba(0,0,0,0.6)}
+.proList .img .ii{ display:block; width:50px; height:50px; background:#ccc; position:absolute;}
+.proList .img .i1{background:#666}
+.proList .img2 .ii{right:0}
+.proList .img3 .ii{bottom:0}
+
+.proList .priceB{ float:right; font-size:12px}
+.proList .priceB .B{font-size:16px; font-weight:bold}
+.proList .nm{}
+.proList .price{}
+
+.proSection0{ margin-right:-10px}
+.proSection0 .proList{width:231px; border:1px solid #999; padding:10px; margin:0 10px 10px 0;}
+.proSection0 .proList .img{ width:230px}
+.proSection0 .proList .img img{width:230px; height:230px}
+.proSection0 .proList .nm{margin:5px 0; width:170px; max-height:40px; overflow:hidden}
+.proSection0 .proList .nm a{ color:#333}
+
+
+.proSection1{border-top:1px dashed #ddd; padding-top:10px; text-align:center}
+.proSection1 .proList{ width:106px; display:inline-block; float:none; text-align:left; color:#555}
+.proSection1 .proList .img{width:106px; height:106px}
+.proSection1 .proList .img img{ width:100px; height:100px; padding:2px; background:#fff; border:1px solid #ccc}
+.proSection1 .proList .nm{padding:5px 0; line-height:1.4em}
+.proSection1 .s1{color:#d00; padding:0 3px;}
+.proSection1 .s2{color:#d00; padding:0 3px}
+
+
+.proSection2{}
+.proSection2 .proList{width:291px; border:1px solid #999; padding:10px; margin:0 10px 10px 0;}
+.proSection2 .proList .img{ width:291px}
+.proSection2 .proList .img img{width:290px; height:290px}
+.proSection2 .proList .nm{margin:5px 70px 0 0;height:34px; line-height:1.4em}
+.proSection2 .proList .nm a{ color:#333}
+
+/* 添加到购物车 */
+.addToCateWin{ background:#F0FFE5; border:1px solid #4DBF00; padding:10px; width:380px; position:absolute; display:none; z-index:100}
+.addToCateWin a.opt{float:right;}
+
+.success{ padding-left:60px; background:url(../i/icon_cart.png) no-repeat -130px 20px;}
+.success .info{ font-size:14px;}
+.success .desc b{color:#d00; padding:0 5px; font-weight:bold}
+.success .btns{ margin:10px 0}
+.success .btns a.btn{ display:inline-block; background:url(../i/icon_cart.png) no-repeat; width:100px; height:25px; line-height:25px; font-weight:bold; text-align:center; color:#fff; margin-right:40px; border:none}
+
+
+
+
+
+
+/* category */ 
+.topFlash{ height:300px; overflow:hidden; position:relative}
+#slide img{display:inline-block; width:100%; height:300px}
+#slide #ico{position:absolute; right:8px;bottom:6px}
+#slide #ico ul li{background:#303030; display:inline-block; border-radius:12px; width:12px; height:12px; margin-right:10px;cursor:pointer}
+#slide #ico ul li b{visibility:hidden}
+#slide #ico li.high{background:#c71600}
+
+
+
+.CategoryResult{ padding:10px 0 0 20px}
+.pg{ text-align:right; padding:10px}
+.pg a{ display:inline-block; padding:0 8px; height:24px; text-align:center; line-height:22px; background:#fff; font-weight:bold; color:#000}
+.pg a.on,.pg a:hover{background:#000; color:#fff}
+
+.proCategory{ padding:10px 20px; font-size:14px; clear:both; margin-bottom:10px;}
+.proCategory ul li{overflow:hidden; line-height:30px}
+.proCategory ul li a{color:#333;padding:0 4px;}
+.proCategory ul li a.on{background:#d00; color:#fff}
+
+.cateSearch{}
+.cateSearch .txt{margin:0 15px 0 0}
+.cateSearch .txt input{height:23px}
+.cateSearch .btn b{ padding:4px 10px} 
+
+.sortList{ background:#DADADA; height:30px; border:3px solid #DADADA; border-bottom-width:0}
+.sortList ul li{ float:left; width:100px; height:30px; line-height:30px; text-align:center; font-size:14px;}
+.sortList ul li.on{ font-weight:bold; background:#fff}
+.sortList ul li a{ display:block; height:30px;}
+.sortList ul li a .ii{ width:10px; height:5px;background:url(../i/iconSort.gif) no-repeat 0 -5px;}
+.sortList ul li a .i02{background:url(../i/iconSort.gif) no-repeat 0 0}
+
+
+/* shopCart*/
+
+.noShopping{height:100px; line-height:100px; margin:0 auto; width:400px; padding:50px 0 50px 100px; background:url(../i/01.jpg) no-repeat left center} 
+.step{ height:28px; line-height:28px; background:url(../i/cartStep.gif) no-repeat}
+.step a{color:#f676767; font-size:14px;}
+.step h1{ visibility:hidden; height:28px; line-height:25px; overflow:hidden}
+.step2{ background-position:0 -40px;}
+.step2 h1{visibility:visible; text-indent:62px}
+.step3{background-position:0 -80px;}
+
+
+
+.cartSection{padding:0 20px}
+.cartDetail{border-top:1px solid #ffc0c0; margin-top:20px}
+.cartDetail li{clear:both; height:80px; line-height:80px; border-bottom:1px solid #ffc0c0; vertical-align:middle}
+.cartDetail li.ti{background:#e7dbdb;height:30px;line-height:30px; overflow:hidden}
+.cartDetail li p{float:left; text-align:center; border-right:1px solid #E7DBDB}
+.cartDetail li p.r5{border:none}
+
+.cartDetail li .r1{width:430px;}
+.cartDetail li .r2{width:130px;}
+.cartDetail li .r3{width:100px;}
+.cartDetail li .r4{width:150px;}
+.cartDetail li .r5{width:100px;}
+li.cartTit{ height:30px;background:#e7dbdb}
+li.cartTit p{line-height:30px}
+
+
+
+li.cart .r1{border-right:1px solid #ffc0c0; height:80px; overflow:hidden}
+li.cart .r1 .img{ display:block; vertical-align:middle; height:56px; float:left; padding:12px 0 0 15px}
+li.cart .r1 .img img{display:block; width:50px; height:50px; padding:2px; border:1px solid #A7A6AB}
+li.cart .r1 b{line-height:20px; display:block; margin:18px 10px 0 80px; text-align:left; height:40px; overflow:hidden}
+li.cart a{color:#333}
+
+li.cart p{ border-color:#ffc0c0;}
+li.cart .r4 .buyNumber{ position:relative; top:30px}
+
+
+
+/* 气泡 */
+.bubbleBox{ border:1px solid #DFC9B2; background:#e4e3e3; width:160px; height:80px; position:absolute; display:none}
+.bubbleBox .ii{ float:left; width:9px; height:6px; background:url(../i/02.gif) no-repeat; position:relative; left:77px; bottom:-100%;}
+.bubbleBox .info{ text-align:center; height:50px; line-height:50px; font-size:14px}
+.bubbleBox .btns{ text-align:center}
+.bubbleBox .btns a.btn{ display:inline-block; border:1px solid #DFC9B2; width:50px; height:22px; line-height:20px; text-align:center; border-radius:3px; color:#005EA7}
+.bubbleBox .btns a.btn:hover{ text-decoration:none}
+.bubbleBox .btns .btn_yes{ margin-right:20px;}
+
+.bubbleBox1{ width:auto; height:auto; max-width:200px;}
+.bubbleBox1 .c{position:relative}
+.bubbleBox1 .c .ii{position:absolute; top:100%; left:50%; margin-left:-9px}
+.bubbleBox1 .c .info{font-size:12px; padding:6px 10px; line-height:1.5em; height:auto}
+
+.cartSection2{ border:2px solid #DFC9B2; padding:30px 10px;}
+.ap2{}
+.ap2 .apT{ background:none; border-bottom:1px solid #DFC9B2; margin-bottom:0}
+.ap2 .apT a{font-size:12px; color:#1A66B3; font-weight:normal}
+.ap2 .apT .opt{ float:right}
+.ap2 .apB{margin-bottom:10px}
+.userDefault{line-height:30px; padding:0 30px;}
+.userSet{ padding:0 30px;display:none}
+.userSet .tit {color:#000; font-weight:bold; margin:10px 0}
+ul.userOption{margin-top:15px}
+ul.userOption li{ line-height:24px}
+
+.userSet .btns{ margin:20px 0 10px}
+/*
+.btns .btn2{background:#FA7B17; border:none; height:25px; line-height:23px; border:1px solid #FB5306; color:#fff; font-weight:bold; cursor:pointer; border-radius:5px; padding:0 10px}
+.btns .btn2 b{ line-height:23px;}
+*/
+
+ul.expressType{margin-top:0}
+.sec1{ display:inline-block; width:300px;}
+.sec2{display:inline-block; width:200px;}
+
+.PayOnline .frmTip2{ width:674px; height:274px; background:url(../i/bankInfo.gif) no-repeat; margin-left:40px}
+
+.cartDetail2 li.cartTit{height:30px; line-height:30px}
+.cartDetail2 li.cartTit p{height:30px; line-height:30px}
+.cartDetail2 li{height:50px; line-height:50px}
+.cartDetail2 li .r1{ width:300px; height:50px}
+.cartDetail2 li .r1 b{margin-left:15px; margin-top:5px}
+.cartDetail2 li .r6{ width:100px}
+
+
+.cartPrice{ font-size:14px; margin:10px 0 0 0}
+.cartPrice .p1{ text-align:right;}
+
+.btns2{text-align:right; padding-top:10px}
+.btns2 .btn{text-align:right}
+
+.btn3{background:#FA7B17; border:none; height:30px; line-height:30px; border:1px solid #FB5306; font-size:14px; color:#fff; font-weight:bold; cursor:pointer; border-radius:5px; padding:0 10px}
+
+
+
+.treeDad{ height:30px; line-height:30px; font-weight:bold; border-bottom:1px solid #EEEFF0}
+.treeDad a{ display:block; text-indent:10px}
+.treeDad a:hover{ text-decoration:none}
+ul.secTabs{margin:0 5px 10px 5px}
+ul.secTabs li{ text-indent:10px; }
+ul.secTabs li a{display:block; height:28px; line-height:28px; clear:#666;border-bottom:1px solid #E0E0E0}
+ul.secTabs li:last-child a{border:none}
+ul.secTabs li a:hover,ul.secTabs li a.on{ background:#E0E0E0; color:#d00; text-decoration:none}
+
+
+
+/*help */
+.help{margin-bottom:14px}
+#ibox-help {height:120px;margin-top:20px;padding:20px 30px 0}
+#ibox-help ul {width:172px;float:left}
+#ibox-help ul.last {width:200px}
+#ibox-help ul li {width:100%}
+#ibox-help ul li a {background:url(http://t.ideepred.com/images/eshop/icon-dotli.png) no-repeat left center;display:block;padding:3px 0.9em;color:#999999}
+
+.links{margin-bottom:14px}
+.links .c0{ line-height:2em; color:#333}
+.links .c0 .p0{padding:0.3em 30px}
+.links b{font-weight:bold; display:inline-block}
+.links a{margin:0 0.5em; padding:0 0.5em; display:inline-block; color:#333}
+
+.copyright {margin-bottom:25px}
+.copyright .c0{text-align:center;color:#BB1217; padding:10px 0 20px}
+.copyright a{color:#BB1217; margin:0 3px}
+
+
+/* article */
+.aside .artTypes{ border:1px solid #ddd;margin-bottom:20px; padding:0; border-radius:2px; }
+.aside .artTypes .apT{background:#f1f1f1; text-indent:10px; height:30px; line-height:30px;color:#666}
+.aside .artTypes .apB{padding:0 10px 10px; }
+.aside .artTypes .apB ul li a{display:block}
+.aside .artTypes .apB ul li a:hover,.aside .artTypes .apB ul li a.on{color:#d00}
+
+.artTypes ul li{height:25px; line-height:25px; padding-left:10px; background:url(http://t.ideepred.com/images/eshop/icon_redzs.png) no-repeat left center}
+.artSection{ padding:20px 20px; min-height:500px}
+.artSection .artTitle{ font-size:16px; font-weight:bold; border-bottom:1px solid #333; padding:0 10px 5px}
+.artSection .artContent{ padding:20px 5px;}
+.artSection .artContent:after{content:'\20'; display:block; height:0; line-height:0; clear:both; overflow:hidden}
+.artSection .artContent p{padding-bottom:0.8em; line-height:1.8em; text-indent:2em}
+
+
+
+/* 发表评论 */
+.commentSubmit{ width:500px; margin:0 10px}
+.commentSubmit .tarea{ margin-bottom:15px}
+.commentSubmit .btn a{}
+.commentSubmit .commentSubmitTip{ color:#f00; display:inline-block; margin-top:5px}
+
+/* 布局切换 */
+.M-S{}
+.M-S .aside{ float:right}
+.M-S .main{ margin-right:175px; margin-left:0}
+
+
+.bestSell{}
+.proSection4{ background:#ddd; padding:10px 0 0 10px;}
+.proSection4 .proList{ background:#fff; margin:0 10px 10px 0; width:374px; overflow:hidden}
+
+
+/* login css */
+.regPage .c0{width:800px; padding:50px 100px}
+.regPage .noUserName{float:right; width:300px; padding:100px 0 0 0}
+.regPage .regSection{width:400px}
+.regSection h4{font-size:24px; font-weight:bold; margin-bottom:20px}
+.regForm .frm{padding:0; min-height:30px}
+.regForm .frm .txt {margin-bottom:20px}
+.regForm .frm .txt input{ font-size:16px; width:250px; padding:5px 6px 5px 30px; background:url(../i/regicon.png) no-repeat}
+
+.regForm .frmUsr .txt input{ background-position:8px 8px}
+.regForm .frmUsr .txt input:focus{ background-position:8px -42px}
+.regForm .frmPass .txt input{ background-position:8px -92px}
+.regForm .frmPass .txt input:focus{ background-position:8px -142px}
+.userErr{background-color:#f8bfbf!important; border:1px solid #fe5a5a!important}
+
+.regForm .frm .cbox{margin-right:0}
+.regSubmit .btn{width:100px; height:35px; line-height:35px; color:#fff; font-size:18px; font-weight:bold; text-align:center; margin-right:40px}
+.regSubmit a{font-size:16px;}
+.regOther{ margin:20px 0 0; font-size:14px}
+.noUserName{font-size:14px}
+.noUserName p{margin-bottom:15px}
+.remember .tip{margin-left:50px; visibility:hidden}

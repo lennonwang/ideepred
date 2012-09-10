@@ -1,4 +1,6 @@
-<div id="ibox-help" class="clearfix">
+<div class="help">
+	<div class="c0"> 	
+	<div id="ibox-help"  >
 	<ul>
 		<li><a href="{Common_Smarty_Url_format key=helper name=register}" >注册新用户</a></li>
 		<li><a href="{Common_Smarty_Url_format key=helper name=features}" >我的帐户</a></li>
@@ -23,4 +25,6 @@
 		<li><a href="{Common_Smarty_Url_format key=helper name=apply_return}" >产品保修条款</a></li>
 	</ul>
 	
-</div>
+</div> 
+</div> 
+</div> 

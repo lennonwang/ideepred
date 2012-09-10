@@ -257,10 +257,20 @@ class Common_Model_Orders extends Common_Model_Table_Orders {
         
         return $this;
     }
-    
+     
     public function setOrderCanceled($id=null){
         $status = Common_Model_Constant::ORDER_CANCELED;
-        $this->_updateOrderStatus($status,$id);
+        $this->_updateOrderStatus($status,$id); 
+      
+    	//订单取消后，会恢复库存
+        $model_product = new Common_Model_Product();
+        $product_list = $model_product->findOrderProductList($order_id);
+        for($i=0;$i<count($product_list);$i++){
+            $product = $product_list[$i];
+            self::debug("[do_confirm]\t id:::".$product['id']." value::".$product['quantity']);
+            $model_product ->updateProductCount($product['id'],$product['quantity']);
+        }
+        
     }
     /**
      * 设置订单的状态为等待付款

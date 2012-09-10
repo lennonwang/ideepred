@@ -1,3 +1,7 @@
+
+<!-- S copyRight -->
+<div id="copyright" class="copyright">
+	<div class="c0">
 <div id="footer" class="aorange">
 爱深红	<p><a href="{Common_Smarty_Url_format key=introduce name=about}">关于爱深红</a> | <a href="{Common_Smarty_Url_format key=introduce name=coupon}">团购服务</a> | <a href="{Common_Smarty_Url_format key=introduce name=istore}">企业礼品</a> | <a href="{Common_Smarty_Url_format key=introduce name=ihelp}">帮助中心</a> | <a href="{Common_Smarty_Url_format key=introduce name=contact}">联系我们</a> | 在线咨询 <a target=blank href=tencent://message/?uin=988238&Site=爱深红商城&Menu=yes><img border="0" SRC=http://wpa.qq.com/pa?p=1:988238:7 alt="在线咨询或留言反馈"></a> </p>
 	<p>Copyright @ whshop.com.cn.All Rights Reserved. 京ICP备11041819号</p>
@@ -9,4 +13,7 @@
 	{/literal}
 	</p>
 </div>
-
+ 
+ </div>
+ </div>
+<!-- E copyRight-->

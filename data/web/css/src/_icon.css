@@ -1,0 +1,222 @@
+/*S icon*/
+.i,.ii,.p,.add,.add q,.dot,.sign {overflow:hidden;display:inline-block;line-height:0!important;text-decoration:none!important}
+
+.i,.ii,.p {width:16px;height:16px;margin-bottom:0.25em;vertical-align:middle}
+.i {background:url(//builder.oliv.cn/i/2/i01.png) no-repeat}
+.ii {background-repeat:no-repeat}
+.iH {width:20px;height:20px;background-image:url(//builder.oliv.cn/i/1/007.png)}
+
+.i3 {background:#369}
+.i4 {background-position:0 -325px}
+.i4_hover {background-position:-25px -325px}
+.i4_active {background-position:-50px -325px}
+.act .i4,.act .i4_hover {background-position:-75px -325px!important}
+.i4,.i4_hover,.i4_act,.i4_active {width:25px;height:17px;margin:6px -7px 5px 0;vertical-align:top}
+.i5 {width:18px;height:18px;background-position:0 -300px}
+a:hover .i5 {background-position:-25px -300px}
+.act .i5 {background-position:-50px -300px}
+a.act:hover .i5 {background-position:-75px -300px}
+.i6 {background:#9cf}
+a:hover .i6 {background:#369}
+.i7 {background:#9cf}
+a:hover .i7 {background:#369}
+
+
+.i36 {width:13px;background-position:0 -175px}
+a:hover .i36 {background-position:-25px -175px}
+.i37 {width:11px;background-position:-50px -175px}
+a:hover .i37 {background-position:-75px -175px}
+.i38 {width:11px;background-position:-150px -75px}
+a:hover .i38 {background-position:-175px -75px}
+.i40 {width:12px;background-position:0 -250px}
+a:hover .i40 {background-position:-25px -250px}
+.i41 {width:12px;background-position:-175px -250px}
+.i42 {background-position:-225px -175px}
+.i43 {width:13px;background-position:-100px -225px}
+.i44 {background-position:-50px -250px}
+
+
+.i46 {background-position:-25px 0}
+
+.i48 {background-position:0 0}
+.i49 {background-position:0 -25px}
+.i50 {background-position:-100px 0}
+.i50_on {background-position:-125px 0}
+.i52 {background-position:-125px -225px}
+.i53 {background-image:url(//s3.cr.itc.cn/img/t/ico_png24.png);_background-image:url(//s3.cr.itc.cn/img/t/ico_png8.png)}
+.i53 {width:7px;background-position:0 0}
+a:hover .i53 {background-position:-25px 0}
+a.lbs:hover .i53,
+.i53_act {background-position:-50px 0!important}
+.i54 {width:10px;background-position:-100px -125px}
+a:hover .i54 {background-position:-125px -125px}
+.i55 {background-position:-125px -100px}
+.i56 {background-position:-25px -25px}
+.i59 {background-position:-150px -150px}
+.i60 {background-position:-175px -150px}
+.i61 {background-position:-200px -150px}
+.i62 {background-position:-150px -200px}
+a:hover .i62 {background-position:-175px -200px}
+.i63 {background-position:-50px -275px}
+a:hover .i63 {background-position:-75px -275px}
+.btn .i63 {background-position:-150px -225px}
+a.btn:hover .i63 {background-position:-175px -225px}
+
+.i66 {background-position:-25px 0}
+.i67 {background-position:-50px 0}
+.i67_txt {width:18px!important;padding:0 0 0 2px;font-size:10px;font-family:Arial;line-height:19px!important;background-position:-75px 0;color:#fff;-webkit-text-size-adjust:none}
+.i68 {background-position:-50px -25px}
+.i69 {background-position:-75px -25px}
+
+.i100 {width:18px;height:18px;background-position:-100px -300px}
+a:hover .i100 {background-position:-125px -300px}
+a:active .i100 {background-position:-150px -300px}
+.twi_act .i100 {background-position:-100px -325px}
+.twi_act a:hover .i100 {background-position:-125px -325px}
+.twi_act a:active .i100 {background-position:-150px -325px}
+.i101{ background-position: -225px 0}
+.i102{ background-position:-225px -25px}
+.i103 {background:url(//builder.oliv.cn/i/1/047.png) no-repeat}
+
+
+
+.iSms,a.btn_dis:hover .iSms {width:17px;background-position:-125px -250px}
+a:hover .iSms {background-position:-150px -250px}
+.iWq {top:2px;position:relative;width:20px;background-position:-50px 0;*vertical-align:auto}
+.ivdo {background-position:-100px -175px}
+.iRss {background-position:-125px -150px}
+.iMobi {background-position:-50px -25px}
+.iAim {width:25px;margin:0 5px 0 0;*margin-bottom:0.1em;background-position:-100px -75px}
+.iDel,.iDel2,.iDel3 {background-position:-103px -150px}
+a:hover .iDel3 {background-position:-75px -150px}
+.on .iDel3 {background-position:-100px -150px}
+.on a:hover .iDel3 {background-position:-225px -150px}
+.iFlush {margin:0 0 1px\0;background-position:-150px -125px}
+.iEmpty {width:10px;background-position:-50px -150px}
+a:hover .iEmpty {background-position:-75px -150px}
+.iMale,
+.iFemale {background-position:0 -25px}
+.iMale {background-position:-25px -25px}
+.iEachother {width:36px;background-position:-100px -25px}
+.iAdded {width:14px;background-position:-100px -50px}
+i.iLoading,.iLoading2,i.iloading {background:url(//s1.cr.itc.cn/img/s/ico/0178.gif) no-repeat 0}
+.iSug,
+.iReport {background-position:-175px -125px}
+.iOk {background-position:-200px -25px}
+.iOk2 {background-position:-150px -25px}
+.iErr {background-position:-175px -25px}
+.iPriv,.iLock {background-position:-200px -125px}
+.iUnlock {background-position:-225px -125px}
+.iJoined {width:18px;margin-right:6px;background-position:-50px -75px}
+.iJoined2 {width:20px;margin-right:3px;background-position:-75px -75px}
+.iPost {width:12px;background-position:-150px -50px}
+a:hover .iPost {background-position:-175px -50px}
+.iCw {width:16px;background-position:-50px -225px}
+.iCcw {width:12px;background-position:-75px -225px}
+.iSet {background-position:0 -225px}
+a:hover .iSet {background-position:-25px -225px}
+.on .iSet {background-position:-100px -275px}
+.on a:hover .iSet {background-position:-125px -275px}
+.iall {width:19px;margin-bottom:0.2em;background:url(//s3.cr.itc.cn/img/t/437.png) no-repeat 0 -51px}
+a:hover .iall {background-position:-25px -51px}
+.iall_act {background-position:0 -101px}
+a:hover .iall_act {background-position:-25px -101px}
+.iTime{ background-position:-150px -275px;}
+a:hover .iTime{ background-position:-175px -275px;}
+.iCollect{background-position:-175px -300px;}
+a:hover .iCollect{ background-position:-175px -325px;}
+.iCollect_act{ background-position:-175px -350px!important;}
+.iEachother {width:37px;background-position:-100px -25px}
+.iFavor {background-position:-100px -50px}
+.iRefresh {background-position:-200px -175px}
+.iSharp {background-position:0 -350px; margin-bottom:0}
+.iFollow{ background-position:-25px -350px}
+.iFollower{ background-position:-50px -350px}
+.iTwis{ background-position:-75px -350px}
+/*a:hover .iFollow{ background:#eee}
+a:hover .iFollower{ background:#eee}
+a:hover .iTwis{ background:#eee}*/
+.iVisits{ background:#ddd}
+.iComments{ background-position:-100px -350px}
+.iRetwis{ background-position:-125px -350px}
+
+
+	/* png24 */
+
+.pVer .png {width:100px;height:100px;background:url(//s2.cr.itc.cn/img/t/264.png) no-repeat;_background:none!important;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='//s2.cr.itc.cn/img/t/264.png',sizingMethod='crop')}
+.pVer{ width:17px; margin-left:3px}
+/*
+.pVer {margin-bottom:0.2em}
+.pVer .png {width:152px;height:42px;background-image:url(//builder.oliv.cn/i/1/023.png);_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='//builder.oliv.cn/i/1/023.png',sizingMethod='crop')}
+.mainT .usrStat .pVer {width:26px;height:26px}
+.mainT .usrStat .pVer .png {margin:-16px 0 0}
+.aside .usrStat2 .pVer {width:126px;height:25px}
+.aside .usrStat2 .pVer .png {margin:-16px 0 0 -26px}
+*/
+.ut {overflow:hidden;width:135px;height:32px;padding:0;margin:7px 0;text-indent:-99em;background:url(//s2.cr.itc.cn/img/t/227.png) no-repeat}
+
+
+/*S err icon */
+.pVer2,.pVer3,.p_ver {width:70px!important;height:69px!important;background:url(//builder.oliv.cn/i/1/icon_err.png) no-repeat center!important}
+.pVer2 .png,.pVer3 .png,.p_ver .png {display:none}
+/*E err icon */
+
+.navi .p {position:relative}
+.navi .p .png {position:relative;width:87px;height:120px;background-image:url(//builder.oliv.cn/i/1/020.png);_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='//builder.oliv.cn/i/1/020.png',sizingMethod='crop')}
+.navi .t2 .png {margin:-30px 0 0}
+.navi .t3 .png {margin:-60px 0 0}
+.navi .t4 .png {margin:-90px 0 0}
+.navi a:hover .png {left:-29px}
+.navi .on .png {left:-58px!important}
+
+
+	/* by text */
+.dot {width:2px;height:2px;margin:3px 5px;vertical-align:middle;background:#666}
+.add {width:12px;height:16px;margin:0 0 0.25em;vertical-align:middle}
+.add q {display:block;background:#2BADD7}
+.add .k1 {width:8px;height:2px;margin:7px 0 -5px 2px}
+.add .k2 {width:2px;height:8px;margin:0 0 0 5px}
+
+.sign {position:relative;overflow:hidden;width:12px;height:12px;margin-bottom:0.25em;vertical-align:middle;text-align:left;font-family:"\5b8b\4f53"}
+.sign q {left:12px;position:relative;overflow:hidden;display:block;width:12px;height:12px;margin:0 0 -12px -12px;font-size:12px;line-height:13px;line-height:13px\0;font-family:"\5b8b\4f53"}
+.sign .k2 {top:1px}
+.signX {font-weight:bold}
+.signX2 {width:14px;height:14px;font-weight:bold}
+.signX2 q {font-size:14px;line-height:14px}
+.signArr {position:relative;display:block;width:12px;height:6px;color:#C1E6EA}
+.signArr2 {width:12px;height:4px}
+.signArr2 q,.signArr2 .k2 {left:12px;top:-7px}
+
+.signArr3,.signArr3_act {width:10px;height:9px}
+.signArr3 q,
+.signArr3_act q {left:11px;top:-6px;font-weight:bold}
+.signArr3 q.k2,
+.signArr3_act q.k2 {left:12px;top:3px;*top:2px;width:14px;height:6px;*height:7px;margin-left:-14px;font-size:14px}
+
+.signArr3_act q {top:4px}
+.signArr3_act q.k2 {height:12px;top:-5px;*top:-6px}
+.fuc .signArr3,.fuc .signArr3_act {margin-left:1px}
+
+.signArr4,.signArr5 {width:5px;height:10px}
+.signArr4 q {left:12px;top:0px}
+.signArr5 q {left:6px;top:0px}
+
+.signArr6,
+.signArr6_act {width:7px;height:7px}
+.signArr6 q,
+.signArr6_act q {left:10px;top:-7px}
+.signArr6 q.k2{top:1px}
+.signArr6_act q {top:3px}
+.signArr6_act q.k2 {height:12px;top:-5px}
+.fuc .signArr6,.fuc .signArr6_act {margin-left:3px}
+
+.signArr7,.signArr7_act {width:10px;height:9px}
+.signArr7 q,
+.signArr7_act q {left:11px;top:-6px}
+.signArr7 q.k2,
+.signArr7_act q.k2 {left:12px;top:3px;*top:2px;width:14px;height:6px;*height:7px;margin-left:-14px;font-size:14px}
+
+.signArr7_act q {top:4px}
+.signArr7_act q.k2 {height:12px;top:-5px;*top:-6px}
+.fuc .signArr7,.fuc .signArr7_act {margin-left:1px}
+/*E icon*/

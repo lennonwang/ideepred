@@ -164,18 +164,11 @@ class Eshop_Action_Profile extends Eshop_Action_Common {
 		
 		$model_product = new Common_Model_Product();
         
-		$strSQL = 'select A.*,B.id,B.title,B.sale_price,B.catcode,B.category_id,B.thumb from `detail` AS A INNER JOIN `product` AS B on A.product_id=B.id ';
-        //已审核的产品
-        $condition = 'B.state=? AND A.orders_id=?';
-        $vars =  array(Common_Model_Product::CHECK_STATE, $id);
-		
-		if(!empty($condition)){
-			$strSQL .= ' WHERE '.$condition;
+		$product_list = $model_product->findOrderProductList($id);
+		for($i=0;$i<count($product_list);$i++){
+			$product = $product_list[$i];
+			self::debug("id:::".$product['id']." value::".$product['quantity']); 
 		}
-		$options = array(
-			'vars'=>$vars
-		);
-		$product_list = $model_product->findBySql($strSQL,$options);
 		
 		$this->putContext('plist', $product_list);
 		$this->putContext('order_row', $order_row);
@@ -215,6 +208,15 @@ class Eshop_Action_Profile extends Eshop_Action_Common {
 		}
 		
 		$order_model->setOrderCanceled($id);
+		
+		//取消订单，会恢复库存
+		$model_product = new Common_Model_Product();
+		$model_product->findOrderProductList($id);
+		for($i=0;$i<count($model_product);$i++){
+			$product = $model_product[$i];
+			self::debug("[do_cancel]\t id:::".$product['id']." value::".$product['quantity']);
+			$model_product ->updateProductCount($product['id'],$product['quantity']);
+		}
 		
 		$msg = '您请求的订单已取消!';
 		$this->putContext('msg', $msg);

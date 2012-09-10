@@ -325,7 +325,7 @@ class Common_Model_Category extends Common_Model_Table_Category {
         $length = strlen($code);
         
         switch($length){
-        	case 4:
+        	case 1:
         		//二级分类
         		$parent_code = substr($code,0,1);
         		$options = array(
@@ -334,6 +334,15 @@ class Common_Model_Category extends Common_Model_Table_Category {
         		    'order'=>'code ASC'
         		);
         		break;
+        	case 4:
+        			//二级分类
+        			$parent_code = substr($code,0,1);
+        			$options = array(
+        					'condition'=>'code IN (?,?) AND state=?',
+        					'vars'=>array($parent_code,$code,1),
+        					'order'=>'code ASC'
+        			);
+        			break;
         	case 8:
         		//三级分类
         		$first_parent_code = substr($code,0,1);

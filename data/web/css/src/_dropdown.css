@@ -1,0 +1,43 @@
+.dropDown,
+.options {z-index:11;position:relative;display:block;*zoom:1;_width:0;height:0;font-size:0;line-height:0;text-indent:0;_unicode-bidi:expression(function(x){x.style.width=x.parentNode.firstChild.offsetWidth;if(x.style.width>0)x.style.unicodeBidi='normal'}(this))}
+.dropD {top:-1px;position:absolute;border:1px solid #bebebe;white-space:nowrap;font-size:12px;line-height:1.667;vertical-align:top;background:#fff;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-webkit-border-top-left-radius:0;-moz-border-radius-topleft:0;border-radius-topleft:0;-moz-box-shadow:1px 1px 0 rgba(0,0,0,.11);-webkit-box-shadow:1px 1px 0 rgba(0,0,0,.11);box-shadow:1px 1px 0 rgba(0,0,0,.11);filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=1,OffY=1,Color='#18e3e3e3')}
+
+.tabs .act,
+.btn_act {border-color:#bebebe #bebebe #fff!important;-moz-box-shadow:1px 0 0 rgba(0,0,0,.11);-webkit-box-shadow:1px 0 0 rgba(0,0,0,.11);box-shadow:1px 0 0 rgba(0,0,0,.11);filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=1,OffY=0,Color='#18e3e3e3')}
+.dropT,.dropC {*zoom:1}
+.dropD .signArr { display:none}
+.dropT {*zoom:1;border-bottom:1px solid #e0e0e0;height:29px;line-height:29px;padding:0 9px;background:#f0f4f5;color:#666}
+.dropT .dropD {top:-1px!important;width:auto!important}
+
+.dropL {zoom:1;display:block;width:100px;padding:2px 0 1px}
+b.dropL {margin:2px 0 0;border-top:1px solid #E4E4E4}
+.dropL a,.dropL .noItem { position:relative;overflow:hidden;display:block;height:23px;line-height:23px;padding:0 10px;margin:0 -1px;word-wrap:break-word;color:#464646}
+.dropL a:hover { color:#fff!important;text-decoration:none;background:#858585}
+.dropL a.selected {margin:0;color:#ff7200!important;background:#fff!important;cursor:default}
+
+/* on the right */
+.oper .dropD {right:0;_margin-right:-1px;left:auto!important}
+
+/* --- senses --- */
+.mainT .tabs .dropL {width:90px}
+
+.dropLogin {}
+.dropLogin .signArr {top:-9px;position:relative;overflow:hidden;display:block;height:8px;width:59px;margin:0 0 0 223px;background:#3C3E42}
+.dropLogin .signArr q {display:none}
+.dropLogin .dropD {right:0;margin-top:6px;border:2px solid #3C3E42;-moz-box-shadow:0 0 5px rgba(0,0,0,.33);-webkit-box-shadow:0 0 3px rgba(0,0,0,.33);box-shadow:0 0 3px rgba(0,0,0,.33);-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-moz-border-radius-topright:0;-webkit-border-radius-topright:0;border-radius-topright:0;width:280px}
+
+.dropGroup .dropC {padding:10px 10px 6px}
+.dropGroup .c {padding:5px 0 0;border-top:1px solid #ececec}
+.dropGroup .cbox { display:block}
+.dropGroup .txt {margin-bottom:6px}
+.dropGroup .txt input {width:111px}
+.dropGroup .btn {margin-right:6px}
+.dropGroup .err {display:block}
+
+.assoc {position:absolute;border:1px solid #d1d1d1;background:#fff}
+.assoc .ttl {overflow:hidden;width:135px;height:21px;margin:0 0 -21px}
+.assoc ul {position:relative;margin:2px}
+.assoc li {overflow:hidden;height:21px;padding-right:10px;text-indent:10px;line-height:21px;white-space:nowrap;cursor:pointer;*width:155px;}
+.assoc li.hover {background:#ebeaea}
+
+/* reminder */
