@@ -343,7 +343,7 @@
 								
 								<div class="inside">
 									<p class="howto">
-									  <label id="uploadify_assets">Select Files</label>图例说明：标正(正面大图)、标细(细节图片)、标内(内容图片)。  
+									  <label id="uploadify_assets">Select Files</label>图例说明：标正(正面大图)、标细1(第一张细节图片)、 标细2(第二张细节图片) 刷新有效，后续优化。   
 										<div id="product-photos" class="tagsdiv"></div>
 									</p>
 									
@@ -359,7 +359,14 @@
 											</a>
 											<div class="row-actions">
 												<span>尺寸: {$a.width}x{$a.height}px</span>
-												[<a href="/app/admin/asset/assign_thumb?id={$a.id}&parent_type=4" class="jq_a_ajax">标正</a>] [<a href="/app/admin/asset/assign_thumb?id={$a.id}&parent_type=5" class="jq_a_ajax">标细</a>] [<a href="/app/admin/asset/assign_thumb?id={$a.id}&parent_type=7" class="jq_a_ajax">标内</a>] [<a href="/app/admin/asset/delete?id={$a.id}" class="jq_a_ajax">删除</a>]
+												[<a href="/app/admin/asset/assign_thumb?id={$a.id}&parent_type=4" class="jq_a_ajax">标正</a>]  
+												[<a href="/app/admin/asset/assign_thumb?id={$a.id}&parent_type=5&position=1" class="jq_a_ajax">标细1</a>] 
+												[<a href="/app/admin/asset/assign_thumb?id={$a.id}&parent_type=5&position=2" class="jq_a_ajax">标细2</a>] 
+												[<a href="/app/admin/asset/assign_thumb?id={$a.id}&parent_type=5&position=3" class="jq_a_ajax">标细3</a>] 
+												<!--
+												[<a href="/app/admin/asset/assign_thumb?id={$a.id}&parent_type=7" class="jq_a_ajax">标内</a>] 
+												-->
+												[<a href="/app/admin/asset/delete?id={$a.id}" class="jq_a_ajax">删除</a>]
 											</div>
 										</li>
 										{/foreach}

@@ -85,6 +85,12 @@ abstract class Common_Model_Table_Asset extends Anole_ActiveRecord_Base {
     'type' => 'S',
     'length' => '1',
   ),
+  'position' =>
+  array (
+  		'name' => 'position',
+  		'type' => 'N',
+  		'length' => '11',
+  ),
   'created_on' => 
   array (
     'name' => 'created_on',
@@ -302,6 +308,27 @@ abstract class Common_Model_Table_Asset extends Anole_ActiveRecord_Base {
     public function getDeviceType(){
         return $this->get('device_type');
     }
+    
+    /**
+     * 设置属性'position'的值
+     *
+     * @param  integer $value
+     *
+     * @return Asset
+     */
+    public function setPosition($value){
+    	$this->set('position',$value);
+    	return $this;
+    }
+    /**
+     * 获取属性:'position'的值
+     *
+     * @return integer
+     */
+    public function getPosition(){
+    	return $this->get('position');
+    }
+    
         /**
      * 设置属性'created_on'的值
      *

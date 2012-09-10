@@ -192,7 +192,7 @@ class Admin_Action_Product extends Admin_Action_Entry {
             $product = $model->findById($id)->getResultArray();
             
             //获取附件列表
-            $asset_list = $model->findRelationModel('assets',array('order'=>'parent_type ASC,id ASC'),$id);
+            $asset_list = $model->findRelationModel('assets',array('order'=>'parent_type ASC,position asc,id ASC'),$id);
             $this->putContext('asset_list', $asset_list);
             
             
@@ -261,8 +261,7 @@ class Admin_Action_Product extends Admin_Action_Entry {
 		if(!$this->isLogged()){
             return $this->_redirectLogin();
         }
-        $model = $this->wiredModel();
-        self::debug("save model content!!!!!!!!!!!!!!!!!!!:".$model->getContent());
+        $model = $this->wiredModel(); 
         $id = $this->getId();
         
         try{
@@ -276,15 +275,13 @@ class Admin_Action_Product extends Admin_Action_Entry {
 	            $edit_mode = 'edit';
 	        }
 	        // add by wangjia
-            $grape_breed = $_POST["grape_breed"];   
-            self::debug("grape_breed11111:".$grape_breed);
+            $grape_breed = $_POST["grape_breed"];    
 			if(isset($grape_breed)){
 				$grape_breed=implode(",", $grape_breed);
 			}
 			if(!empty($grape_breed)){
 				 $grape_breed =  ",".$grape_breed.",";
-			}
-			self::debug("grape_breed22222:".$grape_breed);
+			} 
 	        $model->setGrapeBreed($grape_breed);
 	        
 	        
@@ -335,8 +332,7 @@ class Admin_Action_Product extends Admin_Action_Entry {
             $id = array($id);
         }
         try{
-        	$stick = $this->getStick();
-        	self::debug("publish product stick[$stick]...", __METHOD__);
+        	$stick = $this->getStick(); 
             foreach($id as $pid){
                 $model->setId($pid);
                 $model->setIsNew(false);

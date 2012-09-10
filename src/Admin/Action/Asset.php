@@ -188,7 +188,7 @@ class Admin_Action_Asset extends Admin_Action_Entry implements Anole_Dispatcher_
                     $asset->setWidth(isset($file_ary[0]) ? $file_ary[0] : 1);
                     $asset->setHeight(isset($file_ary[1]) ? $file_ary[1] : 1);
                     $asset->setInputName($f['id']);
-                    
+                    $asset->setPosition(10);
                     $asset->setTmpFile($f['path']);
                     $asset->setBytes($f['size']);
                     $asset->setFileName($f['name']);
