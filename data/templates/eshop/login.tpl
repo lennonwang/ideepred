@@ -10,7 +10,7 @@
 	{smarty_include eshop.js-common}
 	{smarty_include eshop.js-form}
 	<script type="text/javascript" src="/js/e/login.js"></script>
-	<link rel="stylesheet" href="http://221.179.173.197/d/c/g.css" type="text/css" /> 
+	
 </head>
 
 <body>
