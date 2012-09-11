@@ -1,4 +1,7 @@
 $(function(){
+	 
+	 initRegFunc();
+	 
 	hook_validate_frm();
 	//输出验证图片
 	$('#input_checkcode').after('<img src="/app/eshop/profile/validate_image" alt="随机验证码" id="check_imgcode"/>');

@@ -9,7 +9,7 @@
 	{smarty_include eshop.common.header_compart}
 	<!-- <link rel="stylesheet" href="/csstyle/itablet.css" type="text/css" /> -->
 	{smarty_include eshop.js-common}
-	<link rel="stylesheet" href="http://221.179.173.197/d/c/g.css" type="text/css" /> 
+	 
 </head>
 
 <body>
