@@ -27,7 +27,7 @@
 					<p class="hotlink">带*的项目为必填项</p>
 					
 					
-					{smarty_include eshop.shopping.checkout_address_edit}
+					{smarty_include eshop.shopping.checkout_address_ok}
 					
 					<div class="sho_step editable" id="chkpay_info">
 						<h3>支付方式及配送方式</h3>

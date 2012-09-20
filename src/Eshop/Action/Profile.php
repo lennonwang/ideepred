@@ -596,14 +596,15 @@ class Eshop_Action_Profile extends Eshop_Action_Common {
         $id = $this->getId();
 		$back_url = $this->getNextUrl();
 		if(empty($back_url)){
-            $back_url = Common_Util_Url::app_root_url();
+           // $back_url = Common_Util_Url::app_root_url();
         }
 		$checkcode = $this->getCheckcode();
 		$session_checkcode = $this->getContext()->getSession('validatecode');
-		self::debug("get checkcode[$checkcode] and session[".$session_checkcode."].", __METHOD__);
-		#if($session_checkcode != $checkcode){
-		#	return $this->_hintResult('输入的验证码不对，请返回重试！',true,$back_url);
-		#}
+		
+		if (!strcasecmp($checkcode, $session_checkcode) == 0) {
+			self::debug("get checkcode[$checkcode] and session[".$session_checkcode."].", __METHOD__);
+		 	return $this->_hintResult('输入的验证码不对，请返回重试！',true,$back_url);
+		 }
         if(empty($id) || $id < 0){
             $model->setIsNew(true);
             $model->setId(null);
@@ -657,7 +658,9 @@ class Eshop_Action_Profile extends Eshop_Action_Common {
         $this->putContext('user_id', $id);
         $this->putContext('edit_mode',$edit_mode);
         
-        $act_msg = '确认信已经发到你的邮箱'.$this->_account.',需要你点击邮件中的链接来激活帐号。';
+     // 暂不需要激活
+    //	 $act_msg = '确认信已经发到你的邮箱'.$this->_account.',需要你点击邮件中的链接来激活帐号。';
+    	 $act_msg = '恭喜您:'.$this->_account.'，注册成功，可以享受更多服务。';
         $reg_msg = '恭喜您:'.$this->_account.'，注册成功，可以享受更多服务。';
         
         return $this->_hintResult($act_msg,false,$back_url);

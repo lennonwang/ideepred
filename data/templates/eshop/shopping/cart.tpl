@@ -29,8 +29,8 @@
 							<tr>
 								<th class="leftside">商品</th>
 								<th>名称</th>
-								<th>尺码</th>
-								<th>赠送积分</th>
+						<!--    <th>尺码</th> 
+								<th>赠送积分</th> -->
 								<th>单价</th>
 								<th>数量</th>
 								<th>优惠</th>
@@ -45,8 +45,8 @@
 									</a>
 								</td>
 								<td class="titd">{$product.title}</td>
-								<td>{$product.size}</td>
-								<td> - </td>
+								<!-- <td>{$product.size}</td> 
+								<td> - </td> -->
 								<td>{$product.sale_price}</td>
 								<td>
 									<a href="/app/eshop/shopping/buy_more?id={$product.sku}&size={$product.size}" id="car_product_{$product.sku}"></a>

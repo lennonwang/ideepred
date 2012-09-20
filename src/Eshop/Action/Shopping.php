@@ -186,7 +186,27 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
         return $this->jqueryResult('eshop.shopping.clear');
     }
     
-  
+    /**
+     * 修改配送地址
+     *
+     * @return string
+     */
+    public function doAddress(){
+    	if(!Anole_Util_Cookie::hasUserLogged()){
+    		$back_url = $this->getContext()->getRequest()->getRequestUri();
+    		Common_Util_Url::setBackUrl($back_url);
+    		return $this->redirectResult('/app/eshop/profile/login');
+    	}
+    	$this->doProcess();
+    	 
+    	$next_step = $this->getNextStep();
+    	if(!empty($next_step)){
+    		return $this->redirectResult($next_step);
+    	}
+    	$this->putSharedParam();
+    	return $this->smartyResult('eshop.shopping.checkout_payment');
+    }
+    
     /**
      * 填写订单信息
      *
@@ -282,10 +302,10 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
     	$this->putContext('step', $step);
     	$this->putContext('next_step',$next_step);
     
-    	// $this->putSharedParam();
+    	 $this->putSharedParam();
     	$this->doProcess();
-    	return $this->smartyResult('eshop.shopping.checkout_payment');
-    	// return $this->smartyResult('eshop.shopping.checkout_address');
+    	// return $this->smartyResult('eshop.shopping.checkout_payment');
+    	 return $this->smartyResult('eshop.shopping.checkout_address');
     }
     
     /**

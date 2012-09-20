@@ -103,39 +103,7 @@
 									</p>
 								</div>
 							
-							</div>
-							
-							<div class="postbox " id="categorydiv">
-								<div title="显示/隐藏" class="handlediv"><br></div>
-								<h3 class="hndle"><span>分类目录</span></h3>
-								<div class="inside">
-									<ul id="category-tabs">
-										<li class="tabs">
-											<a tabindex="10" href="#categories-all">全部分类目录</a>
-										</li>
-									</ul>
-
-									<div class="tabs-panel" id="categories-all">
-										{if $edit_mode eq 'edit'}
-										{foreach from=$sorts item=sort}
-
-										<input type="checkbox" name="sort_ids[]" value="{$sort.id}" {if ( is_array($article.sort_ids) && in_array($sort.id,$article.sort_ids))}checked="checked"{/if} /><label>{$sort.name}</label>
-										{/foreach}
-										{/if}
-										{if $edit_mode eq 'create'}
-										{foreach from=$sorts item=sort}
-										<input type="checkbox" name="sort_ids[]" value="{$sort.id}" /><label>{$sort.name}</label>
-										{/foreach}
-										{/if}
-									</div>
-
-									<div class="wp-hidden-children" id="category-adder">
-										<h4><a class="hide-if-no-js" href="#" id="category-add-toggle">+ 添加分类目录</a></h4>
-									</div>
-									
-								</div>
-							</div>
-							
+							</div> 
 						</div>
 					</div>
 					<div id="post-body">
@@ -171,31 +139,7 @@
 							 </table> 
 								 
 							
-							<div id="postdivrich" class="meta-box-sortables ui-sortable">
-								<div id="editorcontainer" class="postbox">
-									<div title="显示/隐藏" class="handlediv"><br></div>
-									<h3 class="hndle"><span>正 文：</span></h3>
-								<script type="text/javascript">
-										var ary_content = {$ary_content};
-										var ary_count = {$ary_count};
-									</script>
-									<!--
-									<script type="text/javascript" src="/js/a/init_tiny.js"></script>
-									<div class="inside">
-									 		<div id="edit_button">
-											<span id="jqpage">
-												<a href="javascript:;" id="add">+</a>
-												<a href="javascript:;" id="del">-</a>
-											</span>
-										</div>
-									-->
-										<div class="clear"></div>
-									<!--	<textarea id="cbody" name="body" rows="15">{$article.body|stripslashes}</textarea> -->
-										<textarea id="body" name="body" class="xheditor" rows="12" cols="120" style="width: 80%">{$article.body|stripslashes}</textarea>
-									</div>
-								</div>
-						 
-								<div id="postexcerpt" class="postbox">
+							<div id="postexcerpt" class="postbox">
 									<div title="显示/隐藏" class="handlediv"><br></div>
 									<h3 class="hndle"><span>文章摘要</span></h3>
 									<div class="inside">
@@ -203,83 +147,27 @@
 										<textarea id="excerpt" tabindex="8" name="excerpt" cols="40" rows="1">{$article.excerpt}</textarea>
 										<p>摘要是您可以手动添加的内容概要。</p>
 									</div>
-									
+							 </div>
+							 
+							<div id="postdivrich" class="meta-box-sortables ui-sortable">
+								<div id="editorcontainer" class="postbox">
+									<div title="显示/隐藏" class="handlediv"><br></div>
+									<h3 class="hndle"><span>正 文：</span></h3>
+								<script type="text/javascript">
+										var ary_content = {$ary_content};
+										var ary_count = {$ary_count};
+									</script> 
+										<div class="clear"></div>
+									<!--	<textarea id="cbody" name="body" rows="15">{$article.body|stripslashes}</textarea> -->
+										<textarea id="body" name="body" class="xheditor" rows="12" cols="140" style="width: 95%">{$article.body|stripslashes}</textarea>
+									</div>
 								</div>
+						 
+								
 								
 							</div>
 							 
-							<!--
-							<div id="postcustom-sortables" class="meta-box-sortables ui-sortable">
-								<div id="postexcerpt" class="postbox">
-									<div title="显示/隐藏" class="handlediv"><br></div>
-									<h3 class="hndle"><span>扩展属性</span></h3>
-									<div class="inside">
-										<div id="postcustomstuff">
-											<table id="list-table">
-												<thead>
-													<tr>
-														<th class="left">名称</th>
-														<th>值</th>
-													</tr>
-												</thead>
-												<tbody class="list:meta" id="the-list">
-													{foreach from=$meta_list item=meta}
-													<tr id="meta-{$meta.id}">
-														<td class="left">
-															<label for="meta_key_{$meta.id}" class="screen-reader-text">键</label>
-															<input type="text" value="{$meta.feature.featurename}" size="20" id="meta_title_{$meta.id}" name="meta_title_{$meta.id}" />
-															<input type="hidden" value="{$meta.name}" id="meta_key_{$meta.id}" name="meta_key_{$meta.id}" />
-															<div class="submit">
-																<input type="button" value="删除" class="deletemeta" name="{$meta.id}" />
-																<input type="button" class="updatemeta" value="更新" name="{$meta.id}" />
-															</div>
-														</td>
-														<td>
-															<textarea cols="30" rows="2" tabindex="6" id="meta_value_{$meta.id}" name="meta_value_{$meta.id}">{$meta.value}</textarea>
-														</td>
-													</tr>
-													{/foreach}
-													</tbody>
-												</table>
-											<p><strong>添加扩展属性：</strong></p>
-											<table id="newmeta">
-												<thead>
-													<tr>
-														<th class="left"><label for="metakeyselect">名称</label></th>
-														<th><label for="metavalue">值</label></th>
-													</tr>
-												</thead>
-
-												<tbody>
-													<tr>
-														<td class="left" id="newmetaleft">
-															<select tabindex="8" name="metakeyselect" id="metakeyselect" gtbfieldid="122">
-																<option value="#NONE#">- 选择 -</option>
-																{foreach from=$features_list item=feature}
-																<option value="{$feature.featurekey}" name="{$feature.id}">{$feature.featurename}</option>
-																{/foreach}
-															</select>
-														</td>
-														<td>
-															<textarea tabindex="8" cols="25" rows="2" name="metavalue" id="metavalue"></textarea>
-														</td>
-													</tr>
-
-													<tr>
-														<td class="submit" colspan="2">
-															<input type="button" value="添加扩展属性" tabindex="9" class="addnewmeta" name="addmeta" id="addmetasub">
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-										
-									</div>
-									
-								</div>
-								
-						
-									-->
+						 
 										</div>
 						</div>
 					</div>

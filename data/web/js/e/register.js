@@ -1,6 +1,6 @@
 $(function(){
 	 
-	 initRegFunc();
+	// initRegFunc();
 	 
 	hook_validate_frm();
 	//输出验证图片
