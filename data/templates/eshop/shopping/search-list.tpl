@@ -62,7 +62,18 @@
 					</ul>
 					<br/>
 					
-				
+					<h2>红酒品种</h2> 
+					<ul>
+						<li><a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=0 high_price=0 
+							country=$country grape_breed="" query=$query}" 
+							 {if $grape_breed eq ""} class="current"{/if}>全部品种</a></li> 
+						{foreach from=$grape_breed_array item=breed_item }
+							<li><a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=0 high_price=0 
+								country=$country grape_breed=$breed_item.id query=$query}"
+							 {if $breed_item.id eq $grape_breed} class="current"{/if}>{$breed_item.name}</a></li>  
+						{/foreach}
+					</ul>
+					<br/>
 										 	 	
 					<h2>价格区间</h2> 
 					<ul>
@@ -83,6 +94,7 @@
 						<input type="hidden" name="style" value="{$style}" /> 
 						<input type="hidden" name="country" value="{$country}" />
 						<input type="hidden" name="grape_breed" value="{$grape_breed}" />
+						<input type="hidden" name="wine_mode" value="{$wine_mode}" />
 						<input type="hidden" name="orderby" value="1" />
 						<input type="hidden" name="query" value="{if $query}{$query}{else}{/if}" />
 						<label for="price">输入价格查询区间</label>
