@@ -2,7 +2,7 @@
     <!-- S category -->
     <div class="proCategory">
     	<ul>
-      	<li><b>产　地：</b>
+      	<li><b>产　地　：</b>
       	 <a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=0 high_price=0
 						 country="" grape_breed=$grape_breed query=$query}" {if $country eq ""} class="on"{/if}>不限国家</a> 
 						{foreach from=$wine_country_array item=country_item } 
@@ -10,7 +10,7 @@
 							country=$country_item.id grape_breed=$grape_breed query=$query}" {if $country_item.id eq $country} class="on"{/if}>{$country_item.name}</a>
 						{/foreach}
       	  </li>
-        <li><b>类　型：</b> 
+        <li><b>类　型　：</b> 
         			<a href="{Common_Smarty_Url_format key=search_list catcode="" page=1 style=$style orderby=1 low_price=0 high_price=0 
 							country=$country grape_breed=$grape_breed query=$query}" {if $catcode eq ""} class="on"{/if}>全部类型</a> 
 					{foreach from=$all_category item=cate} 
@@ -18,7 +18,7 @@
 							country=$country grape_breed=$grape_breed query=$query}" {if $cate.code eq $catcode} class="on"{/if}>{$cate.name}</a>
 					{/foreach}  </li>
 					
-		<li><b>价　格：</b><a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=0 high_price=0 
+		<li><b>价　格　：</b><a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=0 high_price=0 
 						country=$country grape_breed=$grape_breed query=$query}" {if $high_price eq 0}class="on"{/if}>不限价格</a>
 						 | <a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=0 high_price=100
 						 country=$country grape_breed=$grape_breed query=$query}" {if ($high_price <= 100) && ($high_price gt 0)}class="on"{/if}>0元-100元</a>
@@ -31,6 +31,16 @@
 						 | <a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=0 high_price=500
 						 country=$country grape_breed=$grape_breed query=$query}" {if ($high_price gt 500)}class="on"{/if}>500元以上</a>
   			</li>
+  			
+  			  <li><b>葡萄品种：</b> 
+        			<a href="{Common_Smarty_Url_format key=search_list catcode='' page=1 style=$style orderby=1 low_price=0 high_price=0 
+							country=$country grape_breed='' query=$query wine_mode=$wine_mode}" {if $grape_breed eq ""} class="on"{/if}>全部类型</a> 
+								{foreach from=$grape_breed_array item=breed_item} 
+					 | <a href="{Common_Smarty_Url_format key=search_list catcode=$catcode page=1 style=$style orderby=1 low_price=0 high_price=0 
+							country=$country grape_breed=$breed_item.id query=$query  wine_mode=$wine_mode}" {if $grape_breed eq $breed_item.id} class="on"{/if}>{$breed_item.name}</a>
+					{/foreach} 
+				 </li>
+					
   			<!--
 			 <li><b>品　种：</b><a href="#">不限</a> | <a href="#">赤霞珠</a> | <a href="#">美乐</a> | <a href="#">黑皮诺</a> | <a href="#">西拉/设拉子</a> | <a href="#">马尔贝克</a> | <a href="#">内比奥罗</a> | <a href="#">歌海娜</a> | <a href="#">霞多丽</a> | <a href="#">雷司令</a> | <a href="#">长相思</a></li>
 			 --> 
@@ -40,10 +50,11 @@
 						<input type="hidden" name="style" value="{$style}" /> 
 						<input type="hidden" name="country" value="{$country}" />
 						<input type="hidden" name="grape_breed" value="{$grape_breed}" />
+						<input type="hidden" name="wine_mode" value="{$wine_mode}" />
 						<input type="hidden" name="orderby" value="{$orderby}" /> 
 						<input type="hidden" name="orderSeq" value="{$orderSeq}" />  
 						<input type="hidden" name="style" value="{$style}" /> 
-				<b>关键词：</b><i class="txt"><input type="text" name="query" value="{if $query}{$query}{else}{/if}"/></i><button type="submit" class="btn"><b>搜 索</b></button></form></li>
+				<b>关键词　：</b><i class="txt"><input type="text" name="query" value="{if $query}{$query}{else}{/if}"/></i><button type="submit" class="btn"><b>搜 索</b></button></form></li>
  
 					
 			</ul>

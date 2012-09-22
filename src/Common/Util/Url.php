@@ -55,6 +55,12 @@ class Common_Util_Url extends Anole_Object {
 	public static function app_elogin_url(){
 		return Anole_Config::get('runtime.uri.elogin');
 	}
+	/**
+	 * 获取没有权限
+	 */
+	public static function app_no_auth_url(){
+		return Anole_Config::get('runtime.uri.no_auth');
+	}
     /**
      * 设置返回路径到session
      * 

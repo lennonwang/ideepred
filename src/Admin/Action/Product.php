@@ -241,6 +241,7 @@ class Admin_Action_Product extends Admin_Action_Entry {
 				$this->putContext('wine_level_array',Common_Util_ProductProUtil::getWineLevelArray());
 				
         $this->putContext('grape_breed_array',Common_Util_ProductProUtil::getWineGrapeBreedArray()); 
+        $this->putContext('wine_mode_array',Common_Util_ProductProUtil::getWineModeArray());
 				
         $this->putContext('wine_year_array',Common_Util_ProductProUtil::getWineYearArray());
         $this->putContext('wine_sugar_array',Common_Util_ProductProUtil::getWineSugarArray());
@@ -249,6 +250,10 @@ class Admin_Action_Product extends Admin_Action_Entry {
         
         $grape_breed_sel_array = preg_split('/,/',$product['grape_breed']); 
         $this->putContext('grape_breed_sel_array',$grape_breed_sel_array);
+        //sel wine mode
+        $wine_mode_sel_array = preg_split('/,/',$product['mode']);
+        $this->putContext('wine_mode_sel_array',$wine_mode_sel_array);
+        self::debug("edit wine_mode_sel_array is ok====".$product['mode'], __METHOD__);
         return $this->smartyResult('admin.product.edit');
     }
     
@@ -284,6 +289,15 @@ class Admin_Action_Product extends Admin_Action_Entry {
 			} 
 	        $model->setGrapeBreed($grape_breed);
 	        
+	        $wine_mode = $_POST["wine_mode"]; 
+	        if(isset($wine_mode)){
+	        	$wine_mode=implode(",", $wine_mode);
+	        }
+	        if(!empty($wine_mode)){
+	        	$wine_mode =  ",".$wine_mode.",";
+	        }
+	     
+	        $model->setMode($wine_mode);
 	        
             $model->save();
             $id = $model->getId();

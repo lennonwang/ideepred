@@ -238,7 +238,27 @@
 											 
 								            </td> 
 										</tr>
-										
+										 <tr>
+											<th scope="row">
+												<label for="">搜索类型：</label>
+											</th>
+											<td colspan="7">  
+												{foreach from=$wine_mode_array item=wine_mode }
+										 			<input type="checkbox" name="wine_mode[]" id="wine_mode_{$wine_mode.id}"  value="{$wine_mode.id}" />
+										 				 <label for="wine_mode_{$wine_mode.id}">{$wine_mode.name} &nbsp; </label>
+										 	 	{/foreach}
+											 
+								            </td> 
+										</tr>
+										 <tr>
+											<th scope="row">
+												<label for="">产品标签：</label>
+											</th>
+											<td colspan="7">  
+												  <textarea name="tags" tabindex="15" cols="60" rows="2">{$product.tags}</textarea>
+												   多个标签请用英文逗号分开。 
+								            </td> 
+										</tr>
 										<tr>
 											<th scope="row">	<a class="hide-if-no-js" href="/app/admin/store" > 品牌：</a></th>
 											<td >
@@ -247,7 +267,7 @@
 												{foreach from=$all_store item=store}
 										 			<option  value="{$store.id}" > {$store.title}  </option>
 										 	 	{/foreach}
-											</select><br/>
+											</select> 
 											<a class="hide-if-no-js" href="/app/admin/store/edit" >+ 添加品牌</a>
 											</td> 
 											<th scope="row">	<a class="hide-if-no-js" href="/app/admin/category" > 类别：</a></th>
@@ -403,7 +423,7 @@
 									</div>
 								</div> 
 							</div>
-							
+							<!-- 
 							<div id="tagsdiv-post_tag" class="postbox ">
 								<div title="显示/隐藏" class="handlediv"><br></div>
 								<h3 class="hndle"> 	<span>产品标签</span> 	</h3> 
@@ -422,7 +442,7 @@
 									</p>
 								</div> 
 							</div> 
-							
+							 -->
 									
 						</div>
 					 	 <p class="submit" style="text-align:center">
@@ -449,6 +469,7 @@
 		 $("#wine_occasion option[value='{$product.wine_occasion}']").attr("selected","selected"); 
 		 $("#wine_craft option[value='{$product.wine_craft}']").attr("selected","selected"); 
 		 {foreach from=$grape_breed_sel_array item=sbreed} 	$("#grape_breed_{$sbreed}").attr("checked",true); {/foreach}
+		 {foreach from=$wine_mode_sel_array item=sitem} 	$("#wine_mode_{$sitem}").attr("checked",true); {/foreach}
 		 updateCatChange();
 </script>
 </body>

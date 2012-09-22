@@ -19,7 +19,7 @@ $(function(){
 			},
 			password:{
 				required:'请输入密码(6位以上字符)',
-				minlength:'密码设置太短'
+				minlength:'密码太短'
 			}
 		},
 		submitHandler: function(form){

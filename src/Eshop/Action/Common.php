@@ -19,6 +19,15 @@ abstract class Eshop_Action_Common extends Anole_Dispatcher_Action_ModelDriven {
 	public function isLogged(){
 	    return Anole_Util_Cookie::getUserID() > 0;
 	}
+	
+	/**
+	 * 检验该用户是否有权限查看该用户
+	 *
+	 * @return string
+	 */
+	public function isUserOwner($userId){
+		return Anole_Util_Cookie::getUserID() == $userId;
+	} 
 	/**
 	 * 跳转到登录页
 	 * 
@@ -31,6 +40,25 @@ abstract class Eshop_Action_Common extends Anole_Dispatcher_Action_ModelDriven {
 		Common_Util_Url::setBackUrl($next_url);
 	    return $this->redirectResult(Common_Util_Url::app_elogin_url());
 	}
+	
+	/**
+	 * 跳转到首页
+	 *
+	 * @return string
+	 */
+	public function _redirectRoot(){ 
+		return $this->redirectResult(Common_Util_Url::app_root_url());
+	}
+	
+	/**
+	 * 跳转到没有权限提示页面
+	 *
+	 * @return string
+	 */
+	public function _redirectNoAuth(){
+		return $this->redirectResult(Common_Util_Url::app_no_auth_url());
+	}
+	
     /**
      * 返回操作提示页面
      *

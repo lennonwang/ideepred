@@ -32,6 +32,8 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
 	private $_country=null;
 	 //葡萄酒品种
 	private $_grape_breed=null;
+	//红酒查询类型
+	private $_wine_mode=null;
 	
 	private $low_price=null;
     
@@ -177,6 +179,7 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
     	$query = $this->getQuery();
 		$country = $this->getCountry();
 		$grape_breed = $this->getGrapeBreed();
+		$wine_mode = $this->getWineMode();
 		$catcode = $this->getCatcode();
     	
     	$conditions = array();
@@ -242,12 +245,15 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
 			$conditions[] = 'grape_breed LIKE ?';
 			$vars[] = "%,$grape_breed,%";
 		}
-		self::debug("query======".$query."grape_breed===".$grape_breed);
+		//从葡萄酒Mode筛选
+		if(!empty($wine_mode)){
+			$conditions[] = 'mode LIKE ?';
+			$vars[] = "%,$wine_mode,%";
+		} 
 		//从某类别中筛选
 		if(!empty($catcode)){
 			$conditions[] = 'LEFT(catcode,'.strlen($catcode).')=?';
-			$vars[] = $catcode;
-			
+			$vars[] = $catcode; 
 			//获取父分类路径
 			$category = new Common_Model_Category();
 	        $category_path = $category->findRootNodePath($catcode);
@@ -792,6 +798,14 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
     }
     public function getGrapeBreed(){
     	return $this->_grape_breed;
+    }
+    
+    public function setWineMode($v){
+    	$this->_wine_mode = $v;
+    	return $this;
+    }
+    public function getWineMode(){
+    	return $this->_wine_mode;
     }
 }
 /**vim:sw=4 et ts=4 **/

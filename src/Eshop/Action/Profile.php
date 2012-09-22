@@ -158,10 +158,20 @@ class Eshop_Action_Profile extends Eshop_Action_Common {
 	 * 查看订单详情
 	 */
 	public function viewOrder(){
+		if(!$this->isLogged()){
+			$back_url = $this->getContext()->getRequest()->getRequestUri();
+			return $this->_redirectLogin($back_url);
+		}
 		$id = $this->getId();
 		$order_model = new Common_Model_Orders();
 		$order_row = $order_model->findById($id)->getResultArray();
 		
+		
+		$order_user_id = $order_row['userId'];
+		if(!$this->isUserOwner($order_user_id)){ 
+			return $this->_redirectNoAuth();
+		}
+		 
 		$model_product = new Common_Model_Product();
         
 		$product_list = $model_product->findOrderProductList($id);
@@ -186,6 +196,18 @@ class Eshop_Action_Profile extends Eshop_Action_Common {
 		$this->putSharedParam();
 		$this->putContext('sub_nav','order');
     	return $this->smartyResult('eshop.account.view_detail');
+	}
+	
+	/**
+	 * 没有权限
+	 */
+	public function noAuth(){
+		if(!$this->isLogged()){
+			$back_url = $this->getContext()->getRequest()->getRequestUri();
+			return $this->_redirectLogin($back_url);
+		}   
+		$this->putSharedParam(); 
+		return $this->smartyResult('eshop.common.no_auth');
 	}
 	
 	/**
