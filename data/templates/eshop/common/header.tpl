@@ -1,5 +1,3 @@
-
-
 <!-- S topBg -->
 <div class="topBg"><div class="c0"></div></div>
 <!-- E topBg -->
