@@ -1,3 +1,5 @@
+
+{* 
 <div class="help">
 	<div class="c0"> 	
 	<div id="ibox-help"  >
@@ -28,3 +30,5 @@
 </div> 
 </div> 
 </div> 
+
+*}

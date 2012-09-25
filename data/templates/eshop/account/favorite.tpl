@@ -11,36 +11,53 @@
 </head>
 
 <body>
-<div id="wrapper">
+ 
 	
 	{smarty_include eshop.common.header}
 	
-	<div id="container">
-		<div class="box">
-			<div class="bordor profile">
-				<h2>个人帐户管理</h2>
-				
-				<div class="box clearfix">
-					<div class="leftref noborder" id="channelside">
-						{smarty_include eshop.account.leftnav}
-					</div>
-					<div class="righttwo2" id="contentlist">
-						<div class="a_item contentbox">
-							<div class="contentbaby">
-							
-								<div class="a_item ablue">
-									<table >
-										<tr class="tr_lin gs">
+	
+	
+		
+<!-- S crumbs -->
+<div class="crumbs">
+	<div class="c0">
+  	<a href="/">首页</a>&gt;<a href="#" class="on">个人中心</a>  &gt;<a href="#" class="on">我收藏的商品</a>  
+  </div>
+</div>
+<!-- E crumbs -->
+
+
+
+<!-- S bdy -->
+<div class="bdy">
+	<div class="c0 A-M">
+ 	
+ 	{smarty_include eshop.account.leftnav}
+
+<!-- S main -->
+		<div class="MAIN">
+			<div class="c">
+			
+				<!-- S tables -->
+				<div class="ap">
+
+					<div class="dataTable dataTable1">
+						<table>
+							<tbody>
+							<tr class="tr_lin">
+								<td colspan="6">我收藏的商品</td>
+							</tr> 
+							<tr class="gs">
 											<td>序号</td>
 											<td>商品图片</td>
 											<td>商品信息</td>
 											<td>单价</td>
 											<td>收藏时间</td>
-										</tr>
-										{foreach from=$plist item=product name=order}
+														</tr>
+						{foreach from=$plist item=product name=order}
 										<tr class="gs">
 											<td>{$smarty.foreach.order.iteration}</td>
-											<td class="pg">
+											<td  >
 												<a href="{Common_Smarty_Url_format key=product id=$product.id}" title="{$product.title}">
 												<img src="{Common_Smarty_Product_photoThumb thumb_path=$product.thumb w=107 h=107 is_resize=true}" class="bordor" width="107" height="107" />
 											</a></td>
@@ -49,21 +66,24 @@
 											<td>{$product.created_on}</td>
 										</tr>
 										{/foreach}
-									</table>
-								</div>
-								{assign var=url_prefix value="/app/eshop/profile/favorite"}
+						</tbody>
+						</table>
+					</div> 
+ 							{assign var=url_prefix value="/app/eshop/profile/favorite"}
 								{smarty_include eshop.common.pager}
-							</div>
-						</div>
-						
-					</div>
+
 				</div>
+				<!-- E tables -->
+
 			</div>
 		</div>
+<!-- E main -->
 
 	</div>
+</div>
+<!-- E bdy -->
 
-	{smarty_include eshop.common.site-help}
+ 
 	
 	{smarty_include eshop.common.footer}
 	

@@ -67,7 +67,7 @@ class Eshop_Action_Index extends Eshop_Action_Common {
     	);
     	$market_product_list = $product->find($options)->getResultArray();
 		//本周推荐商品
-		$stick_product_list = $product->findStickProductList();
+		$stick_product_list = $product->findStickProductList(10);
 		
 		//获取友情链接
 		$link_list = $this->_getFriendLinks();
@@ -78,11 +78,27 @@ class Eshop_Action_Index extends Eshop_Action_Common {
     	$this->putContext('category_channel', $category_channel);
     	
     	$this->putSharedParam();
-
+    	$this->_setExtraParams();
 		$this->putContext('current_menu', 'tab_index');
 		
     	return $this->smartyResult('eshop.index');
     }
+    
+    
+    /**
+     * 设置搜索的扩展参数
+     *
+     * @return void
+     */
+    protected function _setExtraParams( ){
+    	$category = new Common_Model_Category();
+    	$all_category = $category->findAllCategory();
+    	$this->putContext('all_category',$all_category);
+    	$this->putContext('wine_country_array',Common_Util_ProductProUtil::getWineGrapeCountryArray());
+    	$this->putContext('wine_mode_array',Common_Util_ProductProUtil::getWineModeArray());
+    	$this->putContext('grape_breed_array',Common_Util_ProductProUtil::getWineGrapeBreedArray()); 
+    }
+    
     /**
      * 实体店铺
      */

@@ -221,7 +221,7 @@ class Common_Model_Product extends Common_Model_Table_Product {
     	    'vars'=>$vars,
     	    'page'=>$page,
     	    'size'=>$size,
-    	    'order'=>'sticked_on DESC'
+    	    'order'=>'sticked_on DESC, id desc '
     	);
     	$product_list = $this->find($options)->getResultArray();
     	

@@ -304,7 +304,8 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
 		$this->putContext('query', $query);
 		$this->putContext('country', $country);
 		$this->putContext('grape_breed', $grape_breed);
-
+		$this->putContext('wine_mode', $wine_mode);
+		 
         $this->putContext('product_list', $product_list);
 
 				$category = new Common_Model_Category();
@@ -328,6 +329,7 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
     	$this->putContext('all_category',$all_category);
     	$this->putContext('wine_country_array',Common_Util_ProductProUtil::getWineGrapeCountryArray());
     	$this->putContext('grape_breed_array',Common_Util_ProductProUtil::getWineGrapeBreedArray());
+    	$this->putContext('wine_mode_array',Common_Util_ProductProUtil::getWineModeArray()); 
     	$this->putContext('order_by_array',$this->getSearchOrderByInfo());
     }
     /**

@@ -169,7 +169,7 @@ class Eshop_Action_Profile extends Eshop_Action_Common {
 		
 		$order_user_id = $order_row['userId'];
 		if(!$this->isUserOwner($order_user_id)){ 
-			return $this->_redirectNoAuth();
+		//	return $this->_redirectNoAuth();
 		}
 		 
 		$model_product = new Common_Model_Product();

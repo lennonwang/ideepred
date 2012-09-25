@@ -10,11 +10,78 @@
 	{smarty_include eshop.js-common}
 </head>
 
-<body>
-<div id="wrapper">
+<body> 
 	
 	{smarty_include eshop.common.header}
 	
+	
+		
+<!-- S crumbs -->
+<div class="crumbs">
+	<div class="c0">
+  	<a href="/">首页</a>&gt;<a href="#" class="on">个人中心</a>  &gt;<a href="#" class="on">已买到的商品</a>  
+  </div>
+</div>
+<!-- E crumbs -->
+
+
+
+<!-- S bdy -->
+<div class="bdy">
+	<div class="c0 A-M">
+ 	
+ 	{smarty_include eshop.account.leftnav}
+
+<!-- S main -->
+		<div class="MAIN">
+			<div class="c">
+			
+				<!-- S tables -->
+				<div class="ap">
+
+					<div class="dataTable dataTable1">
+						<table>
+							<tbody>
+							<tr class="tr_lin">
+								<td colspan="6">已买到的商品</td>
+							</tr> 
+							<tr class="gs">
+											<td>序号</td>
+											<td>商品图片</td>
+											<td width="50%">商品信息</td>
+											<td>数量</td>
+											<td>单价(最新价格)</td> 
+														</tr>
+						{foreach from=$plist item=product name=order}
+										<tr class="gs">
+											<td>{$smarty.foreach.order.iteration}</td>
+											<td >
+												<a href="{Common_Smarty_Url_format key=product id=$product.id}" title="{$product.title}">
+												<img src="{Common_Smarty_Product_photoThumb thumb_path=$product.thumb w=90 h=90 is_resize=true}"  width="90" height="90" />
+											</a></td>
+											<td width="50%"> <a href="{Common_Smarty_Url_format key=product id=$product.id}" target="_blank">{$product.title}
+											 </a> </td>
+											<td>{$product.sale_num}</td>
+											<td>{$product.sale_price}元</td> 
+										</tr>
+								{/foreach}
+						</tbody>
+						</table>
+					</div> 
+ 
+
+				</div>
+				<!-- E tables -->
+
+			</div>
+		</div>
+<!-- E main -->
+
+	</div>
+</div>
+<!-- E bdy -->
+
+
 	<div id="container">
 		<div class="box">
 			<div class="bordor profile">

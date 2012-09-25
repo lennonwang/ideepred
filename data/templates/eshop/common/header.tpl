@@ -1,4 +1,56 @@
- 
+
+
+<!-- S topBg -->
+<div class="topBg"><div class="c0"></div></div>
+<!-- E topBg -->
+<!-- S topBar -->
+<div class="topBar">
+	<div class="c0">
+		{if $user_auth_name}
+		<p class="usr">Hello, 	
+		<a href="{Common_Smarty_Url_format key=manage_center}">{$user_auth_name}</a>
+		<a href="{Common_Smarty_Url_format key=manage_center}">我的帐户</a>  
+    	<a href="{Common_Smarty_Url_format key=helper name=register}">客服中心</a>
+    	<a href="{Common_Smarty_Url_format key=logout}">退出登录</a>
+    	</p>
+    	 {/if}  
+    	 <a href="{Common_Smarty_Url_format key=domain}"><b>欢迎来到深红俱乐部</b></a> 
+		{* 
+			<a href="">买酒</a><a href="">学习酒</a><a href="">资料库</a><a href="">酒友会</a><a href="">促销</a>
+		*}
+	</div>
+</div>
+<!-- E topBar -->
+
+<!-- S TopNav -->
+<div class="topNav">
+	<div class="c0">
+		<div class="logo"><a href="{Common_Smarty_Url_format key=domain}"><b>深红</b></a></div>
+
+		<div class="schForm">
+			  <form   action="/mall/search"> 
+				 {if $user_auth_name}
+					<i class="userStatue">
+					<a href="{Common_Smarty_Url_format key=domain}">红 酒</a>
+					<a href="{Common_Smarty_Url_format key=manage_center}">我 的</a></i>
+				 {else}
+					<i class="userStatue">
+					<a href="{Common_Smarty_Url_format key=login}">登 录</a>
+					<a href="{Common_Smarty_Url_format key=register}">注 册</a></i>  
+				 {/if}  
+				
+				<i class="txt"><input type="text" value="{$query}" name="query"/></i>
+					<button type="submit" class="btn" /><b>搜索</b></button>
+				</form>
+			 
+		</div>
+		<div class="cart"><a href="{Common_Smarty_Url_format key=cart}">
+		 {if $user_auth_name}<b>{$items_count}件,{$total_money}元</b>{/if}</a></div>
+	</div>
+</div>
+<!-- E TopNav -->
+
+{* 
 <!-- S userState -->
 <div class="userState">
 	<div class="c0">
@@ -119,3 +171,4 @@
 	</div>
 </div>
 -->
+*}

@@ -5,36 +5,46 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>修改密码-{smarty_include eshop.common.xtitle}</title>
-	<meta name="author" content="xiaoyi">
-	{smarty_include eshop.common.header_compart}
-	<link rel="stylesheet" href="/csstyle/itablet.css" type="text/css" />
+	<meta name="author" content="xiaoyi"> 
 	{smarty_include eshop.js-common}
 	{smarty_include eshop.js-form}
 	<script type="text/javascript" src="/js/e/profile.js"></script>
 </head>
 
-<body>
-<div id="wrapper">
+<body> 
 	
 	{smarty_include eshop.common.header}
 	
-	<div id="container">
-		<div class="box">
-			<div class="bordor profile">
-				<h2>个人帐户管理</h2>
-				
-				<div class="box clearfix">
-					<div class="leftref noborder" id="channelside">
-						{smarty_include eshop.account.leftnav}
-					</div>
-					<div class="righttwo2" id="contentlist">
-						<div class="a_item contentbox">
-							<div class="contentbaby">
-								
-								<div class="a_item">
-									<div id="ajax-response"></div>
-									<form id="passwd_frm" method="post" action="/app/eshop/profile/do_passwd">
-										<table class="td_child no_side">
+	<!-- S crumbs -->
+<div class="crumbs">
+	<div class="c0">
+  	<a href="/">首页</a>&gt;<a href="#" class="on">个人中心</a>  &gt;<a href="#" class="on">修改密码</a>  
+  </div>
+</div>
+<!-- E crumbs -->
+	
+
+
+<!-- S bdy -->
+<div class="bdy">
+	<div class="c0 A-M">
+ 	
+ 	{smarty_include eshop.account.leftnav}
+
+<!-- S main -->
+		<div class="MAIN">
+			<div class="c">
+			
+				<!-- S tables -->
+				<div class="ap"> 
+					<div class="dataTable dataTable1">
+						<div id="ajax-response"></div>
+								<form id="passwd_frm" method="post" action="/app/eshop/profile/do_passwd"> 
+										<table >
+												<tr class="tr_lin">
+		<td colspan="2">修改密码</td>
+	</tr>
+										
 											<tr>
 												<td class="td_right">我的旧密码：</td>
 												<td><input type="password" name="old_password" class="s" /></td>
@@ -52,17 +62,20 @@
 												<td><input type="submit" name="_submit" value="确认修改" class="sm" /></td>
 											</tr>
 										</table>
-									</form>
-								</div>
-							</div>
-						</div>
+									</form> 
+					</div> 
 
-					</div>
 				</div>
+				<!-- E tables -->
+
 			</div>
 		</div>
+<!-- E main -->
 
 	</div>
+</div>
+<!-- E bdy --> 
+ 
 
 	{smarty_include eshop.common.site-help}
 	

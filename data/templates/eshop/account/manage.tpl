@@ -10,64 +10,81 @@
 	{smarty_include eshop.js-common}
 </head>
 
-<body>
-<div id="wrapper">
+<body> 
 	
 	{smarty_include eshop.common.header}
+
 	
-	<div id="container">
-		<div class="box">
-			<div class="bordor profile">
-				<h2>个人帐户管理</h2>
-				
-				<div class="box clearfix">
-					<div class="leftref noborder" id="channelside">
-						{smarty_include eshop.account.leftnav}
+	
+<!-- S crumbs -->
+<div class="crumbs">
+	<div class="c0">
+  	<a href="/">首页</a>&gt;<a href="#" class="on">个人中心</a>  &gt;<a href="#" class="on">订单中心</a>  
+  </div>
+</div>
+<!-- E crumbs -->
+
+<!-- S bdy -->
+<div class="bdy">
+	<div class="c0 A-M">
+ 	
+ 	{smarty_include eshop.account.leftnav}
+
+<!-- S main -->
+		<div class="MAIN">
+			<div class="c">
+			
+				<!-- S tables -->
+				<div class="ap">
+
+					<div class="dataTable dataTable1">
+						<table>
+							<tbody>
+							<tr class="tr_lin">
+								<td colspan="7">个人订单列表</td>
+							</tr> 
+							<tr class="gs">
+															<td>订单号</td>
+															<td>订单金额</td>
+															<td>收货人姓名</td>
+															<td>下单时间</td>
+															<td>状 态</td>
+															<td>支付方式</td>
+															<td>操 作</td>
+														</tr>
+							{foreach from=$order_list item=ord}
+														<tr class="gs">
+															<td><a href="{Common_Smarty_Url_format key='order_detail' id=$ord.id}" >{$ord.reference}</a></td>
+															<td>{$ord.pay_money}元</td>
+															<td>{$ord.name}</td>
+															<td>{$ord.created_on}</td>
+															<td>{Common_Smarty_DataSet_orderStatus status=$ord.status}</td>
+															<td>{$all_payment_method[$ord.payment_method].name}</td>
+															<td><a href="{Common_Smarty_Url_format key='order_detail' id=$ord.id}" >查看详情 »</a></td>
+														</tr>
+							 	{/foreach}
+						</tbody>
+						</table>
 					</div>
-					<div class="righttwo2" id="contentlist">
-						<div class="a_item contentbox">
-							<div class="contentbaby ablue">
-								<table>
-									<tr class="tr_lin">
-										<td colspan="7">个人订单列表</td>
-									</tr>
-									<tr class="gs">
-										<td>订单号</td>
-										<td>订单金额</td>
-										<td>收货人姓名</td>
-										<td>下单时间</td>
-										<td>状 态</td>
-										<td>支付方式</td>
-										<td>操 作</td>
-									</tr>
-									{foreach from=$order_list item=ord}
-									<tr class="gs">
-										<td><a href="{Common_Smarty_Url_format key='order_detail' id=$ord.id}" >{$ord.reference}</a></td>
-										<td>{$ord.pay_money}元</td>
-										<td>{$ord.name}</td>
-										<td>{$ord.created_on}</td>
-										<td>{Common_Smarty_DataSet_orderStatus status=$ord.status}</td>
-										<td>{$all_payment_method[$ord.payment_method].name}</td>
-										<td><a href="{Common_Smarty_Url_format key='order_detail' id=$ord.id}" >查看详情 »</a></td>
-									</tr>
-									{/foreach}
-								</table>
-							</div>
-							{assign var=url_prefix value="/app/eshop/profile/trading_order"}
+						{assign var=url_prefix value="/app/eshop/profile/trading_order"}
 							{smarty_include eshop.common.pager}
-						</div>
-						
-					</div>
+ 
+
 				</div>
+				<!-- E tables -->
+
 			</div>
 		</div>
+<!-- E main -->
 
 	</div>
+</div>
+<!-- E bdy -->
+ 
 
-	{smarty_include eshop.common.site-help}
 	
 	{smarty_include eshop.common.footer}
 	
-</div>
+ 
 </body>
 </html>

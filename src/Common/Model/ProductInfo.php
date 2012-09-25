@@ -14,6 +14,7 @@ class Common_Model_ProductInfo     {
     public $wine_country_name;
     public $wine_area_name;
     public $wine_level_name;
+    public $wine_year_name;
     
     public   function getProductInfo($product){
     	$wine_country_id = $product['wine_country'];
@@ -36,6 +37,11 @@ class Common_Model_ProductInfo     {
 	//	   echo ("[param]:wine_level_name:".$wine_level_name);
 		 $productInfo->wine_level_name = $wine_level_name;
 		
+		 
+		 $wine_year_id  = $product['wine_year'];
+		 $wine_year_name = $productInfo->getWineYearById($wine_year_id);
+		 $productInfo->wine_year_name = $wine_year_name;
+		 
 		return $productInfo;
     }
     
@@ -75,6 +81,21 @@ class Common_Model_ProductInfo     {
         } 
         return "";
     }
+    
+    
+    public function getWineYearById($wine_year_id){
+    	$itemArray = Common_Util_ProductProUtil::getWineYearArray();
+    	for($i=0;$i<count($itemArray);$i++){
+    		$itemId = $itemArray[$i]['id'];
+    		if($wine_year_id == $itemId){
+    			$itemName = $itemArray[$i]['name'];
+    			return $itemName;
+    		}
+    	}
+    	return "";
+    }
+    
+    
     
    
     public function setId($value){

@@ -16,7 +16,7 @@ class Common_Util_ProductProUtil extends Anole_Object {
 		,array("id"=>"7","name"=>"2009-2010"),array("id"=>"8","name"=>"2010-2011")
 		,array("id"=>"9","name"=>"2012")
 		);  
-		 self::debug("getWineYearArray.".$array);
+		 self::debug("getWineYearArray::".$array);
 		 return $array;
 	} 
 	
@@ -25,9 +25,9 @@ class Common_Util_ProductProUtil extends Anole_Object {
 	 * 获取葡萄酒推荐类型
 	 */
 	public static function getWineModeArray(){
-		$wine_mode_array=array(array("id"=>"1","name"=>"低度畅饮"),array("id"=>"2","name"=>"甜蜜口感")
-		,array("id"=>"3","name"=>"女性最爱"),array("id"=>"4","name"=>"男士精选") );  
-         self::debug("getWineModeArray.".$wine_mode_array);
+		$wine_mode_array=array(array("id"=>"1","name"=>"热门推荐"),array("id"=>"2","name"=>"低度畅饮")
+		,array("id"=>"3","name"=>"甜蜜口感"),array("id"=>"4","name"=>"女性最爱"),array("id"=>"5","name"=>"男士精选") );  
+         self::debug("getWineModeArray::".$wine_mode_array);
 		 return $wine_mode_array; 
 	}
 	

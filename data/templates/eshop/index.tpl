@@ -14,98 +14,120 @@
 </head>
 
 <body>
-<div id="wrapper">
+ 
 	
 	{smarty_include eshop.common.header}
+  
+  
+<!-- S bdy -->
+<div class="bdy">
+	<div class="c0 A-M">
 
-	<div id="carousel"> <!--slidepicture-->
-		<ul class="carousel_nav">
-			{Common_Smarty_Advertise_findAdmany number="index-sps" size=6 item=ad}
-			<li {if $first}class="active"{/if} id="n_{$loop}">
-				<a href="{$ad.link}#{$loop}" target="_blank">{$ad.title|Common_Smarty_Advertise_cnTruncate:16}</a>
-			</li>
-			{/Common_Smarty_Advertise_findAdmany}
-		</ul>
-		{Common_Smarty_Advertise_findAdmany number="index-sps" size=6 item=ad}
-		<div class="panel carousel_item" id="slot{$loop}">
-			<a href="{$ad.link}" title="{$ad.title}" target="_blank">
-				<img src="{$ad.thumb}" alt="{$ad.title}" />
-			</a>
+<!-- S aside -->
+		<div class="ASIDE">
+			<div class="c"> 
+			 {smarty_include eshop.common.left_condition_list} 
+			</div>
 		</div>
-		{/Common_Smarty_Advertise_findAdmany}
-	</div>
-	
-	<div id="container">
-		{Common_Smarty_Advertise_findAdone number="index-sale" var='adn'}
-		{if $adn}
-		<div class="box pt-10">
-			<a href="{$adn.link}" title="{$adn.title}" target="_blank">
-				<img src="{$adn.thumb}" alt="{$adn.title}" />
-			</a>
-		</div>
-		{/if}
-		<!--
-		<div class="box pt-10">
-			<h3><img src="/images/eshop/stuff-catetitle.png" alt="产品分类"/></h3>
+<!-- E aside -->
+
+<!-- S main -->
+		<div class="MAIN">
+			<div class="c">
 			
-			<ul class="mt-20 big-brands clearfix">
-				<li>
-					<a href="{Common_Smarty_Url_format key='brand_product' id=1}">
-						<img src="/images/eshop/brand-wacom.jpg" alt="wacom"/>
-					</a>
-				</li>
-				<li>
-					<a href="{Common_Smarty_Url_format key='brand_product' id=3}">
-						<img src="/images/eshop/brand-apple.jpg" alt="apple"/>
-					</a>
-				</li>
-				<li class="last">
-					<a href="{Common_Smarty_Url_format key='brand_product' id=2}">
-						<img src="/images/eshop/brand-hp.jpg" alt="hp"/>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<img src="/images/eshop/brand-lenovo.jpg" alt="lenovo"/>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<img src="/images/eshop/brand-sandisk.jpg" alt="sandisk"/>
-					</a>
-				</li>
-				<li class="last">
-					<a href="{Common_Smarty_Url_format key=channel slug=peijian}">
-						<img src="/images/eshop/brand-peijian.jpg" alt="配件"/>
-					</a>
-				</li>
-			</ul>
-		</div>
-		-->
-		<div class="box pt-10">
-			<h3><img src="/images/eshop/recstuff-title.png" alt="推荐产品"/></h3>
-			
-			<ul class="mt-20 stuff-list stuff-list-hot clearfix">
-				{Common_Smarty_Product_findProductList stick=1 size=8}
-				<li class="{if $index%4 eq 0}last{/if}">
-					<a href="{Common_Smarty_Url_format key=product id=$product.id}" class="imgborder">
-						<img src="{$product.thumb}" class="bordor" width="220" height="210" />
-					</a>
-					<h3 class="a999"><a href="{Common_Smarty_Url_format key=product id=$product.id}">{$product.title}</a></h3>
-					<p>优惠价：<span class="ft14 orange">￥{$product.sale_price}</span></p>
-					<a href="#" class="abuy hidden"><img src="/images/eshop/icon-buy.png" /></a>
-				</li>
+			<!-- 
+			<div class="ap schRes">
+				<p class="opt"><a href=""><i class="ii"></i></a></p>
+				<p class="res">您搜索的“<span class="s">阿根廷 赤霞珠</span>“共查到<span class="s">12</span>款</p>
+				<p class="tip">您还可以尝试搜索酒精度数、年份、产区、口感，香味或者直接搜索英文名称等等</p>
+			</div>
+			 -->
+			 
+			<!-- S list1-->
+			<div class="ap">
+				<div class="apB proList proList1">
+				{Common_Smarty_Product_findProductList stick=1 size=9}
+				 
+				<div class="pro">
+						<i class="img">
+						<a href="{Common_Smarty_Url_format key=product id=$product.id}" >
+						<img src="{$product.thumb}"  width="230" height="230" /><i class="fave"></i>
+						</a> </i>
+						<p class="info"><i class="price">{$product.sale_price}元</i>
+							<b class="nm"><a href="{Common_Smarty_Url_format key=product id=$product.id}">{$product.title}</a></b>
+						</p>
+					</div> 
+				 
 				{/Common_Smarty_Product_findProductList}
-			</ul>
-			
+				 
+				</div>
+				<!-- 
+				<div class="pg">
+					<a href="" class="prev"></a><a href="" class="on">1</a><a href="">2</a><a href="">3</a><a href="">4</a><a href="">5</a><a class="next"></a>
+				</div>
+				 -->
+			</div>
+			<!-- E list1-->
+
+			<!-- S 酒友会 
+			<div class="ap cardSection">
+				<div class="apT">酒友会成员推荐 <span style="color:#D46095;margin-left:50px">more</span></div>
+				<div class="apB">
+					<div class="card">
+						<i class="img"><img src="i/demo3.jpg" /></i>
+						<h4>小白白的白</h4>
+						<p class="desc">
+							1.几乎是世界上人类培植最早的葡萄品种，最早在1546年就在德国落户。<br />
+							2.是一个遍布世界的家庭系列，有几百个变种，不是单指某个葡萄品种<br />
+							3.麝香系列最适合用来酿造干白、气泡酒、和加强型葡
+						</p>
+					</div>
+					<div class="proList proList2">
+						<div class="pro">
+							<i class="img"><a href=""><img src="i/demo2.jpg" /></a></i>
+						</div>
+						<div class="pro">
+							<i class="img"><a href=""><img src="i/demo2.jpg" /></a></i>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- E 酒友会 -->
+
+			<!-- B 热门直通车 -->
+			<div class="ap">
+				<div class="apT">热门直通车</div>
+			 
+				<div class="apB proList proList2">
+
+					<div class="pro">
+						<i class="img"><a href=""><img src="i/demo2.jpg" /></a></i>
+					</div>
+					<div class="pro">
+						<i class="img"><a href=""><img src="i/demo2.jpg" /></a></i>
+					</div>
+					<div class="pro">
+						<i class="img"><a href=""><img src="i/demo2.jpg" /></a></i>
+					</div> 
+
+
+				</div>
+				
+			</div>
+			<!-- 热门直通车 -->
+
+			</div>
 		</div>
-		
-		
+<!-- E main -->
+
 	</div>
-	
+</div>
+<!-- E bdy -->
+  
+  	 
 	{smarty_include eshop.common.site-help}
+	 
 	
-	{smarty_include eshop.common.friend_links}
 	
 	{smarty_include eshop.common.footer}
 </div>

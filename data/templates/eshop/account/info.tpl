@@ -5,40 +5,55 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>个人资料-个人帐户管理</title>
-	<meta name="author" content="xiaoyi">
-	<link rel="stylesheet" href="/csstyle/itablet.css" type="text/css" />
+	<meta name="author" content="xiaoyi"> 
 	{smarty_include eshop.js-common}
 	{smarty_include eshop.js-form}
 	<script type="text/javascript" src="/js/e/profile.js"></script>
 </head>
 
-<body>
-<div id="wrapper">
+<body> 
 	
 	{smarty_include eshop.common.header}
 	
-	<div id="container">
-		<div class="box">
-			<div class="bordor profile">
-				<h2>个人帐户管理</h2>
-				
-				<div class="box clearfix">
-					<div class="leftref noborder" id="channelside">
-						{smarty_include eshop.account.leftnav}
-					</div>
-					<div class="righttwo2" id="contentlist">
-						<div class="a_item contentbox">
-							<div class="contentbaby">
-								
-								<div class="a_item">
-									<div id="ajax-response"></div>
+	
+			
+<!-- S crumbs -->
+<div class="crumbs">
+	<div class="c0">
+  	<a href="/">首页</a>&gt;<a href="#" class="on">个人中心</a>  &gt;<a href="#" class="on">编辑个人资料</a>  
+  </div>
+</div>
+<!-- E crumbs -->
+	
+	
+<!-- S bdy -->
+<div class="bdy">
+	<div class="c0 A-M">
+ 	
+ 	{smarty_include eshop.account.leftnav}
+
+<!-- S main -->
+		<div class="MAIN">
+			<div class="c">
+			
+				<!-- S tables -->
+				<div class="ap">
+
+					<div class="dataTable dataTable1">
+						<div id="ajax-response"></div>
 									<form method="post" action="/app/eshop/profile/update_user" id="euser_frm">
 										<input type="hidden" name="id" value="{$user.id}" />
-									<table class="no_side">
+									<table  >
+										<tr class="tr_lin">
+										<td colspan="2">编辑个人信息</td>
+									</tr>
 										{assign var=metas value=$user.meta}
 										<tr>
 											<td class="td_right">昵称：</td>
-											<td><input type="text" name="username" class="s" value="{$user.username}"/></td>
+											<td>
+											<i class="txt txt2"><input type="text" name="username" class="s" value="{$user.username}"/></i>
+											
+											</td>
 										</tr>
 										<tr>
 											<td class="td_right">居住地：</td>
@@ -73,15 +88,18 @@
 									</table>
 								</form>
 								</div>
-							</div>
-						</div>
+					</div> 
 
-					</div>
 				</div>
+				<!-- E tables -->
+
 			</div>
 		</div>
+<!-- E main -->
 
 	</div>
+</div>
+<!-- E bdy --> 
 
 	{smarty_include eshop.common.site-help}
 	
