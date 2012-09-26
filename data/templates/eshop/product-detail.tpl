@@ -48,30 +48,38 @@
 <!-- S main -->
 		<div class="MAIN">
 			<div class="c">
-				
-				<!-- S notice <img src="i/demo5.jpg" />-->
-				
-				<div class="ap notice">
-					<h4> {$product.title} </h4>
+				 
+				<!-- S topProName -->
+				<div class="ap topProName">
+					<!---<a href="" class="img"><img src="i/demo5.jpg" /></a>-->
+					<a href="" class="nm"><span>{$product.title}</span></a>
 				</div>
-				<!-- E notice -->
+				<!-- E topProName -->
 
 				<!-- S imgView -->
 				<div class="ap imgView">
 					<div class="bigImg">
-					{Common_Smarty_Asset_Thumb path_id=$product.asset_list[0].path domain=$product.asset_list[0].domain w=535 h=535 var=first_image is_result_mode=ary}
-					{Common_Smarty_Asset_Thumb path_id=$product.asset_list[0].path domain=$product.asset_list[0].domain w=1000 h=1000 var=first_orign_image is_result_mode=ary}
+					{Common_Smarty_Asset_Thumb path_id=$product.asset_list[0].path domain=$product.asset_list[0].domain
+					 w=535 h=535 var=first_image is_result_mode=ary}
+					{Common_Smarty_Asset_Thumb path_id=$product.asset_list[0].path domain=$product.asset_list[0].domain
+					 w=1000 h=1000 var=first_orign_image is_result_mode=ary}
 			
-						<i class="img"><img src="{$first_image.url}" /></i>
+						<i class="img"><img src="{$first_image.url}"  id="imgM" data-imgB-url="{$first_orign_image.url}"/></i>
 						<a class="zoom" href=""><b>zoom</b></a>
 					</div>
+					 
 
-					<div class="proList proList3">
+					<div class="proList proList3" id="imgS">
 						{foreach from=$product.asset_list item=asset name=asset key=myId}
 						<div class="pro">
-							<i class="img"><a href=""><img src="{Common_Smarty_Asset_Thumb path_id=$asset.path domain=$asset.domain w=120 h=120}"   /></a></i>
+							<i class="img"><a href="javascript:" class="imgSmall"
+							 data-imgM-url="{Common_Smarty_Asset_Thumb path_id=$asset.path domain=$asset.domain w=535 h=535}"
+							 data-imgB-url="{Common_Smarty_Asset_Thumb path_id=$asset.path domain=$asset.domain w=1000 h=1000}">
+							<img src="{Common_Smarty_Asset_Thumb path_id=$asset.path domain=$asset.domain w=120 h=120}"   /></a></i>
 						</div>
 						{/foreach}
+						
+						 	
 						<!-- <div class="prev"><a href=""></a></div>
 						<div class="next"><a href=""></a></div> -->
 					</div>
@@ -127,8 +135,22 @@
 					  {if $product.stock &&  $product.stock > 0}
 					  <div class="add"><button type="submit" class="submit"><b>加入购物车</b></button></div>
 					   {/if} 
-					<div class="share">分享<a href=""><i class="ii"></i><i class="ii"></i></a></div>
-					<div class="store"><a href="">收藏</a></div>
+					<div class="share">
+					<!-- JiaThis Button BEGIN -->
+					<div class="jiathis_style">
+						<span class="jiathis_txt">分享</span>
+						<a class="jiathis_button_icons_1"></a>
+						<a class="jiathis_button_icons_2"></a>
+						<a class="jiathis_button_icons_3"></a>
+					</div>
+					<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1342777298822786" charset="utf-8"></script>
+					<!-- JiaThis Button END -->
+					
+					</div> 
+					<div class="store">  
+					  <a href="{Common_Smarty_Url_format key='favorite' id=$product.id}{if !$user_auth_name}#noAuthLogin{/if}"
+           	  id="favorite_link" class="jq_a_ajax collect">收藏</a> </div> 
+           	  
 				</div>
 		</form>
 <!-- E addToCart -->
@@ -195,7 +217,7 @@
 			</div>
 <!-- E 热门直通车 -->
 
-<!-- S addToCart -->
+<!-- S addToCart  
 				<div class="ap addToCart">
 					<div class="add"><a href="">加入购物车</a></div>
 					<div class="share">分享<a href=""><i class="ii"></i><i class="ii"></i></a></div>
@@ -218,6 +240,18 @@
 <!-- E footer -->
 
  
+ <!-- S 大图弹窗 -->
+<div id="mwMask" class="mwMask" style="display:none"></div>
+<div class="mw" id="mwPopUp" style="display:none">
+	<div class="mwCt">
+		<a href="javascript:" class="close"></a>
+		<div class="mwHd">
+			<img id="imgB" src="" />
+		</div>
+	</div>
+</div>
+<!-- E 大图弹窗 -->
+
 <div class="bubbleBox bubbleBox1" id="bubbleBox" style="display:none">
 	<div class="c">
     <i class="ii i03"></i>

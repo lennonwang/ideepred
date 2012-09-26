@@ -33,6 +33,37 @@ $(function(){
 		return false;
 	});
 	
+	
+	// 隐藏大图事件
+	$("#mwMask").click(function(){
+		$(this).hide();
+		$("#mwPopUp").fadeOut()
+	});
+
+	$("#mwPopUp a.close").click(function(){
+		$("#mwMask").hide();
+		$("#mwPopUp").fadeOut()
+	});
+
+	// 点击小图 绑定事件
+	$("#imgS a.imgSmall").click(function(){
+		$("#imgM").fadeOut();
+		var _imgM = $(this).attr("data-imgM-url");
+		bigImgUrl = $(this).attr("data-imgB-url");
+		$("#imgM").attr("src",_imgM).fadeIn();
+	});
+
+	// 点击zoom查看大图 绑定事件
+	$("a.zoom").click(function(){
+		if(bigImgUrl == ""){
+			bigImgUrl = $("#imgM").attr("data-imgB-url");
+		}
+		console.log('bigImgUrl:::'+bigImgUrl);
+		$("#imgB").attr("src",bigImgUrl);
+		showPopUp();
+	});
+	
+	
 	$('#post-comment-frm').validate({
 		rules:{
 			content:{
@@ -56,6 +87,11 @@ $(function(){
 	});
 	
 });
+
+
+
+var bigImgUrl = ""; 
+
 
 
 //购买数量修改。
@@ -218,3 +254,18 @@ function addToCollectFun(){
 }
  
  
+//大图弹窗提示
+function showPopUp(){
+	windowHeight = $(window).height();
+	windowWidth = $(window).width();
+	$("#mwMask").css({"height":windowHeight,"width":windowWidth,"display":"block"});
+	var _height = (windowHeight -$("#mwPopUp").height())/2;
+	var _width = (windowWidth -$("#mwPopUp").width())/2;
+	$("#mwPopUp").css({"top":_height,"left":_width})
+	$("#mwPopUp").show();
+	
+	$("a.btn_min").click(function(){
+		$("#mwMask").hide();
+		$("#mwPopUp").hide();
+	});
+}

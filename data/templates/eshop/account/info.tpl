@@ -45,7 +45,7 @@
 										<input type="hidden" name="id" value="{$user.id}" />
 									<table  >
 										<tr class="tr_lin">
-										<td colspan="2">编辑个人信息</td>
+										<td colspan="2">个人信息</td>
 									</tr>
 										{assign var=metas value=$user.meta}
 										<tr>

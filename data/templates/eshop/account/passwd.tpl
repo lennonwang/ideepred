@@ -47,7 +47,7 @@
 										
 											<tr>
 												<td class="td_right">我的旧密码：</td>
-												<td><input type="password" name="old_password" class="s" /></td>
+												<td><i class="txt txt2"><input type="password" name="old_password" class="s" /></i></td>
 											</tr>
 											<tr>
 												<td class="td_right">我的新密码：</td>

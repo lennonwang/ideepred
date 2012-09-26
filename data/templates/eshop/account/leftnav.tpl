@@ -23,9 +23,9 @@
 					<div class="apT">个人信息管理</div>
 					<div class="apB">
 						<ul class="cats">
-						<li><a href="{Common_Smarty_Url_format key='i_info'}"  {if $sub_nav eq 'info'}class="on"{/if}>编辑个人资料</a></li>
-		<li><a href="{Common_Smarty_Url_format key='i_passwd'}"  {if $sub_nav eq 'passwd'}class="on"{/if}>修改密码</a></li>
-		<li ><a href="{Common_Smarty_Url_format key='i_addbooks'}" {if $sub_nav eq 'addbooks'}class="on"{/if}>修改送货信息</a></li>
+						<li><a href="{Common_Smarty_Url_format key='i_info'}"  {if $sub_nav eq 'info'}class="on"{/if}>个人资料</a></li>
+		<li><a href="{Common_Smarty_Url_format key='i_passwd'}"  {if $sub_nav eq 'passwd'}class="on"{/if}>密码管理</a></li>
+		<li ><a href="{Common_Smarty_Url_format key='i_addbooks'}" {if $sub_nav eq 'addbooks'}class="on"{/if}>我的收货地址</a></li>
 						</ul>
 					</div>
 				</div>

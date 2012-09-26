@@ -759,7 +759,7 @@ class Eshop_Action_Profile extends Eshop_Action_Common {
         $remember = $this->getRemember();
         
         if(empty($account) || empty($passwd)){
-            return $this->jsonResult(502, '用户名或密码为空了!');
+            return $this->jsonResult(400, '用户名或密码为空了!');
         }
         $model = $this->wiredModel();
         $options = array(
@@ -768,7 +768,7 @@ class Eshop_Action_Profile extends Eshop_Action_Common {
         );
         $model->findFirst($options);
         if(!$model->count()){
-            return $this->jsonResult(502, "用户[$account]不存在!");
+            return $this->jsonResult(404, "用户[$account]不存在!");
         }
         //user password isn't right
         $passwd = hash('sha1', $passwd);

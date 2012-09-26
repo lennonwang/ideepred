@@ -14,29 +14,44 @@
 	 <script type="text/javascript" src="/js/e/confirm.js"></script>
 </head>
 
-<body>
-<div id="wrapper">
+<body> 
 	
 	{smarty_include eshop.common.header}
 	
-	<div id="container">
-		<div class="box">
-			<div class="bordor profile">
-				<h2>个人帐户管理</h2>
+	
 				
-				<div class="box clearfix">
-					<div class="leftref noborder" id="channelside">
-						{smarty_include eshop.account.leftnav}
-					</div>
-					<div class="righttwo2" id="contentlist">
-					 
-						<!-- table list begin -->
-						<div class="a_item contentbox">
-							<div class="contentbaby">
-							
-								<div class="a_item ablue">
-									<table >
-										<tr class="tr_lin gs">
+<!-- S crumbs -->
+<div class="crumbs">
+	<div class="c0">
+  	<a href="/">首页</a>&gt;<a href="#" class="on">个人中心</a>  &gt;<a href="#" class="on">地址管理</a>  
+  </div>
+</div>
+<!-- E crumbs -->
+
+
+
+
+	
+<!-- S bdy -->
+<div class="bdy">
+	<div class="c0 A-M">
+ 	
+ 	{smarty_include eshop.account.leftnav}
+
+<!-- S main -->
+		<div class="MAIN">
+			<div class="c">
+			
+			<!-- S tables -->
+				<div class="ap">
+
+					<div class="dataTable dataTable1">
+							<table>
+							<tbody>
+							<tr class="tr_lin">
+								<td colspan="6">我的收货地址</td>
+							</tr> 
+							<tr class="gs"> 
 											<td>序号</td> 
 											<td width="30%">地址</td>
 											<td>收件人</td>
@@ -58,22 +73,26 @@
 											 </td>
 										</tr>
 										{/foreach}
-									</table>
-								</div>
-							
-							</div>
-						</div>
-						<!-- table list end -->
-						
-						 <!-- addbooks edit begin -->
+								</tbody>
+								</table>
+					</div>  
+
+				</div>
+				<!-- E tables -->
+				
+				 <!-- addbooks edit begin -->
 					  <div id="edit_div" style="display:none;">
 					  <div id="ajax-response"></div>
 					  <div id="ajax-response-msg"></div>
+					  <div class="dataTable dataTable1">
 					  <form method="post" action="/app/eshop/profile/save_addbooks"> 
 					  		<input type="hidden" name="id" value="" id="add_id">
-							<table>
+							<table  >
+										<tr class="tr_lin">
+										<td colspan="2">修改收获地址</td>
+									</tr>
 								<tr style="line-height:120%;">
-									<th><label for="name">收货人姓名：</label></th>
+									<td class="td_right"><label for="name">收货人姓名：</label></td>
 									<td><input type="text" name="name" value="" id="name" class="middle-text" />
 									<span class="star">
 										<font>*</font>
@@ -82,7 +101,7 @@
 									</td>
 								</tr>
 								<tr>
-									<th><label for="province">省 份：</label></th>
+									<td class="td_right"><label for="province">省 份：</label></td>
 									<td id="send_area">
 										<label id="provice_box" name="/app/eshop/shopping/change_province"></label>
 										<select name="province" id="choose_province">
@@ -108,7 +127,7 @@
 									</td>
 								</tr>
 								<tr>
-									<th><label for="address">地 址：</label></th>
+									<td class="td_right"><label for="address">地 址：</label></td>
 									<td>
 										<input type="text" name="address" value="" id="address" class="middle-text" />
 										<span class="star">
@@ -118,17 +137,17 @@
 									</td>
 								</tr>
 								<tr>
-									<th><label for="zip">邮政编码：</label></th>
+									<td class="td_right"><label for="zip">邮政编码：</label></td>
 									<td>
 										<input type="text" name="zip" value="" id="zip" class="middle-text" />
 									</td>
 								</tr>
 								<tr>
-									<th><label for="telephone">固定电话：</label></th>
+									<td class="td_right"><label for="telephone">固定电话：</label></td>
 									<td><input type="text" name="telephone" value="" class="middle-text" id="telephone" /></td>
 								</tr>
 								<tr>
-									<th><label for="mobie">手机号码：</label></th>
+									<td class="td_right"><label for="mobie">手机号码：</label></td>
 									<td>
 										<input type="text" name="mobie" value="" class="middle-text" id="mobie" />
 										<span class="star">
@@ -138,7 +157,7 @@
 									</td>
 								<tr>
 								<tr>
-									<th><label for="email"><span class="star">*</span>电子邮件：</label></th>
+									<td class="td_right"><label for="email"><span class="star">*</span>电子邮件：</label></td>
 									<td><input type="text" name="email" value="" class="middle-text" id="email"/>
 										<span class="star">
 											<font>*</font>
@@ -146,24 +165,32 @@
 										</span>
 									</td>
 								</tr>
+								<tr class="bh">
+											<td></td>
+											<td><input type="submit" name="_submit" value="确认修改" class="sm" /></td>
+								</tr> 
+								
 							</table>
-							
-							<div id="do_buy">
-								<p>
-									<input type="submit" name="_submit" value=" 配送地址 " class="go_submit step-addr" />
-								</p>
-							</div>
+							 
+									
+							 
 						</form>
 						</div>
+						</div>
 					  <!-- addbooks edit end-->
-
-					</div>
-				</div>
+					  
 			</div>
 		</div>
+<!-- E main -->
 
 	</div>
+</div>
+<!-- E bdy --> 
 
+
+ 
+
+	 
 	{smarty_include eshop.common.site-help}
 	
 	{smarty_include eshop.common.footer}
