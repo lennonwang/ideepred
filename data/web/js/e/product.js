@@ -5,12 +5,7 @@ $(function(){
 		console.log('rel::'+$(this).attr("rel"));
 	}); 
 	
-	$('.jqzoom').jqzoom({
-		zoomType: 'standard',
-		lens:true,
-		preloadImages: false,
-		alwaysOn:false
-	});
+ 
 	
 	if($(".buyNumber").size() > 0){
 		buyNumberBindFunction();

@@ -62,7 +62,7 @@
 					 w=1000 h=1000 var=first_orign_image is_result_mode=ary}
 			
 						<i class="img"><img src="{$first_image.url}"  id="imgM" data-imgB-url="{$first_orign_image.url}"/></i>
-						<div class="zoom" href=""><b>zoom</b></div>
+						<a class="zoom" ><b>zoom</b></a>
 					</div>
 					 
 
