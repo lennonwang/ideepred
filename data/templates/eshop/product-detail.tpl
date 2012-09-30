@@ -8,10 +8,7 @@
 	<meta name="author" content="lennon">
 	{smarty_include eshop.common.header_compart}
 	{smarty_include eshop.js-common}
-	{smarty_include eshop.js-form} 
-	<script type="text/javascript" src="/js/e/jquery.jqzoom-core.js"></script>
-
-	<link rel="stylesheet" href="/csstyle/jquery.jqzoom.css" type="text/css" />
+	{smarty_include eshop.js-form}  
 	<!-- <link rel="stylesheet" href="/css/g.css" type="text/css" />  -->
   <!-- <link rel="stylesheet" href="/csstyle/itablet.css" type="text/css" /> -->  
 	<script type="text/javascript" src="/js/e/product.js"></script>
@@ -65,7 +62,7 @@
 					 w=1000 h=1000 var=first_orign_image is_result_mode=ary}
 			
 						<i class="img"><img src="{$first_image.url}"  id="imgM" data-imgB-url="{$first_orign_image.url}"/></i>
-						<a class="zoom" href=""><b>zoom</b></a>
+						<div class="zoom" href=""><b>zoom</b></div>
 					</div>
 					 
 
@@ -143,7 +140,7 @@
 						<a class="jiathis_button_icons_2"></a>
 						<a class="jiathis_button_icons_3"></a>
 					</div>
-					<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1342777298822786" charset="utf-8"></script>
+					
 					<!-- JiaThis Button END -->
 					
 					</div> 
@@ -260,7 +257,7 @@
 </div>
 	
 	
-	
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1342777298822786" charset="utf-8"></script>
  
 </body> 
 </html>

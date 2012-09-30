@@ -1,13 +1,16 @@
 <!-- S ap cat-->
 				<div class="ap subCat subCatHot">
-					<div class="apT">推荐</div>
+					<div class="apT">推荐  </div>
 					<div class="apB">
 						<ul class="cats"> 
 						{foreach from=$wine_mode_array item=each_item } 
 							 <li> 
 							 <a href="{Common_Smarty_Url_format key=search_list catcode='' page=1 style=$style orderby=1 low_price=0 high_price=0 
 								country='' grape_breed='' query=$query  orderSeq=0 wine_mode=$each_item.id}"
-								 {if $each_item.id eq $wine_mode} class="on"{/if}  >{$each_item.name}</a>
+								 {if $each_item.id eq $wine_mode} class="on"{/if}
+								  {if $each_item.id eq 1 && $current_menu eq 'tab_index'} class="on"{/if}
+								 
+								   >{$each_item.name}</a>
 							</li>
 						{/foreach}
 						<!--	<li><a href="#">本周TOP 9</a></li>
@@ -66,7 +69,10 @@
 					<div class="apB">
 						<ul class="cats"> 
 						<li> <a href="{Common_Smarty_Url_format key=search_list catcode='' page=1 style=$style orderby=1 low_price=0 high_price=0 
-						country='' grape_breed='' query=$query}" {if $high_price eq 0}class="on"{/if} >不限价格</a> </li>
+						country='' grape_breed='' query=$query}" 
+						  {if  $current_menu ne 'tab_index'}  
+						  {if $high_price eq 0} class="on"{/if} {/if} >
+						   不限价格</a> </li>
 						<li><a href="{Common_Smarty_Url_format key=search_list catcode='' page=1 style=$style orderby=1 low_price=0 high_price=100
 						 country='' grape_breed='' query=$query}" {if ($high_price <= 100) && ($high_price gt 0)}class="on"{/if} >0元-100元</a>
 						  </li>

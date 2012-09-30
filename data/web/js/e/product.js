@@ -47,7 +47,7 @@ $(function(){
 
 	// 点击小图 绑定事件
 	$("#imgS a.imgSmall").click(function(){
-		$("#imgM").fadeOut();
+		$("#imgM").hide();
 		var _imgM = $(this).attr("data-imgM-url");
 		bigImgUrl = $(this).attr("data-imgB-url");
 		$("#imgM").attr("src",_imgM).fadeIn();
@@ -264,8 +264,8 @@ function showPopUp(){
 	$("#mwPopUp").css({"top":_height,"left":_width})
 	$("#mwPopUp").show();
 	
-	$("a.btn_min").click(function(){
-		$("#mwMask").hide();
-		$("#mwPopUp").hide();
-	});
+	//$("a.btn_min").click(function(){
+	//	$("#mwMask").hide();
+	//	$("#mwPopUp").hide();
+	//});
 }
