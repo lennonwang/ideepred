@@ -5,26 +5,27 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>购物车-{smarty_include eshop.common.xtitle}</title>
-	<meta name="author" content="xiaoyi">
-	<link rel="stylesheet" href="/csstyle/itablet.css" type="text/css" />
+	<meta name="author" content="xiaoyi"> 
 	{smarty_include eshop.js-common}
 	{smarty_include eshop.js-form}
 	<script type="text/javascript" src="/js/e/cart.js"></script>
 </head>
 
-<body>
-<div id="wrapper">
-	
+<body> 
 	{smarty_include eshop.common.header}
 	
+<!-- S bdy -->
+<div class="bdy">
+	<div class="c0">	
 	<div id="container">
 		
 		<div class="box">
 			<div class="bordor profile">
-				<h2>我的购物车</h2>
+						<h2>我的购物车</h2>
+			
 				
 				<form name="ibox_cart" action="/app/eshop/shopping/checkout" method="post" class="box_cart_frm">
-					<div class="car_item_list" id="cartbarket">	
+				<div class="dataTable dataTable2" id="cartbarket">
 						<table class="picxe">
 							<tr>
 								<th class="leftside">商品</th>
@@ -73,14 +74,14 @@
 								</td>
 							</tr>
 						</table>
-						<table class="picxe">
+						<table class="picxe"  > 
 							<tr class="done">
 								<td class="txtlef clearfix">
-									<a href="/app/eshop/shopping/clear" title="清空购物车" class="jq_a_ajax">
-										<img src="/images/eshop/icon-clearnull.png" alt="清空购物车" />
+									<a href="/app/eshop/shopping/clear" title="清空购物车" class="cartbtn jq_a_ajax">
+									<!-- 	<img src="/images/eshop/icon-clearnull.png" alt="清空购物车" /> -->	
 									</a>  
-									<a href="javascript:history.go(-1);" title="继续购物">
-										<img src="/images/eshop/icon-gobuy.png" alt="继续购物" />
+									<a href="javascript:history.go(-1);" title="继续购物" class="cartbtn cartbtn1">
+									<!-- <img src="/images/eshop/icon-gobuy.png" alt="继续购物" />  -->	
 									</a>
 								</td>
 								<td class="txtrig">
@@ -95,10 +96,12 @@
 		</div>
 
 	</div>
+		</div>
+			</div>
 
 	{smarty_include eshop.common.site-help}
 	
 	{smarty_include eshop.common.footer}
-</div>
+ 
 </body>
 </html>
