@@ -51,8 +51,7 @@
 										<tr>
 											<td class="td_right">昵称：</td>
 											<td>
-											<i class="txt txt2"><input type="text" name="username" class="s" value="{$user.username}"/></i>
-											
+											 <input type="text" name="username" class="s" value="{$user.username}"/>  
 											</td>
 										</tr>
 										<tr>

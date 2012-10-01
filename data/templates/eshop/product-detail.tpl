@@ -176,14 +176,23 @@
 						<dt style="margin-top:15px"><span class="s">{$wine_category.name|default:'Red wine'}</span></dt>
 						<dd>
 							<div class="proList proList4">
-								<div class="pro">
-									<i class="img"><a href=""><img src="i/demo6_1.jpg" /></a></i>
+							{assign var=stick_count value=0}
+							 {if $stick_cat_product_list} 
+								{foreach from=$stick_cat_product_list item=stick_product name=pro}
+								{if $product.id ne $stick_product.id && $stick_count<=2}
+								{assign var=stick_count value=$stick_count+1}
+								<div class="pro">  
+									<i class="img">
+									<a href="{Common_Smarty_Url_format key=product id=$stick_product.id}" >
+									<img src="{$stick_product.thumb}"  width="180" height="180" /><i class="fave"></i>
+									</a> </i> 
 								</div>
-								<div class="pro">
-									<i class="img"><a href=""><img src="i/demo6_2.jpg" /></a></i>
-								</div>
+								{/if}
+								{/foreach}
+							 {/if} 
 								<div class="pro pro1">
-									<a href=""><span class="num"><span class="s">49</span>款</span></a>
+								<a href="{Common_Smarty_Url_format key=category_list catcode=$bcate.code}" title="{$bcate.name}">
+									<span class="num"><span class="s">{$cat_count}</span>款</span></a> 
 								</div>
 							</div>
 						</dd>
@@ -199,28 +208,68 @@
 				</div>
 <!-- E proDesc -->
 				
-<!-- S 热门直通车 -->
+<!-- S 热门直通车  
 			<div class="ap hotReco">
 				<div class="apT">热门直通车</div>
-				<!-- S list2 -->
+				 
 				<div class="apB proList proList2 proList2a">
 
 					<div class="pro">
 						<i class="img"><a href=""><img src="i/demo2.jpg" /></a></i>
 					</div> 
 
-				</div>
-				<!-- E list2 -->
+				</div>  
 			</div>
 <!-- E 热门直通车 -->
 
-<!-- S addToCart  
-				<div class="ap addToCart">
-					<div class="add"><a href="">加入购物车</a></div>
-					<div class="share">分享<a href=""><i class="ii"></i><i class="ii"></i></a></div>
-					<div class="store"><a href="">收藏</a></div>
+	
+<!-- S cartSeciont -->
+	 <form action="{Common_Smarty_Url_format key='add_cart' id=$product.id}" method="post">
+				<div class="ap cartSection">
+					<span class="price">{$product.sale_price}元</span>
+					<div class="buyNumber">
+					 {if $product.stock &&  $product.stock > 0}
+					 	数量<a class="minus" href="">-</a>
+					 	<i class="txt"><input  class="num" name="quantity" type="text" value="1" /></i>
+					 	<a class="add" href="">+</a>
+		          	 {* <span class="buyNumber" id="buyNumber"><span class="numberOpt numUp"><a href="javascript:void(0)"></a></span>
+             			 <span class="numberOpt numDown"><a href="javascript:void(0)"></a></span>
+            			  <input class="num" name="quantity" type="text" value="1" />{$product.unit}</span>（库存{$product.stock}件)</dd>
+           			*} 
+           			{else}该商品已售罄。{/if} 
+					
+					</div>
 				</div>
+<!-- E cartSeciont -->
+
+<!-- S addToCart --> 
+					<input type="hidden" name="id" value="{$product.id}" id="com_sku" />
+					<input type="hidden" name="size" value="F" id="com_size" />
+				<div class="ap addToCart">
+					  {if $product.stock &&  $product.stock > 0}
+					  <div class="add"><button type="submit" class="submit"><b>加入购物车</b></button></div>
+					   {/if} 
+					<div class="share">
+					<!-- JiaThis Button BEGIN -->
+					<div class="jiathis_style">
+						<span class="jiathis_txt">分享</span>
+						<a class="jiathis_button_icons_1"></a>
+						<a class="jiathis_button_icons_2"></a>
+						<a class="jiathis_button_icons_3"></a>
+					</div>
+					
+					<!-- JiaThis Button END -->
+					
+					</div> 
+					<div class="store">  
+					  <a href="{Common_Smarty_Url_format key='favorite' id=$product.id}{if !$user_auth_name}#noAuthLogin{/if}"
+           	  id="favorite_link" class="jq_a_ajax collect">收藏</a> </div> 
+           	  
+				</div>
+		</form>
 <!-- E addToCart -->
+	
+	
 
 			</div>
 		</div>

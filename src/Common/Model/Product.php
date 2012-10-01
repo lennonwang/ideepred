@@ -229,6 +229,39 @@ class Common_Model_Product extends Common_Model_Table_Product {
     }
     
     /**
+     * 获取推荐产品列表
+     *
+     * @return array
+     */
+    public function findCategoryStickProductList($cat,$size=5,$page=1){
+    	$condition = 'category_id=? AND stick=? AND state=?';
+    	$vars = array($cat,1,1); 
+    	$options = array(
+    			'condition'=>$condition,
+    			'vars'=>$vars,
+    			'page'=>$page,
+    			'size'=>$size,
+    			'order'=>'sticked_on DESC, id desc '
+    	);
+    	$product_list = $this->find($options)->getResultArray();
+    	 
+    	return $this->completeProductList($product_list);
+    }
+    
+    /**
+     * 统计某一个类别下的产品数
+     *
+     * @return array
+     */
+    public function countCategoryProduct($cat){
+    	$condition = 'category_id=? AND state=?';
+    	$vars = array($cat,1); 
+    	$cnt = $this->countIf($condition,$vars);
+    
+    	return $cnt;
+    }
+    
+    /**
      * 获取某订单下的产品列表
      *
      * @return array

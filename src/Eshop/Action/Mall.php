@@ -418,11 +418,9 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
         //获取父分类路径
         $category_path = $category->findRootNodePath($catcode);
         //获取一级分类（频道）
-        $category_channel = $category->findFirstCategory();
-        self::debug("111111111".$category_path."3333333333". $category_channel);
+        $category_channel = $category->findFirstCategory(); 
         //获取所属频道
-        $channel = $category_path[0];
-        self::debug("ddddddddddddddd".$catcode."ppppppppp". $channel['id']);
+        $channel = $category_path[0]; 
         $channel_id = $channel['id'];
         //添加类别缩略图
         $channel['image'] = Common_Util_Asset::fetchAssetUrl($channel_id, Common_Model_Constant::CATEGORY_THUMB);
@@ -566,7 +564,16 @@ class Eshop_Action_Mall extends Eshop_Action_Common {
 			$category = new Common_Model_Category();
 			$wine_category = $category->findById($category_id)->getResultArray();
 			$this->putContext('wine_category', $wine_category);
+			//类别推荐商品
+			self::debug('[data]category_id:::::'.$category_id);
+			$product_info = new Common_Model_Product();
+			$stick_product_list = $product_info->findCategoryStickProductList($category_id,3); 
+			$this->putContext('stick_cat_product_list', $stick_product_list);
+			
+			$cat_count = $product_info->countCategoryProduct($category_id);
+			$this->putContext('cat_count', $cat_count);
 			unset($category);
+			unset($product_info);
 		} 
 		//获取红酒国家、产地和分级等信息  
 		$productInfo = Common_Model_ProductInfo::getProductInfo($product);

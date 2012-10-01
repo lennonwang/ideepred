@@ -45,7 +45,7 @@
 			<!-- S tables -->
 				<div class="ap">
 
-					<div class="dataTable dataTable1">
+					<div class="dataTable dataTable2">
 							<table>
 							<tbody>
 							<tr class="tr_lin">
@@ -84,12 +84,12 @@
 					  <div id="edit_div" style="display:none;">
 					  <div id="ajax-response"></div>
 					  <div id="ajax-response-msg"></div>
-					  <div class="dataTable dataTable1">
+					  <div class="dataTable">
 					  <form method="post" action="/app/eshop/profile/save_addbooks"> 
 					  		<input type="hidden" name="id" value="" id="add_id">
 							<table  >
 										<tr class="tr_lin">
-										<td colspan="2">修改收获地址</td>
+										<td colspan="2">修改收货地址</td>
 									</tr>
 								<tr style="line-height:120%;">
 									<td class="td_right"><label for="name">收货人姓名：</label></td>
