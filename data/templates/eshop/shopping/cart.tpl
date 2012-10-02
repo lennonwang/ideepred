@@ -16,13 +16,11 @@
 	
 <!-- S bdy -->
 <div class="bdy">
-	<div class="c0">	
-	<div id="container">
+	<div class="c0">	 
 		
 		<div class="box">
 			<div class="bordor profile">
-						<h2>我的购物车</h2>
-			
+				<h2>我的购物车</h2> 
 				
 				<form name="ibox_cart" action="/app/eshop/shopping/checkout" method="post" class="box_cart_frm">
 				<div class="dataTable dataTable2" id="cartbarket">
@@ -61,13 +59,13 @@
 							</tr>
 							{foreachelse}
 							<tr class="odd">
-								<td colspan="9">
+								<td colspan="7">
 									<p>您还没找到喜欢的产品吗？<a href="{Common_Smarty_Url_format key='domain'}">赶快去选购吧</a></p>
 								</td>
 							</tr>
 							{/foreach}
 							<tr class="statistics">
-								<td colspan="9">
+								<td colspan="7">
 									<div id="car_subtotal">
 										<span>产品数量总计:<em id="cart_items_total">{$items_count}</em>件</span>  <span>产品金额总计(不含运费):<em id="items_total_money">{$total_money}</em>元</span>
 									</div>
@@ -92,9 +90,8 @@
 			</div>
 		</div>
 
+	</div> 
 	</div>
-		</div>
-			</div>
 
 	{smarty_include eshop.common.site-help}
 	

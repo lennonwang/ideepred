@@ -8,8 +8,15 @@
 				<td>{$data.name}</td>
 			</tr>
 			<tr>
-				<th><span class="star">*</span>地址：</th>
-				<td>{Common_Smarty_DataSet_placeName id=$data.province} {Common_Smarty_DataSet_placeName id=$data.city} {$data.address}</td>
+				<th><span class="star">*</span>地址：</th> 
+				<td>
+				{if isset($data.province) and $data.province >0 }
+					{Common_Smarty_DataSet_placeName id=$data.province} 
+				{/if}
+				{if isset($data.city) and $data.city >0 }
+				{Common_Smarty_DataSet_placeName id=$data.city} 
+				{/if}
+				{$data.address}</td>
 			</tr>
 			<tr>
 				<th>邮编：</th>
