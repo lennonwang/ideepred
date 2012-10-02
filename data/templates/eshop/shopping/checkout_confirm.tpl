@@ -22,7 +22,7 @@
 	<!-- S 收货人信息 -->
 	<div class="bordor profile" id="orderfrom">
  		
-	  	<h2 class="step step3">结算步骤: <span id="shoppingstep_1">1.登录注册</span> >>
+	  	<h2 class="step step3">购物流程: <span id="shoppingstep_1">1.登录注册</span> >>
 	  	 <span id="shoppingstep_2">2.填写核对订单信息</span> >>
 	  	  <span id="shoppingstep_3" class="current_step">3.提交订单</span></h2>
 					 

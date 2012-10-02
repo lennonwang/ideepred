@@ -18,7 +18,7 @@
 <div class="bdy">
 	<div class="c0"> 
 				<div class="bordor" id="orderfrom">
-					<h2 class="step step2">购物步骤: <span id="shoppingstep_1">1.登录注册</span> >> 
+					<h2 class="step step2">购物流程: <span id="shoppingstep_1">1.登录注册</span> >> 
 					<span id="shoppingstep_2"  >2.填写核对订单信息</span> >> 
 					<span id="shoppingstep_3">3.提交订单</span></h2>
 					 

@@ -20,7 +20,7 @@
 	<div class="c0">
 		 
 				<div class="bordor" id="orderfrom">
-					<h2 class="step step2">购物步骤: <span id="shoppingstep_1">1.登录注册</span> >> 
+					<h2 class="step step2">购物流程: <span id="shoppingstep_1">1.登录注册</span> >> 
 					<span id="shoppingstep_2" class="current_step">2.填写核对订单信息</span> >> 
 					<span id="shoppingstep_3">3.提交订单</span></h2>
 					 
@@ -31,20 +31,17 @@
 					<form method="post" action="/app/eshop/shopping/do_payment" id="order_ofrm" >
 					<div class="sho_step editable" id="chkpay_info"> 
 					  	<input type="hidden" name="next_step" value="{$next_step}" />
-							<div class="dataTable  ">
-								<table >
-									<tr>
-										<th class="pal_away">支付方式</th>
-										<td class="pal_note">备 注</td>
-									</tr>
+						<h3>支付方式：</h3>
+							<div class="dataTable  dataTable3">
+								<table > 
 								
 									{foreach from=$payment_methods item=pm key=key}
 									<tr>
 										<th class="pal_away">
-											<input type="radio" name="payment_method" value="{$key}" {if $data.payment_method eq $key}checked="checked"{/if} /><label for="payment_method">{$pm.name}</label>
-										</th>
+											</th>
 										<td class="pal_note">
-											<span>{$pm.summary}</span>
+											<input type="radio" name="payment_method" value="{$key}" {if $data.payment_method eq $key}checked="checked"{/if} /><label for="payment_method">{$pm.name}</label>
+											&nbsp;&nbsp;<span>{$pm.summary}</span>
 										</td>
 									</tr>
 									{/foreach}
@@ -52,18 +49,20 @@
 								</table>
 							</div>
 							
-							<div class="dataTable  ">
-								<table class="odrable">
-									<tr>
-										<th class="tranf_away">配送方式</th>
-										<td class="pal_note">运 费</td>
-									</tr>
+						<h3>配送方式：</h3>
+							<div class="dataTable  dataTable3">
+								<table class="odrable"> 
 								
 									{foreach from=$transfer_methods item=tm key=key}
 									<tr>
-										<th class="tranf_away"><input type="radio" name="transfer" value="{$key}" {if $data.transfer eq $key}checked="checked"{/if} /> <label for="transfer">{$tm.name}</label></th>
-										<td class="pal_note"><label>{$tm.freight}元</label>
-										<br /><label>{$tm.summary}</label>
+										<th class="tranf_away">
+											
+										</th>
+										<td class="pal_note"><label>
+										<input type="radio" name="transfer" value="{$key}" 
+											{if $data.transfer eq $key}checked="checked"{/if} /> <label for="transfer">{$tm.name}</label>
+										{$tm.freight}元</label>
+										<br />&nbsp;&nbsp;&nbsp;&nbsp;<label>{$tm.summary}</label>
 										</td>
 									</tr>
 									{/foreach}
@@ -71,10 +70,11 @@
 								</table>
 							</div>
 							
-							<div class="dataTable  ">
+						<h3>送货时间：</h3>
+							<div class="dataTable  dataTable3">
 								<table class="odrable">
-									<tr>
-										<th><label>送货时间：</label></th>
+									<tr> 
+										<th></th>
 										<td class="pal_note">
 											<div class="tsr">
 												{foreach from=$transfer_times item=tt key=key}
@@ -85,8 +85,8 @@
 									</tr>
 								</table>
 							</div>
-							
-						<div class="dataTable  ">
+							 
+						<div class="dataTable  dataTable3">
 							<table class="odrable">
 								<tr>
 									<th class="td_lab">备注：</th>
