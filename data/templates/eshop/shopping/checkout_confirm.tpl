@@ -5,15 +5,13 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>提交订单--{smarty_include eshop.common.xtitle}</title>
-	<link type="image/x-icon" href="/favicon.ico" rel="shortcut icon"/>
-	<link rel="stylesheet" href="/csstyle/itablet.css" type="text/css" />
+	<link type="image/x-icon" href="/favicon.ico" rel="shortcut icon"/>  s
 	{smarty_include eshop.js-common}
 	{smarty_include eshop.js-form}
 	<script type="text/javascript" src="/js/e/confirm.js"></script>
 </head>
 
-<body>
-	<div id="wrapper">
+<body> 
 
 		{smarty_include eshop.common.header}
 
@@ -86,8 +84,7 @@
 					</div>
 					
 				</div>
-			</div> 
-		</div>
+			</div>  
 
 		{smarty_include eshop.site-help}
 
