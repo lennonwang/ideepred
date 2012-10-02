@@ -73,19 +73,16 @@
 									</div>
 								</td>
 							</tr>
-						</table>
-						<table class="picxe"  > 
-							<tr class="done">
-								<td class="txtlef clearfix">
+						<tr class="btns">
+								<td colspan="9"> 
 									<a href="/app/eshop/shopping/clear" title="清空购物车" class="cartbtn jq_a_ajax">
 									<!-- 	<img src="/images/eshop/icon-clearnull.png" alt="清空购物车" /> -->	
 									</a>  
 									<a href="javascript:history.go(-1);" title="继续购物" class="cartbtn cartbtn1">
 									<!-- <img src="/images/eshop/icon-gobuy.png" alt="继续购物" />  -->	
 									</a>
-								</td>
-								<td class="txtrig">
-									<input type="image" name="_submit" src="/images/eshop/icon-checkout.png" />
+							 
+							 		<button type="image" name="_submit" class="btn"><b>提交订单</b></button> 
 								</td>
 							</tr>
 						</table>

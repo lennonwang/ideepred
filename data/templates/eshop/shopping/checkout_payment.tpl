@@ -5,36 +5,34 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>选择支付方式</title>
-	<link type="image/x-icon" href="/favicon.ico" rel="shortcut icon"/>
-	<link rel="stylesheet" href="/csstyle/itablet.css" type="text/css" />
+	<link type="image/x-icon" href="/favicon.ico" rel="shortcut icon"/> 
 	{smarty_include eshop.js-common}
 	{smarty_include eshop.js-form}
 	<script type="text/javascript" src="/js/e/confirm.js"></script>
 </head>
 
-<body>
-	<div id="wrapper">
+<body> 
 
 		{smarty_include eshop.common.header}
 
-		<div id="container">
-			<form method="post" action="/app/eshop/shopping/do_payment" id="order_ofrm" >
-			<div class="box">
+<!-- S bdy -->
+<div class="bdy">
+	<div class="c0">
+		 
 				<div class="bordor" id="orderfrom">
-					<h2>结算步骤: <span id="shoppingstep_1">1.登录注册</span> >>
-					 <span id="shoppingstep_2" class="current_step">2.填写核对订单信息</span> >> <span id="shoppingstep_3">3.提交订单</span></h2>
-					
-					<p class="hotlink">带*的项目为必填项</p>
-					
+					<h2 class="step step2">购物步骤: <span id="shoppingstep_1">1.登录注册</span> >> 
+					<span id="shoppingstep_2" class="current_step">2.填写核对订单信息</span> >> 
+					<span id="shoppingstep_3">3.提交订单</span></h2>
+					 
 					
 					{smarty_include eshop.shopping.checkout_address_ok}
 					
-					<div class="sho_step editable" id="chkpay_info">
-						<h3>支付方式及配送方式</h3>
-						
-							<input type="hidden" name="next_step" value="{$next_step}" />
-							<div class="spblock">
-								<table class="odrable">
+					<h3 class="stepTitle"><span class="opt">带<span class="s">*</span>的项目为必填项</span>请填写支付方式及配送方式</h3>
+					<form method="post" action="/app/eshop/shopping/do_payment" id="order_ofrm" >
+					<div class="sho_step editable" id="chkpay_info"> 
+					  	<input type="hidden" name="next_step" value="{$next_step}" />
+							<div class="dataTable  ">
+								<table >
 									<tr>
 										<th class="pal_away">支付方式</th>
 										<td class="pal_note">备 注</td>
@@ -54,7 +52,7 @@
 								</table>
 							</div>
 							
-							<div class="spblock">
+							<div class="dataTable  ">
 								<table class="odrable">
 									<tr>
 										<th class="tranf_away">配送方式</th>
@@ -73,7 +71,7 @@
 								</table>
 							</div>
 							
-							<div class="spblock">
+							<div class="dataTable  ">
 								<table class="odrable">
 									<tr>
 										<th><label>送货时间：</label></th>
@@ -88,7 +86,7 @@
 								</table>
 							</div>
 							
-						<div class="spblock">
+						<div class="dataTable  ">
 							<table class="odrable">
 								<tr>
 									<th class="td_lab">备注：</th>
@@ -100,11 +98,11 @@
 							</table>
 						</div>
 							
-							<div id="do_buy">
-								<p>
-									<input type="submit" name="payment_ofrm" value="保 存"  class="go_submit step-time" />
-								</p>
-							</div>
+							
+							<div id="do_buy" class="btns2">
+								<button type="submit" name="payment_ofrm" class="go_submit step-addr btn"><b>保存支付方法</b></button>
+							</div> 
+							 
 						
 					</div>
 					
@@ -117,7 +115,7 @@
 		{smarty_include eshop.site-help}
 
 		{smarty_include eshop.footer}
-	</div>
+ 
 	
 </body>
 </html>

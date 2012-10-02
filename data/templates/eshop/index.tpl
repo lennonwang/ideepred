@@ -130,6 +130,6 @@
 	
 	
 	{smarty_include eshop.common.footer}
-</div>
+ 
 </body>
 </html>

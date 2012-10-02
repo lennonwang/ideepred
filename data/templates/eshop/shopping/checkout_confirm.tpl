@@ -15,10 +15,14 @@
 
 		{smarty_include eshop.common.header}
 
-		<div id="container"> 
-			<div class="box">
-				<div class="bordor" id="orderfrom">
-					<h2>结算步骤: <span id="shoppingstep_1">1.登录注册</span> >> <span id="shoppingstep_2">2.填写核对订单信息</span> >> <span id="shoppingstep_3" class="current_step">3.提交订单</span></h2>
+<!-- S bdy -->
+<div class="bdy">
+	<div class="c0">
+
+<!-- S 收货人信息 -->
+<div class="bordor" id="orderfrom">
+ 		
+	  	<h2 class="step step3">结算步骤: <span id="shoppingstep_1">1.登录注册</span> >> <span id="shoppingstep_2">2.填写核对订单信息</span> >> <span id="shoppingstep_3" class="current_step">3.提交订单</span></h2>
 					
 					<p class="hotlink">带*的项目为必填项</p>
 			 

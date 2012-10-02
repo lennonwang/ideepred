@@ -1,6 +1,7 @@
+<!--  edit address table -->  
 <div class="sho_step" id="chkadd_info">
 	<h3>收货人信息<a href="/app/eshop/shopping/modify/step/address{if $next_step}?next_step={$next_step}{/if}" class="a_edit">修改</a></h3>
-	<div class="middle">
+		<div class="dataTable dataTable3">
 		<table class="odrable_show">
 			<tr>
 				<th><span class="star">*</span>收货人姓名：</th>

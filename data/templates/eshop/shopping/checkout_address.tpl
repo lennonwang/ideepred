@@ -16,21 +16,20 @@
 		{smarty_include eshop.common.header}
 <!-- S bdy -->
 <div class="bdy">
-	<div class="c0">
-		 
+	<div class="c0"> 
 				<div class="bordor" id="orderfrom">
-					<h2 class="step step3">结算步骤: <span id="shoppingstep_1">1.登录注册</span> >> 
-					<span id="shoppingstep_2" class="current_step">2.填写核对订单信息</span> >> 
+					<h2 class="step step2">购物步骤: <span id="shoppingstep_1">1.登录注册</span> >> 
+					<span id="shoppingstep_2"  >2.填写核对订单信息</span> >> 
 					<span id="shoppingstep_3">3.提交订单</span></h2>
-					
-					<p class="hotlink">带*的项目为必填项</p>
 					 
-					
+					 
+					<h3 class="stepTitle"><span class="opt">带<span class="s">*</span>的项目为必填项</span>请填写收货人配送地址</h3>
 					<div class="sho_step editable" id="chkadd_info">
-						<h3>请填写收货人配送地址</h3>
+						 
 						<form method="post" action="/app/eshop/shopping/do_address" id="basic_ofrm">
 							<input type="hidden" name="next_step" value="{$next_step}" />
-							<table class="odrable">
+							<div class="dataTable dataTable4">
+								<table>
 								<tr>
 									<th class="td_lab"><label for="name">收货人姓名：</label></th>
 									<td><input type="text" name="name" value="{$data.name}" class="middle-text" />
@@ -106,28 +105,29 @@
 									</td>
 								</tr>
 							</table>
-							
-							<div id="do_buy">
-								<p>
-									<input type="submit" name="_submit" value=" 配送地址 " class="go_submit step-addr" />
-								</p>
 							</div>
+							<!-- table div end -->
+							<div id="do_buy" class="btns2">
+								<button type="submit" name="_submit" class="go_submit step-addr btn"><b>保存收货人信息</b></button>
+							</div> 
+							
 						</form>
-					</div>
+				 		</div>
 					
-				</div>
-			</div>
+				 </div>
+			 </div>
  
-
+ 
+	  
+		
+	<!-- E bdy -->
+  
+  	 
+	{smarty_include eshop.common.site-help}
 	 
-		
-	</div>
-
-</div>
-		
-		{smarty_include eshop.site-help}
-
-		{smarty_include eshop.footer}
+	
+	
+	{smarty_include eshop.common.footer}
   
 	
 </body>
