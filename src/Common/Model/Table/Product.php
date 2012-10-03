@@ -339,6 +339,56 @@ abstract class Common_Model_Table_Product extends Anole_ActiveRecord_Base {
     'length' => '11',
   ),
 		
+  'wine_degree' =>
+  array (
+  		'name' => 'wine_degree',
+  		'type' => 'N',
+  		'length' => -1,
+  ),
+  
+  'wine_grape_desc' =>
+  array (
+  		'name' => 'wine_grape_desc',
+  		'type' => 'S',
+  		'length' => '200',
+  ),
+  
+  'wine_decant' =>
+  array (
+  		'name' => 'wine_decant',
+  		'type' => 'S',
+  		'length' => '45',
+  ),
+  
+  'wine_taste' =>
+  array (
+  		'name' => 'wine_taste',
+  		'type' => 'S',
+  		'length' => '200',
+  ),
+  
+  'wine_temp' =>
+  array (
+  		'name' => 'wine_temp',
+  		'type' => 'S',
+  		'length' => '45',
+  ),
+  
+  'wine_shelf_life' =>
+  array (
+  		'name' => 'wine_shelf_life',
+  		'type' => 'N',
+  		'length' => '4',
+  ),
+  
+  'wine_match_food' =>
+  array (
+  		'name' => 'wine_match_food',
+  		'type' => 'S',
+  		'length' => '200',
+  ),
+  
+  
 );
     
         /**
@@ -1316,7 +1366,82 @@ abstract class Common_Model_Table_Product extends Anole_ActiveRecord_Base {
         return $this->get('stock_alarm');
     }
 	
-	
+    /**
+     *红酒度数
+     */
+    public function setWineDegree($value){
+    	$this->set('wine_degree',$value);
+    	return $this;
     }
+    public function getWineDegree(){
+    	return $this->get('wine_degree');
+    }
+    /**
+     *红酒葡萄说明
+     */
+    public function setWineGrapeDesc($value){
+    	$this->set('wine_grape_desc',$value);
+    	return $this;
+    }
+    public function getWineGrapeDesc(){
+    	return $this->get('wine_grape_desc');
+    }
+    
+    /**
+     *醒酒时间
+     */
+    public function setWineDecant($value){
+    	$this->set('wine_decant',$value);
+    	return $this;
+    }
+    public function getWineDecant(){
+    	return $this->get('wine_decant');
+    }
+    
+    
+    /**
+     *红酒味道
+     */
+    public function setWineTaste($value){
+    	$this->set('wine_taste',$value);
+    	return $this;
+    }
+    public function getWineTaste(){
+    	return $this->get('wine_taste');
+    }
+    
+    /**
+     *饮酒温度
+     */
+    public function setWineTemp($value){
+    	$this->set('wine_temp',$value);
+    	return $this;
+    }
+    public function getWineTemp(){
+    	return $this->get('wine_temp');
+    }
+    
+    /**
+     *红酒保质期
+     */
+    public function setWineShelfLife($value){
+    	$this->set('wine_shelf_life',$value);
+    	return $this;
+    }
+    public function getWineShelfLife(){
+    	return $this->get('wine_shelf_life');
+    }
+    
+    /**
+     *搭配菜肴
+     */
+    public function setWineMatchFood($value){
+    	$this->set('wine_match_food',$value);
+    	return $this;
+    }
+    public function getWineMatchFood(){
+    	return $this->get('wine_match_food');
+    }
+}
 /**vim:sw=4 et ts=4 **/
 ?>

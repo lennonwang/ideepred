@@ -1,6 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -9,8 +7,12 @@
 	{smarty_include eshop.common.header_compart}
 	{smarty_include eshop.js-common}
 	{smarty_include eshop.js-form}  
-	<!-- <link rel="stylesheet" href="/css/g.css" type="text/css" />  -->
-  <!-- <link rel="stylesheet" href="/csstyle/itablet.css" type="text/css" /> -->  
+	{if $product.summary} 
+			<meta name="description" content="{$product.summary|stripslashes} ">				  
+	{/if}
+	{if $product.tags} 
+	<meta name="keywords" content="{$product.tags}">
+	{/if} 
 	<script type="text/javascript" src="/js/e/product.js"></script>
 	 
 </head>
@@ -89,9 +91,9 @@
 							 	{$store_brand.content|stripslashes}
 							 
 						{/if}
-					{if $product.summary} 
+					{* {if $product.summary} 
 							 {$product.summary|stripslashes}  
-					{/if} 
+					{/if}*} 
 							 {$product.content|stripslashes}
 					
 				</div>
@@ -157,19 +159,25 @@
 					<dl>
 						<dt>身份牌 <span class="s">{$product.wine_code} </span></dd>
 						<dd><b>类　　型：</b>{$wine_category.name|default:'无'}</dd>
-						<dd><b>品　　牌：</b>{$store_brand.title}</dd>
+						{if $store_brand.title}
+							<dd><b>品　　牌：</b>{$store_brand.title}</dd>
+						{/if}
 						<dd><b>原产国家：</b>{$product_info->wine_country_name}</dd>
 						<dd><b>酒庄产区：</b>{$product_info->wine_area_name} </dd>
-						<dd><b>酒精度数：</b>13. 5%</dd></dd>  
-           				<dd><b>容　　量：</b>{$product.wine_ml} 毫升</dd>   
+						{if $product.wine_degree}
+							<dd><b>酒精度数：</b> {$product.wine_degree}%</dd></dd>  
+						{/if}
+           				{if $product.wine_ml}
+           					<dd><b>容　　量：</b>{$product.wine_ml} 毫升</dd>  
+           				{/if} 
 						<dd><b>年　　份：</b>{$product_info->wine_year_name}年</dd>
-						<!--
-						<dd><b>葡萄构成：</b>100%赤霞珠</dd>
-						<dd><b>味　　道：</b>烟草，巧克力，辣椒，黑醋栗</dd> 
-						<dd><b>保 质 期：</b> 10年</dd>
-						<dd><b>饮用温度：</b> 14-16度</dd>
-						<dd><b>醒酒时间：</b> 45分钟</dd>
-						<dd><b>产品编码：</b> AA202A</dd>
+						
+						<dd><b>葡萄构成：</b>{$product.wine_grape_desc}</dd>
+						<dd><b>味　　道：</b> {$product.wine_taste} </dd> 
+						<dd><b>保 质 期：</b>{$product.wine_shelf_life} </dd>
+						<dd><b>饮用温度：</b>  {$product.wine_temp} </dd>
+						<dd><b>醒酒时间：</b> {$product.wine_decant} </dd> 
+						<!--<dd><b>产品编码：</b> AA202A</dd>
 						 -->
 						
 						<dt style="margin-top:15px"><span class="s">{$wine_category.name|default:'Red wine'}</span></dt>

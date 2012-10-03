@@ -66,6 +66,7 @@
 											</th>
 											<td colspan="3"> 
 											 <input type="text"  id="title" value="{$product.title}" tabindex="1" size="30" name="title">
+											   {if $product.title}<a href="/product/{$product.id}.html"  target="_blank">预览</a> {/if}
 											</td> 
 								       </tr>
 									   <tr class="form-field form-required">
@@ -226,11 +227,52 @@
 												<input type="text" size="30" value="{$product.stock_alarm}" id="stock_alarm" name="stock_alarm"  tabindex="10"  /> 
 								            </td> 
                                         </tr> 
+                                        
+                                        <tr>    
+								             <th scope="row">
+												<label for="wine_degree">度数：</label>
+											</th>
+												<td >  
+												<input type="text" size="30" value="{$product.wine_degree}" id="wine_degree" name="wine_degree" tabindex="11" /> %
+								            </td> 
+                                             <th scope="row">
+												<label for="wine_decant">醒酒时间：</label>
+											</th>
+												<td >  
+												<input type="text" size="30" value="{$product.wine_decant}" id="wine_decant" name="wine_decant"  tabindex="11"  /> 
+								            </td> 
+                                        </tr> 
+                                        
+                                         <tr>    
+								             <th scope="row">
+												<label for="wine_temp">饮酒温度：</label>
+											</th>
+												<td >  
+												<input type="text" size="30" value="{$product.wine_temp}" id="wine_temp" name="wine_temp" tabindex="11" />  
+								            </td> 
+                                             <th scope="row">
+												<label for="wine_shelf_life">红酒保质期：</label>
+											</th>
+												<td >  
+												<input type="text" size="30" value="{$product.wine_shelf_life}" id="wine_shelf_life" name="wine_shelf_life"  tabindex="11"  /> 
+								            </td> 
+                                        </tr> 
+                                        
+                                         <tr>
+                                        <th scope="row">
+												<label for="wine_taste">红酒味道：</label>
+											</th>
+											<td colspan="3">  
+												<input type="text" size="30" value="{$product.wine_taste}" id="wine_taste"
+													 name="wine_taste" style="width:400px;" tabindex="11" />  
+								            </td> 
+								         </tr>
+								            
 										 <tr>
 											<th scope="row">
 												<label for="">葡萄品种：</label>
 											</th>
-											<td colspan="7">  
+											<td colspan="3">  
 												{foreach from=$grape_breed_array item=breed }
 										 			<input type="checkbox" name="grape_breed[]" id="grape_breed_{$breed.id}"  value="{$breed.id}" />
 										 				 <label for="grape_breed_{$breed.id}">{$breed.name} &nbsp; </label>
@@ -238,11 +280,22 @@
 											 
 								            </td> 
 										</tr>
+										
+										 <tr>
+											<th scope="row">
+												<label for="">葡萄品种描述：</label>
+											</th>
+											<td colspan="3">  
+												  <input name="wine_grape_desc" tabindex="15" value="{$product.wine_grape_desc}" style="width:400px;"></input>
+												   （eg.10% 颂维翁,60% 梅罗特,30% 弗朗克）
+								            </td> 
+										</tr>
+										
 										 <tr>
 											<th scope="row">
 												<label for="">搜索类型：</label>
 											</th>
-											<td colspan="7">  
+											<td colspan="3">  
 												{foreach from=$wine_mode_array item=wine_mode }
 										 			<input type="checkbox" name="wine_mode[]" id="wine_mode_{$wine_mode.id}"  value="{$wine_mode.id}" />
 										 				 <label for="wine_mode_{$wine_mode.id}">{$wine_mode.name} &nbsp; </label>
@@ -250,6 +303,18 @@
 											 
 								            </td> 
 										</tr>
+										
+										 <tr>
+                                        <th scope="row">
+												<label for="wine_match_food">搭配菜肴：</label>
+											</th>
+											<td colspan="3">  
+												<input type="text" size="30" value="{$product.wine_match_food}" id="wine_match_food"
+													 name="wine_match_food" style="width:400px;" tabindex="11" />  
+								            </td> 
+								         </tr>
+								            
+								            
 										 <tr>
 											<th scope="row">
 												<label for="">产品标签：</label>
