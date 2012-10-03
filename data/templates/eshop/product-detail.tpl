@@ -165,7 +165,7 @@
 						<dd><b>原产国家：</b>{$product_info->wine_country_name}</dd>
 						<dd><b>酒庄产区：</b>{$product_info->wine_area_name} </dd>
 						{if $product.wine_degree}
-							<dd><b>酒精度数：</b> {$product.wine_degree}%</dd></dd>  
+							<dd><b>酒精度数：</b>{$product.wine_degree}%</dd></dd>  
 						{/if}
            				{if $product.wine_ml}
            					<dd><b>容　　量：</b>{$product.wine_ml} 毫升</dd>  
@@ -173,10 +173,12 @@
 						<dd><b>年　　份：</b>{$product_info->wine_year_name}年</dd>
 						
 						<dd><b>葡萄构成：</b>{$product.wine_grape_desc}</dd>
-						<dd><b>味　　道：</b> {$product.wine_taste} </dd> 
-						<dd><b>保 质 期：</b>{$product.wine_shelf_life} </dd>
-						<dd><b>饮用温度：</b>  {$product.wine_temp} </dd>
-						<dd><b>醒酒时间：</b> {$product.wine_decant} </dd> 
+						<dd><b>味　　道：</b>{$product.wine_taste} </dd> 
+						{if $product.wine_shelf_life}
+						<dd><b>保 质 期：</b>{$product.wine_shelf_life} 年</dd>
+						{/if}
+						<dd><b>饮用温度：</b>{$product.wine_temp} </dd>
+						<dd><b>醒酒时间：</b>{$product.wine_decant} </dd> 
 						<!--<dd><b>产品编码：</b> AA202A</dd>
 						 -->
 						
@@ -191,7 +193,8 @@
 								<div class="pro">  
 									<i class="img">
 									<a href="{Common_Smarty_Url_format key=product id=$stick_product.id}" >
-									<img src="{$stick_product.thumb}"  width="180" height="180" /><i class="fave"></i>
+									<img src="{$stick_product.thumb}" title="{$stick_product.title}"  
+									 width="180" height="180" /><i class="fave" title="{$stick_product.title}"></i>
 									</a> </i> 
 								</div>
 								{/if}
