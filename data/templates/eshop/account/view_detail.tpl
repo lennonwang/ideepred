@@ -6,8 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>订单详情-{smarty_include eshop.common.xtitle}</title>
 	<meta name="author" content="xiaoyi">
-	{smarty_include eshop.common.header_compart}
-	<link rel="stylesheet" href="/csstyle/itablet.css" type="text/css" />
+	{smarty_include eshop.common.header_compart} 
 	{smarty_include eshop.js-common}
 	{smarty_include eshop.js-form}
 </head>
@@ -63,11 +62,14 @@
 	<tr>
 		<td class="td_right">订单状态：</td>
 		<td colspan="3"> 
-		<span id="order_status">
+		<span id="order_status" >
+		
 		<b>{Common_Smarty_DataSet_orderStatus status=$order_row.status} &nbsp;
 									 {if $order_row.status eq 0 }该订单您已取消，如需要订购商品请重新下单！{/if} 
 									 <!--  add confirm -->
-			{if ($order_row.status eq 1) or ($order_row.status eq 5)}<a href="/app/eshop/profile/canceled?id={$order_row.id}" class="jq_a_ajax">取消订单</a>{/if} 
+			{if ($order_row.status eq 1) or ($order_row.status eq 5)}
+				<a href="/app/eshop/profile/canceled?id={$order_row.id}" class="jq_a_ajax">取消订单</a>
+			{/if} 
 			{if $order_row.status eq 1 and $order_row.payment_method eq 'a' }
 				<a href="/app/eshop/alipay?order_ref={$order_row.reference}" title="支付订单" target="_blank">现在支付</a>{/if}  &nbsp;
 				{if $order_row.status eq 15}<a href="/app/eshop/profile/finished?id={$order_row.id}" class="jq_a_ajax">完成订单</a>{/if}</b>

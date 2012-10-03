@@ -13,7 +13,7 @@
 	<div class="icon32" id="icon-edit">
 		<br>
 	</div>
-	<h2>广告列表 &nbsp;&nbsp;<a class="button add-new-h2" title="添加新广告" href="/app/admin/advertise/edit">添加新广告</a> </h2>
+	<h2>推广位列表 &nbsp;&nbsp;<a class="button add-new-h2" title="添加新推广位" href="/app/admin/advertise/edit">添加新推广位</a> </h2>
 	<div class="clear"></div>
 	<div id="ajax_request">
 		<img src="/images/admin/loading.gif" alt="loading" />
@@ -38,10 +38,11 @@
 						<tr>
 							<th class="check-column"> <input type="checkbox" /> </th>
 							<th class="column-icon media-icon"> </th>
-							<th class="manage-column column-name"> 广告标题 </th>
-							<th class="manage-column column-name"> 广告编号 </th>
-							<th class="manage-column column-name"> 广告链接 </th>
+							<th class="manage-column column-name"> 推广位标题 </th>
+							<th class="manage-column column-name"> 推广位编号 </th>
+							<th class="manage-column column-name"> 推广位链接 </th>
 							<th class="manage-column column-name"> 创建日期 </th>
+							<th class="manage-column column-name"> 类型 </th>
 							<th class="manage-column column-name"> 状 态 </th>
 						</tr>
 					</thead>
@@ -49,10 +50,11 @@
 						<tr>
 							<th class="check-column"> <input type="checkbox" /> </th>
 							<th class="column-icon media-icon"> </th>
-							<th class="manage-column column-name"> 广告标题 </th>
-							<th class="manage-column column-name"> 广告编号 </th>
-							<th class="manage-column column-name"> 广告链接 </th>
+							<th class="manage-column column-name"> 推广位标题 </th>
+							<th class="manage-column column-name"> 推广位编号 </th>
+							<th class="manage-column column-name"> 推广位链接 </th>
 							<th class="manage-column column-name"> 创建日期 </th>
+							<th class="manage-column column-name"> 类型 </th>
 							<th class="manage-column column-name"> 状 态 </th>
 						</tr>
 					</tfoot>
@@ -74,6 +76,10 @@
 							<td>{$advertise.number}</td>
 							<td><a href="{$advertise.link}" target="_blank" title="点击预览">{$advertise.link}</a></td>
 							<td>{$advertise.created_on}</td>
+							<td>
+								{if $advertise.type eq 1}首页大图推广{/if}
+								{if $advertise.type eq 2}直通车{/if}
+							</td>
 							<td>
 								<div id="done_{$advertise.id}">
 									{if $advertise.state eq 1}

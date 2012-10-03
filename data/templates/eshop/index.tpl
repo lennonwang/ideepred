@@ -6,8 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>{smarty_include eshop.common.xtitle}</title>
 	<meta name="author" content="xiaoyi">
-	{smarty_include eshop.common.header_compart}
-	<link rel="stylesheet" href="/csstyle/itablet.css" type="text/css" />
+	{smarty_include eshop.common.header_compart} 
 	{smarty_include eshop.js-common}
 	<script type="text/javascript" src="/js/c/jcarousellite_1.0.1.js"></script>
 	<script type="text/javascript" src="/js/e/idx.js"></script>
@@ -99,18 +98,18 @@
 				<div class="apT">热门直通车</div>
 			 
 				<div class="apB proList proList2">
-
-					<div class="pro">
-						<i class="img"><a href=""><img src="i/demo2.jpg" /></a></i>
-					</div>
-					<div class="pro">
-						<i class="img"><a href=""><img src="i/demo2.jpg" /></a></i>
-					</div>
-					<div class="pro">
-						<i class="img"><a href=""><img src="i/demo2.jpg" /></a></i>
+				
+				{Common_Smarty_Advertise_findAdmany type="2" size=6 item=ad}
+		 
+				<div class="pro">
+						<i class="img"> 
+							<a href="{$ad.link}#{$loop}">  
+							<img  src="{Common_Smarty_Asset_Thumb path_id=$ad.asset_path domain=$ad.asset_domain  w=200 h=200}"
+							 alt="{$ad.title}"  title="{$ad.title}" /></a>
+						</i>
 					</div> 
-
-
+				{/Common_Smarty_Advertise_findAdmany}
+					 
 				</div>
 				
 			</div>

@@ -20,20 +20,27 @@ class Common_Smarty_Advertise extends Anole_Object {
 		$var='advertises';
 		$item='ad';
 		$number=null; //广告编号
+		$type=null;
 		$size=1;
 		$page=1; 
-		extract($params,EXTR_IF_EXISTS);
-		self::debug("!!!!!!!!!!!!!!!!!!!smarty_block_findAdmany!".$number." size:".$size."\t item=", __METHOD__);
-		if(empty($number)){
-			self::warn("find advertise 's number is null!", __METHOD__);
-			return false;
-		}
+		extract($params,EXTR_IF_EXISTS);  
 		static $_index;
 		if(is_null($content)){
-			$advertise = new Common_Model_Advertise();
+			$advertise = new Common_Model_Advertise(); 
+			if(!empty($number)){
+				$condition=' state=? and number = ?'; 
+				$vars = array(Common_Model_Advertise::CHECKED_STATE,$number);
+			} else if(!empty($type)){
+				$condition=' state=? and type = ?';
+				$vars = array(Common_Model_Advertise::CHECKED_STATE,$type);
+			}
+			if(!empty($number) && !empty($type)){
+				$condition=' state=? and type = ? and number = ? ';
+				$vars = array(Common_Model_Advertise::CHECKED_STATE,$type,$number);
+			}
 			$options = array(
-			    'condition'=>'number=? AND state=?',
-			    'vars'=>array($number,Common_Model_Advertise::CHECKED_STATE),
+			    'condition'=>$condition,
+			    'vars'=>$vars,
 			    'pagg'=>$page,
 			    'size'=>$size,
 			    'order'=>'updated_on DESC'
@@ -54,11 +61,13 @@ class Common_Smarty_Advertise extends Anole_Object {
 					$asset->findFirst($adoptions);
 					if($asset->count()){
 						$ads['thumb'] = $asset['asset_url'];
+						$ads['asset_path'] = $asset['path'];
+						$ads['asset_domain'] = $asset['domain'];
 					}
 					
 					$advertise_list[] = $ads;
 				}
-			}
+			} 
 			unset($asset);
 			unset($advertise);
 			

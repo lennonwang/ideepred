@@ -259,7 +259,7 @@ class Admin_Action_Asset extends Admin_Action_Entry implements Anole_Dispatcher_
         $this->putContext('assets', $assets);
         
         //alias
-        if($domain == 'avertise'){
+        if($domain == 'advertise'){
         	$domain = 'advertise';
         }elseif ($domain == 'asset'){
         	$domain = 'assets';

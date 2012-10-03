@@ -59,8 +59,7 @@
 					{Common_Smarty_Asset_Thumb path_id=$product.asset_list[0].path domain=$product.asset_list[0].domain
 					 w=535 h=535 var=first_image is_result_mode=ary}
 					{Common_Smarty_Asset_Thumb path_id=$product.asset_list[0].path domain=$product.asset_list[0].domain
-					 w=1000 h=1000 var=first_orign_image is_result_mode=ary}
-			
+					 w=1000 h=1000 var=first_orign_image is_result_mode=ary} 
 						<i class="img"><img src="{$first_image.url}"  id="imgM" data-imgB-url="{$first_orign_image.url}"/></i>
 						<a class="zoom" ><b>zoom</b></a>
 					</div>
@@ -208,15 +207,21 @@
 				</div>
 <!-- E proDesc -->
 				
-<!-- S 热门直通车  
+<!-- S 热门直通车  -->
 			<div class="ap hotReco">
 				<div class="apT">热门直通车</div>
 				 
 				<div class="apB proList proList2 proList2a">
-
-					<div class="pro">
-						<i class="img"><a href=""><img src="i/demo2.jpg" /></a></i>
+					{Common_Smarty_Advertise_findAdmany type="2" size=6 item=ad}
+		 
+				<div class="pro">
+						<i class="img"> 
+							<a href="{$ad.link}#{$loop}">  
+							<img  src="{Common_Smarty_Asset_Thumb path_id=$ad.asset_path domain=$ad.asset_domain  w=200 h=200}"
+							 alt="{$ad.title}"  title="{$ad.title}" /></a>
+						</i>
 					</div> 
+				{/Common_Smarty_Advertise_findAdmany}
 
 				</div>  
 			</div>

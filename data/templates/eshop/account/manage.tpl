@@ -58,7 +58,11 @@
 															<td>{$ord.pay_money}元</td>
 															<td>{$ord.name}</td>
 															<td>{$ord.created_on}</td>
-															<td>{Common_Smarty_DataSet_orderStatus status=$ord.status}</td>
+															<td>
+														<span {if $ord.status eq 1}class="wait" {/if}
+														{if $ord.status eq 15}class="success" {/if} >
+														{Common_Smarty_DataSet_orderStatus status=$ord.status}
+														</span></td>
 															<td>{$all_payment_method[$ord.payment_method].name}</td>
 															<td><a href="{Common_Smarty_Url_format key='order_detail' id=$ord.id}" >查看详情 »</a></td>
 														</tr>

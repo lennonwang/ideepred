@@ -42,7 +42,7 @@ class Common_Model_Constant {
      * 广告的存储域
      * @var string
      */
-    const ADVERTISE_DOMAIN = 'avertise';
+    const ADVERTISE_DOMAIN = 'advertise';
     
     /**
      * 店铺图片存储域
