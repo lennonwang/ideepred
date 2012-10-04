@@ -90,6 +90,32 @@
 								             
 										 
 								       </tr>
+								       
+								       <tr>
+										
+											<th scope="row">	<a class="hide-if-no-js" href="/app/admin/category" > 类别：</a></th>
+											<td>
+												<input type="hidden" name="cat_code" id="cat_code" value="{$product.cat_code}"/>
+											<select  name="category_id" id="category_id">
+												<option value="0">请选择</option>
+											{foreach from=$all_category item=cate} 
+												 <option value="{$cate.id}" > {$cate.name}  --  {$cate.code} </option>
+											{/foreach}
+											</select>
+											</td>
+											
+												<th scope="row">	<a class="hide-if-no-js" href="/app/admin/store" > 品牌：</a></th>
+											<td >
+											<select  name="store_id" id="store_id">
+													<option value="0">请选择</option>
+												{foreach from=$all_store item=store}
+										 			<option  value="{$store.id}" > {$store.title}  </option>
+										 	 	{/foreach}
+											</select> 
+											<a class="hide-if-no-js" href="/app/admin/store/edit" >+ 添加品牌</a>
+											</td> 
+										</tr>
+										
 									   <tr class="form-field form-required">
 											<th scope="row"> <label>是否为推荐</label></th>
 											<td>
@@ -259,16 +285,9 @@
 								            </td> 
                                         </tr> 
                                         
-                                         <tr>
-                                        <th scope="row">
-												<label for="wine_taste">红酒味道：</label>
-											</th>
-											<td colspan="3">  
-												<input type="text" size="30" value="{$product.wine_taste}" id="wine_taste"
-													 name="wine_taste" style="width:400px;" tabindex="11" />  
-								            </td> 
-								         </tr>
-								            
+                                      
+								        
+								         
 										 <tr>
 											<th scope="row">
 												<label for="">葡萄品种：</label>
@@ -305,6 +324,42 @@
 								            </td> 
 										</tr>
 										
+										  <tr>
+                                        <th scope="row">
+												<label for="wine_first_taste">初品口感</label>
+											</th>
+											<td colspan="3">  
+												{foreach from=$wine_taste_array item=taste_mode }
+										 			<input type="radio" name="wine_first_taste"
+										 				 id="wine_first_taste_{$taste_mode.id}"  value="{$taste_mode.id}" />
+										 				 <label for="wine_first_taste_{$taste_mode.id}">{$taste_mode.name} &nbsp; </label>
+										 	 	{/foreach}
+								            </td> 
+								         </tr>
+								         
+								            <tr>
+                                        <th scope="row">
+												<label for="wine_taste">红酒味道：</label>
+											</th>
+											<td colspan="3">  
+												<input type="text" size="30" value="{$product.wine_taste}" id="wine_taste"
+													 name="wine_taste" style="width:400px;" tabindex="11" />  
+								            </td> 
+								         </tr>
+								         
+										  <tr>
+                                        <th scope="row">
+												<label for="wine_first_match">首选美食搭配</label>
+											</th>
+											<td colspan="3">  
+												{foreach from=$wine_match_array item=match_mode }
+										 			<input type="checkbox" name="wine_first_match[]"
+										 				 id="wine_first_match_{$match_mode.id}"  value="{$match_mode.id}" />
+										 				 <label for="wine_first_match_{$match_mode.id}">{$match_mode.name} &nbsp; </label>
+										 	 	{/foreach}
+								            </td> 
+								         </tr>
+								         
 										 <tr>
                                         <th scope="row">
 												<label for="wine_match_food">搭配菜肴：</label>
@@ -325,29 +380,7 @@
 												   多个标签请用英文逗号分开。 
 								            </td> 
 										</tr>
-										<tr>
-											<th scope="row">	<a class="hide-if-no-js" href="/app/admin/store" > 品牌：</a></th>
-											<td >
-											<select  name="store_id" id="store_id">
-													<option value="0">请选择</option>
-												{foreach from=$all_store item=store}
-										 			<option  value="{$store.id}" > {$store.title}  </option>
-										 	 	{/foreach}
-											</select> 
-											<a class="hide-if-no-js" href="/app/admin/store/edit" >+ 添加品牌</a>
-											</td> 
-											<th scope="row">	<a class="hide-if-no-js" href="/app/admin/category" > 类别：</a></th>
-											<td>
-												<input type="hidden" name="cat_code" id="cat_code" value="{$product.cat_code}"/>
-											<select  name="category_id" id="category_id">
-												<option value="0">请选择</option>
-											{foreach from=$all_category item=cate} 
-												 <option value="{$cate.id}" > {$cate.name}  --  {$cate.code} </option>
-											{/foreach}
-											</select>
-											</td>
-											
-										</tr>
+										
 										
 									</tbody>
 								</table>
@@ -534,7 +567,9 @@
 		 $("#wine_year option[value='{$product.wine_year}']").attr("selected","selected"); 
 		 $("#wine_occasion option[value='{$product.wine_occasion}']").attr("selected","selected"); 
 		 $("#wine_craft option[value='{$product.wine_craft}']").attr("selected","selected"); 
+		 $("#wine_first_taste_{$product.wine_first_taste}").attr("checked",true);
 		 {foreach from=$grape_breed_sel_array item=sbreed} 	$("#grape_breed_{$sbreed}").attr("checked",true); {/foreach}
+		 {foreach from=$wine_match_sel_array item=sitem} 	$("#wine_first_match_{$sitem}").attr("checked",true); {/foreach}	 
 		 {foreach from=$wine_mode_sel_array item=sitem} 	$("#wine_mode_{$sitem}").attr("checked",true); {/foreach}
 		 updateCatChange();
 </script>

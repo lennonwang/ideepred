@@ -389,6 +389,21 @@ abstract class Common_Model_Table_Product extends Anole_ActiveRecord_Base {
   ),
   
   
+
+  'wine_first_taste' =>
+  array (
+  		'name' => 'wine_first_taste',
+  		'type' => 'S',
+  		'length' => '45',
+  ),
+  
+  'wine_first_match' =>
+  array (
+  		'name' => 'wine_first_match',
+  		'type' => 'S',
+  		'length' => '45',
+  ),
+  
 );
     
         /**
@@ -1442,6 +1457,29 @@ abstract class Common_Model_Table_Product extends Anole_ActiveRecord_Base {
     public function getWineMatchFood(){
     	return $this->get('wine_match_food');
     }
+    
+    /**
+     *初品口感
+     */
+    public function setWineFirstTaste($value){
+    	$this->set('wine_first_taste',$value);
+    	return $this;
+    }
+    public function getWineFirstTaste(){
+    	return $this->get('wine_first_taste');
+    }
+    
+    /**
+     *初次搭配菜肴
+     */
+    public function setWineFirstMatch($value){
+    	$this->set('wine_first_match',$value);
+    	return $this;
+    }
+    public function getWineFirstMatch(){
+    	return $this->get('wine_first_match');
+    }
+    
 }
 /**vim:sw=4 et ts=4 **/
 ?>

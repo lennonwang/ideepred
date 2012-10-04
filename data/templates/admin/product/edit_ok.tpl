@@ -13,6 +13,15 @@ $('#_jq_response_result').fadeOut(3000,function(){$(this).remove();});
 {/if}
 
 {if $edit_mode eq 'create'}
+{literal}
+<eval><![CDATA[
+var product_id=$('#product_id').val(); 
+window.location.href="/app/admin/product/edit/id/"+product_id; 
+]]></eval>
+{/literal}
+{/if}
+
+{if $edit_mode eq 'create'}
 <before select="#tagsdiv-post_tag"><![CDATA[
 	<div id="picturediv-stuff" class="postbox ">
 		<div title="显示/隐藏" class="handlediv"><br></div>

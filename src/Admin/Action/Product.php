@@ -242,6 +242,9 @@ class Admin_Action_Product extends Admin_Action_Entry {
 				
         $this->putContext('grape_breed_array',Common_Util_ProductProUtil::getWineGrapeBreedArray()); 
         $this->putContext('wine_mode_array',Common_Util_ProductProUtil::getWineModeArray());
+        
+        $this->putContext('wine_taste_array',Common_Util_ProductProUtil::getWineTasteArray());
+        $this->putContext('wine_match_array',Common_Util_ProductProUtil::getWineMatchArray());
 				
         $this->putContext('wine_year_array',Common_Util_ProductProUtil::getWineYearArray());
         $this->putContext('wine_sugar_array',Common_Util_ProductProUtil::getWineSugarArray());
@@ -253,6 +256,10 @@ class Admin_Action_Product extends Admin_Action_Entry {
         //sel wine mode
         $wine_mode_sel_array = preg_split('/,/',$product['mode']);
         $this->putContext('wine_mode_sel_array',$wine_mode_sel_array);
+        
+        $wine_match_sel_array = preg_split('/,/',$product['wine_first_match']);
+        $this->putContext('wine_match_sel_array',$wine_match_sel_array);
+        
         self::debug("edit wine_mode_sel_array is ok====".$product['mode'], __METHOD__);
         return $this->smartyResult('admin.product.edit');
     }
@@ -296,8 +303,16 @@ class Admin_Action_Product extends Admin_Action_Entry {
 	        if(!empty($wine_mode)){
 	        	$wine_mode =  ",".$wine_mode.",";
 	        }
-	     
 	        $model->setMode($wine_mode);
+	        
+	        $wine_first_match = $_POST["wine_first_match"];
+	        if(isset($wine_first_match)){
+	        	$wine_first_match=implode(",", $wine_first_match);
+	        }
+	        if(!empty($wine_first_match)){
+	        	$wine_first_match =  ",".$wine_first_match.",";
+	        } 
+	        $model->setWineFirstMatch($wine_first_match);
 	        
             $model->save();
             $id = $model->getId();
@@ -325,12 +340,9 @@ class Admin_Action_Product extends Admin_Action_Entry {
         	return $this->_jqErrorTip($msg);
         }
         $this->putContext('product_id',$id);
-        $this->putContext('edit_mode', $edit_mode);
+        $this->putContext('edit_mode', $edit_mode); 
         
-        if($model->isNew()){
-        	return $this->smartyResult('admin.product.list');
-        }
-        return $this->jqueryResult('admin.product.edit_ok');
+        return $this->jqueryResult('admin.product.edit_ok'); 
     }
     /**
      * 发布某个产品或批量产品

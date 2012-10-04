@@ -170,18 +170,30 @@
            				{if $product.wine_ml}
            					<dd><b>容　　量：</b>{$product.wine_ml} 毫升</dd>  
            				{/if} 
+           				{if $product.wine_year_name}
 						<dd><b>年　　份：</b>{$product_info->wine_year_name}年</dd>
-						
-						<dd><b>葡萄构成：</b>{$product.wine_grape_desc}</dd>
-						<dd><b>味　　道：</b>{$product.wine_taste} </dd> 
+						{/if} 
+						{if $product.wine_grape_desc}
+						<dd><b>葡　　萄：</b>{$product.wine_grape_desc}</dd>
+						{/if} 
 						{if $product.wine_shelf_life}
 						<dd><b>保 质 期：</b>{$product.wine_shelf_life} 年</dd>
 						{/if}
+						{if $product.wine_temp}
 						<dd><b>饮用温度：</b>{$product.wine_temp} </dd>
+						{/if}
+						{if $product.wine_decant}
 						<dd><b>醒酒时间：</b>{$product.wine_decant} </dd>  
+						{/if}
+						{if $product_info->wine_taste_name}
+						<dd><b>初尝口味：</b>{$product_info->wine_taste_name} </dd> 
+						{/if} 
+						{if $product.wine_taste}
+						<dd><b>味　　道：</b>{$product.wine_taste} </dd> 
+						{/if} 
 						{if $product.wine_match_food}
 						<dd><b>搭配菜肴：</b>{$product.wine_match_food}  </dd>
-						{/if}
+						{/if} 
 						<!--<dd><b>产品编码：</b> AA202A</dd>
 						 -->
 						

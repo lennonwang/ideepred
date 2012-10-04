@@ -179,6 +179,54 @@ class Common_Util_ProductProUtil extends Anole_Object {
 		 self::debug("getWineCraftArray.".$items);
 		 return $items;
 	} 
+	
+	
+	/**
+	 * 获取葡萄酒初品口感
+	 * occasion
+	 * 甜润白
+小清鲜
+渐浓郁
+浓厚型
+小辛辣
+	 */
+	public static function getWineTasteArray(){
+		$wine_taste=array(array("id"=>"1","name"=>"甜润白"),array("id"=>"2","name"=>"小清鲜")
+				,array("id"=>"3","name"=>"渐浓郁"),array("id"=>"4","name"=>"浓厚型")
+				,array("id"=>"5","name"=>"小辛辣")
+		);
+		self::debug("getWineTasteArray.".$wine_taste);
+		return $wine_taste;
+	}
+	
+	/**
+	 * 获取葡萄酒匹配红酒
+	 * 
+	 * 首选美食搭配
+
+    首选餐前开胃酒
+    白灼海鲜
+    意粉/沙拉
+    生鲜鱼肉/白肉
+    匹萨/甜品/水果
+    各类肉排/烧烤
+    清蒸/炒中餐
+    红肉/浓味中餐
+
+	 * occasion
+	 */
+	public static function getWineMatchArray(){
+		$wine_match=array(array("id"=>"1","name"=>"首选餐前开胃酒"),array("id"=>"2","name"=>"白灼海鲜")
+				,array("id"=>"3","name"=>"意粉/沙拉")
+				,array("id"=>"4","name"=>"生鲜鱼肉/白肉")
+				,array("id"=>"5","name"=>"匹萨/甜品/水果")
+				,array("id"=>"6","name"=>"各类肉排/烧烤")
+				,array("id"=>"7","name"=>"清蒸/炒中餐")
+				,array("id"=>"8","name"=>"红肉/浓味中餐")
+		);
+		self::debug("getWineMatchArray.".$wine_match);
+		return $wine_match;
+	}
 } 
 	
 /**vim:sw=4 et ts=4 **/

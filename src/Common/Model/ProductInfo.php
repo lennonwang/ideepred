@@ -16,6 +16,8 @@ class Common_Model_ProductInfo     {
     public $wine_level_name;
     public $wine_year_name;
     
+    public $wine_taste_name;
+    
     public   function getProductInfo($product){
     	$wine_country_id = $product['wine_country'];
     	$wine_area_id = $product['wine_area'];
@@ -42,7 +44,23 @@ class Common_Model_ProductInfo     {
 		 $wine_year_name = $productInfo->getWineYearById($wine_year_id);
 		 $productInfo->wine_year_name = $wine_year_name;
 		 
+		 $wine_taste_id  = $product['wine_first_taste'];
+		 $wine_taste_name = $productInfo->getWineTasteById($wine_taste_id);
+		 $productInfo->wine_taste_name = $wine_taste_name;
+		 
 		return $productInfo;
+    }
+    
+    public function getWineTasteById($wine_taste_id){
+    	$tasteArray = Common_Util_ProductProUtil::getWineTasteArray();
+    	for($i=0;$i<count($tasteArray);$i++){
+    		$tasteId = $tasteArray[$i]['id'];
+    		if($wine_taste_id == $tasteId){
+    			$tasteName = $tasteArray[$i]['name'];
+    			return $tasteName;
+    		}
+    	}
+    	return "";
     }
     
    
