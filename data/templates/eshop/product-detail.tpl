@@ -51,7 +51,7 @@
 				<!-- S topProName -->
 				<div class="ap topProName">
 					<!---<a href="" class="img"><img src="i/demo5.jpg" /></a>-->
-					<a href="" class="nm"><span>{$product.title}</span></a>
+					 <span>{$product.title}</span>
 				</div>
 				<!-- E topProName -->
 

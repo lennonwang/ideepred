@@ -56,6 +56,7 @@ class Common_Util_ProductProUtil extends Anole_Object {
 		,array("id"=>"7","name"=>"智利")
 		,array("id"=>"8","name"=>"南非"),array("id"=>"9","name"=>"澳大利亚")
 				,array("id"=>"10","name"=>"葡萄牙")
+				,array("id"=>"11","name"=>"阿根廷")
 		);  
 		 self::debug("getWineGrapeCountryArray.".$grape_country);
 		 return $grape_country;
@@ -99,6 +100,8 @@ class Common_Util_ProductProUtil extends Anole_Object {
           ,array("id"=>"710","cid"=>"7","name"=>"依达他山谷")
           ,array("id"=>"711","cid"=>"7","name"=>"拜奥山谷")
           ,array("id"=>"712","cid"=>"7","name"=>"马利高山谷")  
+				
+				,array("id"=>"1101","cid"=>"11","name"=>"皮埃蒙特大区")
 );  
 		 self::debug("getWineGrapeAreaArray.".$wine_area);
 		 return $wine_area;
