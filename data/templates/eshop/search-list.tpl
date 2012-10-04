@@ -160,7 +160,7 @@
 						<a href="{Common_Smarty_Url_format key=product id=$product.id}" >
 						<img src="{Common_Smarty_Product_photoThumb thumb_path=$product.thumb}"  width="230" height="230" /><i class="fave"></i>
 						</a> </i>
-						<p class="info"><i class="price">{$product.sale_price}元 {$product.thumb}</i>
+						<p class="info"><i class="price">{$product.sale_price}元</i>
 						<b class="nm"><a href="{Common_Smarty_Url_format key=product id=$product.id}">{$product.title}</a></b></p>
 					</div>  
 					 {/foreach} 
