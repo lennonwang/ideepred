@@ -54,6 +54,7 @@
 						  
 						 <p class="submit" style="text-align:center">
 								 <input type="submit" value=" 确认提交 " name="submit" class="button"  id="submit_product" />
+								  {if $product.title}   <a href="/app/admin/product/edit/id/{$product.id}">编辑</a> {/if}
 							 </p> 
 							 
 							
