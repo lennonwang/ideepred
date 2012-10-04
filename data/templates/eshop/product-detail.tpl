@@ -51,7 +51,7 @@
 				<!-- S topProName -->
 				<div class="ap topProName">
 					<!---<a href="" class="img"><img src="i/demo5.jpg" /></a>-->
-					 <span>{$product.title}</span>
+					 <span class="nm">{$product.title}</span>
 				</div>
 				<!-- E topProName -->
 
@@ -210,7 +210,7 @@
 							{assign var=stick_count value=0}
 							 {if $stick_cat_product_list} 
 								{foreach from=$stick_cat_product_list item=stick_product name=pro}
-								{if $product.id ne $stick_product.id && $stick_count<=2}
+								{if $product.id ne $stick_product.id && $stick_count<2}
 								{assign var=stick_count value=$stick_count+1}
 								<div class="pro">  
 									<i class="img">

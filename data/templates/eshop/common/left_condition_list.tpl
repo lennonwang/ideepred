@@ -82,7 +82,7 @@
 						<li> <a href="{Common_Smarty_Url_format key=search_list catcode='' page=1 style=$style orderby=1 low_price=201 high_price=300
 						 country='' grape_breed='' query=$query}" {if ($high_price <= 300) && ($high_price gt 201)}class="on"{/if}>201元-300元</a>
 						  </li>
-						  <li> <a href="{Common_Smarty_Url_format key=search_list catcode='' page=1 style=$style orderby=1 low_price=201 high_price=300
+						  <li> <a href="{Common_Smarty_Url_format key=search_list catcode='' page=1 style=$style orderby=1 low_price=301 high_price=500
 						 country='' grape_breed='' query=$query}"  {if ($high_price <= 500) && ($high_price gt 301)}class="on"{/if}>301元-500元</a>  
 						  </li>
 						  <li> <a href="{Common_Smarty_Url_format key=search_list catcode='' page=1 style=$style orderby=1 low_price=500 high_price=1000000

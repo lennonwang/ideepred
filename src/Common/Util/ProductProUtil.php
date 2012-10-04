@@ -32,7 +32,7 @@ class Common_Util_ProductProUtil extends Anole_Object {
 	}
 	
 	/**
-	 * 获取葡萄品种
+	 * 获取葡萄品种 莎当妮（霞多丽）
 	 */
 	public static function getWineGrapeBreedArray(){
 		$grape_breed_array=array(array("id"=>"1","name"=>"黑皮诺"),array("id"=>"2","name"=>"赤霞珠")
@@ -101,7 +101,7 @@ class Common_Util_ProductProUtil extends Anole_Object {
           ,array("id"=>"711","cid"=>"7","name"=>"拜奥山谷")
           ,array("id"=>"712","cid"=>"7","name"=>"马利高山谷")  
 				
-				,array("id"=>"1101","cid"=>"11","name"=>"皮埃蒙特大区")
+				,array("id"=>"1101","cid"=>"11","name"=>"门多萨产区")
 );  
 		 self::debug("getWineGrapeAreaArray.".$wine_area);
 		 return $wine_area;

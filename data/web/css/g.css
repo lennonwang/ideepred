@@ -180,7 +180,7 @@ ul.cats li a.on{background: #971D4B; margin: 0 -25px 0 -20px; padding: 0 25px 0 
 /* 产品名称 */
 .topProName{margin: 25px 0  10px;}
 .topProName a.img img{width: 100%}
-.topProName a.nm{ color: #000; font-size:16px; line-height: 1.4em; display: block; width: 530px}
+.topProName .nm{ color: #000; font-size:16px; line-height: 1.4em; display: block; width: 530px}
 
 
 /* 图片展示 */
