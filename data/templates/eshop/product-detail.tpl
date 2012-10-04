@@ -180,7 +180,7 @@
 						<dd><b>饮用温度：</b>{$product.wine_temp} </dd>
 						<dd><b>醒酒时间：</b>{$product.wine_decant} </dd>  
 						{if $product.wine_match_food}
-						<dd><b>搭配菜肴：</b>{$product.wine_match_food} 年</dd>
+						<dd><b>搭配菜肴：</b>{$product.wine_match_food}  </dd>
 						{/if}
 						<!--<dd><b>产品编码：</b> AA202A</dd>
 						 -->

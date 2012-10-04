@@ -327,6 +327,9 @@ class Admin_Action_Product extends Admin_Action_Entry {
         $this->putContext('product_id',$id);
         $this->putContext('edit_mode', $edit_mode);
         
+        if($model->isNew()){
+        	return $this->smartyResult('admin.product.list');
+        }
         return $this->jqueryResult('admin.product.edit_ok');
     }
     /**
