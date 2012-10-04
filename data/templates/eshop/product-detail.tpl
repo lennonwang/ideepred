@@ -162,8 +162,15 @@
 						{if $store_brand.title}
 							<dd><b>品　　牌：</b>{$store_brand.title}</dd>
 						{/if}
+						{if $product_info->wine_country_name}
 						<dd><b>原产国家：</b>{$product_info->wine_country_name}</dd>
+						{/if}
+						{if $product_info->wine_area_name}
 						<dd><b>酒庄产区：</b>{$product_info->wine_area_name} </dd>
+						{/if}
+						{if $product_info->wine_level_name}
+						<dd><b>红酒等级：</b>{$product_info->wine_level_name} </dd>
+						{/if}
 						{if $product.wine_degree}
 							<dd><b>酒精度数：</b>{$product.wine_degree}%</dd></dd>  
 						{/if}
