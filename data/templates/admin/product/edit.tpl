@@ -461,7 +461,9 @@
 							<div id="picturediv-stuff" class="postbox ">
 								<div title="显示/隐藏" class="handlediv"><br></div>
 								<h3 class="hndle">
-									<span>产品照片</span>
+									<span>产品照片 
+									  {if $product.title}   <a href="/app/admin/product/edit/id/{$product.id}">刷新</a> {/if}
+									  </span>
 								</h3>
 								
 								<div class="inside">
@@ -495,7 +497,7 @@
 										{/foreach}
 										</ul>
 										<div class="clear"></div>
-										  {if $product.title}   <a href="/app/admin/product/edit/id/{$product.id}">刷新</a> {/if}
+										
 									</div>
 									<script type="text/javascript" src="/js/a/upload_photo.js"></script>
 								</div>

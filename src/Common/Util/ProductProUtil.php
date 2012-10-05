@@ -14,7 +14,7 @@ class Common_Util_ProductProUtil extends Anole_Object {
 		,array("id"=>"3","name"=>"2002-2003"),array("id"=>"4","name"=>"2004-2005")
 		,array("id"=>"5","name"=>"2006-2007"),array("id"=>"6","name"=>"2008-2009")
 		,array("id"=>"7","name"=>"2009-2010"),array("id"=>"8","name"=>"2010-2011")
-		,array("id"=>"9","name"=>"2012")
+		,array("id"=>"9","name"=>"2012"),array("id"=>"10","name"=>"2013")
 		);  
 		 self::debug("getWineYearArray::".$array);
 		 return $array;
@@ -108,7 +108,7 @@ class Common_Util_ProductProUtil extends Anole_Object {
           ,array("id"=>"712","cid"=>"7","name"=>"马利高山谷")  
 
 				,array("id"=>"801","cid"=>"8","name"=>"西开普产区")
-				
+				,array("id"=>"901","cid"=>"9","name"=>"巴罗萨谷")
 				,array("id"=>"1101","cid"=>"11","name"=>"门多萨产区")
 );  
 		 self::debug("getWineGrapeAreaArray.".$wine_area);
@@ -174,8 +174,12 @@ class Common_Util_ProductProUtil extends Anole_Object {
 	 * occasion
 	 */
 	public static function getWineOccasionArray(){
-		$grape_area=array(array("id"=>"1","name"=>"婚庆用酒区"),array("id"=>"2","name"=>"团圆小酌区")
-		,array("id"=>"3","name"=>"朋友小聚"),array("id"=>"4","name"=>"商务宴请区")
+		$grape_area=array(array("id"=>"1","name"=>"婚庆用酒"),array("id"=>"2","name"=>"团圆小酌")
+		,array("id"=>"3","name"=>"朋友小聚"),array("id"=>"4","name"=>"商务宴请")
+				,array("id"=>"5","name"=>"自斟自饮")
+				,array("id"=>"6","name"=>"新手入门")
+				,array("id"=>"7","name"=>"日常配餐")
+				
 		 );  
 		 self::debug("getWineGrapeAreaArray.".$grape_area);
 		 return $grape_area;
