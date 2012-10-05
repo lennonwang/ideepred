@@ -495,6 +495,7 @@
 										{/foreach}
 										</ul>
 										<div class="clear"></div>
+										  {if $product.title}   <a href="/app/admin/product/edit/id/{$product.id}">刷新</a> {/if}
 									</div>
 									<script type="text/javascript" src="/js/a/upload_photo.js"></script>
 								</div>

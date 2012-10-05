@@ -137,13 +137,11 @@
 			   </span> 
 				 共查到<span class="s">{$records}</span>款</p>
 				{if $product_list} 
-					<p class="tip">您还可以尝试搜索酒精度数、年份、产区、口感，香味或者直接搜索英文名称等等</p>
+					<p class="tip">您还可以尝试产区、口感，香味或者直接搜索英文名称等等</p>
 				{else}
 					<p style="text-align:center;"><span class="red">很抱歉</span>，没有找到符合您要求的"<span class="red">{$query}</span>"商品，</p>
 					<p style="text-align:center;">您可以<span class="red">改变搜索关键词</span>或<span class="red">减少分类条件的限制</span>试试。</p>
-				{/if}
-					
-				
+				{/if} 
 			</div>
 		  
 			 

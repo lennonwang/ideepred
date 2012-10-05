@@ -70,7 +70,7 @@ class Common_Util_Asset extends Anole_Object {
         $path = dirname($path_id); 
         $file = basename($path_id);
         $ext = Anole_Util_File::getFileExtension($file);
-      
+        self::info("Path_id[$path_id] path===$path file=====$file", __METHOD__);
         $local_path = Common_Util_Storage::getAssetPath($domain,$path_id); 
         if(empty($local_path)){
         	self::warn("Path_id[$path_id] isn't exist!", __METHOD__);

@@ -49,9 +49,12 @@ class Common_Smarty_Product extends Anole_Object {
     	if(!empty($thumb_path)){
     	    $domain = Common_Model_Constant::PRODUCT_DOMAIN;
 			if(!$is_resize){
-				return Common_Util_Storage::getAssetUrl($domain,$thumb_path);
+				$data = Common_Util_Storage::getAssetUrl($domain,$thumb_path);
+				self::debug("get product $is_resize domain [$domain $thumb_path ]$data!\n", __METHOD__);
+				return $data;
 			}else{
 				$data = Common_Util_Asset::makeThumb($thumb_path,$w,$h,$domain,2);
+				self::debug("get product photo data [$data]!\n", __METHOD__);
 				return !empty($data) ? $data['url'] : null;
 			}
     	}
