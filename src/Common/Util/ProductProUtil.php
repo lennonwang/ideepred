@@ -39,7 +39,10 @@ class Common_Util_ProductProUtil extends Anole_Object {
 		,array("id"=>"3","name"=>"西拉"),array("id"=>"4","name"=>"梅洛")
 		,array("id"=>"5","name"=>"长相思"),array("id"=>"6","name"=>"雷司令")
 		,array("id"=>"7","name"=>"白苏维翁"),array("id"=>"8","name"=>"马尔贝克")
-		,array("id"=>"9","name"=>"琼瑶浆"),array("id"=>"10","name"=>"其他品种"));  
+		,array("id"=>"9","name"=>"琼瑶浆")
+			,array("id"=>"11","name"=>"品丽珠")
+				 
+				,array("id"=>"10","name"=>"其他品种"));  
          self::debug("getWineGrapeAreaArray.".$grape_breed_array);
 		 return $grape_breed_array;
 	} 
