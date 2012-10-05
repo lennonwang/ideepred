@@ -298,7 +298,7 @@
 											</th>
 											<td colspan="3">  
 												{foreach from=$grape_breed_array item=breed }
-										 			<input type="checkbox" name="grape_breed[]" id="grape_breed_{$breed.id}"  value="{$breed.id}" />
+										 			<input type="checkbox" name="grape_breed[]" id="grape_breed_{$breed.id}"   value="{$breed.id}" />
 										 				 <label for="grape_breed_{$breed.id}">{$breed.name} &nbsp; </label>
 										 	 	{/foreach}
 											 
@@ -310,7 +310,7 @@
 												<label for="">葡萄品种描述：</label>
 											</th>
 											<td colspan="3">  
-												  <input name="wine_grape_desc" tabindex="15" value="{$product.wine_grape_desc}" style="width:400px;"></input>
+												  <input name="wine_grape_desc" tabindex="13" value="{$product.wine_grape_desc}" style="width:400px;"></input>
 												   （eg.10% 颂维翁,60% 梅罗特,30% 弗朗克）
 								            </td> 
 										</tr>
@@ -347,7 +347,7 @@
 											</th>
 											<td colspan="3">  
 												<input type="text" size="30" value="{$product.wine_taste}" id="wine_taste"
-													 name="wine_taste" style="width:400px;" tabindex="11" />  
+													 name="wine_taste" style="width:400px;" tabindex="14" />  
 								            </td> 
 								         </tr>
 								         
@@ -370,7 +370,7 @@
 											</th>
 											<td colspan="3">  
 												<input type="text" size="30" value="{$product.wine_match_food}" id="wine_match_food"
-													 name="wine_match_food" style="width:400px;" tabindex="11" />  
+													 name="wine_match_food" style="width:400px;" tabindex="15" />  
 								            </td> 
 								         </tr>
 								            
@@ -380,7 +380,7 @@
 												<label for="">产品标签：</label>
 											</th>
 											<td colspan="7">  
-												  <textarea name="tags" tabindex="15" cols="60" rows="2">{$product.tags}</textarea>
+												  <textarea name="tags" tabindex="16" cols="60" rows="2">{$product.tags}</textarea>
 												   多个标签请用英文逗号分开。 
 								            </td> 
 										</tr>
@@ -432,7 +432,7 @@
 												<tbody>
 													<tr>
 														<td class="left" id="newmetaleft">
-															<select tabindex="8" name="metakeyselect" id="metakeyselect" gtbfieldid="122">
+															<select  name="metakeyselect" id="metakeyselect" gtbfieldid="122">
 																<option value="#NONE#">- 选择新增产品属性 -</option>
 																{foreach from=$features_list item=feature}
 																<option value="{$feature.featurekey}" name="{$feature.id}">{$feature.featurename}</option>
@@ -444,7 +444,7 @@
 														<!--	<textarea cols="20" rows="2" name="metavalue" id="metavalue"></textarea> -->
 														</td>
 															<td>
-															<input type="button" value="添加产品属性" tabindex="9" class="addnewmeta" name="addmeta" id="addmetasub">
+															<input type="button" value="添加产品属性"   class="addnewmeta" name="addmeta" id="addmetasub">
 														</td>
 													</tr>
 												</tbody>
@@ -521,7 +521,7 @@
 									<h3 class="hndle"><span>产品摘要</span></h3>
 									<div class="inside">
 										<label for="excerpt" class="screen-reader-text">摘要</label>
-										<textarea id="excerpt" tabindex="14" name="summary" cols="40" rows="1">{$product.summary}</textarea>
+										<textarea id="excerpt" tabindex="19" name="summary" cols="40" rows="1">{$product.summary}</textarea>
 										<p>摘要是您可以手动添加的内容概要。</p>
 									</div>
 								</div> 
