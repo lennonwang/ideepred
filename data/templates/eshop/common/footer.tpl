@@ -5,9 +5,10 @@
 <br />
 <div class="copyright">
 	<div class="c0">
-		<p class="p"><a href="">官方博客</a>
-		<a href="{Common_Smarty_Url_format key=introduce name=about}">关于我们</a>
-		 <a href="{Common_Smarty_Url_format key=introduce name=contact}">联系我们</a>
+		<p class="p">
+		<a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备12023190号</a>
+		<a href="{Common_Smarty_Url_format key=helper name=about}">关于我们</a>
+		 <a href="{Common_Smarty_Url_format key=helper name=contact}">联系我们</a>
 		 <a target=blank href=tencent://message/?uin=988238&Site=爱深红商城&Menu=yes>在线咨询<img border="0" SRC=http://wpa.qq.com/pa?p=1:988238:7 alt="在线咨询或留言反馈"></a>
    <!-- 
 		<a href="">发货与快递</a>

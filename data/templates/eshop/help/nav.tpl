@@ -8,9 +8,9 @@
 							<li><a href="{Common_Smarty_Url_format key=helper name=findpasswd}" >如何找回密码</a></li>
 					</ul> 
         </div>
-			</div>
+	</div>
 	 
-		
+		<!-- 
 			<div class="ap artTypes">
       	<div class="apT">购物指南</div>
         <div class="apB">
@@ -46,3 +46,4 @@
         </div>
 			</div>
 				   
+		 -->

@@ -16,7 +16,7 @@
  
 	
 	{smarty_include eshop.common.header}
-	
+ 
 	<!-- S body -->
 <div class="bdy">
 	<div class="c0">

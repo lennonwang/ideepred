@@ -167,7 +167,7 @@ class Eshop_Action_Profile extends Eshop_Action_Common {
 		$order_row = $order_model->findById($id)->getResultArray();
 		
 		
-		$order_user_id = $order_row['userId'];
+		$order_user_id = $order_row['user_id'];  
 		if(!$this->isUserOwner($order_user_id)){ 
 			return $this->_redirectNoAuth();
 		}
