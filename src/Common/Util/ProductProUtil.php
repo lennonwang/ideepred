@@ -100,6 +100,8 @@ class Common_Util_ProductProUtil extends Anole_Object {
           ,array("id"=>"710","cid"=>"7","name"=>"依达他山谷")
           ,array("id"=>"711","cid"=>"7","name"=>"拜奥山谷")
           ,array("id"=>"712","cid"=>"7","name"=>"马利高山谷")  
+
+				,array("id"=>"801","cid"=>"8","name"=>"西开普产区")
 				
 				,array("id"=>"1101","cid"=>"11","name"=>"门多萨产区")
 );  

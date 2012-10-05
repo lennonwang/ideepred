@@ -86,9 +86,16 @@ function filterBySort(){
 }
 
 //jquery taconite ajax
-function hook_taconite_result(){
+function hook_taconite_result(){ 
 	$("a.jq_a_ajax").bind('click',function(){
 	    var url = eUrl(this.href);
+	    var jq_confirm = $(this).attr("jq_confirm");
+	    if(jq_confirm!="" && jq_confirm!=undefined){
+	    	if(!confirm(jq_confirm)){
+				console.log('no confirm');
+				return false;
+			} 
+	    }
         var hash = this.hash && $.trim(this.hash.substr(1));
 	    if (hash != ""){
 	        eval(hash + '.call(this);');
@@ -98,6 +105,7 @@ function hook_taconite_result(){
 		return false;
 	});
 }
+ 
 //get url from  href
 function eUrl(href){
     var i = href.indexOf("#");

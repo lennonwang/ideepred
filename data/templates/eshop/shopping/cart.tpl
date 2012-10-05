@@ -73,7 +73,7 @@
 							</tr>
 						<tr class="btns">
 								<td colspan="9"> 
-									<a href="/app/eshop/shopping/clear" title="清空购物车" class="cartbtn jq_a_ajax">
+									<a href="/app/eshop/shopping/clear" jq_confirm="确定要清空购物车？" title="清空购物车" class="cartbtn jq_a_ajax">
 									<!-- 	<img src="/images/eshop/icon-clearnull.png" alt="清空购物车" /> -->	
 									</a>  
 									<a href="javascript:history.go(-1);" title="继续购物" class="cartbtn cartbtn1">

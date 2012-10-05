@@ -55,7 +55,12 @@
 				<div class="tablenav">
 					<div class="alignleft actions">
 						<label>订单操作/状态:（{Common_Smarty_DataSet_orderStatus status=$order.status}）</label>
-						<label>{if $order.status eq 10}<a href="/app/admin/orders/update_status?id={$order.id}&status=15&edit_step=view" class="jq_a_ajax">开始发货</a>{/if} {if $order.status eq 1}<a href="/app/admin/orders/update_status?id={$order.id}&status=0&edit_step=view" class="jq_a_ajax">取消订单</a>{/if} {if $order.status eq 15}<a href="/app/admin/orders/update_status?id={$order.id}&status=20&edit_step=view" class="jq_a_ajax">完成订单</a>{/if}</label>
+						<label>{if $order.status eq 10}
+						<a href="/app/admin/orders/update_status?id={$order.id}&status=15&edit_step=view" class="jq_a_ajax">开始发货</a>{/if} 
+							{if $order.status eq 1}
+						<a href="/app/admin/orders/update_status?id={$order.id}&status=0&edit_step=view" jq_confirm="确定要取消订单？" class="jq_a_ajax">取消订单</a>{/if}
+						 {if $order.status eq 15}
+						 <a href="/app/admin/orders/update_status?id={$order.id}&status=20&edit_step=view" class="jq_a_ajax">完成订单</a>{/if}</label>
 					</div>
 				</div>
 				
