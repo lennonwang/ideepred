@@ -735,6 +735,11 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
      * @return string
      */
     public function modify(){
+    	if(!Anole_Util_Cookie::hasUserLogged()){
+    		$back_url = $this->getContext()->getRequest()->getRequestUri();
+    		Common_Util_Url::setBackUrl($back_url);
+    		return $this->redirectResult('/app/eshop/profile/login');
+    	}
         $model = new Common_Model_OrdersData();
         $step = $this->getStep();
         $next_step = $this->getContext()->getRequest()->getReferer();
@@ -744,6 +749,7 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
             $reference = Common_Util_Shop::_genOderReference();
             Common_Util_Shop::setOrderReference($reference);
         }
+        $this->putSharedParam();
         $uid = Anole_Util_Cookie::getUserID();
         
         $condition = 'reference=? AND expire > ?';

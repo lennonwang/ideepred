@@ -56,8 +56,7 @@
 											{foreach from=$citys item=city}
 											<option value="{$city.id}" {if $city.id eq $data.city}selected="selected"{/if}>{$city.name}</option>
 											{/foreach}
-										</select>  
-										{$data.city}
+										</select>   
 										{/if}
 										</label> 
 										<span class="star">

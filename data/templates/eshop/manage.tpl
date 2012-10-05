@@ -26,9 +26,9 @@
 
 	</div>
 
-	{smarty_include eshop.site-help}
+	{smarty_include eshop.common.site-help}
 	
-	{smarty_include eshop.footer}
+		{smarty_include eshop.common.footer}
 	
 </div>
 </body>
