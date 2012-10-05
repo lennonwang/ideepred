@@ -68,7 +68,7 @@
 									 {if $order_row.status eq 0 }该订单您已取消，如需要订购商品请重新下单！{/if} 
 									 <!--  add confirm -->
 			{if ($order_row.status eq 1) or ($order_row.status eq 5)}
-				<a href="/app/eshop/profile/canceled?id={$order_row.id}" class="jq_a_ajax">取消订单</a>
+				<a href="/app/eshop/profile/canceled?id={$order_row.id}" jq_confirm="确定要取消订单？"  class="jq_a_ajax">取消订单</a>
 			{/if} 
 			{if $order_row.status eq 1 and $order_row.payment_method eq 'a' }
 				<a href="/app/eshop/alipay?order_ref={$order_row.reference}" title="支付订单" target="_blank">现在支付</a>{/if}  &nbsp;
