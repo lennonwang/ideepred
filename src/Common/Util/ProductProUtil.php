@@ -87,7 +87,7 @@ class Common_Util_ProductProUtil extends Anole_Object {
 	,array("id"=>"206","cid"=>"2","name"=>"翁布里亚大区")  
 	,array("id"=>"207","cid"=>"2","name"=>"其他产区")  
 		
-			,array("id"=>"801","cid"=>"8","name"=>"纳帕谷产区")
+			,array("id"=>"501","cid"=>"5","name"=>"纳帕谷产区")
 				
 				
  
