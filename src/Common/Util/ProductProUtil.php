@@ -86,7 +86,10 @@ class Common_Util_ProductProUtil extends Anole_Object {
 	,array("id"=>"205","cid"=>"2","name"=>"托斯卡纳大区")  
 	,array("id"=>"206","cid"=>"2","name"=>"翁布里亚大区")  
 	,array("id"=>"207","cid"=>"2","name"=>"其他产区")  
-
+		
+			,array("id"=>"801","cid"=>"8","name"=>"纳帕谷产区")
+				
+				
  
 		  ,array("id"=>"701","cid"=>"7","name"=>"依基山谷")
       ,array("id"=>"702","cid"=>"7","name"=>"利玛尼山谷")

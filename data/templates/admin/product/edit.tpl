@@ -224,7 +224,10 @@
 												<label for="wine_ml">净含量：</label>
 											</th>
 											<td  >   
-												<input type="text" size="10" value="{$product.wine_ml}" id="wine_ml" name="wine_ml" tabindex="8" /> ML(毫升)
+												<input type="text" size="10" 
+												{if $product.wine_ml}value="{$product.wine_ml}"{/if}
+												{if !$product.wine_ml}value="750"{/if}
+												 id="wine_ml" name="wine_ml" tabindex="8" /> ML(毫升)
 								            </td> 
 								             
 								             <th scope="row">
@@ -281,7 +284,8 @@
 												<label for="wine_shelf_life">红酒保质期：</label>
 											</th>
 												<td >  
-												<input type="text" size="30" value="{$product.wine_shelf_life}" id="wine_shelf_life" name="wine_shelf_life"  tabindex="11"  /> 
+												<input type="text" size="30" value="{$product.wine_shelf_life}"
+												 id="wine_shelf_life" name="wine_shelf_life"  tabindex="11"  />年
 								            </td> 
                                         </tr> 
                                         
