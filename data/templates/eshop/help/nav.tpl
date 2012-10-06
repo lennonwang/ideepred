@@ -1,5 +1,17 @@
 
 	<div class="ap artTypes">
+      	<div class="apT">关于我们</div>
+        <div class="apB">
+        	<ul>
+          		<li><a href="{Common_Smarty_Url_format key=helper name=about" >关于我们</a></li>
+							<li><a href="{Common_Smarty_Url_format key=helper name=contact}" >联系我们</a></li> 
+			</ul> 
+        </div>
+	</div>
+	 
+		<!-- 
+		
+		<div class="ap artTypes">
       	<div class="apT">新手教程</div>
         <div class="apB">
         	<ul>
@@ -9,8 +21,7 @@
 					</ul> 
         </div>
 	</div>
-	 
-		<!-- 
+	
 			<div class="ap artTypes">
       	<div class="apT">购物指南</div>
         <div class="apB">
