@@ -177,7 +177,7 @@
            				{if $product.wine_ml}
            					<dd><b>容　　量：</b>{$product.wine_ml} 毫升</dd>  
            				{/if} 
-           				{if $product.wine_year_name}
+           				{if $product_info->wine_year_name}
 						<dd><b>年　　份：</b>{$product_info->wine_year_name}年</dd>
 						{/if} 
 						{if $product.wine_grape_desc}
@@ -250,7 +250,7 @@
 				<div class="pro">
 						<i class="img"> 
 							<a href="{$ad.link}#{$loop}">  
-							<img  src="{Common_Smarty_Asset_Thumb path_id=$ad.asset_path domain=$ad.asset_domain  w=200 h=200}"
+							<img  src="{Common_Smarty_Asset_Thumb path_id=$ad.asset_path domain=$ad.asset_domain  w=200 h=150}"
 							 alt="{$ad.title}"  title="{$ad.title}" /></a>
 						</i>
 					</div> 

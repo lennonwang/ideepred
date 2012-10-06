@@ -9,16 +9,19 @@
 		<a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备12023190号</a>
 		<a href="{Common_Smarty_Url_format key=helper name=about}">关于我们</a>
 		 <a href="{Common_Smarty_Url_format key=helper name=contact}">联系我们</a>
-		 <a target=blank href=tencent://message/?uin=988238&Site=爱深红商城&Menu=yes>在线咨询<img border="0" SRC=http://wpa.qq.com/pa?p=1:988238:7 alt="在线咨询或留言反馈"></a>
+		 <a target=blank href=tencent://message/?uin=988238&Site=爱深红商城&Menu=yes>
+		 在线咨询<img border="0" SRC=http://wpa.qq.com/pa?p=1:988238:7 alt="在线咨询或留言反馈"></a>
    <!-- 
 		<a href="">发货与快递</a>
 		<a href="">您的特别需求</a>
 		<a href="">版权声明</a> -->
 		{literal}
+		<div style="display:none" id="tongji_div">
 	<script type="text/javascript">
 	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
 	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F678d18d3e20553d0aa34af74610d3e34' type='text/javascript'%3E%3C/script%3E"));
 	</script>
+	</div>
 	{/literal}
 	</p>
 		<span class="s">2012  深红ideepred.com   Copyright</span>

@@ -144,8 +144,8 @@ ul.cats li a.on{background: #971D4B; margin: 0 -25px 0 -20px; padding: 0 25px 0 
 /*.proList2 .pro .img{ display: block; width: 137px; height: 137px}
 .proList2 .pro .img img{width: 126px; height: 126px;}
 */
-.proList2 .pro .img{ display: block; width: 180px; height: 180px}
-.proList2 .pro .img img{width: 170px; height: 170px;}
+.proList2 .pro .img{ display: block; width: 180px;  }
+.proList2 .pro .img img{width: 170px;  }
 /* 翻页 */
 .pg{ text-align: center;}
 .pg a{display: inline-block; width: 20px; height: 20px; text-align: center; vertical-align: middle; color: #D46095; font-weight: bold;}
