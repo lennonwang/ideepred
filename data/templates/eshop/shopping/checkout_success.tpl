@@ -11,12 +11,14 @@
 	{smarty_include eshop.js-form}
 </head>
 
-<body>
-<div id="wrapper">
+<body> 
 	
 	{smarty_include eshop.common.header}
 	
-	<div id="container">
+	<!-- S bdy -->
+<div class="bdy">
+	<div class="c0">
+	 
 		<div class="box">
 			<div class="bordor profile" id="payment">
 
@@ -53,7 +55,7 @@
 						{/literal}
 							window.location.href='/app/eshop/alipay?order_ref={$order_ref}';
 						{literal}	
-						},11300);
+						},1000);
 						</script>
 						{/literal}
 						{/if}
@@ -74,12 +76,17 @@
 
 			</div>
 		</div>
+ 
 
+	
 	</div>
 
+	</div>
+	
+	
 	{smarty_include eshop.common.site-help}
 	
 	{smarty_include eshop.common.footer}
-</div>
+ 
 </body>
 </html>

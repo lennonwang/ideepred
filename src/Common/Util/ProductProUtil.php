@@ -91,6 +91,8 @@ class Common_Util_ProductProUtil extends Anole_Object {
 	,array("id"=>"207","cid"=>"2","name"=>"其他产区")  
 				
 				,array("id"=>"301","cid"=>"3","name"=>"里奥哈产区")
+				,array("id"=>"302","cid"=>"3","name"=>"瓦伦西亚区")
+				,array("id"=>"303","cid"=>"3","name"=>"巴塞罗那区")
 		
 			,array("id"=>"501","cid"=>"5","name"=>"纳帕谷产区")
 				
@@ -141,6 +143,10 @@ class Common_Util_ProductProUtil extends Anole_Object {
 		,array("id"=>"202","cid"=>"2","name"=>"法定产区DOC ")  
 		,array("id"=>"203","cid"=>"2","name"=>"典型产区IGT ")  
 		,array("id"=>"204","cid"=>"2","name"=>"佐餐酒VDT ")  
+				
+
+				,array("id"=>"301","cid"=>"3","name"=>"优秀法定产区DOC")
+				,array("id"=>"302","cid"=>"3","name"=>"法定产区DO ") 
  
 		
 		,array("id"=>"701","cid"=>"7","name"=>"家族珍藏级Reserva De Familia") 

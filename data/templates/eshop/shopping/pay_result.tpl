@@ -5,18 +5,20 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>订单支付成功--{smarty_include eshop.common.xtitle}</title>
-	<meta name="author" content="xiaoyi">
-	<link rel="stylesheet" href="/csstyle/itablet.css" type="text/css" />
+	<meta name="author" content="wangjia"> 
 	{smarty_include eshop.js-common}
-	{smarty_include eshop.js-form}
+	{smarty_include eshop.js-form} 
+	<link rel="stylesheet" href="/csstyle/itablet.css" type="text/css" />
 </head>
 
-<body>
-<div id="wrapper">
+<body> 
 	
 	{smarty_include eshop.common.header}
+	 
+	 <!-- S bdy -->
+<div class="bdy">
+	<div class="c0">
 	
-	<div id="container">
 		<div class="box">
 			<div class="bordor profile" id="payment">
 
@@ -45,10 +47,11 @@
 					
 				</div>
 
+			</div> 
 			</div>
-		</div>
 
-	</div>
+			</div> 
+ 
 
 	{smarty_include eshop.common.site-help}
 	
