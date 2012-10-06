@@ -45,7 +45,7 @@
 			<!-- S list1-->
 			<div class="ap">
 				<div class="apB proList proList1">
-				{Common_Smarty_Product_findProductList stick=1 size=9}
+				{Common_Smarty_Product_findProductList mode=1 stick=1 size=9}
 				 
 				<div class="pro">
 						<i class="img">

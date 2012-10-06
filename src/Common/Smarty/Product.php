@@ -276,6 +276,7 @@ class Common_Smarty_Product extends Anole_Object {
         $catcode=null;
         $category_slug=null;
         $stick=null;
+        $mode=null;
         $show_meta=false;
         $size=10;
         $page=1;
@@ -310,6 +311,12 @@ class Common_Smarty_Product extends Anole_Object {
                 $conditions[] = 'stick=?';
                 $vars[] = $stick;
 				$orderby = 'sticked_on DESC';
+            }
+            //搜索类型
+            if(!empty($mode)){
+            	$conditions[] = 'mode like \'%,?,%\'';
+            	$vars[] = $mode;
+            	$orderby = 'sticked_on DESC';
             }
             //某店铺内的
             if(!empty($parent_id)){
