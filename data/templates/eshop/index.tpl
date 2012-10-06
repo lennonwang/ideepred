@@ -106,6 +106,7 @@
 							<a href="{$ad.link}#{$loop}">  
 							<img  src="{Common_Smarty_Asset_Thumb path_id=$ad.asset_path domain=$ad.asset_domain  w=200 h=150}"
 							 alt="{$ad.title}"  title="{$ad.title}" /></a>
+							 <a href="{$ad.link}#{$loop}"> {$ad.title}</a>
 						</i>
 					</div> 
 				{/Common_Smarty_Advertise_findAdmany}
