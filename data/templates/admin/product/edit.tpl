@@ -462,7 +462,7 @@
 								<div title="显示/隐藏" class="handlediv"><br></div>
 								<h3 class="hndle">
 									<span>产品照片 
-									  {if $product.title}   <a href="/app/admin/product/edit/id/{$product.id}#picturediv-stuff">刷新</a> {/if}
+									  {if $product.title}   <a href="/app/admin/product/edit/id/{$product.id}">刷新</a> {/if}
 									  </span>
 								</h3>
 								
