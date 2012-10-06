@@ -40,7 +40,7 @@ class Common_Util_ProductProUtil extends Anole_Object {
 		,array("id"=>"5","name"=>"长相思"),array("id"=>"6","name"=>"雷司令")
 		,array("id"=>"7","name"=>"白苏维翁"),array("id"=>"8","name"=>"马尔贝克")
 		,array("id"=>"9","name"=>"琼瑶浆")
-			,array("id"=>"11","name"=>"品丽珠"),array("id"=>"12","name"=>"莎当妮()")
+			,array("id"=>"11","name"=>"品丽珠"),array("id"=>"12","name"=>"莎当妮")
 				 
 				,array("id"=>"10","name"=>"其他品种"));  
          self::debug("getWineGrapeAreaArray.".$grape_breed_array);
@@ -89,6 +89,8 @@ class Common_Util_ProductProUtil extends Anole_Object {
 	,array("id"=>"205","cid"=>"2","name"=>"托斯卡纳大区")  
 	,array("id"=>"206","cid"=>"2","name"=>"翁布里亚大区")  
 	,array("id"=>"207","cid"=>"2","name"=>"其他产区")  
+				
+				,array("id"=>"301","cid"=>"3","name"=>"里奥哈产区")
 		
 			,array("id"=>"501","cid"=>"5","name"=>"纳帕谷产区")
 				
