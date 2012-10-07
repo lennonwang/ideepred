@@ -190,7 +190,7 @@ class Common_Model_Orders extends Common_Model_Table_Orders {
 			if($city == 1 || $city == '北京'){
 				$this->_fees = 8;
 			}
-			if($pay_money!=null && $pay_money>$_free_fees_max_pay_money){
+			if($pay_money!=null && $pay_money>=$this->_free_fees_max_pay_money){
 				$this->_fees = 0;
 			}
 		}
@@ -198,7 +198,7 @@ class Common_Model_Orders extends Common_Model_Table_Orders {
 			if($city == 1 || $city == '北京'){
 				$this->_fees = 18;
 			}
-			if($pay_money!=null && $pay_money>$_free_fees_max_pay_money){
+			if($pay_money!=null && $pay_money>=$this->_free_fees_max_pay_money){
 				$this->_fees = 0;
 			}
 		}
