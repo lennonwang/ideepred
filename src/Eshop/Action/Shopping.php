@@ -301,9 +301,9 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
     
     	$this->putContext('step', $step);
     	$this->putContext('next_step',$next_step);
-    
-    	 $this->putSharedParam();
+
     	$this->doProcess();
+    	 $this->putSharedParam();
     	// return $this->smartyResult('eshop.shopping.checkout_payment');
     	 return $this->smartyResult('eshop.shopping.checkout_address');
     }
@@ -313,7 +313,7 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
      * 
      * @return void
      */
-    protected function _setExtraParams($province=null){
+    protected function _setExtraParams($province=null,$pay_money=null){
         $order = new Common_Model_Orders();
         //获取付款方式列表
         $payment_methods = $order->findPaymentMethods();
@@ -324,9 +324,9 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
 		if(!empty($province)){
 			// $order->validateExpressFees($province);
 			self::debug("[order]!!!!!!!!!!!".$province);
-			$order->validateExpressFeesByKey('a',$province);
+			$order->validateExpressFeesByKey('a',$province,$pay_money);
 			$transfer_methods['a']['freight'] = $order->getFees();
-			$order->validateExpressFeesByKey('b',$province);
+			$order->validateExpressFeesByKey('b',$province,$pay_money);
 			$transfer_methods['b']['freight'] = $order->getFees();
 		}
         $this->putContext('transfer_methods', $transfer_methods);
@@ -406,7 +406,7 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
          	$data = @unserialize($model['data']);
          }
          $order = new Common_Model_Orders(); 
-         $order->validateExpressFeesByKey($data['transfer'],$data['province']);
+         $order->validateExpressFeesByKey($data['transfer'],$data['province'],$total_money);
          $transfer = $order->findTransferMethods($data['transfer']);
          $freight  = $order->getFees(); 
          //促销活动优惠金额
@@ -478,6 +478,12 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
      */
     public function doProcess(){
         $model = new Common_Model_OrdersData();
+        $cart = new Common_Util_Cart();
+        if(empty($cart->com_list)){
+        	//没有购物，不可以去结算
+        	return $this->jsonResult(301, '您的购物车中没有商品！');
+        }
+        $total_money = $cart->getTotalAmount();
         
         $reference = Common_Util_Shop::getOrderReference();
         if(is_null($reference)){
@@ -516,9 +522,10 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
         }
         //获取快递区域
 		$province = $value['province'];
+		
         $this->putContext('data', $value);
-        
-        $this->_setExtraParams($province);
+        self::debug('province:::'.$province .'total_money::'.$total_money.'!!!!!', __METHOD__);
+        $this->_setExtraParams($province,$total_money);
     }
     
     
@@ -556,10 +563,11 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
         $ip = $context->getRequest()->getClientIp();
         try{
             
+        	$total_money = $cart->getTotalAmount();
             $orders = new Common_Model_Orders();
             //获取配送方式及运费
 		//	$orders->validateExpressFees($value['province']);
-			$orders->validateExpressFeesByKey($value['transfer'],$value['province']);
+			$orders->validateExpressFeesByKey($value['transfer'],$value['province'],$total_money);
             $transfer = $orders->findTransferMethods($value['transfer']);
             $freight = $orders->getFees();
             self::debug("[PaymentConfirm]:transfer::".$data['transfer']."\t province::".$data['province']."|freight:::".$freight, __METHOD__);
@@ -568,7 +576,7 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
             $orders->setReference($reference);
             $orders->setUserId($user_id);
             
-            $total_money = $cart->getTotalAmount();
+            
             foreach($cart->com_list as $com){
             	$sale_price = $com['sale_price'];
             	$price = $com['price'];
@@ -709,7 +717,7 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
 		//成功提交订单后，发送提醒邮件<异步进程处理>
         $datetime = Common_Util_Date::getNow();
         $to = array('lennon.wang@163.com');
-        $subject = 'iDeepRed订单提醒';
+        $subject = '深红-订单提醒';
         $body = "客户订单[$order_ref]于 $datetime 已成功下单，请及时查看处理～"; 
         
         for($i=0;$i<count($to);$i++){
@@ -805,7 +813,14 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
         $this->putContext('data', $value);
         $this->putContext('next_step', $next_step);
         
-        $this->_setExtraParams();
+        $cart = new Common_Util_Cart();
+        if(empty($cart->com_list)){
+        	//没有购物，不可以去结算
+        	return $this->jsonResult(301, '您的购物车中没有商品！');
+        }
+        $total_money = $cart->getTotalAmount();
+        
+        $this->_setExtraParams($value['province'],$total_money);
         
         return $this->smartyResult('eshop.shopping.'.$tpl);
     }
@@ -847,8 +862,13 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
         }
         $this->putContext('data', $value);
         
-        $this->_setExtraParams();
-        
+        $cart = new Common_Util_Cart();
+        if(empty($cart->com_list)){
+        	//没有购物，不可以去结算
+        	return $this->jsonResult(301, '您的购物车中没有商品！');
+        }
+        $total_money = $cart->getTotalAmount();
+        $this->_setExtraParams($value['province'],$total_money);
         return $this->jqueryResult('eshop.shopping.'.$tpl);
     }
     

@@ -9,6 +9,8 @@ class Common_Model_Orders extends Common_Model_Table_Orders {
 	const WAIT_TIME = 3; # 3 days
 	//默认运费
 	private $_fees = 16;
+	
+	private $_free_fees_max_pay_money=200;
     
     //关系映射表
     protected $_relation_map = array(
@@ -25,7 +27,7 @@ class Common_Model_Orders extends Common_Model_Table_Orders {
      */
     private $payment_methods = array(
         'a'=>array(
-            'name'=>'支付宝',
+            'name'=>'<b>支付宝</b>',
             'summary'=>'支付宝作为诚信中立的第三方机构，充分保障货款安全及买卖双方利益,支持各大银行网上支付。'
         )
     );
@@ -38,11 +40,11 @@ class Common_Model_Orders extends Common_Model_Table_Orders {
         'a'=>array(
             'name'=>'普通快递',
             'freight'=>16,
-        	'summary' => '北京地区8元，其他地区16元起'
+        	'summary' => '说明：北京地区8元，其他地区16元起。订单超过<b>200元</b>免运费。备注：有些地区可能无法送达，请下单前与<a href="/helper/contact.html">客服人员</a>联系。'
         ),'b'=>array(
             'name'=>'EMS',
             'freight'=>22,
-        	'summary' => '北京地区18，其他地区22元，北京地区超重30元，其他地区超重35元'
+        	'summary' => '说明：北京地区18，其他地区22元。订单超过<b>200元</b>免运费。备注：有些地区可能无法送达，请下单前与<a href="/helper/contact.html">客服人员</a>联系。'
         ),'c'=>array(
             'name'=>'自提',
             'freight'=>0,
@@ -178,7 +180,7 @@ class Common_Model_Orders extends Common_Model_Table_Orders {
 	 * @param unknown_type $city
 	 * @return Common_Model_Orders
 	 */
-	public function validateExpressFeesByKey($key,$city ,$overweight=false){
+	public function validateExpressFeesByKey($key,$city ,$pay_money=null){
 		$fees = $this->_fees;
 		if($key){
 			$transferMethods = $this-> findTransferMethods($key);
@@ -188,10 +190,16 @@ class Common_Model_Orders extends Common_Model_Table_Orders {
 			if($city == 1 || $city == '北京'){
 				$this->_fees = 8;
 			}
+			if($pay_money!=null && $pay_money>$_free_fees_max_pay_money){
+				$this->_fees = 0;
+			}
 		}
 		if($key && $key=='b'){
 			if($city == 1 || $city == '北京'){
 				$this->_fees = 18;
+			}
+			if($pay_money!=null && $pay_money>$_free_fees_max_pay_money){
+				$this->_fees = 0;
 			}
 		}
 		return $this;

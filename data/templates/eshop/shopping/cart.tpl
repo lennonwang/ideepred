@@ -67,8 +67,11 @@
 							<tr class="statistics">
 								<td colspan="7">
 									<div id="car_subtotal">
-										<span>产品数量总计:<em id="cart_items_total">{$items_count}</em>件</span>  <span>产品金额总计(不含运费):<em id="items_total_money">{$total_money}</em>元</span>
-									</div>
+										<span>产品数量总计:<em id="cart_items_total">{$items_count}</em>件</span>
+										  <span>产品金额总计(不含运费):<em id="items_total_money">{$total_money}</em>元
+ 										  <lable style='size:12px;'>(超过200元免运费)</lable>  
+										  </span>
+									</div> 
 								</td>
 							</tr>
 						<tr class="btns">
@@ -81,6 +84,7 @@
 									</a>
 							 
 							 		<button type="image" name="_submit" class="btn"><b>提交订单</b></button> 
+							 	
 								</td>
 							</tr>
 						</table>

@@ -4,11 +4,11 @@
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>订单支付成功--{smarty_include eshop.common.xtitle}</title>
+	<title>订单支付成功--{smarty_include eshop.common.xtitle}</title> 
+	<link rel="stylesheet" href="/csstyle/itablet.css" type="text/css" />
 	<meta name="author" content="wangjia"> 
 	{smarty_include eshop.js-common}
 	{smarty_include eshop.js-form} 
-	<link rel="stylesheet" href="/csstyle/itablet.css" type="text/css" />
 </head>
 
 <body> 

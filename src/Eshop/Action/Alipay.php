@@ -266,7 +266,8 @@ class Eshop_Action_Alipay extends Eshop_Action_Common {
                         //验证此订单是否已经付款
                         if($status <= Common_Model_Constant::ORDER_PUBLISHED){
                             //设置订单状态为完成
-                            $order->setOrderPublished($_id);
+                            // add by wangjia 由于我们是直接付款，所以支付成功的订单，为配货状态
+                            $order->setReadyGoods($_id);
                             self::debug("更新订单状态为已完成。 -alipay。",__METHOD__);
                         }else{
                             self::warn("此订单[$order_ref]已成功！-alipay",__METHOD__);
@@ -362,7 +363,7 @@ class Eshop_Action_Alipay extends Eshop_Action_Common {
         $this->putContext('payAmount', $payAmount);
         $this->putContext('order_ref', $order_ref);
         $this->putContext('msg', $msg);
-        
+        $this->putSharedParam();
         return $this->smartyResult('eshop.shopping.pay_result');
     }
     
