@@ -416,7 +416,6 @@ table.no_side td {border-bottom: 0 none;border-right: 0 none;ine-height: 35px}
 .box .righttwo2 {float:right;overflow: hidden;width: 670px}
 .box .centertwo {float:left;margin-left:8px}
 .box .noborder {border:none}
-.box .profile {padding:0 0 15px}
 .profile h2 {border-bottom:1px solid #BB1217;padding-bottom:10px}
 .profile h2 .tihi {font-size:12px;font-weight:normal}
 .profile form {margin:20px auto}
@@ -483,4 +482,5 @@ tr.btns td{text-align: left; padding-left: 10px;border-top: 1px solid #DEDEDD}
 tr.btns .btn{ float: right;}
 tr.btns td a{vertical-align: middle; margin-top: 5px}
 
- 
+ #payment .ord_inf{border-bottom: none}
+.ord_inf:after{content:'\20'; display: block; clear: both; height: 0; line-height: 0; overflow: hidden;}

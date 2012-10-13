@@ -27,7 +27,7 @@
 					<div class="ord_inf">
 						{if $msg }
 						<div class="inf_l">
-							<img src="/images/ins/err_icon.png" />
+							<img src="/images/eshop/err_icon.png" />
 						</div>
 						<div class="inf_r">
 							<h2>{$msg}</h2>
