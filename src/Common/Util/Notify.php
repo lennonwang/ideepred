@@ -14,7 +14,7 @@ class Common_Util_Notify extends Anole_Object {
      * @return void
      */
      public static function sendRegistActiveEmail($account, $activation,$extend_info=null){
-        $subject = "iDeepRed物提醒【注册确认】";
+        $subject = "亲爱的 $account ,欢迎加入深红俱乐部！[注册确认]";
         $url = Common_Util_Url::app_root_url()."/app/eshop/profile/activate_email?activation=$activation";
         
         $body  = "<h3>亲爱的 $account ,欢迎加入深红俱乐部！</h3> <p>你可以在浏览器中输入或复制下列地址来激活: ";
