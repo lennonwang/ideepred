@@ -1,6 +1,6 @@
 <?php
 /**
- * 100jia邮件提醒系统
+ * iDeepRed邮件提醒系统
  * 
  * @author purpen
  * @version $Id$
@@ -10,9 +10,11 @@ require_once '../init_config.php';
 try{
 	//select need to send the posts
 	$postoffice = new Common_Model_Postoffice();
+	$pre_week_time=date("Y-m-d",mktime(0,0,0,date("m"),date("d")-17,date("Y")));
+	echo "pre_week_time ".$pre_week_time.'...';
 	$options = array(
-	    'condition'=>'state=?',
-	    'vars'=>array(Common_Model_Postoffice::DEFAULT_STATE),
+	    'condition'=>'state=? and created_on >=? ',
+	    'vars'=>array(Common_Model_Postoffice::DEFAULT_STATE,$pre_week_time),
 	    'page'=>1,
 	    'size'=>5,
 	    'order'=>'created_on'
@@ -22,7 +24,8 @@ try{
 		echo "postoffice not mail...\n";
 		exit();
 	}
-	
+	echo "postoffice count::".$postoffice->count();
+	 
 	//lock these posts
 	echo "start to lock these posts...\n";
 	$ids = array();
@@ -55,7 +58,8 @@ try{
     
     //clear sucess posts
     echo "start to clear thest posts...\n";
-    $dsql = 'DELETE FROM postoffice WHERE id IN ('.implode(', ', $holders).')';
+   //  $dsql = 'DELETE FROM postoffice WHERE id IN ('.implode(', ', $holders).')';
+    $dsql = 'UPDATE postoffice SET state=2 WHERE id IN ('.implode(', ', $holders).')';
     Anole_ActiveRecord_Base::getDba()->execute($dsql,$okids);
     
     echo "send the mails and done.\n";

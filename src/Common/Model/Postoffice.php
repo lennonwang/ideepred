@@ -22,6 +22,12 @@ class Common_Model_Postoffice extends Common_Model_Table_Postoffice {
      */
     const FAIL_STATE = -1;
     /**
+     * 发送成功标识
+     *
+     * @var int
+     */
+    const SENDER_SUCCESS_STATE = 2;
+    /**
      * 锁定状态
      * 
      * @var int
@@ -63,10 +69,10 @@ class Common_Model_Postoffice extends Common_Model_Table_Postoffice {
      */
     public function receive($mailto,$subject,$body,$mailfrom=null,$from_name=null){
     	if(is_null($mailfrom)){
-    		$mailfrom = '100jia.cc@gmail.com';
+    		$mailfrom = 'ideepred@gmail.com';
     	}
     	if(is_null($from_name)){
-    		$from_name = '100jia邮件系统';
+    		$from_name = '深红邮件系统';
     	}
     	
     	$this->setId(null);

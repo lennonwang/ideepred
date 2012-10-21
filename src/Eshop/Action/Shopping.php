@@ -714,26 +714,8 @@ class Eshop_Action_Shopping extends Eshop_Action_OrderParams {
 
 		$this->putSharedParam();
 		
-		//成功提交订单后，发送提醒邮件<异步进程处理>
-        $datetime = Common_Util_Date::getNow();
-        $to = array('lennon.wang@163.com');
-        $subject = '深红-订单提醒';
-        $body = "客户订单[$order_ref]于 $datetime 已成功下单，请及时查看处理～"; 
-        
-        for($i=0;$i<count($to);$i++){
-            $sender = new Common_Model_Postoffice();
-            $sender->setIsNew(true);
-            $sender->setMailto($to[$i]);
-            $sender->setSubject($subject);
-            $sender->setBody($body);
-            $sender->setMailfrom('ideepred@gmail.com');
-            $sender->setFromName('ideepred');
-            $sender->setCreatedOn($datetime);
-            $sender->setState(Common_Model_Postoffice::DEFAULT_STATE);
-            $sender->save();
-        }
-        
-        
+		Common_Util_Notify::sendOrderSuccessNotify($order_ref,$model["id"]);
+	   
         return $this->smartyResult('eshop.shopping.checkout_success');
     }
     

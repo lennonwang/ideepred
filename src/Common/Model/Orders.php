@@ -298,7 +298,8 @@ class Common_Model_Orders extends Common_Model_Table_Orders {
      */
     public function setReadyGoods($id=null){
         $status = Common_Model_Constant::ORDER_READY_GOODS;
-        $this->_updateOrderStatus($status,$id);
+        $this->_updateOrderStatus($status,$id); 
+        Common_Util_Notify::sendPaymentSuccessNotify( $id); 
     }
     /**
      * 设置订单的状态为已发货状态

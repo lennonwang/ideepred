@@ -447,6 +447,39 @@ class Admin_Action_Product extends Admin_Action_Entry {
     
     
     /**
+     * 计算某一个产品的关键词
+     *
+     * @return string
+     */
+    public function doKeyword(){
+    	if(!$this->isLogged()){
+    		return $this->_redirectLogin();
+    	} 
+      $id = $this->getId();
+        if(!empty($id)){
+        	$edit_mode = 'do_keyword'; 
+            $product = $model->findById($id)->getResultArray(); 
+            $product_tag = $product->getTags();
+            
+            //获取产品所属类别
+             $category_id = $product['category_id'];
+            if(!empty($category_id)){
+            	$category = new Common_Model_Category();
+				$wine_category = $category->findById($category_id)->getResultArray();
+				$cat_name = $wine_category['name'];
+            	if(!strstr($product_tag,$cat_name)){
+            		$product_tag = $product_tag.' '.$cat_name;
+            	}  
+            }
+            
+            $this->putContext('product_tag',$product_tag); 
+        }
+        $this->putContext('product_id',$id);
+        $this->putContext('edit_mode', $edit_mode);
+    	return $this->jqueryResult('admin.product.edit_ok');
+    }
+    
+    /**
      * 设置state
      * @return int
      */
