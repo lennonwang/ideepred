@@ -17,10 +17,11 @@
 		<a href="">版权声明</a> -->
 		{literal}
 		<div style="display:none" id="tongji_div">
-	<script type="text/javascript">
-	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F678d18d3e20553d0aa34af74610d3e34' type='text/javascript'%3E%3C/script%3E"));
-	</script>
+		
+		<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F11707ffee705de8b2506cfd81b19bbf6' type='text/javascript'%3E%3C/script%3E"));
+</script> 
 	</div>
 	{/literal}
 	</p>
@@ -29,6 +30,11 @@
 </div>
 <!-- E copyright -->
 {* 
+	<script type="text/javascript">
+	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F678d18d3e20553d0aa34af74610d3e34' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	
 <!-- S copyRight -->
 <div id="copyright" class="copyright">
 	<div class="c0">
