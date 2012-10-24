@@ -99,7 +99,7 @@
 			 
 				<div class="apB proList proList2">
 				
-				{Common_Smarty_Advertise_findAdmany type="2" size=6 item=ad}
+				{Common_Smarty_Advertise_findAdmany type="2" size=8 item=ad}
 		 
 				<div class="pro">
 						<i class="img"> 

@@ -245,7 +245,7 @@
 				<div class="apT">热门直通车</div>
 				 
 				<div class="apB proList proList2 proList2a">
-					{Common_Smarty_Advertise_findAdmany type="2" size=6 item=ad}
+					{Common_Smarty_Advertise_findAdmany type="2" size=8 item=ad}
 		 
 				<div class="pro">
 						<i class="img"> 
